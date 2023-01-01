@@ -1,3 +1,9 @@
 {
-
+  "SBB": {
+    "attack": {
+      "none": "",
+      "skill_1": "skill one",
+      "skill_2": "skill two"
+    }
+  }
 }
