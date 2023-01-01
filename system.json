@@ -1,0 +1,32 @@
+{
+  "id": "SBB",
+  "title": "Stars but better",
+  "description": "Stars but butter is an attempt to making a new system for current playgroup",
+  "version": "0.01",
+
+  "compatibility": {
+    "minimum": 10,
+    "verified": "10.288"
+  },
+  "authors": [{
+    "name": "CrypticEnd"
+  }],
+
+  "esmodules": ["module/SBB.mjs"],
+  "styles": ["css/SBB.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [],
+
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "?",
+
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "",
+  "changelog": "",
+  "bugs": ""
+}
