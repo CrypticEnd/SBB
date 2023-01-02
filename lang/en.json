@@ -1,5 +1,21 @@
 {
   "SBB": {
+    "health": "Health",
+    "strain": "Strain",
+    "xp": "XP",
+
+    "attributes": {
+      "body": "Body",
+      "control": "Control",
+      "intelligence": "Intelligence",
+      "presence": "Presence",
+      "technique": "Technique",
+      "move": "Move",
+      "fortitude": "Fortitude",
+      "reflex": "Reflex",
+      "willpower": "Willpower"
+    },
+
     "attack": {
       "none": "",
       "skill_1": "skill one",
