@@ -2,10 +2,10 @@
 //import { SBBActor } from "./documents/actor.mjs";
 //import { SBBItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { SBBActorSheet } from "./sheets/actor-sheet.mjs";
+import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
-import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
+//import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
 
 Hooks.once("init", function (){
@@ -32,10 +32,17 @@ Hooks.once("init", function (){
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("SBBActor", SBBActorSheet, { makeDefault: true });
+    Actors.registerSheet("SBBCharacter", SBBCharacterSheet, {
+        types:["Character"],
+        makeDefault: true,
+        label: "SBB.SheetCharacter"
+    });
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("SBBItem", SBBItemSheet, { makeDefault: true });
+    Items.registerSheet("SBBItem", SBBItemSheet, {
+        makeDefault: true ,
+        label: "SBB.SheetItem"
+    });
 
     // Preload Handlebars templates.
-    return preloadHandlebarsTemplates();
+    //return preloadHandlebarsTemplates();
 });
