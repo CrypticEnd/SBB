@@ -26,8 +26,9 @@ Hooks.once("init", function (){
      * @type {String}
      */
     CONFIG.Combat.initiative = {
-        formula: "1d20",
-        decimals: 2
+        formula: "min(1d10, @attributes.Reflex)+min(1d10, @attributes.Reflex) " +
+                     "+ @attributes.Reflex/10", // a .value to help with Ties
+        decimals: 1
     };
 
     // Register sheet application classes
