@@ -16,10 +16,15 @@
       "willpower": "Willpower"
     },
 
-    "attack": {
+    "WeaponSkills": {
       "none": "",
-      "skill_1": "skill one",
-      "skill_2": "skill two"
+      "melee_light": "Light Melee Weapon",
+      "melee_heavy": "Heavy Melee Weapon",
+      "archery": "Archery",
+      "autofire": "Auto-fire",
+      "handgun": "Handgun",
+      "heavy": "Heavy Weapons",
+      "shoulder": "Shoulder Arms"
     }
   }
 }

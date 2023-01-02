@@ -1,7 +1,12 @@
 export const SBB = {};
 
-SBB.attackTypes = {
-    none: "",
-    skill1: "SBB.attack.skill_1",
-    skill2: "SBB.attack.skill_2"
+SBB.weaponSkills = {
+    none:        "",
+    melee_light: "SBB.WeaponSkills.melee_light",
+    melee_heavy: "SBB.WeaponSkills.melee_heavy",
+    archery:     "SBB.WeaponSkills.archery",
+    autofire:    "SBB.WeaponSkills.autofire",
+    handgun:     "SBB.WeaponSkills.handgun",
+    heavy:       "SBB.WeaponSkills.heavy",
+    shoulder:    "SBB.WeaponSkills.shoulder"
 }
