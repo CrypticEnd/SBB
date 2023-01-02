@@ -1,5 +1,3 @@
-import {mergeObject} from "../../ref/common/utils/helpers.mjs";
-
 export class SBBItemSheet extends  ItemSheet {
 
     static get defaultOptions(){
@@ -11,7 +9,7 @@ export class SBBItemSheet extends  ItemSheet {
     }
 
     get template(){
-        return 'systems/sbb/templates/' + this.item.type + '-sheet.html';
+        return 'systems/sbb/templates/sheets/' + this.item.type + '-sheet.hbs';
     }
 
     getData() {
