@@ -9,15 +9,35 @@ export class SBBActorSheet extends Actorsheet{
     }
     prepareDerivedData(){
         const actorData = this.data;
-        const type = this.Actor.type;
 
-        // Check is a Character sheet
-        if(type == "Character"){
-
-        }
+        this._prepareCharacterData(actorData);
+        this._prepareNPCData(actorData);
+        this._prepareVehicleData(actorData);
+        this._prepareStarshipData(actorData);
+        this._prepareDroneData(actorData);
     }
 
     get template(){
         return 'systems/sbb/templates/sheets/' + this.Actor.type  + '-sheet.hbs';
+    }
+
+    _prepareCharacterData(actorData){
+        if (actorData.type !== 'Character') return;
+    }
+
+    _prepareNPCData(actorData){
+        if (actorData.type !== 'NPC') return;
+    }
+
+    _prepareVehicleData(actorData){
+        if (actorData.type !== 'Vehicle') return;
+    }
+
+    _prepareStarshipData(actorData){
+        if (actorData.type !== 'Starship') return;
+    }
+
+    _prepareDroneData(actorData){
+        if (actorData.type !== 'Drone') return;
     }
 }
