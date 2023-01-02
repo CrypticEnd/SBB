@@ -6,7 +6,7 @@ export class SBBCharacterSheet extends ActorSheet{
             template: "systems/sbb/templates/sheets/Character-sheet.hbs",
             width: 600,
             height: 800,
-            tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "sheet" }]
+            tabs: [{navSelector: ".tabs", contentSelector: ".sheet-body", initial: "main"}],
         });
     }
 

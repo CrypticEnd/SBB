@@ -5,7 +5,7 @@
         <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
 
         <nav class="sheet-navigation tabs" data-group="primary">
-            <a class="item" data-tab="sheet">Sheet</a>
+            <a class="item" data-tab="main">Sheet</a>
             <a class="item" data-tab="skills">Skills</a>
             <a class="item" data-tab="bag">Bag</a>
             <a class="item" data-tab="bio">Bio</a>
@@ -13,15 +13,18 @@
     </div>
 
     <section class="sheet-body">
-        <div class="class" data-group="primary" data-tab="skills">
-            test
+        <div class="tab main" data-group="primary" data-tab="skills">
+            
         </div>
-        <div class="class1" data-group="primary" data-tab="bag">
-            <h1><input name="spped" type="text" value="{{system.attributes.Move}}" placeholder="Name"/></h1>
+        <div class="tab skill" data-group="primary" data-tab="skills">
+
+        </div>
+        <div class="tab bag" data-group="primary" data-tab="bag">
+
         </div>
 
-        <div class="class1" data-group="primary" data-tab="bio">
-            <h1><input name="Fortitude" type="text" value="{{system.attributes.Fortitude}}" placeholder="Name"/></h1>
+        <div class="tab bio" data-group="primary" data-tab="bio">
+
         </div>
     </section>
 </form>
