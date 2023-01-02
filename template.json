@@ -1,8 +1,149 @@
 {
   "Actor": {
+    "types": [
+      "Character",
+      "NPC",
+      "Vehicle",
+      "Starship",
+      "Drone"
+    ],
+    "templates": {
+      "base": {
+        "HP": {
+          "value": 1,
+          "max": 1
+        },
+        "Armor": 0,
+        "Description": ""
+      },
 
+      "purchasable": {
+        "speed": 0,
+        "cost": 0,
+        "TL": 3
+      },
+      "vehicle": {
+        "maxCrew": 1
+      }
+    },
+
+    "Character": {
+      "templates": ["base"],
+      "attributes": {
+        "Body": 4,
+        "Control": 4,
+        "Intelligence": 4,
+        "Presence": 4,
+        "Technique": 4,
+        "Move": 4,
+        "Fortitude": 4,
+        "Reflex": 4,
+        "Willpower": 4
+      },
+      "Strain": {
+        "max":8,
+        "value": 0
+      },
+      "Values": {
+        "Value1": {
+          "Name": "",
+          "Description": "",
+          "Used": false
+        },
+        "Value2": {
+          "Name": "",
+          "Description": "",
+          "Used": false
+        },
+        "Value3": {
+          "Name": "",
+          "Description": "",
+          "Used": false
+        },
+        "Value4": {
+          "Name": "",
+          "Description": "",
+          "Used": false
+        }
+      },
+      "Focuses": {
+        "Focus1": {
+          "Name": "",
+          "Description": ""
+        },
+        "Focus2": {
+          "Name": "",
+          "Description": ""
+        },
+        "Focus3": {
+          "Name": "",
+          "Description": ""
+        },
+        "Focus4": {
+          "Name": "",
+          "Description": ""
+        },
+        "Focus5": {
+          "Name": "",
+          "Description": ""
+        },
+        "Focus6": {
+          "Name": "",
+          "Description": ""
+        }
+      },
+      "XP": 0
+    },
+
+
+    "NPC": {
+
+    },
+    "Vehicle": {
+      "templates": [
+        "vehicle"
+      ],
+      "tonnage": 1
+    },
+    "Starship": {
+      "templates": [
+        "vehicle"
+      ]
+    },
+    "Drone": {
+      "purchasable": [
+        "vehicle"
+      ]
+    }
   },
+
   "Item": {
-    
+    "types": [
+      "Weapon",
+      "Armour",
+      "Feat",
+      "Psionic",
+      "Starship Fittings",
+      "Starship Defenses",
+      "Starship Weaponry"
+    ],
+    "templates": {},
+
+    "Weapon": {},
+
+    "Armour": {},
+
+    "Feat": {
+      "prerequisite": "",
+      "description": ""
+    },
+
+    "Psionic": {},
+
+    "Starship Fittings": {},
+
+    "Starship Defenses": {},
+
+    "Starship Weaponry":{}
   }
 }
