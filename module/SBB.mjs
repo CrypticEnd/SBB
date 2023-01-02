@@ -5,9 +5,8 @@
 import { SBBActorSheet } from "./sheets/actor-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
-//import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
+import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
-
 
 Hooks.once("init", function (){
     console.log("SBB | Loading Stars but Butter");
@@ -38,5 +37,5 @@ Hooks.once("init", function (){
     Items.registerSheet("SBBItem", SBBItemSheet, { makeDefault: true });
 
     // Preload Handlebars templates.
-    //return preloadHandlebarsTemplates();
+    return preloadHandlebarsTemplates();
 });
