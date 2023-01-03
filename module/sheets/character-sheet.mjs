@@ -15,8 +15,12 @@ export class SBBCharacterSheet extends ActorSheet{
         const actorData = this.actor.system;
         data.config = CONFIG.SBB;
 
+        // Update deprived data values
         actorData.HP.max = actorData.attributes.Fortitude * 10;
-        actorData.Strain.max = actorData.attributes.Willpower;
+        actorData.Strain.max = actorData.attributes.Willpower * 2;
+
+        // Item filters
+        data.feats =  data.items.filter(function (item) {return item.type == "feat"});
 
         return data;
     }
