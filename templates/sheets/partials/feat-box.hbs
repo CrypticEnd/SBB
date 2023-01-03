@@ -1,5 +1,9 @@
 <div class="feat-box">
-    <p>Feat</p>
+    <div class="feat-header">
+        <p>Feat</p>
+        <i class="fa fa-plus feat-add-button" data-type="Feat"></i>
+    </div>
+
     <div class="feat-list">
         {{#each feats as |feat id|}}
             {{> "systems/sbb/templates/sheets/partials/card/feat.hbs" feat}}

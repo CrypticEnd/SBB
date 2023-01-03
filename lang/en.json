@@ -12,7 +12,8 @@
       "saves": "Saving Throws",
       "clear_strain": "Clear Strain",
       "edit": "Edit",
-      "delete": "Delete"
+      "delete": "Delete",
+      "newItem": "New Item"
     },
 
     "attributes": {

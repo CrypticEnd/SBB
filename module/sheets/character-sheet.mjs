@@ -55,6 +55,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10))
             html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
+            html.find(".feat-add-button").click(this._addItem.bind(this))
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -96,6 +97,18 @@ export class SBBCharacterSheet extends ActorSheet{
         }
 
         this.actor.update({"system.Strain.value" : newValue});
+    }
+
+    _addItem(event){
+        event.preventDefault();
+        let itemType = event.currentTarget.dataset.type;
+
+        let itemData ={
+            name:game.i18n.localize("SBB.common.newItem"),
+            type: itemType
+        };
+
+        Item.create(itemData, {parent: this.actor});
     }
 
 
