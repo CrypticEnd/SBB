@@ -10,3 +10,8 @@ SBB.weaponSkills = {
     heavy:       "SBB.WeaponSkills.heavy",
     shoulder:    "SBB.WeaponSkills.shoulder"
 }
+
+SBB.common = {
+    xp: "XP",
+    hp:"HP"
+}

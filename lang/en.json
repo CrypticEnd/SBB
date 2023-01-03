@@ -1,8 +1,13 @@
 {
   "SBB": {
-    "health": "Health",
-    "strain": "Strain",
-    "xp": "XP",
+    "common": {
+      "name": "Name",
+      "health": "Health",
+      "strain": "Strain",
+      "xp_short": "XP",
+      "xp_long": "Experience",
+      "settings": "Settings"
+    },
 
     "attributes": {
       "body": "Body",

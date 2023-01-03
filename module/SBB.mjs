@@ -5,7 +5,7 @@
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
-//import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
+import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
 
 Hooks.once("init", function (){
@@ -44,5 +44,5 @@ Hooks.once("init", function (){
     });
 
     // Preload Handlebars templates.
-    //return preloadHandlebarsTemplates();
+    return preloadHandlebarsTemplates();
 });

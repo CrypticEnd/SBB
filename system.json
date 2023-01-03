@@ -13,7 +13,11 @@
   }],
 
   "esmodules": ["module/SBB.mjs"],
-  "styles": ["css/SBB.css"],
+  "styles": [
+    "css/item_feat.css",
+    "css/actor_character.css"
+
+  ],
   "scripts": [],
   "packs": [],
   "languages": [

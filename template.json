@@ -121,6 +121,7 @@
     "types": [
       "Weapon",
       "Armour",
+      "Item",
       "Feat",
       "Psionic",
       "Starship Fittings",
@@ -132,6 +133,8 @@
     "Weapon": {},
 
     "Armour": {},
+
+    "Item": {},
 
     "Feat": {
       "prerequisite": "",

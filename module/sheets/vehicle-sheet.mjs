@@ -1,4 +1,4 @@
-export class SBBCharacterSheet extends ActorSheet{
+export class SBBVehicleSheet extends ActorSheet{
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -18,10 +18,6 @@ export class SBBCharacterSheet extends ActorSheet{
         super.prepareData();
     }
     prepareDerivedData(){
-        const actorData = this.system;
 
-        // Work out HP
-        //TODO HP value may change in future?
-        actorData.HP = actorData.attributes.Fortitude * 10;
     }
 }
