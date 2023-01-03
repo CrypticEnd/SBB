@@ -34,7 +34,24 @@ export class SBBCharacterSheet extends ActorSheet{
 
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
+        html.find("#attributes-input").change(this._attributeScrollChange.bind(this))
+
         super.activateListeners(html);
 
+    }
+
+    _attributeScrollChange(event){
+        event.preventDefault();
+        let element = event.currentTarget;
+        const decressValue = event.shiftKey;
+
+        console.log(element.value);
+
+        if(element.value>10){
+            element.value = 10;
+        }
+        else if (element.value<1){
+            element.value = 1;
+        }
     }
 }

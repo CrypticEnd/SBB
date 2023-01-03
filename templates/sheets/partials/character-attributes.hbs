@@ -1,8 +1,59 @@
 <div class="attributes" >
-    {{#each data.system.attributes}}
-        <div class="attribute-box">
-            <div class="attribute-title">{{@key}}</div>
-            <div class="attribute-value">{{this}}</div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.body"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Body" type="number" value="{{actor.system.attributes.Body}}"/>
         </div>
-    {{/each}}
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.control"}}</div>
+        <div class="attribute-value">
+            <input name="system.attributes.Control" type="number" value="{{actor.system.attributes.Control}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.intelligence"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Intelligence" type="number" value="{{actor.system.attributes.Intelligence}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.presence"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Presence" type="number" value="{{actor.system.attributes.Presence}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.technique"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Technique" type="number" value="{{actor.system.attributes.Technique}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.fortitude"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Fortitude" type="number" value="{{actor.system.attributes.Fortitude}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.reflex"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Reflex" type="number" value="{{actor.system.attributes.Reflex}}"/>
+        </div>
+    </div>
+
+    <div class="attribute-box">
+        <div class="attribute-title">{{localize "SBB.attributes.willpower"}}</div>
+        <div class="attribute-value">
+            <input id="attributes-input" name="system.attributes.Willpower" type="number" value="{{actor.system.attributes.Willpower}}"/>
+        </div>
+    </div>
+
 </div>
