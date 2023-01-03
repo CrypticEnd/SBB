@@ -1,5 +1,8 @@
 <div class="feat-box">
-
-
-    
+    <p>Feat</p>
+    <div class="feat-list">
+        {{#each feats as |feat id|}}
+            {{> "systems/sbb/templates/sheets/partials/card/feat.hbs" feat}}
+        {{/each}}
+    </div>
 </div>

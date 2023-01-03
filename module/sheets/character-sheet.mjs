@@ -20,7 +20,7 @@ export class SBBCharacterSheet extends ActorSheet{
         actorData.Strain.max = actorData.attributes.Willpower * 2;
 
         // Item filters
-        data.feats =  data.items.filter(function (item) {return item.type == "feat"});
+        data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
 
         return data;
     }
@@ -28,6 +28,8 @@ export class SBBCharacterSheet extends ActorSheet{
 
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
+        // non editors
+
         //Edit listers
         if(this.isEditable) {
             html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10))
@@ -41,6 +43,8 @@ export class SBBCharacterSheet extends ActorSheet{
                     this.actor.update({"system.Strain.value": 0});
                 }
             }]);
+
+            
         }
         super.activateListeners(html);
 
