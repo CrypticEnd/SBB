@@ -1,1 +1,8 @@
-TEST
+<div class="attributes flexcol" >
+    {{#each data.system.attributes}}
+        <div class="attribute-box">
+            <div class="attribute-title">{{@key}}</div>
+            <div class="attribute-value">{{this}}</div>
+        </div>
+    {{/each}}
+</div>

@@ -11,6 +11,18 @@ SBB.weaponSkills = {
     shoulder:    "SBB.WeaponSkills.shoulder"
 }
 
+SBB.attributes = {
+    body: "Body",
+    control: "Control",
+    intelligence: "Intelligence",
+    presence: "Presence",
+    technique: "Technique",
+    move: "Move",
+    fortitude: "Fortitude",
+    reflex: "Reflex",
+    willpower: "Willpower"
+}
+
 SBB.common = {
     xp: "XP",
     hp:"HP"
