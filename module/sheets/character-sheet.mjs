@@ -61,7 +61,7 @@ export class SBBCharacterSheet extends ActorSheet{
         let newValue = index;
 
         if(newValue==strainCount.value){
-            newValue -=1;
+            newValue =0;
         }
 
         this.actor.update({"system.Strain.value" : newValue});

@@ -53,14 +53,14 @@
     #cogwhell:hover{
       box-sizing: border-box;
       box-shadow: 0px 0px 10px var(--color-shadow-primary);
-      background: #ff000050;
+      background: var(--color-background-shadow-primary);
     }
 
     .active {
       #cogwhell{
         box-sizing: border-box;
         box-shadow: 0px 0px 10px var(--color-shadow-primary);
-        background: #ff000050;
+        background: var(--color-background-shadow-primary);
       }
     }
   }
@@ -203,8 +203,14 @@
       grid-area: strain;
       font-size: 15px;
 
+      #context-menu{
+        font-size: 13px;
+      }
+
       .crossed{
-        filter:invert();
+        box-sizing: border-box;
+        box-shadow: 0px 0px 10px var(--color-shadow-primary);
+        background: var(--color-background-shadow-primary);
       }
     }
   }
