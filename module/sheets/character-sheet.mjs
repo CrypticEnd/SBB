@@ -10,6 +10,26 @@ export class SBBCharacterSheet extends ActorSheet{
         });
     }
 
+    _itemContextMenu =
+        [
+            {
+                name: game.i18n.localize("SBB.common.edit"),
+                icon : '<i class="fas fa-edit"></i>',
+                callback: element=>{
+                    const itemID = element[0].dataset.type;
+                    const item = (this.actor.items.get(itemID));
+                    item.sheet.render(true);
+                }},
+            {
+                name: game.i18n.localize("SBB.common.delete"),
+                icon : '<i class="fas fa-trash"></i>',
+                callback: element =>{
+                    const itemID = element[0].dataset.type;
+                    const item = (this.actor.items.get(itemID));
+                    item.delete();
+                }}
+        ];
+
     getData() {
         const data = super.getData();
         const actorData = this.actor.system;
@@ -36,6 +56,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
 
+            // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
                 name:  game.i18n.localize("SBB.common.clear_strain"),
                 icon:     '<i class="fas fa-edit"></i>',
@@ -44,7 +65,9 @@ export class SBBCharacterSheet extends ActorSheet{
                 }
             }]);
 
-            
+            // item add/edit menu
+            new ContextMenu(html, ".feat-card", this._itemContextMenu)
+
         }
         super.activateListeners(html);
 
@@ -74,4 +97,6 @@ export class SBBCharacterSheet extends ActorSheet{
 
         this.actor.update({"system.Strain.value" : newValue});
     }
+
+
 }

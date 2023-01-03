@@ -10,7 +10,9 @@
       "xp_long": "Experience",
       "settings": "Settings",
       "saves": "Saving Throws",
-      "clear_strain": "Clear Strain"
+      "clear_strain": "Clear Strain",
+      "edit": "Edit",
+      "delete": "Delete"
     },
 
     "attributes": {
