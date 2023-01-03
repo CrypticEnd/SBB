@@ -49,4 +49,37 @@
   box-shadow: 0px 0px 10px var(--color-shadow-primary);
   background: #ff000050;
 }
+.character .attributes {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+.character .attributes .attribute-box {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  background-color: var(--color-text-light-3);
+  border-style: ridge;
+}
+.character .attributes .attribute-box .attribute-title {
+  text-align: center;
+  position: relative;
+  width: auto;
+  height: auto;
+  font-size: 18px;
+}
+.character .attributes .attribute-box .attribute-value {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position-x: 5px;
+  background-position-y: 2px;
+  font-size: 60px;
+}
 /*# sourceMappingURL=actor_character.css.map */
