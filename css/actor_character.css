@@ -1,0 +1,52 @@
+.character .sheet-header {
+  display: flex;
+  margin-top: 1.5%;
+  border-bottom: var(--color-shadow-primary);
+  border-bottom-style: solid;
+  border-bottom-width: thick;
+  border-radius: 15px;
+  padding-bottom: 5px;
+}
+.character .sheet-header img {
+  height: 150px;
+  width: 100px;
+  margin-right: 2.5%;
+}
+.character .sheet-header .character-info {
+  display: block;
+  width: 96%;
+}
+.character .sheet-header .character-info h1 input {
+  height: 58px;
+}
+.character .sheet-header .character-info .xpbar {
+  display: flex;
+}
+.character .sheet-header .character-info .xpbar label {
+  margin-top: 3px;
+}
+.character .sheet-header .character-info .xpbar input {
+  width: 40%;
+  margin-left: 5%;
+}
+.character nav {
+  margin-left: 50%;
+  margin-top: -25px;
+  padding-right: 5%;
+  width: 50%;
+}
+.character nav #cogwhell {
+  border: none;
+  height: 15px;
+}
+.character nav #cogwhell:hover {
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px var(--color-shadow-primary);
+  background: #ff000050;
+}
+.character nav .active #cogwhell {
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px var(--color-shadow-primary);
+  background: #ff000050;
+}
+/*# sourceMappingURL=actor_character.css.map */

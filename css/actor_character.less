@@ -1,0 +1,68 @@
+.character{
+  .sheet-header{
+    display: flex;
+    margin-top: 1.5%;
+    border-bottom: var(--color-shadow-primary);
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+    border-radius: 15px;
+    padding-bottom: 5px;
+
+    img{
+      height: 150px;
+      width: 100px;
+      margin-right: 2.5%;
+    }
+
+    .character-info{
+      display: block;
+      width: 96%;
+
+      h1{
+        input{
+          height: 58px;
+        }
+      }
+
+      .xpbar{
+        display: flex;
+
+        label{
+          margin-top: 3px;
+        }
+        input {
+          width: 40%;
+          margin-left: 5%;
+        }
+      }
+
+    }
+  }
+
+  nav{
+    margin-left: 50%;
+    margin-top: -25px;
+    padding-right: 5%;
+    width: 50%;
+
+    #cogwhell{
+      border:none;
+      height: 15px;
+    }
+
+    #cogwhell:hover{
+      box-sizing: border-box;
+      box-shadow: 0px 0px 10px var(--color-shadow-primary);
+      background: #ff000050;
+    }
+
+    .active {
+      #cogwhell{
+        box-sizing: border-box;
+        box-shadow: 0px 0px 10px var(--color-shadow-primary);
+        background: #ff000050;
+      }
+    }
+  }
+
+}
