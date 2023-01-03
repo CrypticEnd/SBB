@@ -49,10 +49,17 @@
   box-shadow: 0px 0px 10px var(--color-shadow-primary);
   background: #ff000050;
 }
-.character .attributes {
-  margin-top: 10px;
+.character .sheet-main {
+  margin-top: 15px;
   display: grid;
-  grid-template-columns: 100px 100px;
+  grid: auto / 180px auto auto;
+  grid-template-areas: 'stats HP feat' 'stats attacks feat' 'stats ammo feat';
+  grid-column-gap: 15px;
+}
+.character .attributes {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 80px 80px;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
@@ -64,10 +71,10 @@
   color: #0d0d0d;
 }
 .character .attributes .attribute-box {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   overflow: hidden;
-  background-color: var(--color-text-light-3);
+  background-color: var(--color-background-item);
   border-style: ridge;
 }
 .character .attributes .attribute-box .attribute-title {
@@ -87,6 +94,79 @@
   background-repeat: no-repeat;
   background-position-x: 5px;
   background-position-y: 2px;
-  font-size: 60px;
+  font-size: 45px;
+}
+.character .health-box {
+  background-color: var(--color-background-item);
+  padding: 15px;
+  grid-area: HP;
+  display: grid;
+  grid-template-areas: 'saves saves saves' 'hp hp speed' 'strain strain strain';
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  text-align: center;
+  min-width: 210px;
+}
+.character .health-box .saves {
+  grid-area: saves;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.character .health-box .saves i {
+  font-size: 2em;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.character .health-box .hp {
+  width: 3em;
+  grid-area: hp;
+  font-size: 25px;
+  text-align: center;
+  border-style: ridge;
+  border-radius: 20px;
+  border-color: var(--color-shadow-primary);
+}
+.character .health-box .hp input {
+  width: 2em;
+  background-color: transparent;
+  border: none;
+}
+.character .health-box .hp #health-input {
+  border-bottom-style: solid;
+}
+.character .health-box .hp p {
+  font-size: 15px;
+}
+.character .health-box .speed-attribute {
+  margin-left: auto;
+  grid-area: speed;
+  width: 3em;
+  font-size: 25px;
+  text-align: center;
+  border-style: ridge;
+  border-radius: 20px;
+  border-color: var(--color-shadow-primary);
+}
+.character .health-box .speed-attribute input {
+  width: 2em;
+  font-size: 25px;
+  background-color: transparent;
+  border: none;
+}
+.character .health-box .speed-attribute p {
+  font-size: 15px;
+}
+.character .health-box .strain-tracker {
+  grid-area: strain;
+  font-size: 15px;
+}
+.character .health-box .strain-tracker .crossed {
+  filter: invert();
+}
+.character .feat-box {
+  display: block;
+  grid-area: feat;
+  min-width: 30%;
 }
 /*# sourceMappingURL=actor_character.css.map */

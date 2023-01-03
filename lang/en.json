@@ -3,10 +3,14 @@
     "common": {
       "name": "Name",
       "health": "Health",
+      "maxhealth": "Max Health",
       "strain": "Strain",
       "xp_short": "XP",
+      "hp": "HP",
       "xp_long": "Experience",
-      "settings": "Settings"
+      "settings": "Settings",
+      "saves": "Saving Throws",
+      "clear_strain": "Clear Strain"
     },
 
     "attributes": {
@@ -30,6 +34,12 @@
       "handgun": "Handgun",
       "heavy": "Heavy Weapons",
       "shoulder": "Shoulder Arms"
+    },
+
+    "Saves": {
+      "fortitude": "Fortitude Save",
+      "will": "Will Save",
+      "reflex": "Reflex Save"
     }
   }
 }

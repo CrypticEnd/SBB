@@ -65,10 +65,22 @@
     }
   }
 
-  .attributes{
-    margin-top: 10px;
+  .sheet-main{
+    margin-top: 15px;
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid: auto / 180px auto auto;
+    grid-template-areas:
+      'stats HP feat'
+      'stats attacks feat'
+      'stats ammo feat'
+  ;
+    grid-column-gap: 15px;
+  }
+
+  .attributes{
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 80px 80px;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
 
@@ -81,10 +93,10 @@
     }
 
   .attribute-box{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
-    background-color: var(--color-text-light-3);
+    background-color: var(--color-background-item);
 
     border-style: ridge;
 
@@ -109,10 +121,97 @@
       background-position-x: 5px;
       background-position-y: 2px;
 
-      font-size: 60px;
+      font-size: 45px;
     }
 
   }}
 
+  .health-box{
+    background-color: var(--color-background-item);
+    padding: 15px;
+    grid-area: HP;
+    display: grid;
+    grid-template-areas:
+      'saves saves saves'
+      'hp hp speed'
+      'strain strain strain';
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    text-align: center;
+    min-width: 210px;
 
+    .saves{
+      grid-area: saves;
+      width: 100%;
+      text-align: center;
+      padding-bottom: 5px;
+
+      i{
+        font-size: 2em;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+    }
+
+    .hp{
+      width: 3em;
+      grid-area: hp;
+      font-size: 25px;
+      text-align: center;
+
+      border-style: ridge;
+      border-radius: 20px;
+      border-color: var(--color-shadow-primary);
+
+      input{
+        width: 2em;
+        background-color: transparent;
+        border: none;
+      }
+      #health-input{
+        border-bottom-style: solid;
+      }
+      p{
+        font-size: 15px;
+      }
+
+    }
+
+    .speed-attribute{
+      margin-left: auto;
+      grid-area: speed;
+      width: 3em;
+      font-size: 25px;
+      text-align: center;
+
+      border-style: ridge;
+      border-radius: 20px;
+      border-color: var(--color-shadow-primary);;
+
+      input{
+        width: 2em;
+        font-size: 25px;
+        background-color: transparent;
+        border: none;
+      }
+      p{
+        font-size: 15px;
+      }
+    }
+
+    .strain-tracker{
+      grid-area: strain;
+      font-size: 15px;
+
+      .crossed{
+        filter:invert();
+      }
+    }
+  }
+
+  .feat-box{
+    display: block;
+    grid-area: feat;
+    min-width: 30%;
+  }
 }

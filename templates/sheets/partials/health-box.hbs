@@ -1,0 +1,30 @@
+<div class="health-box">
+    {{#if (eq actor.type "Character")}}
+        <div class="saves">
+            <p>{{localize "SBB.common.saves"}}</p>
+            <i class="fas fa-hand-fist" title="{{localize "SBB.Saves.fortitude"}}"></i>
+            <i class="fas fa-gauge-simple-high" title="{{localize "SBB.Saves.reflex"}}"></i>
+            <i class="fas fa-galaxy" title="{{localize "SBB.Saves.will"}}"></i>
+        </div>
+
+        <div class="hp">
+            <input class="health-input" name="system.HP.value" value="{{actor.system.HP.value}}" type="number" title="{{localize "SBB.common.health"}}"/>
+            <input name="system.HP.max" value="{{actor.system.HP.max}}" type="number" title="{{localize "SBB.common.maxhealth"}}" disabled/>
+            <p>{{localize "SBB.common.hp"}}</p>
+        </div>
+
+        <div class="speed-attribute">
+            <input class="attributes-input" name="system.attributes.Move" type="number" value="{{actor.system.attributes.Move}}"/>
+            <p>{{localize "SBB.attributes.move"}}</p>
+        </div>
+
+        <div class="strain-tracker">
+            <p>{{localize "SBB.common.strain"}}</p>
+            {{#repeat actor.system.Strain.max}}
+                <i class="strain-marker fas fa-brain {{#if (gte ../actor.system.Strain.value @index)}}crossed{{/if}}" data-type="{{@index}}"></i>
+            {{/repeat}}
+        </div>
+    {{/if}}
+
+
+</div>

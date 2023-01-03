@@ -25,24 +25,37 @@
     </nav>
 
     <section class="sheet-body">
-        <div class="tab main" data-group="primary" data-tab="main">
+        <div class="tab" data-group="primary" data-tab="main">
+            <div class="sheet-main">
             {{> "systems/sbb/templates/sheets/partials/character-attributes.hbs"}}
+            {{> "systems/sbb/templates/sheets/partials/health-box.hbs" this}}
+                <div class="feat-box">feattttttttttttttttttttttttttttttttttttttt</div>
+            </div>
         </div>
-        
-        <div class="tab skill" data-group="primary" data-tab="skills">
+
+        <div class="tab" data-group="primary" data-tab="skills">
+            <div class="sheet-skill">
             test skills
         </div>
+        </div>
 
-        <div class="tab bag" data-group="primary" data-tab="bag">
+        <div class="tab" data-group="primary" data-tab="bag">
+            <div class="sheet-bag">
             test bag
+            </div>
         </div>
 
-        <div class="tab bio" data-group="primary" data-tab="bio">
+        <div class="tab" data-group="primary" data-tab="bio">
+            <div class="sheet-bio">
             test bio
+            </div>
         </div>
 
-        <div class="tab bio" data-group="primary" data-tab="data">
-            test data
+        <div class="tab" data-group="primary" data-tab="data">
+            <div class="sheet-data">
+
+
+            </div>
         </div>
 
     </section>

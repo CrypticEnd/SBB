@@ -41,7 +41,7 @@
         "Willpower": 4
       },
       "Strain": {
-        "max":8,
+        "max":0,
         "value": 0
       },
       "Values": {

@@ -35,6 +35,16 @@ Hooks.once("init", function (){
         label: "SBB.SheetItem"
     });
 
+    Handlebars.registerHelper("repeat", function (n, content){
+       let result = "";
+       for (let i = 0; i < n; i++){
+           //counts index so can acess while using helper
+           content.data.index = i+1;
+           result += content.fn(i);
+       }
+        return result;
+    });
+
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
 });
