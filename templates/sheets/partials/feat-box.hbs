@@ -6,7 +6,7 @@
 
     <div class="feat-list">
         {{#each feats as |feat id|}}
-            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat}}
+            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat inSheet=true}}
         {{/each}}
     </div>
 </div>
