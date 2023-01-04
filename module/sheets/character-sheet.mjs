@@ -54,6 +54,7 @@ export class SBBCharacterSheet extends ActorSheet{
     activateListeners(html) {
         // non editors
         html.find(".feat-card").click(this._itemRoll.bind(this))
+        html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this))
 
         //Edit listers
         if(this.isEditable) {
@@ -122,6 +123,16 @@ export class SBBCharacterSheet extends ActorSheet{
         const item = (this.actor.items.get(itemID));
 
         item.roll();
+    }
+
+    _tenetSwitch(event){
+        const itemID = event.currentTarget.dataset.type;
+        const item = (this.actor.items.get(itemID));
+
+        // check if type is a tent else return
+        if(item.type != "Tenet") return;
+
+        item.update({"system.Used" : !item.system.Used});
     }
 
 }
