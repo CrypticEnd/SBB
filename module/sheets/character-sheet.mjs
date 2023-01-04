@@ -1,3 +1,5 @@
+import * as Dice from "../dice/dice.mjs"
+
 export class SBBCharacterSheet extends ActorSheet{
 
     static get defaultOptions() {
@@ -88,6 +90,8 @@ export class SBBCharacterSheet extends ActorSheet{
         html.find(".hide-on-click").click(this._hideSelf.bind(this));
         html.find(".feat-send-button").click(this._itemRoll.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
+        html.find(".skill-rank-value").click(this._rollSkillCheck.bind(this));
+
 
         //Edit listers
         if(this.isEditable) {
@@ -216,6 +220,20 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _hideSelf(event){
         event.currentTarget.style.display = "none";
+    }
+
+    _rollSkillCheck(event){
+        const itemID = event.currentTarget.dataset.type;
+        const item = this.actor.items.get(itemID);
+
+        let linkedAttribute = this.actor.system.attributes[item.system.Attribute];
+
+        Dice.skillCheck({
+            skillMod : item.system.Rank,
+            linkedAttribute : linkedAttribute,
+            currentStrain : this.actor.system.Strain.value
+            //TODO setup Tenet
+        })
     }
 
 }
