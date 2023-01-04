@@ -124,7 +124,8 @@
 
     "Skill": {
       "templates": ["base"],
-      "Rank": 0
+      "Rank": 0,
+      "Attribute": "Body"
     },
 
     "Tenet": {

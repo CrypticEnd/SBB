@@ -7,7 +7,8 @@ export class SBBCharacterSheet extends ActorSheet{
             width: 600,
             height: 800,
             tabs: [{navSelector: ".main-tabs", contentSelector: ".sheet-body", initial: "main"},
-                {navSelector: ".tabs", contentSelector: ".tenet-content", initial: "tenet"}
+                {navSelector: ".tenet-focus-tabs", contentSelector: ".tenet-content", initial: "tenet"},
+                {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
             ],
         });
     }
@@ -46,6 +47,16 @@ export class SBBCharacterSheet extends ActorSheet{
         data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
         data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
 
+        let skills = data.items.filter(function (item) {return item.type == "Skill"});
+
+        data.skills =  {
+            "Body" : skills.filter(function (item) {return item.system.Attribute=="Body"}),
+            "Control" : skills.filter(function (item) {return item.system.Attribute=="Control"}),
+            "Intelligence" : skills.filter(function (item) {return item.system.Attribute=="Intelligence"}),
+            "Presence" : skills.filter(function (item) {return item.system.Attribute=="Presence"}),
+            "Technique" : skills.filter(function (item) {return item.system.Attribute=="Technique"})
+        };
+
         return data;
     }
 
@@ -62,6 +73,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(this._addItem.bind(this))
+            html.find(".add-skill-button").click(this._addSkill.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -71,6 +83,26 @@ export class SBBCharacterSheet extends ActorSheet{
                     this.actor.update({"system.Strain.value": 0});
                 }
             }]);
+
+            // Skill add/take away rank context menu
+            new ContextMenu(html, ".skill-rank-value", [{
+                name: game.i18n.localize("SBB.sills.add_rank"),
+                icon: '<i class="fas fa-plus"></i>',
+                callback: element => {
+                    const itemID = element[0].dataset.type;
+                    const item = (this.actor.items.get(itemID));
+                    const newRank = this._checkSkillRank(item.system.Rank+1)
+                    item.update({"system.Rank": newRank})
+                }},{
+                name: game.i18n.localize("SBB.sills.sub_rank"),
+                icon: '<i class="fas fa-plus"></i>',
+                callback: element => {
+                    const itemID = element[0].dataset.type;
+                    const item = (this.actor.items.get(itemID));
+                    const newRank = this._checkSkillRank(item.system.Rank-1)
+                    item.update({"system.Rank": newRank})
+                }
+        }]);
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
@@ -84,6 +116,8 @@ export class SBBCharacterSheet extends ActorSheet{
     _checkvalBetween(minVal, maxVal, event){
         event.preventDefault();
         let element = event.currentTarget;
+
+        element.value = Math.floor(element.value);
 
         if(element.value>maxVal){
             element.value = maxVal;
@@ -118,6 +152,21 @@ export class SBBCharacterSheet extends ActorSheet{
         Item.create(itemData, {parent: this.actor});
     }
 
+    _addSkill(event){
+        event.preventDefault();
+        let itemCategory = event.currentTarget.dataset.category;
+
+        let itemData ={
+            name:game.i18n.localize("SBB.common.newItem"),
+            type: "Skill",
+            system:{
+                Attribute: itemCategory
+            }
+        };
+
+        Item.create(itemData, {parent: this.actor});
+    }
+
     _itemRoll(event){
         const itemID = event.currentTarget.dataset.type;
         const item = (this.actor.items.get(itemID));
@@ -133,6 +182,13 @@ export class SBBCharacterSheet extends ActorSheet{
         if(item.type != "Tenet") return;
 
         item.update({"system.Used" : !item.system.Used});
+    }
+
+    _checkSkillRank(skillRank){
+        skillRank = Math.floor(skillRank);
+        if(skillRank >10) return 10;
+        if(skillRank<0) return 0;
+        return skillRank;
     }
 
 }

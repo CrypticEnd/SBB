@@ -5,13 +5,13 @@ export class SBBItemSheet extends  ItemSheet {
         // "Armour":
         // "Item":
         // "Ammunition":
-         "Feat":"systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        "Feat": "systems/sbb/templates/sheets/items/feat-sheet.hbs",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry":
-        // "Skill":
-         "Tenet":"systems/sbb/templates/sheets/items/tenet-sheet.hbs",
-         "Focus":"systems/sbb/templates/sheets/items/tenet-sheet.hbs",
+        "Skill": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
+        "Tenet": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
+        "Focus": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
     }
 
     static get defaultOptions(){

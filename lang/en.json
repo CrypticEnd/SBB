@@ -19,6 +19,21 @@
       "add":"Add"
     },
 
+    "sills": {
+      "body_short": "B",
+      "body_long": "Body",
+      "control_short": "C",
+      "control_long": "Control",
+      "intelligence_short": "I",
+      "intelligence_long": "Intelligence",
+      "presence_short": "P",
+      "presence_long": "Presence",
+      "technique_short": "T",
+      "technique_long": "Technique",
+      "add_rank": "Add Rank",
+      "sub_rank": "Subtract Rank"
+    },
+
     "attributes": {
       "body": "Body",
       "control": "Control",
