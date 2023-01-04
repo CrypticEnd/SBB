@@ -8,8 +8,8 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/feat-box.hbs",
 
         // Cards
-        "systems/sbb/templates/sheets/partials/card/feat.hbs",
-        "systems/sbb/templates/sheets/partials/card/tenet.hbs",
+        "systems/sbb/templates/sheets/card/feat.hbs",
+        "systems/sbb/templates/sheets/card/tenet.hbs",
 
     ]);
 };

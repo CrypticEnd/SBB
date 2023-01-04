@@ -3,7 +3,7 @@ export class SBBCharacterSheet extends ActorSheet{
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["character", "sheet", "actor"],
-            template: "systems/sbb/templates/sheets/Character-sheet.hbs",
+            template: "systems/sbb/templates/sheets/actors/Character-sheet.hbs",
             width: 600,
             height: 800,
             tabs: [{navSelector: ".main-tabs", contentSelector: ".sheet-body", initial: "main"},

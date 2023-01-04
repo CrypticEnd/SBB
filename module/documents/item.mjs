@@ -1,6 +1,6 @@
 export class SBBItem extends Item{
     chatTempplate = {
-        "Feat" : "systems/sbb/templates/sheets/partials/card/feat.hbs"
+        "Feat" : "systems/sbb/templates/sheets/card/feat.hbs"
         //TODO rest of temps
     }
 
