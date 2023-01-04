@@ -1,5 +1,19 @@
 export class SBBItemSheet extends  ItemSheet {
 
+    templateSheets = {
+        "Weapon": "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
+        // "Armour":
+        // "Item":
+        // "Ammunition":
+         "Feat":"systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        // "Starship Fittings":
+        // "Starship Defenses":
+        // "Starship Weaponry":
+        // "Skill":
+         "Tenet":"systems/sbb/templates/sheets/items/tenet-sheet.hbs",
+         "Focus":"systems/sbb/templates/sheets/items/tenet-sheet.hbs",
+    }
+
     static get defaultOptions(){
         return mergeObject(super.defaultOptions, {
             width: 530,
@@ -9,7 +23,7 @@ export class SBBItemSheet extends  ItemSheet {
     }
 
     get template(){
-        return 'systems/sbb/templates/sheets/' + this.item.type + '-sheet.hbs';
+        return this.templateSheets[this.item.type];
     }
 
     getData() {
