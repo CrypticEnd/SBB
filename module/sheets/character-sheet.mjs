@@ -91,7 +91,7 @@ export class SBBCharacterSheet extends ActorSheet{
         html.find(".feat-send-button").click(this._itemRoll.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
         html.find(".skill-rank-value").click(this._rollSkillCheck.bind(this));
-
+        html.find(".save-roll").click(this._rollSave.bind(this));
 
         //Edit listers
         if(this.isEditable) {
@@ -224,16 +224,41 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _rollSkillCheck(event){
         const itemID = event.currentTarget.dataset.type;
-        const item = this.actor.items.get(itemID);
+        const skill = this.actor.items.get(itemID);
+        const linkedAttributeName = skill.system.Attribute;
 
-        let linkedAttribute = this.actor.system.attributes[item.system.Attribute];
+        if(skill.type.toUpperCase() != "SKILL"
+            && !linkedAttributeName.toLowerCase() in this.getData().config.skillTypes
+            && !linkedAttributeName in this.actor.system.attributes)
+        {
+            console.error("'${saveType}' is not a valid attribute for a save");
+            return;
+        }
+        let linkedAttributeValue = this.actor.system.attributes[linkedAttributeName];
+
 
         Dice.skillCheck({
-            skillMod : item.system.Rank,
-            linkedAttribute : linkedAttribute,
+            skillMod : skill.system.Rank,
+            linkedAttribute : linkedAttributeValue,
             currentStrain : this.actor.system.Strain.value
             //TODO setup Tenet
         })
+    }
+
+    _rollSave(event){
+        const saveType = event.currentTarget.dataset.type;
+
+        if(!saveType.toLowerCase() in this.getData().config.saveTypes
+        && !saveType in this.actor.system.attributes)
+        {
+            console.error("'${saveType}' is not a valid attribute for a save");
+            return;
+        }
+        let linkedAttribute = this.actor.system.attributes[saveType];
+
+        Dice.save({
+            linkedAttribute : linkedAttribute
+        });
     }
 
 }

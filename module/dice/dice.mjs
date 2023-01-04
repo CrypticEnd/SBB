@@ -36,3 +36,28 @@ export async function skillCheck({
 }
 
 
+export async function save({
+                               linkedAttribute = 0,
+                               otherMod = 0
+                           })
+{
+    if (linkedAttribute == null) {
+        console.error("Linked Attribute not defined")
+        return
+    }
+
+    let rollFormula = "1d10+@mod";//TODO find a way to show pass/fail without counting
+
+    let rollData = {
+        mod:       otherMod
+    }
+    let messageData = {
+        speaker: ChatMessage.getSpeaker()
+    }
+
+    let roll = new Roll(rollFormula, rollData);
+    await roll.roll({
+        async: true
+    });
+    roll.toMessage(rollData);
+}

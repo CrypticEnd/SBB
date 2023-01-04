@@ -2,9 +2,9 @@
     {{#if (eq actor.type "Character")}}
         <div class="saves">
             <p>{{localize "SBB.common.saves"}}</p>
-            <i class="fas fa-hand-fist" title="{{localize "SBB.Saves.fortitude"}}"></i>
-            <i class="fas fa-gauge-simple-high" title="{{localize "SBB.Saves.reflex"}}"></i>
-            <i class="fas fa-galaxy" title="{{localize "SBB.Saves.will"}}"></i>
+            <i class="fas fa-hand-fist save-roll" title="{{localize "SBB.Saves.fortitude"}}" data-type="Fortitude"></i>
+            <i class="fas fa-gauge-simple-high save-roll" title="{{localize "SBB.Saves.reflex"}}" data-type="Reflex"></i>
+            <i class="fas fa-galaxy save-roll" title="{{localize "SBB.Saves.will"}}" data-type="Willpower"></i>
         </div>
 
         <div class="hp">

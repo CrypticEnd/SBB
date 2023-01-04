@@ -23,6 +23,20 @@ SBB.attributes = {
     willpower: "Willpower"
 }
 
+SBB.skillTypes = {
+    body: "",
+    control: "",
+    intelligence: "",
+    presence: "",
+    technique: "",
+}
+
+SBB.saveTypes = {
+    fortitude: "",
+    reflex: "",
+    willpower: ""
+}
+
 SBB.common = {
     xp: "XP",
     hp:"HP"
