@@ -40,6 +40,16 @@
   }
 
   nav{
+    .item.active {
+    text-shadow: 0 0 10px var(--color-shadow-primary);
+  }
+  }
+
+  .main-tabs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
     margin-left: 50%;
     margin-top: -25px;
     padding-right: 5%;
@@ -70,9 +80,9 @@
     display: grid;
     grid: auto / 180px auto auto;
     grid-template-areas:
-      'stats HP feat'
-      'stats attacks feat'
-      'stats ammo feat'
+      'tenet HP skill'
+      'feat attacks skill'
+      'feat ammo skill'
   ;
     grid-column-gap: 15px;
   }
@@ -219,5 +229,9 @@
     display: block;
     grid-area: feat;
     min-width: 30%;
+  }
+
+  .tenets-box{
+    grid-area: tenet;
   }
 }
