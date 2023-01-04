@@ -1,3 +1,4 @@
+import {SBBItem} from "./documents/item.mjs";
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
@@ -10,6 +11,7 @@ Hooks.once("init", function (){
 
     // Add custom constants for configuration.
     CONFIG.SBB = SBB;
+    CONFIG.Item.documentClass = SBBItem;
 
     /**
      * TODO
