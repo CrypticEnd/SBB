@@ -16,11 +16,9 @@
 
     <nav class="sheet-navigation main-tabs" data-group="primary">
         <a class="item" data-tab="main">Main</a> |
-        <a class="item" data-tab="skills">Skills</a> |
         <a class="item" data-tab="bag">Bag</a> |
         <a class="item" data-tab="bio">Bio</a> |
-        <!--TODO Make this item selected when in editing mode  -->
-        <a class="item" >
+        <a class="item"  data-tab="data">
             <img src="systems/sbb/assets/svg/cogwhell.svg" id="cogwhell"/>
         </a>
     </nav>
@@ -33,12 +31,6 @@
                 {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
                 {{> "systems/sbb/templates/sheets/partials/skill-box.hbs"}}
             </div>
-        </div>
-
-        <div class="tab" data-group="primary" data-tab="skills">
-            <div class="sheet-skill">
-            test skills
-        </div>
         </div>
 
         <div class="tab" data-group="primary" data-tab="bag">
