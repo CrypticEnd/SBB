@@ -33,6 +33,26 @@ export class SBBCharacterSheet extends ActorSheet{
                 }}
         ];
 
+    _skillContexMenu=
+        [{
+        name: game.i18n.localize("SBB.sills.add_rank"),
+        icon: '<i class="fas fa-plus"></i>',
+        callback: element => {
+            const itemID = element[0].dataset.type;
+            const item = (this.actor.items.get(itemID));
+            const newRank = this._checkSkillRank(item.system.Rank+1)
+            item.update({"system.Rank": newRank})
+        }},{
+        name: game.i18n.localize("SBB.sills.sub_rank"),
+        icon: '<i class="fas fa-plus"></i>',
+        callback: element => {
+            const itemID = element[0].dataset.type;
+            const item = (this.actor.items.get(itemID));
+            const newRank = this._checkSkillRank(item.system.Rank-1)
+            item.update({"system.Rank": newRank})
+        }}
+        ].concat(this._itemContextMenu);
+
     getData() {
         const data = super.getData();
         const actorData = this.actor.system;
@@ -85,24 +105,7 @@ export class SBBCharacterSheet extends ActorSheet{
             }]);
 
             // Skill add/take away rank context menu
-            new ContextMenu(html, ".skill-rank-value", [{
-                name: game.i18n.localize("SBB.sills.add_rank"),
-                icon: '<i class="fas fa-plus"></i>',
-                callback: element => {
-                    const itemID = element[0].dataset.type;
-                    const item = (this.actor.items.get(itemID));
-                    const newRank = this._checkSkillRank(item.system.Rank+1)
-                    item.update({"system.Rank": newRank})
-                }},{
-                name: game.i18n.localize("SBB.sills.sub_rank"),
-                icon: '<i class="fas fa-plus"></i>',
-                callback: element => {
-                    const itemID = element[0].dataset.type;
-                    const item = (this.actor.items.get(itemID));
-                    const newRank = this._checkSkillRank(item.system.Rank-1)
-                    item.update({"system.Rank": newRank})
-                }
-        }]);
+            new ContextMenu(html, ".skill-item", this._skillContexMenu);
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
@@ -157,7 +160,7 @@ export class SBBCharacterSheet extends ActorSheet{
         let itemCategory = event.currentTarget.dataset.category;
 
         let itemData ={
-            name:game.i18n.localize("SBB.common.newItem"),
+            name:game.i18n.localize("SBB.common.newSkill"),
             type: "Skill",
             system:{
                 Attribute: itemCategory
