@@ -1,11 +1,17 @@
 <div class="feat-card" data-type="{{_id}}" >
-    <div class="card-name">
+    <div class="card-name toggle-description">
         {{name}}
     </div>
-    <div class="card-prerequisite">
-        {{system.prerequisite}}
-    </div>
-    <div class="card-description">
-        {{system.description}}
+
+<!--    TODO change for when in chat-->
+    <i class="fas fa-paper-plane-top feat-send-button" data-type="{{_id}}"></i>
+
+
+    <div class="card-description hide-on-click">
+        <div class="card-prerequisite">
+            {{system.prerequisite}}
+        </div>
+
+        {{editor system.description target="system.description" button=false owner=owner editable=false}}
     </div>
 </div>

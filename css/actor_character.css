@@ -60,7 +60,7 @@
   margin-top: 15px;
   display: grid;
   grid: auto / 30% 35% 35%;
-  grid-template-areas: 'tenet HP skill' 'feat attacks skill' 'feat ammo skill';
+  grid-template-areas: 'tenet HP skill' 'feat attacks skill' 'feat attacks skill';
   grid-column-gap: 15px;
 }
 .character .attributes {

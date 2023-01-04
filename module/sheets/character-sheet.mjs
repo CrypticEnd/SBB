@@ -84,16 +84,18 @@ export class SBBCharacterSheet extends ActorSheet{
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
         // non editors
-        html.find(".feat-card").click(this._itemRoll.bind(this))
-        html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this))
+        html.find(".toggle-description").click(this._toggleLastFamily.bind(this));
+        html.find(".hide-on-click").click(this._hideSelf.bind(this));
+        html.find(".feat-send-button").click(this._itemRoll.bind(this));
+        html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
 
         //Edit listers
         if(this.isEditable) {
-            html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10))
-            html.find(".xp-input").change(this._forceRoundDown.bind(this))
-            html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
+            html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10));
+            html.find(".xp-input").change(this._forceRoundDown.bind(this));
+            html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max));
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
-            html.find(".add-item-button").click(this._addItem.bind(this))
+            html.find(".add-item-button").click(this._addItem.bind(this));
             html.find(".add-skill-button").click(this._addSkill.bind(this));
 
             // strain reset context menu
@@ -199,10 +201,21 @@ export class SBBCharacterSheet extends ActorSheet{
         event.preventDefault();
         let element = event.currentTarget;
 
-        console.log(element.value);
-
         element.value = Math.floor(element.value);
-        console.log(element.value);
+    }
+
+    _toggleLastFamily(event){
+        let lastElementChild = event.currentTarget.parentNode.lastElementChild;
+
+        if (lastElementChild.style.display === "none") {
+            lastElementChild.style.display = "block";
+        } else {
+            lastElementChild.style.display = "none";
+        }
+    }
+
+    _hideSelf(event){
+        event.currentTarget.style.display = "none";
     }
 
 }
