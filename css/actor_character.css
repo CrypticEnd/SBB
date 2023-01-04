@@ -184,4 +184,7 @@
 .character .tenets-box {
   grid-area: tenet;
 }
+.character .tenets-box .tenet-focus-card .crossed {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=actor_character.css.map */

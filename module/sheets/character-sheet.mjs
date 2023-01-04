@@ -60,7 +60,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10))
             html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
-            html.find(".feat-add-button").click(this._addItem.bind(this))
+            html.find(".add-item-button").click(this._addItem.bind(this))
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -73,6 +73,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
+            new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
 
         }
         super.activateListeners(html);
