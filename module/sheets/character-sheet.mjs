@@ -49,6 +49,7 @@ export class SBBCharacterSheet extends ActorSheet{
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
         // non editors
+        html.find(".feat-card").click(this._itemRoll.bind(this))
 
         //Edit listers
         if(this.isEditable) {
@@ -111,5 +112,11 @@ export class SBBCharacterSheet extends ActorSheet{
         Item.create(itemData, {parent: this.actor});
     }
 
+    _itemRoll(event){
+        const itemID = event.currentTarget.dataset.type;
+        const item = (this.actor.items.get(itemID));
+
+        item.roll();
+    }
 
 }
