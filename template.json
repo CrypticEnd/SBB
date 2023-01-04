@@ -44,55 +44,14 @@
         "max":0,
         "value": 0
       },
-      "Values": {
-        "Value1": {
-          "Name": "",
-          "Description": "",
-          "Used": false
-        },
-        "Value2": {
-          "Name": "",
-          "Description": "",
-          "Used": false
-        },
-        "Value3": {
-          "Name": "",
-          "Description": "",
-          "Used": false
-        },
-        "Value4": {
-          "Name": "",
-          "Description": "",
-          "Used": false
-        }
+      "modifiers": {
+        "HP": 0,
+        "Strain": 0,
+        "Initiative": 0,
+        "Armor": 0
       },
-      "Focuses": {
-        "Focus1": {
-          "Name": "",
-          "Description": ""
-        },
-        "Focus2": {
-          "Name": "",
-          "Description": ""
-        },
-        "Focus3": {
-          "Name": "",
-          "Description": ""
-        },
-        "Focus4": {
-          "Name": "",
-          "Description": ""
-        },
-        "Focus5": {
-          "Name": "",
-          "Description": ""
-        },
-        "Focus6": {
-          "Name": "",
-          "Description": ""
-        }
-      },
-      "XP": 0
+      "XP": 0,
+      "Armor": 0
 
     },
 
@@ -123,13 +82,21 @@
       "Weapon",
       "Armour",
       "Item",
+      "Ammunition",
       "Feat",
-      "Psionic",
       "Starship Fittings",
       "Starship Defenses",
-      "Starship Weaponry"
+      "Starship Weaponry",
+      "Skill",
+      "Tenet",
+      "Focus"
     ],
-    "templates": {},
+    "templates": {
+      "base": {
+        "Description": ""
+      }
+
+    },
 
     "Weapon": {},
 
@@ -137,17 +104,35 @@
 
     "Item": {},
 
-    "Feat": {
-      "prerequisite": "",
-      "description": ""
+    "Ammunition": {
+      "templates": ["base"],
+      "Type": "",
+      "Quantity": 0,
+      "Weight": 1
     },
 
-    "Psionic": {},
+    "Feat": {
+      "templates": ["base"],
+      "prerequisite": ""
+    },
 
     "Starship Fittings": {},
 
     "Starship Defenses": {},
 
-    "Starship Weaponry":{}
+    "Starship Weaponry":{},
+
+    "Skill": {
+      "templates": ["base"],
+      "Rank": 0
+    },
+
+    "Tenet": {
+      "templates": ["base"]
+    },
+
+    "Focus": {
+      "templates": ["base"]
+    }
   }
 }

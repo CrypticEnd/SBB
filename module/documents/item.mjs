@@ -5,13 +5,17 @@ export class SBBItem extends Item{
     }
 
     iconTempplate = {
-        "Feat": "systems/sbb/assets/svg/icons/feat.svg",
         "Weapon": "systems/sbb/assets/svg/icons/weapon.svg",
         "Armour": "systems/sbb/assets/svg/icons/armor.svg",
         "Item": "systems/sbb/assets/svg/icons/gear.svg",
+        //"Ammunition": "systems/sbb/assets/svg/icons/gear.svg",
+        "Feat": "systems/sbb/assets/svg/icons/feat.svg",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry:
+        "Skill": "systems/sbb/assets/svg/icons/skill.svg",
+        "Tenet": "systems/sbb/assets/svg/icons/tenet.svg",
+        "Focus": "systems/sbb/assets/svg/icons/focus.svg"
     }
 
     async _preCreate(data, options, user) {
