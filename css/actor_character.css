@@ -108,7 +108,7 @@
   padding: 15px;
   grid-area: HP;
   display: grid;
-  grid-template-areas: 'saves saves saves' 'hp hp speed' 'strain strain strain';
+  grid-template-areas: 'saves saves saves' 'hp armour speed' 'strain strain strain';
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   text-align: center;
@@ -144,6 +144,9 @@
 }
 .character .health-box .hp p {
   font-size: 15px;
+}
+.character .health-box .armour {
+  grid-area: armour;
 }
 .character .health-box .speed-attribute {
   margin-left: auto;
