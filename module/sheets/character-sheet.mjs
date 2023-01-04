@@ -43,6 +43,8 @@ export class SBBCharacterSheet extends ActorSheet{
 
         // Item filters
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
+        data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
+        data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
 
         return data;
     }

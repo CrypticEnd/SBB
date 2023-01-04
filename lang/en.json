@@ -13,7 +13,10 @@
       "clear_strain": "Clear Strain",
       "edit": "Edit",
       "delete": "Delete",
-      "newItem": "New Item"
+      "newItem": "New Item",
+      "tenet": "Tenet",
+      "focus": "Focus",
+      "add":"Add"
     },
 
     "attributes": {

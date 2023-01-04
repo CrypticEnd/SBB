@@ -1,0 +1,24 @@
+<div class="tenets-box">
+    <div class="tenets-header">
+        <nav class="sheet-navigation tabs" data-group="tenet-focus">
+            <a class="item" data-tab="tenet">{{localize "SBB.common.tenet"}}</a>
+            <a class="item" data-tab="focus">{{localize "SBB.common.focus"}}</a>
+        </nav>
+    </div>
+
+    <section class="tenet-content" data-group="tenet-focus">
+        <div class="tab list" data-group="tenet-focus" data-tab="tenet">
+            <i class="fa fa-plus feat-add-button" data-type="Tenet" title="{{localize "SBB.common.add"}}"></i>
+            {{#each tenets as |tenet id|}}
+                {{> "systems/sbb/templates/sheets/partials/card/tenet.hbs" tenet}}
+            {{/each}}
+        </div>
+
+        <div class="tab list" data-group="tenet-focus" data-tab="focus" {{localize "SBB.common.add"}}>
+            <i class="fa fa-plus feat-add-button" data-type="Focus"></i>
+            {{#each focuses as |focus id|}}
+                {{> "systems/sbb/templates/sheets/partials/card/tenet.hbs" focus}}
+            {{/each}}
+        </div>
+    </section>
+</div>
