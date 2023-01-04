@@ -90,6 +90,7 @@ export class SBBCharacterSheet extends ActorSheet{
         //Edit listers
         if(this.isEditable) {
             html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10))
+            html.find(".xp-input").change(this._forceRoundDown.bind(this))
             html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max))
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(this._addItem.bind(this))
@@ -192,6 +193,16 @@ export class SBBCharacterSheet extends ActorSheet{
         if(skillRank >10) return 10;
         if(skillRank<0) return 0;
         return skillRank;
+    }
+
+    _forceRoundDown(event){
+        event.preventDefault();
+        let element = event.currentTarget;
+
+        console.log(element.value);
+
+        element.value = Math.floor(element.value);
+        console.log(element.value);
     }
 
 }
