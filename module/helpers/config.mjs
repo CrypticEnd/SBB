@@ -19,12 +19,14 @@ SBB.skillTypes = {
 }
 
 SBB.saveTypes = {
-    fortitude: "",
-    reflex: "",
-    willpower: ""
+    fortitude: "SBB.saves.fortitude",
+    reflex: "SBB.saves.reflex",
+    willpower: "SBB.saves.will"
 }
 
 SBB.common = {
-    skillCheck: "SBB.common.skillCheck"
+    skillCheck: "SBB.common.skillCheck",
+    skillPass: "SBB.common.passed",
+    skillFail: "SBB.common.failed"
 
 }

@@ -1,4 +1,5 @@
 import * as Dice from "../dice/dice.mjs"
+import {makeSaveRoll} from "../dice/dice.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
@@ -249,7 +250,9 @@ export class SBBCharacterSheet extends ActorSheet{
     _rollSave(event){
         const saveType = event.currentTarget.dataset.type;
 
-        if(!saveType.toLowerCase() in this.getData().config.saveTypes
+        let saveTypes = this.getData().config.saveTypes;
+
+        if(!saveType.toLowerCase() in saveTypes
         && !saveType in this.actor.system.attributes)
         {
             console.error("'${saveType}' is not a valid attribute for a save");
@@ -257,8 +260,9 @@ export class SBBCharacterSheet extends ActorSheet{
         }
         let linkedAttribute = this.actor.system.attributes[saveType];
 
-        Dice.save({
-            linkedAttribute : linkedAttribute
+        Dice.makeSaveRoll({
+            linkedAttribute : linkedAttribute,
+            skillName: saveTypes[saveType.toLowerCase()]
         });
     }
 

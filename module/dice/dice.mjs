@@ -1,5 +1,8 @@
 import {SBB} from "../helpers/config.mjs"
 
+// Template
+const messageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
+
 export async function RollToCustomMessage(rollResult, template, extraData){
     let templateContext ={
         ...extraData,
@@ -26,10 +29,6 @@ export async function skillCheck({
                                      skillName = ""
                                  })
 {
-
-    // tempplate
-    const messageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
-
     if (linkedAttribute == null) {
         console.error("Linked Attribute not defined")
         return
@@ -75,9 +74,10 @@ export async function skillCheck({
 }
 
 
-export async function save({
+export async function makeSaveRoll({
                                linkedAttribute = 0,
-                               otherMod = 0
+                               otherMod = 0,
+                               skillName = ""
                            })
 {
     if (linkedAttribute == null) {
@@ -85,7 +85,8 @@ export async function save({
         return
     }
 
-    let rollFormula = "1d10+@mod";//TODO find a way to show pass/fail without counting
+    let rollFormula = "1d10+@mod";
+    let fakeFormula = "1d10<=" + linkedAttribute;
 
     let rollData = {
         mod:       otherMod
@@ -95,8 +96,20 @@ export async function save({
     }
 
     let roll = new Roll(rollFormula, rollData);
-    await roll.roll({
+    let rollresult = await roll.roll({
         async: true
     });
-    roll.toMessage(rollData);
+
+    let passed = rollresult.total <= linkedAttribute;
+    let outcome = passed ?
+        SBB.common.skillPass : SBB.common.skillFail;
+
+    RollToCustomMessage(rollresult, messageTemplate, {
+        type: SBB.common.skillCheck,
+        checkName: skillName,
+        formula: fakeFormula,
+        difficulty: linkedAttribute,
+        outcome : outcome,
+        passed : passed
+    })
 }

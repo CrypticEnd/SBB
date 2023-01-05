@@ -19,7 +19,9 @@
       "focus": "Focus",
       "add":"Add",
       "skillCheck": "Skill Check",
-      "total": "Total"
+      "total": "Total",
+      "passed": "Success",
+      "failed": "Failed"
     },
 
     "sills": {
@@ -60,7 +62,7 @@
       "shoulder": "Shoulder Arms"
     },
 
-    "Saves": {
+    "saves": {
       "fortitude": "Fortitude Save",
       "will": "Will Save",
       "reflex": "Reflex Save"

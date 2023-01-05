@@ -25,10 +25,10 @@ export const highlightSkillCheckResults = function (message, html, data){
     }
 
     if(criticalSuccess){
-        skillCheck.find(".dice-total").addClass("critical-success")
+        skillCheck.find(".dice-total").addClass("true")
     }
 
     if(criticalFail){
-        skillCheck.find(".dice-total").addClass("critical-fail")
+        skillCheck.find(".dice-total").addClass("false")
     }
 }

@@ -1,8 +1,11 @@
-.skill-roll .critical-success {
+.skill-roll .true {
   background: green !important;
 }
-.skill-roll .critical-fail {
+.skill-roll .false {
   background: red !important;
+}
+.skill-roll .roll-summary {
+  margin-top: 30px;
 }
 .character .sheet-header {
   display: flex;
