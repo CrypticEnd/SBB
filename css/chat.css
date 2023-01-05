@@ -1,0 +1,7 @@
+.skill-roll .critical-success {
+  background: green !important;
+}
+.skill-roll .critical-fail {
+  background: red !important;
+}
+/*# sourceMappingURL=chat.css.map */

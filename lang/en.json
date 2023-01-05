@@ -18,7 +18,8 @@
       "tenet": "Tenet",
       "focus": "Focus",
       "add":"Add",
-      "skillCheck": "Skill Check"
+      "skillCheck": "Skill Check",
+      "total": "Total"
     },
 
     "sills": {

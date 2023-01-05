@@ -16,8 +16,8 @@
   "styles": [
     "css/root.css",
     "css/item_feat.css",
-    "css/actor_character.css"
-
+    "css/actor_character.css",
+    "css/chat.css"
   ],
   "scripts": [],
   "packs": [],

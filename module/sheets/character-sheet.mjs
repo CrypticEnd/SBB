@@ -240,7 +240,8 @@ export class SBBCharacterSheet extends ActorSheet{
         Dice.skillCheck({
             skillMod : skill.system.Rank,
             linkedAttribute : linkedAttributeValue,
-            currentStrain : this.actor.system.Strain.value
+            currentStrain : this.actor.system.Strain.value,
+            skillName : skill.name
             //TODO setup Tenet
         })
     }
