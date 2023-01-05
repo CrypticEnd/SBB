@@ -21,7 +21,10 @@
       "skillCheck": "Skill Check",
       "total": "Total",
       "passed": "Success",
-      "failed": "Failed"
+      "failed": "Failed",
+      "attacks": "Attacks",
+      "ammo": "Ammunition and consumables"
+
     },
 
     "sills": {

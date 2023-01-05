@@ -36,8 +36,9 @@ export class SBBCharacterSheet extends ActorSheet{
                 }}
         ];
 
-    _skillContexMenu=
-        [{
+    _skillContextMenu=
+        [
+            {
         name: game.i18n.localize("SBB.sills.add_rank"),
         icon: '<i class="fas fa-plus"></i>',
         callback: element => {
@@ -69,6 +70,8 @@ export class SBBCharacterSheet extends ActorSheet{
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
         data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
         data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
+        data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
+        data.ammo =  data.items.filter(function (item) {return item.type == "Ammunition"});
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
 
@@ -83,7 +86,6 @@ export class SBBCharacterSheet extends ActorSheet{
         return data;
     }
 
-
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
         // non editors
@@ -93,6 +95,7 @@ export class SBBCharacterSheet extends ActorSheet{
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
         html.find(".skill-rank-value").click(this._rollSkillCheck.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
+        //html.find(".Weapon-sheet-name").click(this._test.bind(this));
 
         //Edit listers
         if(this.isEditable) {
@@ -102,6 +105,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(this._addItem.bind(this));
             html.find(".add-skill-button").click(this._addSkill.bind(this));
+            html.find(".inline-edit").change(this._updateSkill.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -113,10 +117,11 @@ export class SBBCharacterSheet extends ActorSheet{
             }]);
 
             // Skill add/take away rank context menu
-            new ContextMenu(html, ".skill-item", this._skillContexMenu);
+            new ContextMenu(html, ".skill-item", this._skillContextMenu);
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
+            new ContextMenu(html, ".item-sheet-card", this._itemContextMenu)
             new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
 
         }
@@ -179,6 +184,7 @@ export class SBBCharacterSheet extends ActorSheet{
     }
 
     _itemRoll(event){
+        event.preventDefault();
         const itemID = event.currentTarget.dataset.type;
         const item = (this.actor.items.get(itemID));
 
@@ -186,6 +192,7 @@ export class SBBCharacterSheet extends ActorSheet{
     }
 
     _tenetSwitch(event){
+        event.preventDefault();
         const itemID = event.currentTarget.dataset.type;
         const item = (this.actor.items.get(itemID));
 
@@ -210,6 +217,7 @@ export class SBBCharacterSheet extends ActorSheet{
     }
 
     _toggleLastFamily(event){
+        event.preventDefault();
         let lastElementChild = event.currentTarget.parentNode.lastElementChild;
 
         if (lastElementChild.style.display === "none") {
@@ -224,11 +232,12 @@ export class SBBCharacterSheet extends ActorSheet{
     }
 
     _rollSkillCheck(event){
+        event.preventDefault();
         const itemID = event.currentTarget.dataset.type;
         const skill = this.actor.items.get(itemID);
         const linkedAttributeName = skill.system.Attribute;
 
-        if(skill.type.toUpperCase() != "SKILL"
+        if(skill.type.toUpperCase() !== "SKILL"
             && !linkedAttributeName.toLowerCase() in this.getData().config.skillTypes
             && !linkedAttributeName in this.actor.system.attributes)
         {
@@ -248,6 +257,7 @@ export class SBBCharacterSheet extends ActorSheet{
     }
 
     _rollSave(event){
+        event.preventDefault();
         const saveType = event.currentTarget.dataset.type;
 
         let saveTypes = this.getData().config.saveTypes;
@@ -264,6 +274,25 @@ export class SBBCharacterSheet extends ActorSheet{
             linkedAttribute : linkedAttribute,
             skillName: saveTypes[saveType.toLowerCase()]
         });
+    }
+
+    _updateSkill(event){
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemID = element.parentElement.dataset.type;
+        let item = this.actor.items.get(itemID);
+        let field = element.dataset.field;
+        let newValue = element.value;
+
+        if(newValue<0)
+            newValue=0;
+
+        // if a weapon check value
+        if(item.type == "Weapon" && newValue > item.system.magazine.max){
+            newValue = item.system.magazine.max;
+        }
+
+        item.update({[field]: Math.floor(newValue)});
     }
 
 }

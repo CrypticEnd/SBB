@@ -116,7 +116,10 @@
 
     "Weapon": {
       "templates": ["base", "carried","weapon"],
-      "magazine": "0",
+      "magazine": {
+        "value": 0,
+        "max": 1
+      },
       "handsRequired": 1,
       "rof": 1
     },
@@ -126,10 +129,9 @@
     "Item": {},
 
     "Ammunition": {
-      "templates": ["base"],
+      "templates": ["base", "carried"],
       "Type": "",
-      "Quantity": 0,
-      "Weight": 1
+      "Quantity": 0
     },
 
     "Feat": {

@@ -48,7 +48,7 @@ export async function skillCheck({
     }
 
     // Fake formula is needed for user to see a more nicely written formula
-    fakeFormula+= totalMod>0 ? "+" : "";
+    fakeFormula+= totalMod>=0 ? "+" : "";
     fakeFormula+= totalMod.toString();
 
     rollFormula = rollFormula + "+@mod";
