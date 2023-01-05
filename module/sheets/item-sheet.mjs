@@ -31,8 +31,6 @@ export class SBBItemSheet extends  ItemSheet {
 
         data.config = CONFIG.SBB;
 
-        console.log(this);
-
         return data;
     }
 }
