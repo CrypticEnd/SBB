@@ -76,15 +76,27 @@
       "weight": "Weight",
       "rof": "Rate of Fire",
       "handsRequired": "Hands Required",
-      "damage": "damage"
+      "damage": "Damage",
+      "damageType": "Damage Type",
+      "harmRange": "Harm Range",
+      "techLevel": "TL"
+    },
+
+    "damageTypes": {
+      "kinetic": "Kinetic",
+      "energy": "Energy",
+      "explosive": "Explosive"
     },
 
     "rangeHeaders": {
-      "e": "Engaged",
-      "s": "Short",
-      "m": "Medium",
-      "l": "Long",
-      "ee": "Extreme"
+      "1": "0-6",
+      "2": "7-12",
+      "3": "13-25",
+      "4": "26-50",
+      "5": "51-100",
+      "6": "101-200",
+      "7": "201-400",
+      "8": "401-800"
     }
   }
 }

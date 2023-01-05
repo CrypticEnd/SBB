@@ -21,7 +21,19 @@
                     </select>
                 </td>
                 <td>
+                    <select name="system.damageType">
+                        {{#select item.system.damageType}}
+                            {{#each config.damageTypes as |name type|}}
+                                <option value="{{type}}">{{localize name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>
                     <input name="system.formula" type="text" value="{{item.system.formula}}"/>
+                </td>
+                <td>
+                    <input name="system.harmRange" type="text" value="{{item.system.harmRange}}"/>
                 </td>
                 <td>
                     <input name="system.magazine.max" type="number" value="{{item.system.magazine.max}}"/>
@@ -34,6 +46,9 @@
                 </td>
                 <td>
                     <input name="system.weight" type="number" value="{{item.system.weight}}"/>
+                </td>
+                <td>
+                    <input name="system.techLevel" type="number" value="{{item.system.techLevel}}"/>
                 </td>
             </tr>
         </table>

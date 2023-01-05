@@ -101,27 +101,34 @@
       },
 
       "weapon": {
-        "range": {
-          "Engaged": 0,
-          "Short": null,
-          "Medium": null,
-          "Long": null,
-          "Extreme": null
-        },
+        "range": { },
         "formula": "0d6",
-        "skill": ""
+        "skill": "",
+        "damageType": "",
+        "techLevel": ""
       }
 
     },
 
     "Weapon": {
       "templates": ["base", "carried","weapon"],
+      "range": {
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null
+      },
       "magazine": {
         "value": 0,
         "max": 1
       },
       "handsRequired": 1,
-      "rof": 1
+      "rof": 1,
+      "harmRange": ""
     },
 
     "Armour": {},

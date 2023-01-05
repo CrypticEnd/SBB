@@ -10,21 +10,34 @@ SBB.weaponSkills = {
     explosive:       "SBB.WeaponSkills.explosive"
 }
 
+// This is ordered!
 SBB.weaponHeaders= {
     linkedSkill:   "SBB.weaponHeaders.linkedSkill",
+    damageType:    "SBB.weaponHeaders.damageType",
     damage:        "SBB.weaponHeaders.damage",
+    harmRange:     "SBB.weaponHeaders.harmRange",
     magazine:      "SBB.weaponHeaders.magazine",
     rof:           "SBB.weaponHeaders.rof",
     handsRequired: "SBB.weaponHeaders.handsRequired",
-    weight:        "SBB.weaponHeaders.weight"
+    weight:        "SBB.weaponHeaders.weight",
+    techLevel:     "SBB.weaponHeaders.techLevel"
+}
+
+SBB.damageTypes = {
+    kinetic:   "SBB.damageTypes.kinetic",
+    energy:    "SBB.damageTypes.energy",
+    explosive: "SBB.damageTypes.explosive",
 }
 
 SBB.rangeHeaders = {
-    Engaged: "SBB.rangeHeaders.e",
-    Short:   "SBB.rangeHeaders.s",
-    Medium:  "SBB.rangeHeaders.m",
-    Long:    "SBB.rangeHeaders.l",
-    Extreme: "SBB.rangeHeaders.ee"
+    1: "SBB.rangeHeaders.1",
+    2:   "SBB.rangeHeaders.2",
+    3:  "SBB.rangeHeaders.3",
+    4:    "SBB.rangeHeaders.4",
+    5: "SBB.rangeHeaders.5",
+    6: "SBB.rangeHeaders.6",
+    7: "SBB.rangeHeaders.7",
+    8: "SBB.rangeHeaders.8"
 }
 
 SBB.skillTypes = {
