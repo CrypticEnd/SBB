@@ -11,6 +11,7 @@ export const preloadHandlebarsTemplates = async function() {
         // Cards
         "systems/sbb/templates/sheets/card/feat.hbs",
         "systems/sbb/templates/sheets/card/tenet.hbs",
+        "systems/sbb/templates/sheets/card/check-roll.hbs",
 
     ]);
 };

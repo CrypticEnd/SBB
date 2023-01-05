@@ -17,7 +17,8 @@
       "newSkill": "New Skill",
       "tenet": "Tenet",
       "focus": "Focus",
-      "add":"Add"
+      "add":"Add",
+      "skillCheck": "Skill Check"
     },
 
     "sills": {

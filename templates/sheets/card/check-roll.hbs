@@ -1,0 +1,20 @@
+<div class="dice-roll SBB skill-roll">
+    <h2 class="title">
+        <div class="check-type">{{localize type}}</div>
+
+    </h2>
+
+    <div class="roll-summary">
+        <div class="dice-formula">{{roll._formula}}</div>
+        {{{tooltip}}}
+    </div>
+
+
+
+    {{#if difficulty}}
+    <h4 class="dice-total outcome" data-outcome="{{outcome}}">
+        {{localize "SBB.chat.skillCheck.outcome" outcome=outcome}}
+    </h4>
+    {{/if}}
+
+</div>

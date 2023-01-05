@@ -1,3 +1,26 @@
+import {SBB} from "../helpers/config.mjs"
+
+export async function RollToCustomMessage(rollResult, template, extraData){
+    let templateContext ={
+        ...extraData,
+        roll: rollResult,
+        tooltip: await rollResult.getTooltip()
+    };
+
+    let chatData = {
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker(),
+        roll: rollResult,
+        content: await renderTemplate(template, templateContext),
+        type: CONST.CHAT_MESSAGE_TYPES.ROLL
+    };
+
+    console.log(rollResult);
+    console.log(rollResult._formula);
+
+    ChatMessage.create(chatData);
+}
+
 export async function skillCheck({
                                      skillMod = 0,
                                      linkedAttribute = 0,
@@ -6,6 +29,9 @@ export async function skillCheck({
                                      otherBonus = 0
                                  })
 {
+
+    // tempplate
+    const messageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
 
     if (linkedAttribute == null) {
         console.error("Linked Attribute not defined")
@@ -29,10 +55,13 @@ export async function skillCheck({
     }
 
     let roll = new Roll(rollFormula, rollData);
-    await roll.roll({
+    let rollresult = await roll.roll({
         async: true
     });
-    roll.toMessage(rollData);
+
+    RollToCustomMessage(rollresult, messageTemplate, {
+        type: SBB.common.skillCheck
+    });
 }
 
 

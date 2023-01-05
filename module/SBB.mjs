@@ -50,3 +50,7 @@ Hooks.once("init", function (){
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
 });
+
+Hooks.on("renderChatMessage", (app, html, data => {
+
+}))
