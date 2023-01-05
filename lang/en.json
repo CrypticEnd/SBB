@@ -53,19 +53,35 @@
 
     "WeaponSkills": {
       "none": "",
-      "melee_light": "Light Melee Weapon",
-      "melee_heavy": "Heavy Melee Weapon",
+      "melee_primitive": "Primitive Melee Weapons",
+      "melee_advanced": "Advanced Melee Weapons",
       "archery": "Archery",
-      "autofire": "Auto-fire",
-      "handgun": "Handgun",
-      "heavy": "Heavy Weapons",
-      "shoulder": "Shoulder Arms"
+      "light": "Light Ranged",
+      "heavy": "Heavy Ranged",
+      "explosive": "Explosive Ranged"
     },
 
     "saves": {
       "fortitude": "Fortitude Save",
       "will": "Will Save",
       "reflex": "Reflex Save"
+    },
+
+    "weaponHeaders": {
+      "linkedSkill": "Weapon Type",
+      "magazine": "Magazine",
+      "weight": "Weight",
+      "rof": "Rate of Fire",
+      "handsRequired": "Hands Required",
+      "damage": "damage"
+    },
+
+    "rangeHeaders": {
+      "e": "Engaged",
+      "s": "Short",
+      "m": "Medium",
+      "l": "Long",
+      "ee": "Extreme"
     }
   }
 }

@@ -3,5 +3,56 @@
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
         <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h1>
     </header>
-    <p>WEAPON TEST!</p>
+    <div class="sheet-content">
+        <table class="weapon-stats">
+            <tr>
+                {{#each config.weaponHeaders}}
+                <th>{{localize this}}</th>
+                {{/each}}
+            </tr>
+            <tr>
+                <td>
+                    <select name="system.skill">
+                        {{#select item.system.skill}}
+                            {{#each config.weaponSkills as |name type|}}
+                                <option value="{{type}}">{{localize name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>
+                    <input name="system.formula" type="text" value="{{item.system.formula}}"/>
+                </td>
+                <td>
+                    <input name="system.magazine" type="number" value="{{item.system.magazine}}"/>
+                </td>
+                <td>
+                    <input name="system.rof" type="number" value="{{item.system.rof}}"/>
+                </td>
+                <td>
+                    <input name="system.handsRequired" type="number" value="{{item.system.handsRequired}}"/>
+                </td>
+                <td>
+                    <input name="system.weight" type="number" value="{{item.system.weight}}"/>
+                </td>
+            </tr>
+        </table>
+
+        <table class="weapon-ranges">
+            <tr>
+                {{#each config.rangeHeaders}}
+                    <th>{{localize this}}</th>
+                {{/each}}
+            </tr>
+            <tr>
+                {{#each item.system.range}}
+                    <td><input name="system.range.{{@key}}" value="{{this}}" type="text"/></td>
+                {{/each}}
+            </tr>
+        </table>
+
+        {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+
 </form>

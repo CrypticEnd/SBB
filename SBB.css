@@ -199,6 +199,14 @@
 .character .tenets-box .tenet-focus-card .crossed {
   text-decoration: line-through;
 }
+.sheet-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.sheet-content .editor {
+  height: 100%;
+}
 .SBB.sheet.item .form {
   display: flex;
   flex-direction: column;
@@ -224,13 +232,5 @@
   font-style: italic;
   font-size: 12px;
   border: none;
-}
-.SBB.sheet.item .sheet-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.SBB.sheet.item .sheet-content .editor {
-  height: 100%;
 }
 /*# sourceMappingURL=SBB.css.map */

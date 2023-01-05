@@ -94,11 +94,32 @@
     "templates": {
       "base": {
         "Description": ""
+      },
+
+      "carried": {
+        "weight": 1
+      },
+
+      "weapon": {
+        "range": {
+          "Engaged": 0,
+          "Short": null,
+          "Medium": null,
+          "Long": null,
+          "Extreme": null
+        },
+        "formula": "0d6",
+        "skill": ""
       }
 
     },
 
-    "Weapon": {},
+    "Weapon": {
+      "templates": ["base", "carried","weapon"],
+      "magazine": "0",
+      "handsRequired": 1,
+      "rof": 1
+    },
 
     "Armour": {},
 
