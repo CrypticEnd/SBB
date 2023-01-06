@@ -7,7 +7,7 @@
         <i class="fas fa-paper-plane-top feat-send-button" data-type="{{_id}}"></i>
 
     {{/if}}
-        <div class="card-description hide-on-click" {{#if inSheet}} style="display: none" {{/if}}>
+        <div class="card-description hide-on-click {{#if inSheet}}hidden{{/if}}">
 
         <div class="card-prerequisite">
             {{system.prerequisite}}

@@ -218,17 +218,13 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _toggleLastFamily(event){
         event.preventDefault();
-        let lastElementChild = event.currentTarget.parentNode.lastElementChild;
+        let lastElementChildClassList = event.currentTarget.parentNode.lastElementChild.classList;
 
-        if (lastElementChild.style.display === "none") {
-            lastElementChild.style.display = "block";
-        } else {
-            lastElementChild.style.display = "none";
-        }
+        lastElementChildClassList.toggle("hidden");
     }
 
     _hideSelf(event){
-        event.currentTarget.style.display = "none";
+        event.currentTarget.classList.add("hidden");
     }
 
     _rollSkillCheck(event){
