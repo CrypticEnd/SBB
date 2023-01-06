@@ -1,8 +1,7 @@
 import {SBB} from "../helpers/config.mjs"
 
 // Template
-const defaultMessageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
-const weaponMessageTemplate = "systems/sbb/templates/sheets/card/weapon-roll.hbs";
+const defaultRollTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
 
 export async function RollToCustomMessage(rollResult, template, extraData){
     let templateContext ={
@@ -28,11 +27,8 @@ export async function skillCheck({
                                      currentStrain = 0,
                                      otherBonus = 0,
                                      skillName = "",
-                                     weapon = null
                                  })
 {
-    let template = (weapon === null) ? defaultMessageTemplate : weaponMessageTemplate;
-
     let rollFormula = "min(1d10, @limit)";
     let fakeFormula;
     let totalMod = skillMod + otherBonus-Math.floor(currentStrain / 2);
@@ -65,11 +61,10 @@ export async function skillCheck({
         async: true
     });
 
-    RollToCustomMessage(rollresult, template, {
+    RollToCustomMessage(rollresult, defaultRollTemplate, {
         type: SBB.common.skillCheck,
         checkName: skillName,
         formula: fakeFormula,
-        weapon: weapon
     });
 }
 
@@ -104,12 +99,46 @@ export async function makeSaveRoll({
     let outcome = passed ?
         SBB.common.skillPass : SBB.common.skillFail;
 
-    RollToCustomMessage(rollresult, defaultMessageTemplate, {
+    RollToCustomMessage(rollresult, defaultRollTemplate, {
         type: SBB.common.skillCheck,
         checkName: skillName,
         formula: fakeFormula,
         difficulty: linkedAttribute,
         outcome : outcome,
         passed : passed
+    })
+}
+
+export function rollSkillFromID(actorID, skillID, contentName = null){
+    // Get actor and item
+    let actor = game.actors.get(actorID);
+    let skill = actor.items.get(skillID);
+
+    if(actor == null || skill == null){
+        console.error("Skill roll called with improper values");
+        return;
+    }
+
+    const linkedAttributeName = skill.system.Attribute;
+
+    // Should never happen, but oh well
+    if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
+        && !linkedAttributeName in actor.system.attributes)
+    {
+        console.error("'${saveType}' is not a valid attribute for a save");
+        return;
+    }
+
+    if(contentName === null)
+        contentName = skill.name;
+
+    let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
+
+    this.skillCheck({
+        skillMod : skill.system.Rank,
+        linkedAttribute : linkedAttributeValue,
+        currentStrain : actor.system.Strain.value,
+        skillName : contentName,
+        //TODO setup Tenet
     })
 }

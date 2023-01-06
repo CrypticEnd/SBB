@@ -6,6 +6,7 @@ import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
 import * as Chat from "./chat/chat.mjs";
+import chatMessage from "../ref/common/documents/chat-message.mjs";
 
 Hooks.once("init", function (){
     console.log("SBB | Loading Stars but Butter");
@@ -54,4 +55,5 @@ Hooks.once("init", function (){
 
 Hooks.on("renderChatMessage", (app, html, data) => {
     Chat.highlightSkillCheckResults(app, html, data);
+    Chat.addChatListeners(html);
 });

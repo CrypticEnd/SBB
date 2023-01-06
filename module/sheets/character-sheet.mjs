@@ -1,5 +1,6 @@
 import * as Dice from "../dice/dice.mjs"
 import {makeSaveRoll} from "../dice/dice.mjs";
+import actor from "../../ref/common/documents/actor.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
@@ -67,20 +68,20 @@ export class SBBCharacterSheet extends ActorSheet{
         actorData.Strain.max = actorData.attributes.Willpower * 2;
 
         // Item filters
-        data.feats =  data.items.filter(function (item) {return item.type === "Feat"});
-        data.tenets =  data.items.filter(function (item) {return item.type === "Tenet"});
-        data.focuses =  data.items.filter(function (item) {return item.type === "Focus"});
-        data.attacks =  data.items.filter(function (item) {return item.type === "Weapon"});
-        data.ammo =  data.items.filter(function (item) {return item.type === "Ammunition"});
+        data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
+        data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
+        data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
+        data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
+        data.ammo =  data.items.filter(function (item) {return item.type == "Ammunition"});
 
-        let skills = data.items.filter(function (item) {return item.type === "Skill"});
+        let skills = data.items.filter(function (item) {return item.type == "Skill"});
 
         data.skills =  {
-            "Body" : skills.filter(function (item) {return item.system.Attribute==="Body"}),
-            "Control" : skills.filter(function (item) {return item.system.Attribute==="Control"}),
-            "Intelligence" : skills.filter(function (item) {return item.system.Attribute==="Intelligence"}),
-            "Presence" : skills.filter(function (item) {return item.system.Attribute==="Presence"}),
-            "Technique" : skills.filter(function (item) {return item.system.Attribute==="Technique"})
+            "Body" : skills.filter(function (item) {return item.system.Attribute=="Body"}),
+            "Control" : skills.filter(function (item) {return item.system.Attribute=="Control"}),
+            "Intelligence" : skills.filter(function (item) {return item.system.Attribute=="Intelligence"}),
+            "Presence" : skills.filter(function (item) {return item.system.Attribute=="Presence"}),
+            "Technique" : skills.filter(function (item) {return item.system.Attribute=="Technique"})
         };
 
         return data;
@@ -147,7 +148,7 @@ export class SBBCharacterSheet extends ActorSheet{
         let index = event.currentTarget.dataset.type;
         let newValue = index;
 
-        if(newValue===strainCount.value){
+        if(newValue==strainCount.value){
             newValue =0;
         }
 
@@ -187,8 +188,8 @@ export class SBBCharacterSheet extends ActorSheet{
         const item = (this.actor.items.get(itemID));
 
         // Depending on the item we want to do something else
-        if(item.type === "Skill"){
-            this._rollSkillCheck(item);
+        if(item.type == "Skill"){
+            Dice.rollSkillFromID(this.actor._id, itemID);
             return;
         }
 
@@ -231,43 +232,6 @@ export class SBBCharacterSheet extends ActorSheet{
         event.currentTarget.classList.add("hidden");
     }
 
-    _rollSkillCheck(skill, weapon = null){
-        const linkedAttributeName = skill.system.Attribute;
-
-        // Should never happen, but oh well
-        if( !linkedAttributeName.toLowerCase() in this.getData().config.skillTypes
-            && !linkedAttributeName in this.actor.system.attributes)
-        {
-            console.error("'${saveType}' is not a valid attribute for a save");
-            return;
-        }
-
-        let linkedAttributeValue = this.actor.system.attributes[linkedAttributeName];
-
-        Dice.skillCheck({
-            skillMod : skill.system.Rank,
-            linkedAttribute : linkedAttributeValue,
-            currentStrain : this.actor.system.Strain.value,
-            skillName : skill.name,
-            weapon: weapon
-            //TODO setup Tenet
-        })
-    }
-
-    // _rollAttack(item){
-    //     const linkedSkill= item.system.skill;
-    //     let skill = this.actor.items.filter(function (item) {
-    //         return item.type === "Skill" &&
-    //         item.name.toUpperCase() === linkedSkill.toUpperCase()});
-    //
-    //     if(skill.length === 0) {
-    //         console.error("No skill found with name of: " + linkedSkill.toUpperCase());
-    //         return;
-    //     }
-    //
-    //     this._rollSkillCheck(skill[0], item);
-    // }
-
     _rollSave(event){
         event.preventDefault();
         const saveType = event.currentTarget.dataset.type;
@@ -300,7 +264,7 @@ export class SBBCharacterSheet extends ActorSheet{
             newValue=0;
 
         // if a weapon check value
-        if(item.type === "Weapon" && newValue > item.system.magazine.max){
+        if(item.type == "Weapon" && newValue > item.system.magazine.max){
             newValue = item.system.magazine.max;
         }
 
