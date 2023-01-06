@@ -10,6 +10,13 @@
             {{roll.total}}
         </h2>
 
+        {{#if harmCounter}}
+            <h2 class="dice-total action-result">
+                {{harmCounter}} {{localize "SBB.common.harm-counter"}}
+            </h2>
+        {{/if}}
+
+
         {{{tooltip}}}
     </div>
 </div>

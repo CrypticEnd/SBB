@@ -121,11 +121,34 @@ export async function rollWeaponDamage(weapon){
         async: true
     });
 
+    let harmCounter = await countHarmDie(rollresult, weapon.system.harmRange);
+
     //TODO if cant do critical though chat can do it here
     RollToCustomMessage(rollresult, defualtDamageTemplate, {
         weaponName: weapon.name,
-        formula: weapon.system.formula
+        formula: weapon.system.formula,
+        harmCounter: (harmCounter>0) ? harmCounter : null
     });
+}
+
+export async function countHarmDie(rollresult, harmRange){
+    // dont want harm range to be negative
+    if(harmRange == null || harmRange<0)
+        harmRange = 0;
+
+    let harmDieCounter = 0;
+
+    rollresult?.terms.forEach(element =>{
+        if(element.faces != null){
+            element.results.forEach(result => {
+                if(element.faces-harmRange <= result.result){
+                    harmDieCounter++;
+                }
+            });
+        }
+    });
+
+    return harmDieCounter;
 }
 
 export function rollSkillFromID(actorID, skillID, contentName = null){

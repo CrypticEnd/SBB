@@ -25,7 +25,8 @@
       "attacks": "Attacks",
       "attack": "Attack",
       "ammo": "Ammunition and consumables",
-      "range_unit": "RANGE (m)"
+      "range_unit": "RANGE (m)",
+      "harm-counter": "Harm Dice"
 
     },
 
