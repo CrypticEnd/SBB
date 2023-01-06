@@ -1,7 +1,8 @@
 import {SBB} from "../helpers/config.mjs"
 
 // Template
-const messageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
+const defaultMessageTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
+const weaponMessageTemplate = "systems/sbb/templates/sheets/card/weapon-roll.hbs";
 
 export async function RollToCustomMessage(rollResult, template, extraData){
     let templateContext ={
@@ -26,13 +27,11 @@ export async function skillCheck({
                                      useTenet = false,
                                      currentStrain = 0,
                                      otherBonus = 0,
-                                     skillName = ""
+                                     skillName = "",
+                                     weapon = null
                                  })
 {
-    if (linkedAttribute == null) {
-        console.error("Linked Attribute not defined")
-        return
-    }
+    let template = (weapon === null) ? defaultMessageTemplate : weaponMessageTemplate;
 
     let rollFormula = "min(1d10, @limit)";
     let fakeFormula;
@@ -66,10 +65,11 @@ export async function skillCheck({
         async: true
     });
 
-    RollToCustomMessage(rollresult, messageTemplate, {
+    RollToCustomMessage(rollresult, template, {
         type: SBB.common.skillCheck,
         checkName: skillName,
-        formula: fakeFormula
+        formula: fakeFormula,
+        weapon: weapon
     });
 }
 
@@ -104,7 +104,7 @@ export async function makeSaveRoll({
     let outcome = passed ?
         SBB.common.skillPass : SBB.common.skillFail;
 
-    RollToCustomMessage(rollresult, messageTemplate, {
+    RollToCustomMessage(rollresult, defaultMessageTemplate, {
         type: SBB.common.skillCheck,
         checkName: skillName,
         formula: fakeFormula,

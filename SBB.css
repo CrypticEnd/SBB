@@ -251,9 +251,7 @@
   background-image: url("../../icons/svg/d10-grey.svg") !important;
 }
 .item-sheet-card .rollable .item-icon:hover {
-  box-sizing: border-box;
-  box-shadow: 0px 0px 10px var(--color-shadow-primary);
-  background-color: var(--color-background-shadow-primary);
+  filter: invert(100%);
 }
 .item-sheet-card .item-title {
   width: 70%;

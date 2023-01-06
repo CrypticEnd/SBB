@@ -93,9 +93,9 @@ export class SBBCharacterSheet extends ActorSheet{
         html.find(".hide-on-click").click(this._hideSelf.bind(this));
         html.find(".feat-send-button").click(this._itemRoll.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
-        html.find(".skill-rank-value").click(this._rollSkillCheck.bind(this));
+        html.find(".skill-rank-value").click(this._itemRoll.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
-        //html.find(".Weapon-sheet-name").click(this._test.bind(this));
+        html.find(".item-icon").click(this._itemRoll.bind(this));
 
         //Edit Listeners
         if(this.isEditable) {
@@ -188,6 +188,16 @@ export class SBBCharacterSheet extends ActorSheet{
         const itemID = event.currentTarget.dataset.type;
         const item = (this.actor.items.get(itemID));
 
+        // Depending on the item we want to do something else
+        if(item.type === "Skill"){
+            this._rollSkillCheck(item);
+            return;
+        }
+        if(item.type === "Weapon"){
+            this._rollAttack(item);
+            return;
+        }
+
         item.roll();
     }
 
@@ -227,29 +237,41 @@ export class SBBCharacterSheet extends ActorSheet{
         event.currentTarget.classList.add("hidden");
     }
 
-    _rollSkillCheck(event){
-        event.preventDefault();
-        const itemID = event.currentTarget.dataset.type;
-        const skill = this.actor.items.get(itemID);
+    _rollSkillCheck(skill, weapon = null){
         const linkedAttributeName = skill.system.Attribute;
 
-        if(skill.type.toUpperCase() !== "SKILL"
-            && !linkedAttributeName.toLowerCase() in this.getData().config.skillTypes
+        // Should never happen, but oh well
+        if( !linkedAttributeName.toLowerCase() in this.getData().config.skillTypes
             && !linkedAttributeName in this.actor.system.attributes)
         {
             console.error("'${saveType}' is not a valid attribute for a save");
             return;
         }
-        let linkedAttributeValue = this.actor.system.attributes[linkedAttributeName];
 
+        let linkedAttributeValue = this.actor.system.attributes[linkedAttributeName];
 
         Dice.skillCheck({
             skillMod : skill.system.Rank,
             linkedAttribute : linkedAttributeValue,
             currentStrain : this.actor.system.Strain.value,
-            skillName : skill.name
+            skillName : skill.name,
+            weapon: weapon
             //TODO setup Tenet
         })
+    }
+
+    _rollAttack(item){
+        const linkedSkill= item.system.skill;
+        let skill = this.actor.items.filter(function (item) {
+            return item.type === "Skill" &&
+            item.name.toUpperCase() === linkedSkill.toUpperCase()});
+
+        if(skill.length === 0) {
+            console.error("No skill found with name of: " + linkedSkill.toUpperCase());
+            return;
+        }
+
+        this._rollSkillCheck(skill[0], item);
     }
 
     _rollSave(event){
