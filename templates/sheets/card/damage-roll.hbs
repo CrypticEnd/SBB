@@ -6,16 +6,16 @@
     </div>
     <div class="roll-summary">
         <h2 class="dice-formula">{{formula}}</h2>
-        <h2 class="dice-total action-result">
-            {{roll.total}}
-        </h2>
 
         {{#if harmCounter}}
-            <h2 class="dice-total action-result">
+            <h2 class="dice-formula action-result">
                 {{harmCounter}} {{localize "SBB.common.harm-counter"}}
             </h2>
         {{/if}}
 
+        <h2 class="dice-total action-result">
+            {{roll.total}}
+        </h2>
 
         {{{tooltip}}}
     </div>

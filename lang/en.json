@@ -26,7 +26,8 @@
       "attack": "Attack",
       "ammo": "Ammunition and consumables",
       "range_unit": "RANGE (m)",
-      "harm-counter": "Harm Dice"
+      "harm-counter": "Harm Dice",
+      "prerequisite": "Prerequisite"
 
     },
 
