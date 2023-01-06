@@ -35,6 +35,25 @@ export const highlightSkillCheckResults = function (message, html, data){
     }
 }
 
+export function hideChatActionButtons(message, html, data){
+    const chatCard = html.find(".SBB.weapon-roll");
+    if(chatCard.length == 0){
+        return;
+    }
+
+    // Get actor
+    let actor = game.actors.get(chatCard.attr("data-owner-id"));
+
+    let isActorOwner = game.user._id in actor.ownership;
+
+    if(!isActorOwner){
+        const buttons = chatCard.find(".weapon-buttons");
+        buttons[0].style.display = "none";
+    }
+}
+
+
+//~~~~~~~~~~~~~~~~~~~~~ Chat Listeners ~~~~~~~~~~~~~~~~~~~~~~~~~~\\
 export function addChatListeners(html){
     html.on('click', 'button.attack', onAttack);
     html.on('click', 'button.damage', onDamage);

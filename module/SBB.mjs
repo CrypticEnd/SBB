@@ -53,7 +53,11 @@ Hooks.once("init", function (){
     return preloadHandlebarsTemplates();
 });
 
+Hooks.on("renderChatLog",  (app, html, data) =>{
+    Chat.addChatListeners(html);
+});
+
 Hooks.on("renderChatMessage", (app, html, data) => {
     Chat.highlightSkillCheckResults(app, html, data);
-    Chat.addChatListeners(html);
+    Chat.hideChatActionButtons(app,html,data);
 });
