@@ -7,6 +7,9 @@
 .skill-roll .roll-summary {
   margin-top: 30px;
 }
+.character {
+  min-width: 720px;
+}
 .character .sheet-header {
   display: flex;
   margin-top: 1.5%;
@@ -68,7 +71,7 @@
 .character .sheet-main {
   margin-top: 15px;
   display: grid;
-  grid: auto / 30% 35% 35%;
+  grid: auto / 30% 40% 30%;
   grid-template-areas: 'tenet HP skill' 'feat attacks skill' 'feat attacks skill';
   grid-column-gap: 15px;
 }
@@ -199,6 +202,9 @@
 .character .tenets-box .tenet-focus-card .crossed {
   text-decoration: line-through;
 }
+.character .skill-box {
+  grid-area: skill;
+}
 .character .attack-and-ammo-box {
   grid-area: attacks;
 }
@@ -257,9 +263,9 @@
 }
 .item-sheet-card .item-title h3 {
   text-decoration: none;
-  text-align: left;
   border: none;
-  margin: auto;
+  margin-top: auto;
+  margin-left: 5px;
 }
 .item-sheet-card input::-webkit-outer-spin-button,
 .item-sheet-card input::-webkit-inner-spin-button {

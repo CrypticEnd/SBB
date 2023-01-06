@@ -1,4 +1,6 @@
 .character{
+  min-width: 720px;
+
   .sheet-header{
     display: flex;
     margin-top: 1.5%;
@@ -78,7 +80,7 @@
   .sheet-main{
     margin-top: 15px;
     display: grid;
-    grid: auto / 30% 35% 35%;
+    grid: auto / 30% 40% 30%;
     grid-template-areas:
       'tenet HP skill'
       'feat attacks skill'
@@ -243,6 +245,10 @@
         text-decoration: line-through;
       }
     }
+  }
+
+  .skill-box{
+    grid-area: skill;
   }
 
   .attack-and-ammo-box{
