@@ -29,13 +29,13 @@ export class SBBItem extends Item{
     }
 
     async roll(){
-        const item = this;
+        let item = this;
+        item.config = CONFIG.SBB;
+
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });
         const content = this.type in this.chatTemplate ?
             await renderTemplate(this.chatTemplate[item.type], item)
             : "Roll function not set for this item"
-
-        console.log(this.chatTemplate[item.type]);
 
         ChatMessage.create({
             user: game.user._id,

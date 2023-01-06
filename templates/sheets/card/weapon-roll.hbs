@@ -1,6 +1,36 @@
-<div class="dice-roll SBB weapon-skill-roll">
-test
+<div class="SBB weapon-roll" data-item-id="{{_id}}" data-owner-id="{{owner}}">
 
+    <div class="weapon-info">
+        <h3>{{name}}</h3>
 
+        <ol>
+            <li>{{localize "SBB.weaponHeaders.linkedSkill"}} : {{system.skill}}</li>
+            <li>{{localize "SBB.weaponHeaders.damageType"}} : {{system.damageType}}</li>
+            <li>{{localize "SBB.weaponHeaders.rof"}} : {{system.rof}}</li>
+            <li>{{localize "SBB.weaponHeaders.harmRange"}} : {{system.harmRange}}</li>
+            <li>{{localize "SBB.weaponHeaders.techLevel"}} : {{system.techLevel}}</li>
+        </ol>
+        <p>{{system.Description}}</p>
+    </div>
+
+    <div class="weapon-rages">
+        <h3>{{localize "SBB.common.range_unit"}}</h3>
+
+        <table class="range-table">
+
+        {{#each system.range}}
+            <tr>
+                <td>{{localize (lookup ../config/rangeHeaders @key)}}</td>
+                <td>{{this}}</td>
+            </tr>
+        {{/each}}
+        </table>
+
+    </div>
+
+    <div class="weapon-buttons">
+        <button class="attack">{{localize "SBB.common.attack"}}</button>
+        <button class="damage">{{localize "SBB.weaponHeaders.damage"}}</button>
+    </div>
 
 </div>

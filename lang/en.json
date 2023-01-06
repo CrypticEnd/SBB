@@ -23,7 +23,9 @@
       "passed": "Success",
       "failed": "Failed",
       "attacks": "Attacks",
-      "ammo": "Ammunition and consumables"
+      "attack": "Attack",
+      "ammo": "Ammunition and consumables",
+      "range_unit": "RANGE (m)"
 
     },
 
