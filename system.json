@@ -28,13 +28,14 @@
 
   "gridDistance": 1,
   "gridUnits": "m",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "?",
+  "primaryTokenAttribute": "HP",
+  "secondaryTokenAttribute": "Strain",
 
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/CrypticEnd/SBB",
+  "manifest": "https://github.com/CrypticEnd/SBB/blob/release/system.json",
+  "download": "https://github.com//CrypticEnd/SBB/archive/refs/tags/test.zip",
   "license": "",
+
   "changelog": "",
   "bugs": ""
 }

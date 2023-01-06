@@ -91,11 +91,9 @@ export class SBBCharacterSheet extends ActorSheet{
         // non editors
         html.find(".toggle-description").click(this._toggleLastFamily.bind(this));
         html.find(".hide-on-click").click(this._hideSelf.bind(this));
-        html.find(".feat-send-button").click(this._itemRoll.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
-        html.find(".skill-rank-value").click(this._itemRoll.bind(this));
+        html.find(".item-rollable").click(this._itemRoll.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
-        html.find(".item-icon").click(this._itemRoll.bind(this));
 
         //Edit Listeners
         if(this.isEditable) {

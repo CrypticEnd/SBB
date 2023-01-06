@@ -16,7 +16,7 @@
             <div class="tab list" data-group="skills" data-tab="{{@key}}">
                 <i class="fa fa-plus add-skill-button" data-type="Skill" data-category="{{@key}}"></i>
                 {{#each this}}
-                    <div class="skill-item" data-type="{{_id}}">
+                    <div class="skill-item item-rollable" data-type="{{_id}}">
                         {{name}}
                         <div class="skill-rank-value" data-type="{{_id}}">+{{this.system.Rank}}</div>
                     </div>
