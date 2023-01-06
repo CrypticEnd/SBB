@@ -1,12 +1,17 @@
 <div class="item-sheet-card" data-type="{{this._id}}">
 
+    <div class="item-title rollable">
     <div class="item-icon"
-    style="background-image: url('{{this.img}}')">
-    </div>
+    style="background-image: url('{{this.img}}')"></div>
 
-    <div class="item-title">
+
         <h3>{{name}}</h3>
     </div>
+
+
+<!--    TODO make this item useable for other things than weapons
+        also make it so it has an exandable box
+-->
 
     <input class="inline-edit" type="number"
     {{#if (eq type "Weapon")}}

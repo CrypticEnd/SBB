@@ -1,30 +1,41 @@
 .item-sheet-card{
-  display: grid;
-  grid: auto / 30px 70% 30%;
+  display: flex;
   height:100%;
   border-style: ridge;
   padding: 5px;
 
-  .item-icon{
-    background-size: 100%;
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
 
-    :hover{
-      background-color: var(--color-background-item);
+  .rollable:hover {
+    .item-icon{
+      background-image: url("../../icons/svg/d10-grey.svg") !important;
+    }
+  }
+  .rollable {.item-icon:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 10px var(--color-shadow-primary);
+    background-color: var(--color-background-shadow-primary);
   }}
 
 
   .item-title{
+    width: 70%;
     display: flex;
 
     h3{
+      padding: 5px;
       text-decoration: none;
       border: none;
-      margin-top: auto;
-      margin-left: 5px;
     }
+
+    .item-icon{
+      display: block;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 40px;
+      width: 40px;
+    }
+
+
   }
 
     input::-webkit-outer-spin-button,
