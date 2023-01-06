@@ -67,20 +67,20 @@ export class SBBCharacterSheet extends ActorSheet{
         actorData.Strain.max = actorData.attributes.Willpower * 2;
 
         // Item filters
-        data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
-        data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
-        data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
-        data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
-        data.ammo =  data.items.filter(function (item) {return item.type == "Ammunition"});
+        data.feats =  data.items.filter(function (item) {return item.type === "Feat"});
+        data.tenets =  data.items.filter(function (item) {return item.type === "Tenet"});
+        data.focuses =  data.items.filter(function (item) {return item.type === "Focus"});
+        data.attacks =  data.items.filter(function (item) {return item.type === "Weapon"});
+        data.ammo =  data.items.filter(function (item) {return item.type === "Ammunition"});
 
-        let skills = data.items.filter(function (item) {return item.type == "Skill"});
+        let skills = data.items.filter(function (item) {return item.type === "Skill"});
 
         data.skills =  {
-            "Body" : skills.filter(function (item) {return item.system.Attribute=="Body"}),
-            "Control" : skills.filter(function (item) {return item.system.Attribute=="Control"}),
-            "Intelligence" : skills.filter(function (item) {return item.system.Attribute=="Intelligence"}),
-            "Presence" : skills.filter(function (item) {return item.system.Attribute=="Presence"}),
-            "Technique" : skills.filter(function (item) {return item.system.Attribute=="Technique"})
+            "Body" : skills.filter(function (item) {return item.system.Attribute==="Body"}),
+            "Control" : skills.filter(function (item) {return item.system.Attribute==="Control"}),
+            "Intelligence" : skills.filter(function (item) {return item.system.Attribute==="Intelligence"}),
+            "Presence" : skills.filter(function (item) {return item.system.Attribute==="Presence"}),
+            "Technique" : skills.filter(function (item) {return item.system.Attribute==="Technique"})
         };
 
         return data;
@@ -97,7 +97,7 @@ export class SBBCharacterSheet extends ActorSheet{
         html.find(".save-roll").click(this._rollSave.bind(this));
         //html.find(".Weapon-sheet-name").click(this._test.bind(this));
 
-        //Edit listers
+        //Edit Listeners
         if(this.isEditable) {
             html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10));
             html.find(".xp-input").change(this._forceRoundDown.bind(this));
@@ -149,7 +149,7 @@ export class SBBCharacterSheet extends ActorSheet{
         let index = event.currentTarget.dataset.type;
         let newValue = index;
 
-        if(newValue==strainCount.value){
+        if(newValue===strainCount.value){
             newValue =0;
         }
 
@@ -197,7 +197,7 @@ export class SBBCharacterSheet extends ActorSheet{
         const item = (this.actor.items.get(itemID));
 
         // check if type is a tent else return
-        if(item.type != "Tenet") return;
+        if(item.type !== "Tenet") return;
 
         item.update({"system.Used" : !item.system.Used});
     }
@@ -288,7 +288,7 @@ export class SBBCharacterSheet extends ActorSheet{
             newValue=0;
 
         // if a weapon check value
-        if(item.type == "Weapon" && newValue > item.system.magazine.max){
+        if(item.type === "Weapon" && newValue > item.system.magazine.max){
             newValue = item.system.magazine.max;
         }
 
