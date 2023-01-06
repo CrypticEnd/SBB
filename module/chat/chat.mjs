@@ -44,9 +44,9 @@ export function hideChatActionButtons(message, html, data){
     // Get actor
     let actor = game.actors.get(chatCard.attr("data-owner-id"));
 
-    if(!actor.isOwner){
-        const buttons = chatCard.find(".weapon-buttons");
-        buttons[0].style.display = "none";
+    if(!actor?.isOwner){
+        const buttonsOwners = chatCard.find(".weapon-buttons");
+        buttonsOwners[0].style.display = "none";
     }
 }
 
