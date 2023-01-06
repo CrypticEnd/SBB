@@ -37,7 +37,7 @@ export const highlightSkillCheckResults = function (message, html, data){
 
 export function addChatListeners(html){
     html.on('click', 'button.attack', onAttack);
-    //html.on('click', 'button.damage', onDamage);
+    html.on('click', 'button.damage', onDamage);
 }
 
 function onAttack(event){
@@ -45,8 +45,7 @@ function onAttack(event){
     let attacker = game.actors.get(card.dataset.ownerId);
     let weapon = attacker.items.get(card.dataset.itemId);
 
-    // make sure attacker has relvent skill
-
+    // make sure attacker has relevant skill
     const linkedSkill= weapon.system.skill;
     let skill = attacker.items.filter(function (skill) {
         return skill.type === "Skill" &&
@@ -58,4 +57,12 @@ function onAttack(event){
     }
 
     Dice.rollSkillFromID(attacker._id, skill[0].id, weapon.name);
+}
+
+function onDamage(event){
+    const card = event.currentTarget.parentNode;
+    let attacker = game.actors.get(card.dataset.ownerId);
+    let weapon = attacker.items.get(card.dataset.itemId);
+
+    Dice.rollWeaponDamage(weapon);
 }

@@ -2,6 +2,7 @@ import {SBB} from "../helpers/config.mjs"
 
 // Template
 const defaultRollTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
+const defualtDamageTemplate = "systems/sbb/templates/sheets/card/damage-roll.hbs";
 
 export async function RollToCustomMessage(rollResult, template, extraData){
     let templateContext ={
@@ -107,6 +108,24 @@ export async function makeSaveRoll({
         outcome : outcome,
         passed : passed
     })
+}
+
+export async function rollWeaponDamage(weapon){
+    if(weapon == null || weapon.system.formula === ""){
+        console.error("Weapon or weapon formula undefined");
+        return
+    }
+
+    let roll = new Roll(weapon.system.formula);
+    let rollresult = await roll.roll({
+        async: true
+    });
+
+    //TODO if cant do critical though chat can do it here
+    RollToCustomMessage(rollresult, defualtDamageTemplate, {
+        weaponName: weapon.name,
+        formula: weapon.system.formula
+    });
 }
 
 export function rollSkillFromID(actorID, skillID, contentName = null){
