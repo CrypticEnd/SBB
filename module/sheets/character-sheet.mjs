@@ -191,10 +191,6 @@ export class SBBCharacterSheet extends ActorSheet{
             this._rollSkillCheck(item);
             return;
         }
-        if(item.type === "Weapon"){
-            this._rollAttack(item);
-            return;
-        }
 
         item.roll();
     }
@@ -258,19 +254,19 @@ export class SBBCharacterSheet extends ActorSheet{
         })
     }
 
-    _rollAttack(item){
-        const linkedSkill= item.system.skill;
-        let skill = this.actor.items.filter(function (item) {
-            return item.type === "Skill" &&
-            item.name.toUpperCase() === linkedSkill.toUpperCase()});
-
-        if(skill.length === 0) {
-            console.error("No skill found with name of: " + linkedSkill.toUpperCase());
-            return;
-        }
-
-        this._rollSkillCheck(skill[0], item);
-    }
+    // _rollAttack(item){
+    //     const linkedSkill= item.system.skill;
+    //     let skill = this.actor.items.filter(function (item) {
+    //         return item.type === "Skill" &&
+    //         item.name.toUpperCase() === linkedSkill.toUpperCase()});
+    //
+    //     if(skill.length === 0) {
+    //         console.error("No skill found with name of: " + linkedSkill.toUpperCase());
+    //         return;
+    //     }
+    //
+    //     this._rollSkillCheck(skill[0], item);
+    // }
 
     _rollSave(event){
         event.preventDefault();
