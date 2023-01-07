@@ -1,0 +1,46 @@
+.character{
+  .window-content {
+    background-image: url("./assets/background.png");
+    color: @fontColor;
+
+
+    h1, h2 {
+      font-family: "origin tech";
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    input{
+      color: white;
+    }
+
+    nav{
+      a.active{
+        text-shadow: 0 0 10px @accentColor;
+      }
+    }
+
+    .sheet-header{
+      border-bottom: @accentColor;
+      border-bottom-style: solid;
+      border-bottom-width: thick;
+      border-radius: 15px;
+      padding-bottom: 5px;
+    }
+
+    .sheet-main {
+      .health-box, .feat-box, .tenets-box, .skill-box, .attack-and-ammo-box {
+        background-color: @primaryColor;
+        border-style: solid;
+        border-color: @accentColor;
+      }
+
+      .speed-attribute, .hp{
+        border-style: ridge;
+        border-radius: 20px;
+        border-color: @accentColor;
+      }
+
+    }
+  }
+}
