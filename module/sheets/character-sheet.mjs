@@ -1,5 +1,6 @@
 import * as Dice from "../helpers/dice.mjs";
 import * as Helper from "../helpers/actor-helper.mjs";
+import {contextMenus} from "../helpers/contextMenus.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
@@ -15,47 +16,6 @@ export class SBBCharacterSheet extends ActorSheet{
             ],
         });
     }
-
-    _itemContextMenu =
-        [
-            {
-                name: game.i18n.localize("SBB.common.edit"),
-                icon : '<i class="fas fa-edit"></i>',
-                callback: element=>{
-                    const itemID = element[0].dataset.type;
-                    const item = (this.actor.items.get(itemID));
-                    item.sheet.render(true);
-                }},
-            {
-                name: game.i18n.localize("SBB.common.delete"),
-                icon : '<i class="fas fa-trash"></i>',
-                callback: element =>{
-                    const itemID = element[0].dataset.type;
-                    const item = (this.actor.items.get(itemID));
-                    item.delete();
-                }}
-        ];
-
-    _skillContextMenu=
-        [
-            {
-        name: game.i18n.localize("SBB.sills.add_rank"),
-        icon: '<i class="fas fa-plus"></i>',
-        callback: element => {
-            const itemID = element[0].dataset.type;
-            const item = (this.actor.items.get(itemID));
-            const newRank = Helper.checkSkillRank(item.system.Rank+1)
-            item.update({"system.Rank": newRank})
-        }},{
-        name: game.i18n.localize("SBB.sills.sub_rank"),
-        icon: '<i class="fas fa-plus"></i>',
-        callback: element => {
-            const itemID = element[0].dataset.type;
-            const item = (this.actor.items.get(itemID));
-            const newRank = Helper.checkSkillRank(item.system.Rank-1)
-            item.update({"system.Rank": newRank})
-        }}
-        ].concat(this._itemContextMenu);
 
     getData() {
         const data = super.getData();
@@ -115,12 +75,12 @@ export class SBBCharacterSheet extends ActorSheet{
             }]);
 
             // Skill add/take away rank context menu
-            new ContextMenu(html, ".skill-item", this._skillContextMenu);
+            new ContextMenu(html, ".skill-item", contextMenus.skillContextMenu);
 
             // item add/edit menu
-            new ContextMenu(html, ".feat-card", this._itemContextMenu)
-            new ContextMenu(html, ".item-sheet-card", this._itemContextMenu)
-            new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
+            new ContextMenu(html, ".feat-card", contextMenus.itemContextMenu)
+            new ContextMenu(html, ".item-sheet-card", contextMenus.itemContextMenu)
+            new ContextMenu(html, ".tenet-focus-card", contextMenus.itemContextMenu)
 
         }
         super.activateListeners(html);
