@@ -44,7 +44,7 @@ export class SBBCharacterSheet extends ActorSheet{
         callback: element => {
             const itemID = element[0].dataset.type;
             const item = (this.actor.items.get(itemID));
-            const newRank = this._checkSkillRank(item.system.Rank+1)
+            const newRank = Helper.checkSkillRank(item.system.Rank+1)
             item.update({"system.Rank": newRank})
         }},{
         name: game.i18n.localize("SBB.sills.sub_rank"),
@@ -52,7 +52,7 @@ export class SBBCharacterSheet extends ActorSheet{
         callback: element => {
             const itemID = element[0].dataset.type;
             const item = (this.actor.items.get(itemID));
-            const newRank = this._checkSkillRank(item.system.Rank-1)
+            const newRank = Helper.checkSkillRank(item.system.Rank-1)
             item.update({"system.Rank": newRank})
         }}
         ].concat(this._itemContextMenu);
@@ -91,19 +91,19 @@ export class SBBCharacterSheet extends ActorSheet{
         // non editors
         html.find(".toggle-description").click(this._toggleLastFamily.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
-        html.find(".item-rollable").click(this._itemRoll.bind(this));
+        html.find(".item-rollable").click(Helper.itemRoll.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
 
         //Edit Listeners
         if(this.isEditable) {
             html.find(".attributes-input").change(Helper.checkvalBetween.bind(
                 this, CONFIG.SBB.settings.attributesRanks.min, CONFIG.SBB.settings.attributesRanks.max));
-            html.find(".xp-input").change(this._forceRoundDown.bind(this));
+            html.find(".xp-input").change(Helper.forceRoundDown.bind(this));
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".add-skill-button").click(Helper.addItem.bind(this));
-            html.find(".inline-edit").change(this._updateSkill.bind(this));
+            html.find(".inline-edit").change(Helper.updateItem.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -140,20 +140,6 @@ export class SBBCharacterSheet extends ActorSheet{
         this.actor.update({"system.Strain.value" : newValue});
     }
 
-    _itemRoll(event){
-        event.preventDefault();
-        const itemID = event.currentTarget.dataset.type;
-        const item = (this.actor.items.get(itemID));
-
-        // Depending on the item we want to do something else
-        if(item.type == "Skill"){
-            Dice.rollSkillFromID(this.actor._id, itemID);
-            return;
-        }
-
-        item.roll();
-    }
-
     _tenetSwitch(event){
         event.preventDefault();
         const itemID = event.currentTarget.dataset.type;
@@ -163,23 +149,6 @@ export class SBBCharacterSheet extends ActorSheet{
         if(item.type !== "Tenet") return;
 
         item.update({"system.Used" : !item.system.Used});
-    }
-
-    _checkSkillRank(skillRank){
-        skillRank = Math.floor(skillRank);
-        let maxRank = CONFIG.SBB.settings.skillRank.max;
-        let minRank = CONFIG.SBB.settings.skillRank.min;
-
-        if(skillRank > maxRank) return maxRank;
-        if(skillRank<minRank) return minRank;
-        return skillRank;
-    }
-
-    _forceRoundDown(event){
-        event.preventDefault();
-        let element = event.currentTarget;
-
-        element.value = Math.floor(element.value);
     }
 
     _toggleLastFamily(event){
@@ -212,24 +181,4 @@ export class SBBCharacterSheet extends ActorSheet{
             skillName: saveTypes[saveType.toLowerCase()]
         });
     }
-
-    _updateSkill(event){
-        event.preventDefault();
-        let element = event.currentTarget;
-        let itemID = element.parentElement.dataset.type;
-        let item = this.actor.items.get(itemID);
-        let field = element.dataset.field;
-        let newValue = element.value;
-
-        if(newValue<0)
-            newValue=0;
-
-        // if a weapon check value
-        if(item.type == "Weapon" && newValue > item.system.magazine.max){
-            newValue = item.system.magazine.max;
-        }
-
-        item.update({[field]: Math.floor(newValue)});
-    }
-
 }
