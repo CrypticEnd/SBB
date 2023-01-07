@@ -4,7 +4,7 @@
         <i class="fa fa-plus add-item-button" data-type="Weapon" title="{{localize "SBB.common.add"}}"></i>
 
     {{#each attacks}}
-        {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" type="Weapon"}}
+        {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" sheet="main"}}
     {{/each}}
 
     </div>
@@ -14,7 +14,7 @@
         <i class="fa fa-plus add-item-button" data-type="Ammunition" title="{{localize "SBB.common.add"}}"></i>
 
         {{#each ammo}}
-            {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" type="Ammunition"}}
+            {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" sheet="main"}}
         {{/each}}
     </div>
 </div>

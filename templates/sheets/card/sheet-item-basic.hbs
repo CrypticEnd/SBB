@@ -1,23 +1,41 @@
-<div class="item-sheet-card" data-type="{{this._id}}">
+<div class="item-sheet-card flexrow" data-type="{{this._id}}">
 
     <div class="item-title rollable">
-    <div class="item-icon item-rollable" data-type="{{this._id}}"
-    style="background-image: url('{{this.img}}')"></div>
-
-
+        <div class="item-icon item-rollable" data-type="{{this._id}}"
+        style="background-image: url('{{this.img}}')"></div>
         <h3>{{name}}</h3>
     </div>
 
 
 <!--    TODO make this item useable for other things than weapons
-        also make it so it has an exandable box
+
+        make it useable for bag sheet as well
 -->
 
-    <input class="inline-edit" type="number"
-    {{#if (eq type "Weapon")}}
-        data-field="system.magazine.value" value="{{this.system.magazine.value}}"
-           min="0", max="{{system.magazine.max}}"
+
+
+<!--
+       If sheet is set to main its either displaying a weapon or ammo
+       If so we want the main input to be a single number filed for either quantity of ammo
+       or amount of ammo in a gun
+-->
+    {{#if (eq sheet "main")}}
+        <input class="inline-edit" type="number"
+            {{#if (eq type "Weapon")}}
+                data-field="system.magazine.value" value="{{this.system.magazine.value}}"
+                   min="0", max="{{system.magazine.max}}"
+            {{else}}
+               data-field="system.Quantity" value="{{this.system.Quantity}}"
+               min="0"
+            {{/if}}
+        />
     {{/if}}
 
-    />
+
+    <div class="item-summary">
+        <div class="item-properties">
+            <span class="tag">test</span>
+
+        </div>
+    </div>
 </div>
