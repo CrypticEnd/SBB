@@ -32,7 +32,7 @@ export async function skillCheck({
 {
     let rollFormula = "min(1d10, @limit)";
     let fakeFormula;
-    let totalMod = skillMod + otherBonus-Math.floor(currentStrain / 2);
+    let totalMod = skillMod + otherBonus-Math.floor(currentStrain * CONFIG.SBB.settings.strainPenaltyMod);
 
     if (useTenet) {
         rollFormula = rollFormula + "+10";

@@ -1,5 +1,4 @@
-import * as Dice from "../helpers/dice.mjs"
-import actor from "../../ref/common/documents/actor.mjs";
+import * as Dice from "../helpers/dice.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
