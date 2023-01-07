@@ -5,7 +5,17 @@ SBB.settings= {
     hpFortMod:     5,
     strainWillMod: 2,
     // if 1 it will give a -1 per strain
-    strainPenaltyMod : 0.5
+    strainPenaltyMod : 0.5,
+
+    skillRank: {
+        max: 10,
+        min: 0
+    },
+
+    attributesRanks: {
+        max: 10,
+        min: 0
+    }
 }
 
 SBB.weaponSkills = {

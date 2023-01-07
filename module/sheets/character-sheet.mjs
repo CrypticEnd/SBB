@@ -96,7 +96,8 @@ export class SBBCharacterSheet extends ActorSheet{
 
         //Edit Listeners
         if(this.isEditable) {
-            html.find(".attributes-input").change(Helper.checkvalBetween.bind(this, 1, 10));
+            html.find(".attributes-input").change(Helper.checkvalBetween.bind(
+                this, CONFIG.SBB.settings.attributesRanks.min, CONFIG.SBB.settings.attributesRanks.max));
             html.find(".xp-input").change(this._forceRoundDown.bind(this));
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
@@ -166,8 +167,11 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _checkSkillRank(skillRank){
         skillRank = Math.floor(skillRank);
-        if(skillRank >10) return 10;
-        if(skillRank<0) return 0;
+        let maxRank = CONFIG.SBB.settings.skillRank.max;
+        let minRank = CONFIG.SBB.settings.skillRank.min;
+
+        if(skillRank > maxRank) return maxRank;
+        if(skillRank<minRank) return minRank;
         return skillRank;
     }
 
