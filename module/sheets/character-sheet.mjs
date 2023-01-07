@@ -91,7 +91,6 @@ export class SBBCharacterSheet extends ActorSheet{
     activateListeners(html) {
         // non editors
         html.find(".toggle-description").click(this._toggleLastFamily.bind(this));
-        html.find(".hide-on-click").click(this._hideSelf.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
         html.find(".item-rollable").click(this._itemRoll.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
@@ -223,13 +222,13 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _toggleLastFamily(event){
         event.preventDefault();
-        let lastElementChildClassList = event.currentTarget.parentNode.lastElementChild.classList;
+        let greatParentNode = event.currentTarget.parentNode.parentNode;
+        let toggleHideNode = greatParentNode.getElementsByClassName("hide-on-click");
 
-        lastElementChildClassList.toggle("hidden");
-    }
-
-    _hideSelf(event){
-        event.currentTarget.classList.add("hidden");
+        if(toggleHideNode.length === 1){
+            let toggleNode = toggleHideNode[0];
+            $(toggleNode).toggle("hidden");
+        }
     }
 
     _rollSave(event){

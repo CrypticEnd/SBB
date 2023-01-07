@@ -83,6 +83,7 @@
       "damage": "Damage",
       "damageType": "Damage Type",
       "harmRange": "Harm Range",
+      "harmRange_short": "HR",
       "techLevel": "TL"
     },
 

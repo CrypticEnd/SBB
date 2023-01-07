@@ -3,7 +3,7 @@
     <div class="item-title rollable">
         <div class="item-icon item-rollable" data-type="{{this._id}}"
         style="background-image: url('{{this.img}}')"></div>
-        <h3>{{name}}</h3>
+        <h3 class="toggle-description">{{name}}</h3>
     </div>
 
 
@@ -32,10 +32,28 @@
     {{/if}}
 
 
-    <div class="item-summary">
-        <div class="item-properties">
-            <span class="tag">test</span>
 
+    {{#if (eq type "Weapon")}}
+        <div class="item-summary hidden hide-on-click">
+            <div class="item-properties">
+                <span class="tag">{{localize "SBB.weaponHeaders.damageType"}}
+                : {{localize system.damageType}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.handsRequired"}}
+                    : {{system.handsRequired}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.harmRange_short"}}
+                    : {{system.handsRequired}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.handsRequired"}}
+                    : {{system.harmRange}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.rof"}}
+                    : {{system.rof}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.techLevel"}}
+                    : {{system.techLevel}}</span>
+            </div>
         </div>
-    </div>
+    {{/if}}
 </div>
