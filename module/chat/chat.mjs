@@ -66,7 +66,7 @@ function onAttack(event){
     const linkedSkill= weapon.system.skill;
     let skill = attacker.items.filter(function (skill) {
         return skill.type === "Skill" &&
-                skill.name.toUpperCase() === linkedSkill.toUpperCase()});
+                skill.name.toUpperCase() === game.i18n.localize(linkedSkill).toUpperCase()});
 
     if(skill.length === 0) {
         console.error("No skill found with name of: " + linkedSkill.toUpperCase());

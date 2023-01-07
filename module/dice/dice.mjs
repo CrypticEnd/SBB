@@ -167,7 +167,7 @@ export function rollSkillFromID(actorID, skillID, contentName = null){
     if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
         && !linkedAttributeName in actor.system.attributes)
     {
-        console.error("'${saveType}' is not a valid attribute for a save");
+        console.error("'${saveType}' is not a valid attribute for a skill");
         return;
     }
 
