@@ -1,4 +1,4 @@
-import {SBB} from "../helpers/config.mjs"
+import {SBB} from "./config.mjs"
 
 // Template
 const defaultRollTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";

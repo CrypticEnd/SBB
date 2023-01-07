@@ -1,4 +1,4 @@
-import * as Dice from "../dice/dice.mjs";
+import * as Dice from "../helpers/dice.mjs";
 
 export class SBBItem extends Item{
     chatTemplate = {

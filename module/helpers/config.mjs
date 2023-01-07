@@ -1,5 +1,11 @@
 export const SBB = {};
 
+// System defaults
+SBB.settings= {
+    hpFortMod:     5,
+    strainWillMod: 2
+}
+
 SBB.weaponSkills = {
     none:            "",
     melee_primitive: "SBB.WeaponSkills.melee_primitive",

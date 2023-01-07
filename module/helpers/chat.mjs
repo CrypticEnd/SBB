@@ -1,4 +1,4 @@
-import * as Dice from "../dice/dice.mjs"
+import * as Dice from "./dice.mjs"
 
 export const highlightSkillCheckResults = function (message, html, data){
     if(!message.isRoll || !message.isContentVisible)

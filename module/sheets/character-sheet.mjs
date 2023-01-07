@@ -1,5 +1,4 @@
-import * as Dice from "../dice/dice.mjs"
-import {makeSaveRoll} from "../dice/dice.mjs";
+import * as Dice from "../helpers/dice.mjs"
 import actor from "../../ref/common/documents/actor.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
@@ -64,8 +63,8 @@ export class SBBCharacterSheet extends ActorSheet{
         data.config = CONFIG.SBB;
 
         // Update deprived data values
-        actorData.HP.max = actorData.attributes.Fortitude * 10;
-        actorData.Strain.max = actorData.attributes.Willpower * 2;
+        actorData.HP.max = actorData.attributes.Fortitude * data.config.settings.hpFortMod;
+        actorData.Strain.max = actorData.attributes.Willpower * data.config.settings.hpFortMod;
 
         // Item filters
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
