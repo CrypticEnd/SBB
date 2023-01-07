@@ -66,6 +66,10 @@ export class SBBCharacterSheet extends ActorSheet{
         actorData.HP.max = actorData.attributes.Fortitude * data.config.settings.hpFortMod;
         actorData.Strain.max = actorData.attributes.Willpower * data.config.settings.strainWillMod;
 
+        // check if HP needs to be changed
+        if(actorData.HP.value > actorData.HP.max)
+            actorData.HP.value = actorData.HP.max;
+
         // Item filters
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
         data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
