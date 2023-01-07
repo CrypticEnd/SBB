@@ -14,7 +14,7 @@ SBB.settings= {
 
     attributesRanks: {
         max: 10,
-        min: 0
+        min: 1
     }
 }
 

@@ -64,7 +64,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
         // Update deprived data values
         actorData.HP.max = actorData.attributes.Fortitude * data.config.settings.hpFortMod;
-        actorData.Strain.max = actorData.attributes.Willpower * data.config.settings.hpFortMod;
+        actorData.Strain.max = actorData.attributes.Willpower * data.config.settings.strainWillMod;
 
         // Item filters
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
