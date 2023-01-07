@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "origin tech";
+  src: url("../../assets/fonts/origin_tech/OriginTech personal use.otf");
+}
 .skill-roll .true {
   background: green !important;
 }
@@ -285,5 +289,10 @@
 }
 .item-sheet-card input :hover {
   background-color: transparent;
+}
+.character h1,
+.character h2,
+.character h3 {
+  font-family: "origin tech";
 }
 /*# sourceMappingURL=SBB.css.map */
