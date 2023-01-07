@@ -1,4 +1,5 @@
 import * as Dice from "../helpers/dice.mjs";
+import * as Helper from "../helpers/actor-helper.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
@@ -95,12 +96,12 @@ export class SBBCharacterSheet extends ActorSheet{
 
         //Edit Listeners
         if(this.isEditable) {
-            html.find(".attributes-input").change(this._checkvalBetween.bind(this, 1, 10));
+            html.find(".attributes-input").change(Helper.checkvalBetween.bind(this, 1, 10));
             html.find(".xp-input").change(this._forceRoundDown.bind(this));
-            html.find(".health-input").change(this._checkvalBetween.bind(this, 0, this.actor.system.HP.max));
+            html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
-            html.find(".add-item-button").click(this._addItem.bind(this));
-            html.find(".add-skill-button").click(this._addSkill.bind(this));
+            html.find(".add-item-button").click(Helper.addItem.bind(this));
+            html.find(".add-skill-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(this._updateSkill.bind(this));
 
             // strain reset context menu
@@ -125,20 +126,6 @@ export class SBBCharacterSheet extends ActorSheet{
 
     }
 
-    _checkvalBetween(minVal, maxVal, event){
-        event.preventDefault();
-        let element = event.currentTarget;
-
-        element.value = Math.floor(element.value);
-
-        if(element.value>maxVal){
-            element.value = maxVal;
-        }
-        else if (element.value<minVal){
-            element.value = minVal;
-        }
-    }
-
     _onStrainChange(event){
         event.preventDefault();
         let strainCount = this.actor.system.Strain;
@@ -150,33 +137,6 @@ export class SBBCharacterSheet extends ActorSheet{
         }
 
         this.actor.update({"system.Strain.value" : newValue});
-    }
-
-    _addItem(event){
-        event.preventDefault();
-        let itemType = event.currentTarget.dataset.type;
-
-        let itemData ={
-            name:game.i18n.localize("SBB.common.newItem"),
-            type: itemType
-        };
-
-        Item.create(itemData, {parent: this.actor});
-    }
-
-    _addSkill(event){
-        event.preventDefault();
-        let itemCategory = event.currentTarget.dataset.category;
-
-        let itemData ={
-            name:game.i18n.localize("SBB.common.newSkill"),
-            type: "Skill",
-            system:{
-                Attribute: itemCategory
-            }
-        };
-
-        Item.create(itemData, {parent: this.actor});
     }
 
     _itemRoll(event){
