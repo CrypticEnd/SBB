@@ -15,7 +15,9 @@
     <section class="skills-content" data-group="skills">
         {{#each skills}}
             <div class="tab list" data-group="skills" data-tab="{{@key}}">
-                <i class="fa fa-plus add-skill-button" data-type="Skill" data-category="{{@key}}"></i>
+                <div class="add-icon">
+                    <i class="fa fa-plus add-item-button" data-type="Skill" data-category="{{@key}}"></i>
+                </div>
                 {{#each this}}
                     <div class="skill-item item-rollable" data-type="{{_id}}">
                         {{name}}

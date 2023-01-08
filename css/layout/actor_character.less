@@ -41,30 +41,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
-    margin-left: 50%;
-    margin-top: -25px;
-    padding-right: 5%;
-    width: 50%;
-
-    #cogwhell{
-      border:none;
-      height: 15px;
-    }
-
-    #cogwhell:hover{
-      box-sizing: border-box;
-      box-shadow: 0px 0px 10px var(--color-shadow-primary);
-      background: var(--color-background-shadow-primary);
-    }
-
-    .active {
-      #cogwhell{
-        box-sizing: border-box;
-        box-shadow: 0px 0px 10px var(--color-shadow-primary);
-        background: var(--color-background-shadow-primary);
-      }
-    }
+    justify-content: right;
+    margin-top: -35px;
+    padding-right: 10px;
   }
 
   .sheet-main{
@@ -73,7 +52,6 @@
     grid: auto / 30% 40% 30%;
     grid-template-areas:
       'tenet HP skill'
-      'feat attacks skill'
       'feat attacks skill'
   ;
     grid-column-gap: 15px;
@@ -130,7 +108,6 @@
   }}
 
   .health-box{
-    padding: 15px;
     grid-area: HP;
     display: grid;
     grid-template-areas:
@@ -160,6 +137,7 @@
       grid-area: hp;
       font-size: 25px;
       text-align: center;
+      margin-left: 10px;
 
       input{
         width: 2em;
@@ -184,6 +162,7 @@
       grid-area: speed;
       width: 3em;
       font-size: 25px;
+      margin-right: 10px;
 
       input{
         width: 2em;
@@ -204,11 +183,6 @@
         font-size: 13px;
       }
 
-      .crossed{
-        box-sizing: border-box;
-        box-shadow: 0px 0px 10px var(--color-shadow-primary);
-        background: var(--color-background-shadow-primary);
-      }
     }
   }
 
@@ -230,7 +204,7 @@
 
   .skill-box{
     grid-area: skill;
-    margin-right: 15%;
+    margin-right: 11%;
 
     nav{
       text-align: center;
@@ -242,5 +216,9 @@
 
   .attack-and-ammo-box{
     grid-area: attacks;
+
+    .ammo-box{
+      margin-top: 10px;
+    }
   }
 }

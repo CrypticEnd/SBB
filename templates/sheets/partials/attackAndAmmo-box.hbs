@@ -1,8 +1,9 @@
 <div class="attack-and-ammo-box">
     <div class="attack-box">
         <h1>{{localize "SBB.common.attacks"}}</h1>
-        <i class="fa fa-plus add-item-button" data-type="Weapon" title="{{localize "SBB.common.add"}}"></i>
-
+        <div class="add-icon">
+            <i class="fa fa-plus add-item-button" data-type="Weapon" title="{{localize "SBB.common.add"}}"></i>
+        </div>
     {{#each attacks}}
         {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" sheet="main"}}
     {{/each}}
@@ -11,7 +12,9 @@
 
     <div class="ammo-box">
         <h1>{{localize "SBB.common.ammo"}}</h1>
-        <i class="fa fa-plus add-item-button" data-type="Ammunition" title="{{localize "SBB.common.add"}}"></i>
+        <div class="add-icon">
+            <i class="fa fa-plus add-item-button" data-type="Ammunition" title="{{localize "SBB.common.add"}}"></i>
+        </div>
 
         {{#each ammo}}
             {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs" sheet="main"}}

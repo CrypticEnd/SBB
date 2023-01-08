@@ -1,18 +1,8 @@
 .item-sheet-card{
   display: flex;
   height:100%;
-  border-style: ridge;
   padding: 5px;
-
-
-  .rollable:hover {
-    .item-icon{
-      background-image: url("../../icons/svg/d10-grey.svg") !important;
-    }
-  }
-  .rollable {.item-icon:hover{
-    filter: invert(100%);
-  }}
+  margin-top: 5px;
 
 
   .item-title{
@@ -34,6 +24,18 @@
     }
 
 
+  }
+
+  .item-summary{
+    flex: 0 0 100%;
+
+    .item-properties .tag{
+      display: inline-block;
+      margin: 0 2px 0 0;
+      padding: 0 3px;
+      font-size: 10px;
+      line-height: 16px;
+    }
   }
 
     input::-webkit-outer-spin-button,

@@ -1,0 +1,18 @@
+.item-sheet-card{
+
+  .item-summary .item-properties .tag{
+    border: 1px solid @accentColor;
+    border-radius: 3px;
+    background: @accentColor;
+
+  }
+
+  .rollable:hover {
+    .item-icon{
+      background-image: url("../../icons/svg/d10-grey.svg") !important;
+    }
+  }
+  .rollable {.item-icon:hover{
+    filter: drop-shadow(0 0 15px @secondaryColor);
+  }}
+}

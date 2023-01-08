@@ -10,13 +10,21 @@
       text-align: center;
     }
 
+    h3{
+      border-bottom: none;
+    }
+
     input{
       color: white;
     }
 
+    .character-info h1{
+      text-align: left;
+    }
+
     nav{
       a.active{
-        text-shadow: 0 0 10px @accentColor;
+        text-shadow: 0 0 15px @secondaryColor;
       }
     }
 
@@ -29,16 +37,35 @@
     }
 
     .sheet-main {
-      .health-box, .feat-box, .tenets-box, .skill-box, .attack-and-ammo-box {
+      .health-box, .feat-box, .tenets-box, .skill-box, .attack-box, .ammo-box {
         background-color: @primaryColor;
         border-style: solid;
         border-color: @accentColor;
+
+      h1,h2{
+        padding: 10px;
+      }
+
+        .add-icon{
+          text-align: center;
+          border-bottom: solid;
+          border-bottom-color: var(--color-underline-header);
+        }
       }
 
       .speed-attribute, .hp{
         border-style: ridge;
         border-radius: 20px;
         border-color: @accentColor;
+      }
+
+      .strain-tracker{
+        .crossed{
+          //box-sizing: border-box;
+          //box-shadow: 0px 0px 10px var(--color-shadow-primary);
+          //background: var(--color-background-shadow-primary);
+          color: @secondaryColor;
+        }
       }
 
     }
