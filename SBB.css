@@ -102,7 +102,7 @@
   display: grid;
   grid-template-areas: 'saves saves saves' 'hp armour speed' 'strain strain strain';
   grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-row-gap: 15px;
   text-align: center;
   min-width: 210px;
 }
@@ -168,6 +168,12 @@
 }
 .character .tenets-box {
   grid-area: tenet;
+}
+.character .tenets-box .tenet-focus-card {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  font-size: 1.25em;
 }
 .character .tenets-box .tenet-focus-card .crossed {
   text-decoration: line-through;
@@ -333,12 +339,18 @@
   text-align: center;
   border-bottom: solid;
   border-bottom-color: var(--color-underline-header);
+  font-size: 2em;
 }
 .character .window-content .sheet-main .speed-attribute,
 .character .window-content .sheet-main .hp {
   border-style: ridge;
   border-radius: 20px;
   border-color: #ff224a;
+}
+.character .window-content .sheet-main .skill-header nav {
+  font-size: 2em;
+  font-family: "origin tech";
+  text-transform: uppercase;
 }
 .character .window-content .sheet-main .strain-tracker .crossed {
   color: #5cdf20;
