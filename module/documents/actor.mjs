@@ -12,10 +12,13 @@ export class SBBActor extends Actor{
 
         // Update deprived data values
         systemData.HP.max = systemData.attributes.Fortitude * config.settings.hpFortMod;
-        systemData.Strain.max = systemData.attributes.Willpower * config.settings.strainWillMod;
+        systemData.Strain.max =config.settings.strainBase + systemData.attributes.Willpower * config.settings.strainBufferWillMod;
 
         // check if HP needs to be changed
         if(systemData.HP.value > systemData.HP.max)
             systemData.HP.value = systemData.HP.max;
+
+        if(systemData.Strain.value > systemData.Strain.max)
+            systemData.Strain.value = systemData.Strain.max;
     }
 }

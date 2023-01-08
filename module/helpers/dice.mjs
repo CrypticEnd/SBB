@@ -25,14 +25,14 @@ export async function skillCheck({
                                      skillMod = 0,
                                      linkedAttribute = 0,
                                      useTenet = false,
-                                     currentStrain = 0,
+                                     strainMod = 0,
                                      otherBonus = 0,
                                      skillName = "",
                                  })
 {
     let rollFormula = "min(1d10, @limit)";
     let fakeFormula;
-    let totalMod = skillMod + otherBonus-Math.floor(currentStrain * CONFIG.SBB.settings.strainPenaltyMod);
+    let totalMod = skillMod + otherBonus-strainMod;
 
     if (useTenet) {
         rollFormula = rollFormula + "+10";
@@ -151,7 +151,7 @@ export async function countHarmDie(rollresult, harmRange){
     return harmDieCounter;
 }
 
-export function rollSkillFromID(actorID, skillID, contentName = null){
+export async function rollSkillFromID(actorID, skillID, contentName = null){
     // Get actor and item
     let actor = game.actors.get(actorID);
     let skill = actor.items.get(skillID);
@@ -176,13 +176,29 @@ export function rollSkillFromID(actorID, skillID, contentName = null){
 
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
 
-    let strain = actor.system.Strain.max - actor.system.Strain.value;
+    let strain = await workOutStrain(actor);
 
     this.skillCheck({
         skillMod : skill.system.Rank,
         linkedAttribute : linkedAttributeValue,
-        currentStrain : strain,
+        strainMod : strain,
         skillName : contentName,
         //TODO setup Tenet
     })
+}
+
+export async function workOutStrain(actor){
+    let strain = actor.system.Strain;
+    let strainValue = strain.max - strain.value;
+    let config = CONFIG.SBB.settings;
+
+    // work out the buffer
+    let strainBuffer = strain.max - config.strainBase;
+
+    let strainOverflow =  strainValue - strainBuffer;
+
+    if(strainOverflow<=0)
+        return 0;
+
+    return Math.floor(strainOverflow* config.strainPenaltyMod);
 }
