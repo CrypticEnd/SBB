@@ -23,7 +23,8 @@ Hooks.once("init", function (){
      */
     CONFIG.Combat.initiative = {
         formula: "min(1d10, @attributes.Reflex)+min(1d10, @attributes.Reflex) " +
-                     "+ @attributes.Reflex/10", // a .value to help with Ties
+                     "+ @attributes.Reflex/10" + // a .value to help with Ties
+                    "- @modifiers.Strain + @modifiers.Initiative",
         decimals: 1
     };
 

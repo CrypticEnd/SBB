@@ -176,29 +176,13 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
 
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
 
-    let strain = await workOutStrain(actor);
 
     this.skillCheck({
         skillMod : skill.system.Rank,
         linkedAttribute : linkedAttributeValue,
-        strainMod : strain,
+        strainMod : actor.system.modifiers.Strain,
         skillName : contentName,
         //TODO setup Tenet
     })
 }
 
-export async function workOutStrain(actor){
-    let strain = actor.system.Strain;
-    let strainValue = strain.max - strain.value;
-    let config = CONFIG.SBB.settings;
-
-    // work out the buffer
-    let strainBuffer = strain.max - config.strainBase;
-
-    let strainOverflow =  strainValue - strainBuffer;
-
-    if(strainOverflow<=0)
-        return 0;
-
-    return Math.floor(strainOverflow* config.strainPenaltyMod);
-}
