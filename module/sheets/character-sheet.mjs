@@ -130,7 +130,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
 
         if(newValue==strainCount.value){
-            newValue = strainCount.max;
+            newValue++;
         }
 
         this.actor.update({"system.Strain.value" : newValue});

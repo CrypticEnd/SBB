@@ -32,7 +32,7 @@
   "secondaryTokenAttribute": "Strain",
 
   "url": "https://github.com/CrypticEnd/SBB",
-  "manifest": "https://github.com/CrypticEnd/SBB/blob/release/system.json",
+  "manifest": "https://github.com/CrypticEnd/sbb/releases/download/0.20/system.js",
   "download": "https://github.com/CrypticEnd/SBB/archive/refs/tags/0.20.zip",
   "license": "",
 
