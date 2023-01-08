@@ -27,7 +27,7 @@
       "attack": "Attack",
       "ammo": "Consumables",
       "range_unit": "RANGE (m)",
-      "harm-counter": "Harm Dice",
+      "harm-counter": "Injury Dice",
       "prerequisite": "Prerequisite"
 
     },
@@ -83,8 +83,8 @@
       "handsRequired": "Hands Required",
       "damage": "Damage",
       "damageType": "Damage Type",
-      "harmRange": "Harm Range",
-      "harmRange_short": "HR",
+      "harmRange": "Injury Range",
+      "harmRange_short": "IR",
       "techLevel": "TL"
     },
 

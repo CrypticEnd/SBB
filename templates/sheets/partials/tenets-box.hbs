@@ -9,7 +9,7 @@
     <section class="tenet-content" data-group="tenet-focus">
         <div class="tab list" data-group="tenet-focus" data-tab="tenet">
             <div class="add-icon">
-                <i class="fa fa-plus add-item-button" data-type="Tenet" title="{{localize "SBB.common.add"}}"></i>
+                <i class="fa fa-circle-plus add-item-button" data-type="Tenet" title="{{localize "SBB.common.add"}}"></i>
             </div>
             {{#each tenets as |tenet id|}}
             {{> "systems/sbb/templates/sheets/card/tenet.hbs" tenet}}
@@ -18,7 +18,7 @@
 
         <div class="tab list" data-group="tenet-focus" data-tab="focus" >
             <div class="add-icon">
-                <i class="fa fa-plus add-item-button" data-type="Focus" {{localize "SBB.common.add"}}></i>
+                <i class="fa fa-circle-plus add-item-button" data-type="Focus" {{localize "SBB.common.add"}}></i>
             </div>
             {{#each focuses as |focus id|}}
                 {{> "systems/sbb/templates/sheets/card/tenet.hbs" focus}}

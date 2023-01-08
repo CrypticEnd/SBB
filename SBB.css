@@ -49,6 +49,11 @@
   margin-top: -35px;
   padding-right: 10px;
 }
+.character .add-icon {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: 5px;
+}
 .character .sheet-main {
   margin-top: 15px;
   display: grid;
@@ -351,10 +356,8 @@
 .character .window-content .sheet-main .skill-box .add-icon,
 .character .window-content .sheet-main .attack-box .add-icon,
 .character .window-content .sheet-main .ammo-box .add-icon {
-  text-align: center;
-  border-bottom: solid;
-  border-bottom-color: var(--color-underline-header);
-  font-size: 2em;
+  font-size: 1.2em;
+  color: #5cdf20;
 }
 .character .window-content .sheet-main .speed-attribute,
 .character .window-content .sheet-main .hp {
@@ -366,6 +369,8 @@
   font-size: 2em;
   font-family: "origin tech";
   text-transform: uppercase;
+  border-bottom-color: var(--color-underline-header);
+  border-bottom-style: solid;
 }
 .character .window-content .sheet-main .strain-tracker .crossed {
   color: gray;
