@@ -176,10 +176,12 @@ export function rollSkillFromID(actorID, skillID, contentName = null){
 
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
 
+    let strain = actor.system.Strain.max - actor.system.Strain.value;
+
     this.skillCheck({
         skillMod : skill.system.Rank,
         linkedAttribute : linkedAttributeValue,
-        currentStrain : actor.system.Strain.value,
+        currentStrain : strain,
         skillName : contentName,
         //TODO setup Tenet
     })
