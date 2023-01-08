@@ -176,11 +176,15 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
 
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
 
+    let strainMod = 0;
+    if("StrainMod" in actor.flags.sbb){
+        strainMod = actor.flags.sbb.StrainMod;
+    }
 
     this.skillCheck({
         skillMod : skill.system.Rank,
         linkedAttribute : linkedAttributeValue,
-        strainMod : actor.system.modifiers.Strain,
+        strainMod : strainMod,
         skillName : contentName,
         //TODO setup Tenet
     })

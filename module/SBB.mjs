@@ -1,5 +1,6 @@
 import {SBBItem} from "./documents/item.mjs";
 import {SBBActor} from "./documents/actor.mjs";
+import {SBBCombatant} from "./documents/combatant.mjs";
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
@@ -15,6 +16,7 @@ Hooks.once("init", function (){
     CONFIG.SBB = SBB;
     CONFIG.Item.documentClass = SBBItem;
     CONFIG.Actor.documentClass = SBBActor;
+    CONFIG.Combatant.documentClass = SBBCombatant;
 
     /**
      * TODO
@@ -27,6 +29,7 @@ Hooks.once("init", function (){
                     "- @modifiers.Strain + @modifiers.Initiative",
         decimals: 1
     };
+
 
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
