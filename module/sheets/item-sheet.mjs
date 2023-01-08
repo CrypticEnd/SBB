@@ -4,7 +4,7 @@ export class SBBItemSheet extends  ItemSheet {
         "Weapon": "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
         // "Armour":
         // "Item":
-        // "Ammunition":
+         "Ammunition": "systems/sbb/templates/sheets/items/ammo.hbs",
         "Feat": "systems/sbb/templates/sheets/items/feat-sheet.hbs",
         // "Starship Fittings":
         // "Starship Defenses":

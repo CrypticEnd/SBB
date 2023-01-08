@@ -128,7 +128,7 @@
       },
       "handsRequired": 1,
       "rof": 1,
-      "harmRange": ""
+      "harmRange": 1
     },
 
     "Armour": {},
@@ -137,7 +137,6 @@
 
     "Ammunition": {
       "templates": ["base", "carried"],
-      "Type": "",
       "Quantity": 0
     },
 

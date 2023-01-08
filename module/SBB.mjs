@@ -1,11 +1,12 @@
 import {SBBItem} from "./documents/item.mjs";
+import {SBBActor} from "./documents/actor.mjs";
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
-import * as Chat from "./chat/chat.mjs";
+import * as Chat from "./helpers/chat.mjs";
 
 Hooks.once("init", function (){
     console.log("SBB | Loading Stars but Butter");
@@ -13,6 +14,7 @@ Hooks.once("init", function (){
     // Add custom constants for configuration.
     CONFIG.SBB = SBB;
     CONFIG.Item.documentClass = SBBItem;
+    CONFIG.Actor.documentClass = SBBActor;
 
     /**
      * TODO
@@ -52,6 +54,11 @@ Hooks.once("init", function (){
     return preloadHandlebarsTemplates();
 });
 
+Hooks.on("renderChatLog",  (app, html, data) =>{
+    Chat.addChatListeners(html);
+});
+
 Hooks.on("renderChatMessage", (app, html, data) => {
     Chat.highlightSkillCheckResults(app, html, data);
+    Chat.hideChatActionButtons(app,html,data);
 });

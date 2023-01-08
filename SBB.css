@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "origin tech";
+  src: url("assets/fonts/origin_tech/OriginTech personal use.otf");
+}
 .skill-roll .true {
   background: green !important;
 }
@@ -8,16 +12,12 @@
   margin-top: 30px;
 }
 .character {
-  min-width: 720px;
+  min-width: 800px;
+  height: 900px;
 }
 .character .sheet-header {
   display: flex;
   margin-top: 1.5%;
-  border-bottom: var(--color-shadow-primary);
-  border-bottom-style: solid;
-  border-bottom-width: thick;
-  border-radius: 15px;
-  padding-bottom: 5px;
 }
 .character .sheet-header img {
   height: 150px;
@@ -41,39 +41,21 @@
   width: 40%;
   margin-left: 5%;
 }
-.character nav .item.active {
-  text-shadow: 0 0 10px var(--color-shadow-primary);
-}
 .character .main-tabs {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-around;
-  margin-left: 50%;
-  margin-top: -25px;
-  padding-right: 5%;
-  width: 50%;
-}
-.character .main-tabs #cogwhell {
-  border: none;
-  height: 15px;
-}
-.character .main-tabs #cogwhell:hover {
-  box-sizing: border-box;
-  box-shadow: 0px 0px 10px var(--color-shadow-primary);
-  background: var(--color-background-shadow-primary);
-}
-.character .main-tabs .active #cogwhell {
-  box-sizing: border-box;
-  box-shadow: 0px 0px 10px var(--color-shadow-primary);
-  background: var(--color-background-shadow-primary);
+  justify-content: right;
+  margin-top: -35px;
+  padding-right: 10px;
 }
 .character .sheet-main {
   margin-top: 15px;
   display: grid;
   grid: auto / 30% 40% 30%;
-  grid-template-areas: 'tenet HP skill' 'feat attacks skill' 'feat attacks skill';
+  grid-template-areas: 'tenet HP skill' 'feat attacks skill';
   grid-column-gap: 15px;
+  grid-row-gap: 10px;
 }
 .character .attributes {
   grid-area: stats;
@@ -116,12 +98,11 @@
   font-size: 45px;
 }
 .character .health-box {
-  padding: 15px;
   grid-area: HP;
   display: grid;
   grid-template-areas: 'saves saves saves' 'hp armour speed' 'strain strain strain';
   grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-row-gap: 15px;
   text-align: center;
   min-width: 210px;
 }
@@ -141,9 +122,7 @@
   grid-area: hp;
   font-size: 25px;
   text-align: center;
-  border-style: ridge;
-  border-radius: 20px;
-  border-color: var(--color-shadow-primary);
+  margin-left: 10px;
 }
 .character .health-box .hp input {
   width: 2em;
@@ -164,10 +143,7 @@
   grid-area: speed;
   width: 3em;
   font-size: 25px;
-  text-align: center;
-  border-style: ridge;
-  border-radius: 20px;
-  border-color: var(--color-shadow-primary);
+  margin-right: 10px;
 }
 .character .health-box .speed-attribute input {
   width: 2em;
@@ -185,27 +161,41 @@
 .character .health-box .strain-tracker #context-menu {
   font-size: 13px;
 }
-.character .health-box .strain-tracker .crossed {
-  box-sizing: border-box;
-  box-shadow: 0px 0px 10px var(--color-shadow-primary);
-  background: var(--color-background-shadow-primary);
-}
 .character .feat-box {
   display: block;
   grid-area: feat;
   min-width: 30%;
 }
+.character .feat-box .feat-list {
+  padding: 5px;
+}
 .character .tenets-box {
   grid-area: tenet;
+}
+.character .tenets-box .tenet-focus-card {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  font-size: 1.25em;
 }
 .character .tenets-box .tenet-focus-card .crossed {
   text-decoration: line-through;
 }
 .character .skill-box {
   grid-area: skill;
+  margin-right: 11%;
+}
+.character .skill-box nav {
+  text-align: center;
+}
+.character .skill-box nav a {
+  padding-left: 5%;
 }
 .character .attack-and-ammo-box {
   grid-area: attacks;
+}
+.character .attack-and-ammo-box .ammo-box {
+  margin-top: 10px;
 }
 .sheet-content {
   height: 100%;
@@ -244,14 +234,8 @@
 .item-sheet-card {
   display: flex;
   height: 100%;
-  border-style: ridge;
   padding: 5px;
-}
-.item-sheet-card .rollable:hover .item-icon {
-  background-image: url("../../icons/svg/d10-grey.svg") !important;
-}
-.item-sheet-card .rollable .item-icon:hover {
-  filter: invert(100%);
+  margin-top: 5px;
 }
 .item-sheet-card .item-title {
   width: 70%;
@@ -269,6 +253,16 @@
   height: 40px;
   width: 40px;
 }
+.item-sheet-card .item-summary {
+  flex: 0 0 100%;
+}
+.item-sheet-card .item-summary .item-properties .tag {
+  display: inline-block;
+  margin: 0 2px 0 0;
+  padding: 0 3px;
+  font-size: 10px;
+  line-height: 16px;
+}
 .item-sheet-card input::-webkit-outer-spin-button,
 .item-sheet-card input::-webkit-inner-spin-button {
   -webkit-appearance: inner-spin-button !important;
@@ -285,5 +279,112 @@
 }
 .item-sheet-card input :hover {
   background-color: transparent;
+}
+.character .backgroundOverlay {
+  background-image: url("./assets/filmgrainOverlay.png");
+  background-size: 100%;
+  background-repeat: repeat;
+  z-index: 10;
+  width: 100%;
+  height: 97%;
+  position: absolute;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.character .window-content {
+  background-image: url("./assets/background.png");
+  padding: 0px;
+  color: white;
+}
+.character .window-content h1,
+.character .window-content h2 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+  text-align: center;
+}
+.character .window-content h3 {
+  border-bottom: none;
+}
+.character .window-content input {
+  color: white;
+}
+.character .window-content .character-info h1 {
+  text-align: left;
+}
+.character .window-content nav a.active {
+  text-shadow: 0 0 15px #5cdf20;
+}
+.character .window-content .sheet-header {
+  border-bottom: #ff224a;
+  border-bottom-style: solid;
+  border-bottom-width: thick;
+  border-radius: 15px;
+  padding-bottom: 5px;
+}
+.character .window-content .sheet-main .health-box,
+.character .window-content .sheet-main .feat-box,
+.character .window-content .sheet-main .tenets-box,
+.character .window-content .sheet-main .skill-box,
+.character .window-content .sheet-main .attack-box,
+.character .window-content .sheet-main .ammo-box {
+  background-color: rgba(32, 92, 223, 0.6);
+  border-style: solid;
+  border-color: #ff224a;
+}
+.character .window-content .sheet-main .health-box h1,
+.character .window-content .sheet-main .feat-box h1,
+.character .window-content .sheet-main .tenets-box h1,
+.character .window-content .sheet-main .skill-box h1,
+.character .window-content .sheet-main .attack-box h1,
+.character .window-content .sheet-main .ammo-box h1,
+.character .window-content .sheet-main .health-box h2,
+.character .window-content .sheet-main .feat-box h2,
+.character .window-content .sheet-main .tenets-box h2,
+.character .window-content .sheet-main .skill-box h2,
+.character .window-content .sheet-main .attack-box h2,
+.character .window-content .sheet-main .ammo-box h2 {
+  padding: 10px;
+}
+.character .window-content .sheet-main .health-box .add-icon,
+.character .window-content .sheet-main .feat-box .add-icon,
+.character .window-content .sheet-main .tenets-box .add-icon,
+.character .window-content .sheet-main .skill-box .add-icon,
+.character .window-content .sheet-main .attack-box .add-icon,
+.character .window-content .sheet-main .ammo-box .add-icon {
+  text-align: center;
+  border-bottom: solid;
+  border-bottom-color: var(--color-underline-header);
+  font-size: 2em;
+}
+.character .window-content .sheet-main .speed-attribute,
+.character .window-content .sheet-main .hp {
+  border-style: ridge;
+  border-radius: 20px;
+  border-color: #ff224a;
+}
+.character .window-content .sheet-main .skill-header nav {
+  font-size: 2em;
+  font-family: "origin tech";
+  text-transform: uppercase;
+}
+.character .window-content .sheet-main .strain-tracker .crossed {
+  color: gray;
+}
+.character .window-content .sheet-main .item-sheet-card {
+  background-color: #5cdf20;
+}
+.character .window-content .sheet-main .feat-card .card-description {
+  background-color: #5cdf20;
+}
+.item-sheet-card .item-summary .item-properties .tag {
+  border: 1px solid #ff224a;
+  border-radius: 3px;
+  background: #ff224a;
+}
+.item-sheet-card .rollable:hover .item-icon {
+  background-image: url("../../icons/svg/d10-grey.svg") !important;
+}
+.item-sheet-card .rollable .item-icon:hover {
+  filter: drop-shadow(0 0 15px #5cdf20);
 }
 /*# sourceMappingURL=SBB.css.map */

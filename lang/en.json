@@ -15,6 +15,7 @@
       "delete": "Delete",
       "newItem": "New Item",
       "newSkill": "New Skill",
+      "skills": "Skills",
       "tenet": "Tenet",
       "focus": "Focus",
       "add":"Add",
@@ -23,7 +24,11 @@
       "passed": "Success",
       "failed": "Failed",
       "attacks": "Attacks",
-      "ammo": "Ammunition and consumables"
+      "attack": "Attack",
+      "ammo": "Consumables",
+      "range_unit": "RANGE (m)",
+      "harm-counter": "Harm Dice",
+      "prerequisite": "Prerequisite"
 
     },
 
@@ -79,6 +84,7 @@
       "damage": "Damage",
       "damageType": "Damage Type",
       "harmRange": "Harm Range",
+      "harmRange_short": "HR",
       "techLevel": "TL"
     },
 

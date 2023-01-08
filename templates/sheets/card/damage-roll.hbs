@@ -1,0 +1,22 @@
+<div class="dice-roll SBB damage-roll">
+    <div>
+        <h2 class="title">
+            <div class="check-type">{{weaponName}} {{localize "SBB.weaponHeaders.damage"}}</div>
+        </h2>
+    </div>
+    <div class="roll-summary">
+        <h2 class="dice-formula">{{formula}}</h2>
+
+        {{#if harmCounter}}
+            <h2 class="dice-formula action-result">
+                {{harmCounter}} {{localize "SBB.common.harm-counter"}}
+            </h2>
+        {{/if}}
+
+        <h2 class="dice-total action-result">
+            {{roll.total}}
+        </h2>
+
+        {{{tooltip}}}
+    </div>
+</div>

@@ -1,14 +1,17 @@
+import * as Dice from "../helpers/dice.mjs";
+
 export class SBBItem extends Item{
-    chatTempplate = {
-        "Feat" : "systems/sbb/templates/sheets/card/feat.hbs"
+    chatTemplate = {
+        "Feat" : "systems/sbb/templates/sheets/card/feat.hbs",
+        "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs"
         //TODO rest of temps
     }
 
-    iconTempplate = {
+    iconTemplate = {
         "Weapon": "systems/sbb/assets/svg/icons/weapon.svg",
         "Armour": "systems/sbb/assets/svg/icons/armor.svg",
         "Item": "systems/sbb/assets/svg/icons/gear.svg",
-        //"Ammunition": "systems/sbb/assets/svg/icons/gear.svg",
+        "Ammunition": "systems/sbb/assets/svg/icons/crosshair.svg",
         "Feat": "systems/sbb/assets/svg/icons/feat.svg",
         // "Starship Fittings":
         // "Starship Defenses":
@@ -21,17 +24,19 @@ export class SBBItem extends Item{
     async _preCreate(data, options, user) {
         await super._preCreate(data, options, user);
 
-        if(this.type in this.iconTempplate) {
+        if(this.type in this.iconTemplate) {
             this.updateSource({
-                img: this.iconTempplate[this.type]
+                img: this.iconTemplate[this.type]
         })};
     }
 
     async roll(){
-        const item = this;
+        let item = this;
+        item.config = CONFIG.SBB;
+
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-        const content = this.type in this.chatTempplate ?
-            await renderTemplate(this.chatTempplate[item.type], item)
+        const content = this.type in this.chatTemplate ?
+            await renderTemplate(this.chatTemplate[item.type], item)
             : "Roll function not set for this item"
 
         ChatMessage.create({
