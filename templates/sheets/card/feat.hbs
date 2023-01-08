@@ -1,12 +1,13 @@
 <div class="feat-card" data-type="{{_id}}" >
     <div class="card-name">
-        <h3 class="toggle-description">{{name}}</h3>
+        <h3 class="toggle-description">{{name}}
+            {{#if inSheet}}
+                <i class="fas fa-paper-plane-top item-rollable" data-type="{{_id}}"></i>
+            {{/if}}
+        </h3>
     </div>
 
-    {{#if inSheet}}
-        <i class="fas fa-paper-plane-top item-rollable" data-type="{{_id}}"></i>
 
-    {{/if}}
         <div class="card-description hide-on-click {{#if inSheet}}hidden{{/if}}">
 
         <div class="card-prerequisite">

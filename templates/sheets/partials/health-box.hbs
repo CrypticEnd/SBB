@@ -2,9 +2,9 @@
     {{#if (eq actor.type "Character")}}
         <div class="saves">
             <h2>{{localize "SBB.common.saves"}}</h2>
-            <i class="fas fa-hand-fist save-roll" title="{{localize "SBB.Saves.fortitude"}}" data-type="Fortitude"></i>
-            <i class="fas fa-gauge-simple-high save-roll" title="{{localize "SBB.Saves.reflex"}}" data-type="Reflex"></i>
-            <i class="fas fa-galaxy save-roll" title="{{localize "SBB.Saves.will"}}" data-type="Willpower"></i>
+            <i class="fas fa-heart save-roll" title="{{localize "SBB.Saves.fortitude"}}" data-type="Fortitude"></i>
+            <i class="fas fa-person-falling save-roll" title="{{localize "SBB.Saves.reflex"}}" data-type="Reflex"></i>
+            <i class="fas fa-brain save-roll" title="{{localize "SBB.Saves.will"}}" data-type="Willpower"></i>
         </div>
 
         <div class="hp">
@@ -27,7 +27,9 @@
         <div class="strain-tracker">
             <h2>{{localize "SBB.common.strain"}}</h2>
             {{#repeat actor.system.Strain.max}}
-                <i class="strain-marker fas fa-brain {{#if (gte ../actor.system.Strain.value @index)}}crossed{{/if}}" data-type="{{@index}}"></i>
+                <i class="strain-marker fas {{#if (gte ../actor.system.Strain.value @index)}}fa-face-weary crossed
+                {{else}}fa-smile{{/if}}" data-type="{{@index}}"></i>
+
             {{/repeat}}
         </div>
     {{/if}}

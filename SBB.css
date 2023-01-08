@@ -166,6 +166,9 @@
   grid-area: feat;
   min-width: 30%;
 }
+.character .feat-box .feat-list {
+  padding: 5px;
+}
 .character .tenets-box {
   grid-area: tenet;
 }
@@ -353,7 +356,7 @@
   text-transform: uppercase;
 }
 .character .window-content .sheet-main .strain-tracker .crossed {
-  color: #5cdf20;
+  color: gray;
 }
 .item-sheet-card .item-summary .item-properties .tag {
   border: 1px solid #ff224a;
