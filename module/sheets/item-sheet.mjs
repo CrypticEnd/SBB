@@ -9,7 +9,7 @@ export class SBBItemSheet extends  ItemSheet {
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry":
-        "Skill": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
+        "Skill": "systems/sbb/templates/sheets/items/skill-sheet.hbs",
         "Tenet": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
         "Focus": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
     }

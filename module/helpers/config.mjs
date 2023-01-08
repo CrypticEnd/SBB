@@ -60,11 +60,11 @@ SBB.rangeHeaders = {
 }
 
 SBB.skillTypes = {
-    body: "",
-    control: "",
-    intelligence: "",
-    presence: "",
-    technique: "",
+    body: "SBB.attributes.body",
+    control: "SBB.attributes.control",
+    intelligence: "SBB.attributes.intelligence",
+    presence: "SBB.attributes.presence",
+    technique: "SBB.attributes.technique",
 }
 
 SBB.saveTypes = {

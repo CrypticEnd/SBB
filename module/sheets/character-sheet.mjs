@@ -70,14 +70,11 @@ export class SBBCharacterSheet extends ActorSheet{
         data.ammo =  data.items.filter(function (item) {return item.type == "Ammunition"});
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
+        data.skills = {};
 
-        data.skills =  {
-            "Body" : skills.filter(function (item) {return item.system.Attribute=="Body"}),
-            "Control" : skills.filter(function (item) {return item.system.Attribute=="Control"}),
-            "Intelligence" : skills.filter(function (item) {return item.system.Attribute=="Intelligence"}),
-            "Presence" : skills.filter(function (item) {return item.system.Attribute=="Presence"}),
-            "Technique" : skills.filter(function (item) {return item.system.Attribute=="Technique"})
-        };
+        for (const [key,value] of Object.entries(data.config.skillTypes)){
+            data.skills[key] = skills.filter(function (item) {return item.system.Attribute==value});
+        }
 
         return data;
     }

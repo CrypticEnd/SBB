@@ -1,0 +1,19 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <div class="feat-title">
+            <h2><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h2>
+            <select name="system.Attribute">
+                {{#select item.system.Attribute}}
+                    {{#each config.skillTypes as |name type|}}
+                        <option value="{{name}}">{{localize name}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
+
+        </div>
+    </header>
+    <div class="sheet-content">
+        {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+</form>
