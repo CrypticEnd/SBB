@@ -62,8 +62,6 @@ export class SBBCharacterSheet extends ActorSheet{
         const actorData = this.actor.system;
         data.config = CONFIG.SBB;
 
-
-
         // Item filters
         data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
         data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
@@ -107,7 +105,7 @@ export class SBBCharacterSheet extends ActorSheet{
                 name:  game.i18n.localize("SBB.common.clear_strain"),
                 icon:     '<i class="fas fa-edit"></i>',
                 callback: element => {
-                    this.actor.update({"system.Strain.value": 0});
+                    this.actor.update({"system.Strain.value": this.actor.system.Strain.max});
                 }
             }]);
 
@@ -128,10 +126,11 @@ export class SBBCharacterSheet extends ActorSheet{
         event.preventDefault();
         let strainCount = this.actor.system.Strain;
         let index = event.currentTarget.dataset.type;
-        let newValue = index;
+        let newValue = index-1;
+
 
         if(newValue==strainCount.value){
-            newValue =0;
+            newValue = strainCount.max;
         }
 
         this.actor.update({"system.Strain.value" : newValue});

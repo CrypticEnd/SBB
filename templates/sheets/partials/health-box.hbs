@@ -27,7 +27,7 @@
         <div class="strain-tracker">
             <h2>{{localize "SBB.common.strain"}}</h2>
             {{#repeat actor.system.Strain.max}}
-                <i class="strain-marker fas {{#if (gte ../actor.system.Strain.value @index)}}fa-face-weary crossed
+                <i class="strain-marker fas {{#if (lt ../actor.system.Strain.value @index)}}fa-face-weary crossed
                 {{else}}fa-smile{{/if}}" data-type="{{@index}}"></i>
 
             {{/repeat}}
