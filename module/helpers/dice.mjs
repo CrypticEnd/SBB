@@ -156,12 +156,14 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     let actor = game.actors.get(actorID);
     let skill = actor.items.get(skillID);
 
+
+
     if(actor == null || skill == null){
         console.error("Skill roll called with improper values");
         return;
     }
 
-    const linkedAttributeName = skill.system.Attribute;
+    const linkedAttributeName = skill.system.attribute;
 
     // Should never happen, but oh well
     if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
@@ -174,15 +176,15 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     if(contentName === null)
         contentName = skill.name;
 
-    let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
+    let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
 
     let strainMod = 0;
-    if("StrainMod" in actor.flags.sbb){
-        strainMod = actor.flags.sbb.StrainMod;
+    if("strainMod" in actor.flags.sbb){
+        strainMod = actor.flags.sbb.strainMod;
     }
 
     this.skillCheck({
-        skillMod : skill.system.Rank,
+        skillMod : skill.system.rank,
         linkedAttribute : linkedAttributeValue,
         strainMod : strainMod,
         skillName : contentName,

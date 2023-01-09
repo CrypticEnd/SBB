@@ -3,16 +3,16 @@
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
         <div class="skill-title">
             <h2><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h2>
-            <select name="system.Attribute">
-                {{#select item.system.Attribute}}
+            <select name="system.attribute">
+                {{#select item.system.attribute}}
                     {{#each config.skillTypes as |name type|}}
-                        <option value="{{name}}">{{localize name}}</option>
+                        <option value="{{type}}">{{localize name}}</option>
                     {{/each}}
                 {{/select}}
             </select>
 
             <label>{{localize "SBB.skills.rank"}}</label>
-            <input class="skill-rank-input" name="system.Rank" type="number" value="{{item.system.Rank}}"/>
+            <input class="skill-rank-input" name="system.rank" type="number" value="{{item.system.rank}}"/>
         </div>
     </header>
     <div class="sheet-content">

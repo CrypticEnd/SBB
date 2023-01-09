@@ -20,8 +20,7 @@
                 </div>
                 {{#each this}}
                     <div class="skill-item item-rollable" data-type="{{_id}}">
-                        {{name}}
-                        <div class="skill-rank-value" data-type="{{_id}}">+{{this.system.Rank}}</div>
+                        <h3>{{name}} : {{this.system.rank}}</h3>
                     </div>
                 {{/each}}
             </div>

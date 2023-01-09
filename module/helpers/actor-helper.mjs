@@ -26,7 +26,7 @@ export function addItem(event){
     if(itemType == "Skill"){
         itemData =  Object.assign({
             system: {
-                Attribute: event.currentTarget.dataset.category
+                attribute: event.currentTarget.dataset.category
             }}, itemData);
         }
 

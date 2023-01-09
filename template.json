@@ -13,8 +13,12 @@
           "value": 1,
           "max": 1
         },
-        "Armor": 0,
-        "Description": ""
+        "armor": {
+          "kinetic": 0,
+          "energy": 0,
+          "explosive": 0
+        },
+        "description": ""
       },
 
       "purchasable": {
@@ -30,27 +34,26 @@
     "Character": {
       "templates": ["base"],
       "attributes": {
-        "Body": 4,
-        "Control": 4,
-        "Intelligence": 4,
-        "Presence": 4,
-        "Technique": 4,
-        "Move": 4,
-        "Fortitude": 4,
-        "Reflex": 4,
-        "Willpower": 4
+        "body": 4,
+        "control": 4,
+        "intelligence": 4,
+        "presence": 4,
+        "technique": 4,
+        "move": 4,
+        "fortitude": 4,
+        "reflex": 4,
+        "willpower": 4
       },
-      "Strain": {
+      "strain": {
         "max":0,
         "value": 0
       },
       "modifiers": {
         "HP": 0,
-        "Strain": 0,
-        "Initiative": 0
+        "strain": 0,
+        "initiative": 0
       },
-      "XP": 0,
-      "Armor": 0
+      "XP": 0
 
     },
 
@@ -92,7 +95,7 @@
     ],
     "templates": {
       "base": {
-        "Description": ""
+        "description": ""
       },
 
       "carried": {
@@ -152,13 +155,13 @@
 
     "Skill": {
       "templates": ["base"],
-      "Rank": 0,
-      "Attribute": ""
+      "rank": 0,
+      "attribute": ""
     },
 
     "Tenet": {
       "templates": ["base"],
-      "Used": false
+      "used": false
     },
 
     "Focus": {

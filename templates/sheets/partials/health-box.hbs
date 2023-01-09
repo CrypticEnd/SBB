@@ -20,14 +20,14 @@
         </div>
 
         <div class="speed-attribute">
-            <input class="attributes-input" name="system.attributes.Move" type="number" value="{{actor.system.attributes.Move}}"/>
+            <input class="attributes-input" name="system.attributes.move" type="number" value="{{actor.system.attributes.move}}"/>
             <h3>{{localize "SBB.attributes.move"}}</h3>
         </div>
 
         <div class="strain-tracker">
             <h2>{{localize "SBB.common.strain"}}</h2>
-            {{#repeat actor.system.Strain.max}}
-                <i class="strain-marker fas {{#if (lt ../actor.system.Strain.value @index)}}fa-face-weary crossed
+            {{#repeat actor.system.strain.max}}
+                <i class="strain-marker fas {{#if (lt ../actor.system.strain.value @index)}}fa-face-weary crossed
                 {{else}}fa-smile{{/if}}" data-type="{{@index}}"></i>
 
             {{/repeat}}
