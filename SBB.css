@@ -210,6 +210,9 @@
 .sheet-content .editor {
   height: 100%;
 }
+.skill-rank-input {
+  width: 40% !important;
+}
 .SBB.sheet.item .form {
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-        <div class="feat-title">
+        <div class="skill-title">
             <h2><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h2>
             <select name="system.Attribute">
                 {{#select item.system.Attribute}}
@@ -11,6 +11,8 @@
                 {{/select}}
             </select>
 
+            <label>{{localize "SBB.skills.rank"}}</label>
+            <input class="skill-rank-input" name="system.Rank" type="number" value="{{item.system.Rank}}"/>
         </div>
     </header>
     <div class="sheet-content">
