@@ -59,7 +59,6 @@ export class SBBCharacterSheet extends ActorSheet{
 
     getData() {
         const data = super.getData();
-        const actorData = this.actor.system;
         data.config = CONFIG.SBB;
 
         // Item filters
@@ -164,7 +163,8 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _toggleLastFamily(event){
         event.preventDefault();
-        let greatParentNode = event.currentTarget.parentNode.parentNode;
+
+        let greatParentNode = event.currentTarget.parentNode.parentNode.parentNode;
         let toggleHideNode = greatParentNode.getElementsByClassName("hide-on-click");
 
         if(toggleHideNode.length === 1){
