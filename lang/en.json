@@ -32,7 +32,7 @@
 
     },
 
-    "sills": {
+    "skills": {
       "body_short": "B",
       "body_long": "Body",
       "control_short": "C",
@@ -44,7 +44,8 @@
       "technique_short": "T",
       "technique_long": "Technique",
       "add_rank": "Add Rank",
-      "sub_rank": "Subtract Rank"
+      "sub_rank": "Subtract Rank",
+      "rank": "Rank"
     },
 
     "attributes": {

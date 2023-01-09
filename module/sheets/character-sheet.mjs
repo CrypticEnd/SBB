@@ -39,7 +39,7 @@ export class SBBCharacterSheet extends ActorSheet{
     _skillContextMenu=
         [
             {
-        name: game.i18n.localize("SBB.sills.add_rank"),
+        name: game.i18n.localize("SBB.skills.add_rank"),
         icon: '<i class="fas fa-plus"></i>',
         callback: element => {
             const itemID = element[0].dataset.type;
@@ -47,7 +47,7 @@ export class SBBCharacterSheet extends ActorSheet{
             const newRank = Helper.checkSkillRank(item.system.Rank+1)
             item.update({"system.Rank": newRank})
         }},{
-        name: game.i18n.localize("SBB.sills.sub_rank"),
+        name: game.i18n.localize("SBB.skills.sub_rank"),
         icon: '<i class="fas fa-plus"></i>',
         callback: element => {
             const itemID = element[0].dataset.type;
