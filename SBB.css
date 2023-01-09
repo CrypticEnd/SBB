@@ -50,9 +50,8 @@
   padding-right: 10px;
 }
 .character .add-icon {
-  text-align: right;
-  margin-right: 5px;
-  margin-top: 5px;
+  margin-left: auto;
+  width: 10%;
 }
 .character .sheet-main {
   margin-top: 15px;
@@ -162,6 +161,7 @@
 .character .health-box .strain-tracker {
   grid-area: strain;
   font-size: 15px;
+  padding-bottom: 15px;
 }
 .character .health-box .strain-tracker #context-menu {
   font-size: 13px;
@@ -171,15 +171,16 @@
   grid-area: feat;
   min-width: 30%;
 }
-.character .feat-box .feat-list {
-  padding: 5px;
+.character .feat-box .feat-list h3 {
+  padding-left: 10px;
+}
+.character .feat-box .feat-card {
+  margin-bottom: 10px;
 }
 .character .tenets-box {
   grid-area: tenet;
 }
 .character .tenets-box .tenet-focus-card {
-  padding-top: 5px;
-  padding-bottom: 5px;
   padding-left: 10px;
   font-size: 1.25em;
 }
@@ -192,9 +193,14 @@
 }
 .character .skill-box nav {
   text-align: center;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 .character .skill-box nav a {
   padding-left: 5%;
+}
+.character .skill-box h3 {
+  padding-left: 10px;
 }
 .character .attack-and-ammo-box {
   grid-area: attacks;

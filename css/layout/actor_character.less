@@ -47,9 +47,8 @@
   }
 
   .add-icon{
-    text-align: right;
-    margin-right: 5px;
-    margin-top: 5px;
+    margin-left: auto;
+    width: 10%;
   }
 
   .sheet-main{
@@ -58,8 +57,7 @@
     grid: auto / 30% 40% 30%;
     grid-template-areas:
       'tenet HP skill'
-      'feat attacks skill'
-  ;
+      'feat attacks skill';
     grid-column-gap: 15px;
     grid-row-gap: 10px;
   }
@@ -184,6 +182,7 @@
     .strain-tracker{
       grid-area: strain;
       font-size: 15px;
+      padding-bottom: 15px;
 
       #context-menu{
         font-size: 13px;
@@ -197,8 +196,12 @@
     grid-area: feat;
     min-width: 30%;
 
-    .feat-list{
-      padding: 5px;
+    .feat-list h3{
+      padding-left: 10px;
+    }
+
+    .feat-card{
+      margin-bottom: 10px;
     }
   }
 
@@ -210,8 +213,6 @@
         text-decoration: line-through;
       }
 
-      padding-top: 5px;
-      padding-bottom: 5px;
       padding-left: 10px;
       font-size: 1.25em;
     }
@@ -223,9 +224,15 @@
 
     nav{
       text-align: center;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
       a {
         padding-left: 5%;
       }
+    }
+
+    h3{
+      padding-left: 10px;
     }
   }
 
