@@ -18,11 +18,13 @@
                 <div class="add-icon">
                     <i class="fa fa-circle-plus add-item-button" data-type="Skill" data-category="{{@key}}"></i>
                 </div>
-                {{#each this}}
-                    <h3>
-                        <a class="skill-item item-rollable" data-type="{{_id}}">{{name}} : {{this.system.rank}}</a>
-                    </h3>
-                {{/each}}
+                <div class="skill-list">
+                    {{#each this}}
+                        <h3>
+                            <a class="skill-item item-rollable" data-type="{{_id}}">{{name}} : {{this.system.rank}}</a>
+                        </h3>
+                    {{/each}}
+                </div>
             </div>
         {{/each}}
     </section>

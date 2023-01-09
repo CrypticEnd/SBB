@@ -1,6 +1,71 @@
-.character{
+.character {
   min-width: 800px;
   height: 900px;
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    grid-column-gap: 5%;
+    padding: 5%;
+
+
+    .title-name{
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+    .biomonitor {
+      text-align: center;
+
+      h1{
+        padding-top: 3%;
+      }
+
+      img {
+        padding: 5%;
+      }
+    }
+    .personal-files{
+      margin-top: 5%;
+      text-align: center;
+
+      nav{
+        padding-bottom: 15px;
+      }
+
+      a{
+        display: inline-block;
+        width: 100px;
+        padding: 20px;
+        margin-top: 10px;
+      }
+    }
+
+
+    .add-icon{
+      text-align: right;
+      margin-right: 5px;
+      margin-top: -49px;
+    }
+
+
+    .skill-box{
+      text-align: center;
+
+      nav{
+        a{
+          padding: 5px;
+        }
+      }
+
+      .skill-list{
+        margin-top: 49px;
+      }
+
+    }
+  }
+
+}
 
   .sheet-header{
     display: flex;
@@ -37,19 +102,14 @@
     }
   }
 
-  .main-tabs{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: right;
-    margin-top: -35px;
-    padding-right: 10px;
-  }
-
-  .add-icon{
-    margin-left: auto;
-    width: 10%;
-  }
+  //.main-tabs{
+  //  display: flex;
+  //  flex-direction: row;
+  //  flex-wrap: nowrap;
+  //  justify-content: right;
+  //  margin-top: -35px;
+  //  padding-right: 10px;
+  //}
 
   .sheet-main{
     margin-top: 15px;
@@ -111,85 +171,6 @@
 
   }}
 
-  .health-box{
-    grid-area: HP;
-    display: grid;
-    grid-template-areas:
-      'saves saves saves'
-      'hp armour speed'
-      'strain strain strain';
-    grid-column-gap: 5px;
-    grid-row-gap: 15px;
-    text-align: center;
-    min-width: 210px;
-
-    .saves{
-      grid-area: saves;
-      width: 100%;
-      text-align: center;
-      padding-bottom: 5px;
-
-      i{
-        font-size: 2em;
-        padding-left: 5%;
-        padding-right: 5%;
-      }
-    }
-
-    .hp{
-      width: 3em;
-      grid-area: hp;
-      font-size: 25px;
-      text-align: center;
-      margin-left: 10px;
-
-      input{
-        width: 2em;
-        background-color: transparent;
-        border: none;
-      }
-      #health-input{
-        border-bottom-style: solid;
-      }
-      p{
-        font-size: 15px;
-      }
-
-    }
-
-    .armour {
-      grid-area: armour;
-    }
-
-    .speed-attribute{
-      margin-left: auto;
-      grid-area: speed;
-      width: 3em;
-      font-size: 25px;
-      margin-right: 10px;
-
-      input{
-        width: 2em;
-        font-size: 25px;
-        background-color: transparent;
-        border: none;
-      }
-      p{
-        font-size: 15px;
-      }
-    }
-
-    .strain-tracker{
-      grid-area: strain;
-      font-size: 15px;
-      padding-bottom: 15px;
-
-      #context-menu{
-        font-size: 13px;
-      }
-
-    }
-  }
 
   .feat-box{
     display: block;
@@ -218,24 +199,6 @@
     }
   }
 
-  .skill-box{
-    grid-area: skill;
-    margin-right: 11%;
-
-    nav{
-      text-align: center;
-      padding-bottom: 5px;
-      margin-bottom: 5px;
-      a {
-        padding-left: 5%;
-      }
-    }
-
-    h3{
-      padding-left: 10px;
-    }
-  }
-
   .attack-and-ammo-box{
     grid-area: attacks;
 
@@ -243,4 +206,3 @@
       margin-top: 10px;
     }
   }
-}

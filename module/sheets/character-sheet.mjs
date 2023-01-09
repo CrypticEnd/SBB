@@ -9,7 +9,7 @@ export class SBBCharacterSheet extends ActorSheet{
             template: "systems/sbb/templates/sheets/actors/Character-sheet.hbs",
             width: 600,
             height: 800,
-            tabs: [{navSelector: ".main-tabs", contentSelector: ".sheet-body", initial: "main"},
+            tabs: [{navSelector: ".main-tabs", contentSelector: ".nav-context-box", initial: "personal"},
                 {navSelector: ".tenet-focus-tabs", contentSelector: ".tenet-content", initial: "tenet"},
                 {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
             ],

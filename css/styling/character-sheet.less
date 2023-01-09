@@ -1,4 +1,29 @@
 .character{
+
+  .window-content {
+    background-color: @backgroundColor;
+    background-image: none;
+    color: @secondaryColor;
+
+    input{
+      color: @secondaryColor;
+    }
+
+    h1, h2 {
+      font-family: "origin tech";
+      text-transform: uppercase;
+      text-align: center;
+      border-bottom-color: @secondaryColor;
+    }
+
+    nav{
+      a{
+        border-style: ridge;
+        border-color: @secondaryColor;
+      }
+    }
+  }
+
   .backgroundOverlay{
     background-image: url("./assets/filmgrainOverlay.png");
     background-size: 100%;
@@ -11,95 +36,19 @@
     pointer-events: none;
   }
 
+  .main-content{
+    padding: 5%;
 
-  .window-content {
-    background-image: url("./assets/background.png");
-    padding: 0px;
-    color: @fontColor;
-
-
-    h1, h2 {
-      font-family: "origin tech";
-      text-transform: uppercase;
-      text-align: center;
+    .biomonitor, .personal-files, .nav-context-box{
+      background-color: @primaryColor;
+      border-style: solid;
+      border-color: @accentColor;
     }
 
-    h3{
-      border-bottom: none;
-    }
-
-    input{
-      color: white;
-    }
-
-    .character-info h1{
-      text-align: left;
-    }
-
-    nav{
-      a.active{
-        text-shadow: 0 0 15px @secondaryColor;
-      }
-    }
-
-    .sheet-header{
-      border-bottom: @accentColor;
-      border-bottom-style: solid;
-      border-bottom-width: thick;
-      border-radius: 15px;
-      padding-bottom: 5px;
-    }
-
-    .sheet-main {
-      .health-box, .feat-box, .tenets-box, .skill-box, .attack-box, .ammo-box {
-        background-color: @primaryColor;
-        border-style: solid;
-        border-color: @accentColor;
-
-      h1,h2{
-        padding: 10px;
-      }
-
-        .add-icon{
-          font-size: 1.2em;
-          color: @addButtonCol;
-        }
-      }
-
-      .speed-attribute, .hp{
-        border-style: ridge;
-        border-radius: 20px;
-        border-color: @accentColor;
-      }
-
-      .skill-header{
-        nav{
-          font-size: 2em;
-          font-family: "origin tech";
-          text-transform: uppercase;
-          border-bottom-color: var(--color-underline-header);
-          border-bottom-style: solid;
-        }
-      }
-
-      .strain-tracker{
-        .crossed{
-          //box-sizing: border-box;
-          //box-shadow: 0px 0px 10px var(--color-shadow-primary);
-          //background: var(--color-background-shadow-primary);
-          color: @strainCol;
-        }
-      }
-
-      .item-sheet-card{
-        background-color: @secondaryColor;
-      }
-
-      .feat-card .card-description{
-        background-color: @secondaryColor;
-      }
+    .biomonitor{
 
 
     }
+
   }
 }

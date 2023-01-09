@@ -1,60 +1,70 @@
 <form class="{{cssClass}}" autocomplete="off">
     <img class="backgroundOverlay">
 
-    <div class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <section class="main-content">
 
-        <div class="character-info">
-            <h1><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/></h1>
+        <div class="flexcol left-alined-content">
+            <h1 class="title-name">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/>
+            </h1>
 
-            <div class="xpbar">
-                <label for="system.XP">{{localize "SBB.common.xp_long"}}:</label>
-                <input class="xp-input" name="system.XP" type="number" value="{{actor.system.XP}}"/>
+            <div class="biomonitor flexrow">
+                <div class="biomonitor-header">
+                    <h1>{{localize "SBB.common.biomonitor"}}</h1>
+                    <img src="systems/sbb/assets/bodyscan.jpg">
+
+                    <!--TODO make this dynamic-->
+                    Status : Healthy
+                    <br>
+                    {{localize "SBB.common.speed"}} : {{actor.system.attributes.move}}
+                </div>
+                {{> systems/sbb/templates/sheets/partials/status-box.hbs}}
             </div>
+
+            <div class="personal-files">
+                <h1>{{localize "SBB.tabNames.personalfiles"}}</h1>
+                <nav class="sheet-navigation main-tabs" data-group="primary">
+                    {{#each config.pcNavbar}}
+                        <a class="item" data-tab="{{@key}}">{{localize this}}</a>
+                    {{/each}}
+                </nav>
+            </div>
+
         </div>
 
-    </div>
+        <div class="nav-context-box">
+            <div class="tab" data-group="primary" data-tab="personal">
+                1
+            </div>
 
-    <nav class="sheet-navigation main-tabs" data-group="primary">
-        <h1>
-            <a class="item" data-tab="main">Main</a> |
-            <a class="item" data-tab="bag">Bag</a> |
-            <a class="item" data-tab="bio">Bio</a> |
-            <a class="item"  data-tab="data">
-                <i class="fa fa-gear"></i>
-            </a>
-        </h1>
-    </nav>
-
-    <section class="sheet-body">
-        <div class="tab" data-group="primary" data-tab="main">
-            <div class="sheet-main">
-                {{> "systems/sbb/templates/sheets/partials/tenets-box.hbs"}}
-                {{> "systems/sbb/templates/sheets/partials/health-box.hbs" this}}
-                {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
+            <div class="tab" data-group="primary" data-tab="skills">
                 {{> "systems/sbb/templates/sheets/partials/skill-box.hbs"}}
-                {{> "systems/sbb/templates/sheets/partials/attackAndAmmo-box.hbs"}}
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="bag">
-            <div class="sheet-bag">
-            test bag
+            <div class="tab" data-group="primary" data-tab="features">
+3
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="bio">
-            <div class="sheet-bio">
-            test bio
+            <div class="tab" data-group="primary" data-tab="equipment">
+4
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="data">
-            <div class="sheet-data">
-                {{> "systems/sbb/templates/sheets/partials/character-attributes.hbs"}}
-
+            <div class="tab" data-group="primary" data-tab="implants">
+5
             </div>
-        </div>
 
+            <div class="tab" data-group="primary" data-tab="injuries">
+6
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="attributes">
+7
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="notes">
+8
+            </div>
+
+        </div>
     </section>
 </form>

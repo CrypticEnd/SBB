@@ -15,45 +15,79 @@
   min-width: 800px;
   height: 900px;
 }
-.character .sheet-header {
+.character .main-content {
+  display: grid;
+  grid-template-columns: 60% 35%;
+  grid-column-gap: 5%;
+  padding: 5%;
+}
+.character .main-content .title-name {
+  text-align: center;
+  font-size: 2.5em;
+}
+.character .main-content .biomonitor {
+  text-align: center;
+}
+.character .main-content .biomonitor h1 {
+  padding-top: 3%;
+}
+.character .main-content .biomonitor img {
+  padding: 5%;
+}
+.character .main-content .personal-files {
+  margin-top: 5%;
+  text-align: center;
+}
+.character .main-content .personal-files nav {
+  padding-bottom: 15px;
+}
+.character .main-content .personal-files a {
+  display: inline-block;
+  width: 100px;
+  padding: 20px;
+  margin-top: 10px;
+}
+.character .main-content .add-icon {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -49px;
+}
+.character .main-content .skill-box {
+  text-align: center;
+}
+.character .main-content .skill-box nav a {
+  padding: 5px;
+}
+.character .main-content .skill-box .skill-list {
+  margin-top: 49px;
+}
+.sheet-header {
   display: flex;
   margin-top: 1.5%;
 }
-.character .sheet-header img {
+.sheet-header img {
   height: 150px;
   width: 100px;
   margin-right: 2.5%;
 }
-.character .sheet-header .character-info {
+.sheet-header .character-info {
   display: block;
   width: 96%;
 }
-.character .sheet-header .character-info h1 input {
+.sheet-header .character-info h1 input {
   height: 58px;
 }
-.character .sheet-header .character-info .xpbar {
+.sheet-header .character-info .xpbar {
   display: flex;
 }
-.character .sheet-header .character-info .xpbar label {
+.sheet-header .character-info .xpbar label {
   margin-top: 3px;
 }
-.character .sheet-header .character-info .xpbar input {
+.sheet-header .character-info .xpbar input {
   width: 40%;
   margin-left: 5%;
 }
-.character .main-tabs {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: right;
-  margin-top: -35px;
-  padding-right: 10px;
-}
-.character .add-icon {
-  margin-left: auto;
-  width: 10%;
-}
-.character .sheet-main {
+.sheet-main {
   margin-top: 15px;
   display: grid;
   grid: auto / 30% 40% 30%;
@@ -61,35 +95,35 @@
   grid-column-gap: 15px;
   grid-row-gap: 10px;
 }
-.character .attributes {
+.attributes {
   grid-area: stats;
   display: grid;
   grid-template-columns: 80px 80px;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
-.character .attributes input {
+.attributes input {
   border-style: none;
   overflow: visible;
   height: auto;
   background: none;
   color: #0d0d0d;
 }
-.character .attributes .attribute-box {
+.attributes .attribute-box {
   width: 80px;
   height: 80px;
   overflow: hidden;
   background-color: var(--color-background-item);
   border-style: ridge;
 }
-.character .attributes .attribute-box .attribute-title {
+.attributes .attribute-box .attribute-title {
   text-align: center;
   position: relative;
   width: auto;
   height: auto;
   font-size: 18px;
 }
-.character .attributes .attribute-box .attribute-value {
+.attributes .attribute-box .attribute-value {
   width: 90%;
   height: 100%;
   margin: 0 auto;
@@ -101,111 +135,31 @@
   background-position-y: 2px;
   font-size: 45px;
 }
-.character .health-box {
-  grid-area: HP;
-  display: grid;
-  grid-template-areas: 'saves saves saves' 'hp armour speed' 'strain strain strain';
-  grid-column-gap: 5px;
-  grid-row-gap: 15px;
-  text-align: center;
-  min-width: 210px;
-}
-.character .health-box .saves {
-  grid-area: saves;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 5px;
-}
-.character .health-box .saves i {
-  font-size: 2em;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-.character .health-box .hp {
-  width: 3em;
-  grid-area: hp;
-  font-size: 25px;
-  text-align: center;
-  margin-left: 10px;
-}
-.character .health-box .hp input {
-  width: 2em;
-  background-color: transparent;
-  border: none;
-}
-.character .health-box .hp #health-input {
-  border-bottom-style: solid;
-}
-.character .health-box .hp p {
-  font-size: 15px;
-}
-.character .health-box .armour {
-  grid-area: armour;
-}
-.character .health-box .speed-attribute {
-  margin-left: auto;
-  grid-area: speed;
-  width: 3em;
-  font-size: 25px;
-  margin-right: 10px;
-}
-.character .health-box .speed-attribute input {
-  width: 2em;
-  font-size: 25px;
-  background-color: transparent;
-  border: none;
-}
-.character .health-box .speed-attribute p {
-  font-size: 15px;
-}
-.character .health-box .strain-tracker {
-  grid-area: strain;
-  font-size: 15px;
-  padding-bottom: 15px;
-}
-.character .health-box .strain-tracker #context-menu {
-  font-size: 13px;
-}
-.character .feat-box {
+.feat-box {
   display: block;
   grid-area: feat;
   min-width: 30%;
 }
-.character .feat-box .feat-list h3 {
+.feat-box .feat-list h3 {
   padding-left: 10px;
 }
-.character .feat-box .feat-card {
+.feat-box .feat-card {
   margin-bottom: 10px;
 }
-.character .tenets-box {
+.tenets-box {
   grid-area: tenet;
 }
-.character .tenets-box .tenet-focus-card {
+.tenets-box .tenet-focus-card {
   padding-left: 10px;
   font-size: 1.25em;
 }
-.character .tenets-box .tenet-focus-card .crossed {
+.tenets-box .tenet-focus-card .crossed {
   text-decoration: line-through;
 }
-.character .skill-box {
-  grid-area: skill;
-  margin-right: 11%;
-}
-.character .skill-box nav {
-  text-align: center;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-}
-.character .skill-box nav a {
-  padding-left: 5%;
-}
-.character .skill-box h3 {
-  padding-left: 10px;
-}
-.character .attack-and-ammo-box {
+.attack-and-ammo-box {
   grid-area: attacks;
 }
-.character .attack-and-ammo-box .ammo-box {
+.attack-and-ammo-box .ammo-box {
   margin-top: 10px;
 }
 .sheet-content {
@@ -294,6 +248,25 @@
 .item-sheet-card input :hover {
   background-color: transparent;
 }
+.character .window-content {
+  background-color: black;
+  background-image: none;
+  color: #5cdf20;
+}
+.character .window-content input {
+  color: #5cdf20;
+}
+.character .window-content h1,
+.character .window-content h2 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom-color: #5cdf20;
+}
+.character .window-content nav a {
+  border-style: ridge;
+  border-color: #5cdf20;
+}
 .character .backgroundOverlay {
   background-image: url("./assets/filmgrainOverlay.png");
   background-size: 100%;
@@ -305,95 +278,20 @@
   opacity: 0.3;
   pointer-events: none;
 }
-.character .window-content {
-  background-image: url("./assets/background.png");
-  padding: 0px;
-  color: white;
+.character .main-content {
+  padding: 5%;
 }
-.character .window-content h1,
-.character .window-content h2 {
-  font-family: "origin tech";
-  text-transform: uppercase;
-  text-align: center;
-}
-.character .window-content h3 {
-  border-bottom: none;
-}
-.character .window-content input {
-  color: white;
-}
-.character .window-content .character-info h1 {
-  text-align: left;
-}
-.character .window-content nav a.active {
-  text-shadow: 0 0 15px #5cdf20;
-}
-.character .window-content .sheet-header {
-  border-bottom: #ff224a;
-  border-bottom-style: solid;
-  border-bottom-width: thick;
-  border-radius: 15px;
-  padding-bottom: 5px;
-}
-.character .window-content .sheet-main .health-box,
-.character .window-content .sheet-main .feat-box,
-.character .window-content .sheet-main .tenets-box,
-.character .window-content .sheet-main .skill-box,
-.character .window-content .sheet-main .attack-box,
-.character .window-content .sheet-main .ammo-box {
-  background-color: rgba(32, 92, 223, 0.6);
+.character .main-content .biomonitor,
+.character .main-content .personal-files,
+.character .main-content .nav-context-box {
+  background-color: black;
   border-style: solid;
-  border-color: #ff224a;
-}
-.character .window-content .sheet-main .health-box h1,
-.character .window-content .sheet-main .feat-box h1,
-.character .window-content .sheet-main .tenets-box h1,
-.character .window-content .sheet-main .skill-box h1,
-.character .window-content .sheet-main .attack-box h1,
-.character .window-content .sheet-main .ammo-box h1,
-.character .window-content .sheet-main .health-box h2,
-.character .window-content .sheet-main .feat-box h2,
-.character .window-content .sheet-main .tenets-box h2,
-.character .window-content .sheet-main .skill-box h2,
-.character .window-content .sheet-main .attack-box h2,
-.character .window-content .sheet-main .ammo-box h2 {
-  padding: 10px;
-}
-.character .window-content .sheet-main .health-box .add-icon,
-.character .window-content .sheet-main .feat-box .add-icon,
-.character .window-content .sheet-main .tenets-box .add-icon,
-.character .window-content .sheet-main .skill-box .add-icon,
-.character .window-content .sheet-main .attack-box .add-icon,
-.character .window-content .sheet-main .ammo-box .add-icon {
-  font-size: 1.2em;
-  color: #5cdf20;
-}
-.character .window-content .sheet-main .speed-attribute,
-.character .window-content .sheet-main .hp {
-  border-style: ridge;
-  border-radius: 20px;
-  border-color: #ff224a;
-}
-.character .window-content .sheet-main .skill-header nav {
-  font-size: 2em;
-  font-family: "origin tech";
-  text-transform: uppercase;
-  border-bottom-color: var(--color-underline-header);
-  border-bottom-style: solid;
-}
-.character .window-content .sheet-main .strain-tracker .crossed {
-  color: gray;
-}
-.character .window-content .sheet-main .item-sheet-card {
-  background-color: #5cdf20;
-}
-.character .window-content .sheet-main .feat-card .card-description {
-  background-color: #5cdf20;
+  border-color: #32a956;
 }
 .item-sheet-card .item-summary .item-properties .tag {
-  border: 1px solid #ff224a;
+  border: 1px solid #32a956;
   border-radius: 3px;
-  background: #ff224a;
+  background: #32a956;
 }
 .item-sheet-card .rollable:hover .item-icon {
   background-image: url("../../icons/svg/d10-grey.svg") !important;

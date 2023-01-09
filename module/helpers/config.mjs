@@ -77,5 +77,15 @@ SBB.common = {
     skillCheck: "SBB.common.skillCheck",
     skillPass: "SBB.common.passed",
     skillFail: "SBB.common.failed"
+}
 
+SBB.pcNavbar = {
+    personal:   "SBB.tabNames.personal",
+    skills:     "SBB.tabNames.skills",
+    features:   "SBB.tabNames.features",
+    equipment:  "SBB.tabNames.equipment",
+    implants:    "SBB.tabNames.implants",
+    injuries:   "SBB.tabNames.injuries",
+    attributes: "SBB.tabNames.attributes",
+    notes:      "SBB.tabNames.notes"
 }
