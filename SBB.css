@@ -52,6 +52,10 @@
   padding: 20px;
   margin-top: 10px;
 }
+.character .main-content .nav-context-box {
+  height: 830px;
+  overflow: scroll;
+}
 .character .main-content .add-icon {
   text-align: right;
   margin-right: 5px;
