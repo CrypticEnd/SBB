@@ -1,5 +1,4 @@
 <div class="status-box flexcol">
-    {{#if (eq actor.type "Character")}}
         <div class="hp">
             <h1>{{localize "SBB.common.health"}}</h1>
             <input class="health-input" name="system.HP.value" value="{{actor.system.HP.value}}" type="number" title="{{localize "SBB.common.health"}}"/>
@@ -53,7 +52,4 @@
             <i class="fas fa-person-falling save-roll" title="{{localize "SBB.saves.reflex"}}" data-type="Reflex"></i>
             <i class="fas fa-brain save-roll" title="{{localize "SBB.saves.will"}}" data-type="Willpower"></i>
         </div>
-    {{/if}}
-
-
 </div>

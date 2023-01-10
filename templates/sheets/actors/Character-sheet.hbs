@@ -14,9 +14,24 @@
                     <img src="systems/sbb/assets/bodyscan.jpg">
 
                     <!--TODO make this dynamic-->
-                    Status : Healthy
-                    <br>
-                    {{localize "SBB.common.speed"}} : {{actor.system.attributes.move}}
+                    <table>
+                        <tr>
+                            <td>Status</td>
+                            <td>Healthy</td>
+                        </tr>
+                        <tr>
+                            <td>{{localize "SBB.common.speed"}}</td>
+                            <td>{{actor.system.attributes.move}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tenet</td>
+                            <td>Active</td>
+                        </tr>
+                        <tr>
+                            <td>Focus</td>
+                            <td>Active</td>
+                        </tr>
+                    </table>
                 </div>
                 {{> systems/sbb/templates/sheets/partials/status-box.hbs}}
             </div>
@@ -42,11 +57,11 @@
             </div>
 
             <div class="tab" data-group="primary" data-tab="features">
-3
+                {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
             </div>
 
             <div class="tab" data-group="primary" data-tab="equipment">
-4
+                {{> "systems/sbb/templates/sheets/partials/equipmant.hbs"}}
             </div>
 
             <div class="tab" data-group="primary" data-tab="implants">

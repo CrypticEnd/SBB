@@ -12,12 +12,12 @@
   margin-top: 30px;
 }
 .character {
-  min-width: 800px;
-  height: 900px;
+  min-width: 855px;
+  min-height: 920px;
 }
 .character .main-content {
   display: grid;
-  grid-template-columns: 60% 35%;
+  grid-template-columns: 420px auto;
   grid-column-gap: 5%;
   padding: 5%;
 }
@@ -50,117 +50,39 @@
 .character .main-content .add-icon {
   text-align: right;
   margin-right: 5px;
-  margin-top: -49px;
 }
 .character .main-content .skill-box {
   text-align: center;
 }
-.character .main-content .skill-box nav a {
-  padding: 5px;
+.character .main-content .skill-box .skill-header nav {
+  margin-top: 10px;
+}
+.character .main-content .skill-box .skill-header nav a {
+  padding: 10px;
+  margin-left: 2%;
+}
+.character .main-content .skill-box .add-icon {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -55px;
 }
 .character .main-content .skill-box .skill-list {
-  margin-top: 49px;
+  margin-top: 55px;
 }
-.sheet-header {
-  display: flex;
-  margin-top: 1.5%;
+.character .main-content .feat-box .add-icon {
+  margin-top: -35px;
 }
-.sheet-header img {
-  height: 150px;
-  width: 100px;
-  margin-right: 2.5%;
+.character .main-content .feat-box .feat-list {
+  margin-top: 35px;
 }
-.sheet-header .character-info {
-  display: block;
-  width: 96%;
-}
-.sheet-header .character-info h1 input {
-  height: 58px;
-}
-.sheet-header .character-info .xpbar {
-  display: flex;
-}
-.sheet-header .character-info .xpbar label {
-  margin-top: 3px;
-}
-.sheet-header .character-info .xpbar input {
-  width: 40%;
-  margin-left: 5%;
-}
-.sheet-main {
-  margin-top: 15px;
-  display: grid;
-  grid: auto / 30% 40% 30%;
-  grid-template-areas: 'tenet HP skill' 'feat attacks skill';
-  grid-column-gap: 15px;
-  grid-row-gap: 10px;
-}
-.attributes {
-  grid-area: stats;
-  display: grid;
-  grid-template-columns: 80px 80px;
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
-}
-.attributes input {
-  border-style: none;
-  overflow: visible;
-  height: auto;
-  background: none;
-  color: #0d0d0d;
-}
-.attributes .attribute-box {
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
-  background-color: var(--color-background-item);
-  border-style: ridge;
-}
-.attributes .attribute-box .attribute-title {
-  text-align: center;
-  position: relative;
-  width: auto;
-  height: auto;
-  font-size: 18px;
-}
-.attributes .attribute-box .attribute-value {
-  width: 90%;
-  height: 100%;
-  margin: 0 auto;
-  text-align: center;
-  background-image: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position-x: 5px;
-  background-position-y: 2px;
-  font-size: 45px;
-}
-.feat-box {
-  display: block;
-  grid-area: feat;
-  min-width: 30%;
-}
-.feat-box .feat-list h3 {
+.character .main-content .feat-box .feat-list h3,
+.character .main-content .feat-box .feat-list .card-description {
   padding-left: 10px;
 }
-.feat-box .feat-card {
-  margin-bottom: 10px;
-}
-.tenets-box {
-  grid-area: tenet;
-}
-.tenets-box .tenet-focus-card {
-  padding-left: 10px;
-  font-size: 1.25em;
-}
-.tenets-box .tenet-focus-card .crossed {
-  text-decoration: line-through;
-}
-.attack-and-ammo-box {
-  grid-area: attacks;
-}
-.attack-and-ammo-box .ammo-box {
-  margin-top: 10px;
+.character .main-content .equipment-box li,
+.character .main-content .equipment-box ol {
+  margin-left: 0px;
+  padding-left: 0px;
 }
 .sheet-content {
   height: 100%;
@@ -199,57 +121,57 @@
   font-size: 12px;
   border: none;
 }
-.item-sheet-card {
+.equipment-list .weapon-header,
+.equipment-list .consumables-header {
+  align-items: center;
+  text-align: center;
+  border: 1px groove #32a956;
+  font-size: 1.25em;
+}
+.equipment-list .item-detail {
+  flex: 0 0 60px;
+}
+.equipment-list .add-icon,
+.equipment-list .item-detail-space {
+  flex: 0 0 0px;
+  width: 20px;
+  height: 20px;
+}
+.item-list .item {
+  align-items: center;
+  text-align: center;
   display: flex;
   height: 100%;
   padding: 5px;
   margin-top: 5px;
+  border: 1px ridge #32a956;
 }
-.item-sheet-card .item-title {
+.item-list .item .item-title {
   width: 70%;
   display: flex;
 }
-.item-sheet-card .item-title h3 {
-  padding: 5px;
-  text-decoration: none;
-  border: none;
-}
-.item-sheet-card .item-title .item-icon {
+.item-list .item .item-title .item-icon {
   display: block;
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
-.item-sheet-card .item-summary {
+.item-list .item .item-title h4 {
+  padding-left: 5px;
+}
+.item-list .item .item-summary {
   flex: 0 0 100%;
 }
-.item-sheet-card .item-summary .item-properties .tag {
+.item-list .item .item-summary .item-properties .tag {
   display: inline-block;
   margin: 0 2px 0 0;
   padding: 0 3px;
   font-size: 10px;
   line-height: 16px;
 }
-.item-sheet-card input::-webkit-outer-spin-button,
-.item-sheet-card input::-webkit-inner-spin-button {
-  -webkit-appearance: inner-spin-button !important;
-  height: 30px;
-  width: 16px;
-}
-.item-sheet-card input[type=number] {
-  -moz-appearance: spinner !important;
-}
-.item-sheet-card input {
-  display: inline-block;
-  width: 3em;
-  height: 100%;
-}
-.item-sheet-card input :hover {
-  background-color: transparent;
-}
 .character .window-content {
-  background-color: black;
+  background-color: #000000;
   background-image: none;
   color: #5cdf20;
 }
@@ -261,6 +183,10 @@
   font-family: "origin tech";
   text-transform: uppercase;
   text-align: center;
+  border-bottom-color: #5cdf20;
+  padding: 5px;
+}
+.character .window-content h3 {
   border-bottom-color: #5cdf20;
 }
 .character .window-content nav a {
@@ -284,19 +210,38 @@
 .character .main-content .biomonitor,
 .character .main-content .personal-files,
 .character .main-content .nav-context-box {
-  background-color: black;
+  background-color: #000000;
   border-style: solid;
   border-color: #32a956;
+  z-index: 4;
 }
-.item-sheet-card .item-summary .item-properties .tag {
+.character .main-content .biomonitor .biomonitor-header {
+  padding-bottom: 5px;
+}
+.character .main-content .biomonitor .biomonitor-header table {
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.25em;
+}
+.character .main-content .biomonitor .biomonitor-header table tr:nth-child(even) {
+  background-color: transparent;
+}
+.character .main-content .biomonitor .status-box {
+  border-left-color: #5cdf20;
+  border-left-style: solid;
+}
+.character .main-content .biomonitor .status-box table {
+  border: none;
+}
+.item .item-summary .item-properties .tag {
   border: 1px solid #32a956;
   border-radius: 3px;
-  background: #32a956;
+  background: #000000;
 }
-.item-sheet-card .rollable:hover .item-icon {
+.item .rollable:hover .item-icon {
   background-image: url("../../icons/svg/d10-grey.svg") !important;
 }
-.item-sheet-card .rollable .item-icon:hover {
+.item .rollable .item-icon:hover {
   filter: drop-shadow(0 0 15px #5cdf20);
 }
 /*# sourceMappingURL=SBB.css.map */

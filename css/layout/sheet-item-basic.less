@@ -1,29 +1,49 @@
-.item-sheet-card{
+.equipment-list{
+  .weapon-header, .consumables-header{
+    align-items: center;
+    text-align: center;
+    border: 1px groove @borderColor;
+    font-size: 1.25em;
+  }
+
+  .item-detail{
+    flex: 0 0 60px;
+  }
+
+  .add-icon, .item-detail-space{
+    flex: 0 0 0px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.item-list{
+.item{
+  align-items: center;
+  text-align: center;
   display: flex;
   height:100%;
   padding: 5px;
   margin-top: 5px;
+  border: 1px ridge @borderColor;
 
 
   .item-title{
     width: 70%;
     display: flex;
 
-    h3{
-      padding: 5px;
-      text-decoration: none;
-      border: none;
-    }
-
     .item-icon{
       display: block;
       background-size: 100%;
       background-repeat: no-repeat;
-      height: 40px;
-      width: 40px;
+      height: 30px;
+      width: 30px;
     }
 
-
+    h4{
+      padding-left: 5px;
+    }
   }
 
   .item-summary{
@@ -37,25 +57,4 @@
       line-height: 16px;
     }
   }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: inner-spin-button !important;
-      height: 30px;
-      width: 16px;
-  }
-
-    input[type=number] {
-      -moz-appearance: spinner !important;
-    }
-
-  input {
-    display: inline-block;
-    width: 3em;
-    height: 100%;
-
-    :hover{
-      background-color: transparent;
-    }
-  }
-}
+}}

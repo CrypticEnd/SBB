@@ -89,3 +89,14 @@ SBB.pcNavbar = {
     attributes: "SBB.tabNames.attributes",
     notes:      "SBB.tabNames.notes"
 }
+
+SBB.equipmentList ={
+    weapons:{
+        ammo: "SBB.equipmentList.weapons.ammo",
+        ammoMax: "SBB.equipmentList.weapons.ammoMax"
+    },
+    consumables:{
+        quantity: "SBB.equipmentList.consumables.quantity",
+        weight: "SBB.equipmentList.consumables.weight",
+    }
+}

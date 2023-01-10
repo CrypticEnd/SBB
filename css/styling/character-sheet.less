@@ -3,23 +3,28 @@
   .window-content {
     background-color: @backgroundColor;
     background-image: none;
-    color: @secondaryColor;
+    color: @fontColor;
 
     input{
-      color: @secondaryColor;
+      color: @fontColor;
     }
 
     h1, h2 {
       font-family: "origin tech";
       text-transform: uppercase;
       text-align: center;
-      border-bottom-color: @secondaryColor;
+      border-bottom-color: @headerlineColor;
+      padding: 5px;
+    }
+
+    h3{
+      border-bottom-color: @headerlineColor;
     }
 
     nav{
       a{
         border-style: ridge;
-        border-color: @secondaryColor;
+        border-color: @headerlineColor;
       }
     }
   }
@@ -42,13 +47,35 @@
     .biomonitor, .personal-files, .nav-context-box{
       background-color: @primaryColor;
       border-style: solid;
-      border-color: @accentColor;
+      border-color: @borderColor;
+      z-index: 4;
     }
 
     .biomonitor{
+      .biomonitor-header{
+        padding-bottom: 5px;
 
+        table {
+          border: none;
+          text-transform: uppercase;
+          font-size: 1.25em;
+        }
+        table tr:nth-child(even){
+          background-color: transparent;
+        }
+      }
 
+      .status-box{
+        border-left-color: @headerlineColor;
+        border-left-style: solid;
+
+        table{
+          border:none;
+        }
+      }
     }
+
+
 
   }
 }

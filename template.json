@@ -139,7 +139,7 @@
 
     "Ammunition": {
       "templates": ["base", "carried"],
-      "Quantity": 0
+      "quantity": 0
     },
 
     "Feat": {

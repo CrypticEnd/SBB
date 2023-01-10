@@ -66,7 +66,7 @@ export class SBBCharacterSheet extends ActorSheet{
         data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
         data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
         data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
-        data.ammo =  data.items.filter(function (item) {return item.type == "Ammunition"});
+        data.consumables =  data.items.filter(function (item) {return item.type == "Ammunition"});
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
         data.skills = {};
@@ -97,6 +97,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(Helper.updateItem.bind(this));
+            html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -112,7 +113,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
-            new ContextMenu(html, ".item-sheet-card", this._itemContextMenu)
+            new ContextMenu(html, ".item", this._itemContextMenu)
             new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
 
         }

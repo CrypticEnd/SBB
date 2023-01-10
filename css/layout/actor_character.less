@@ -1,10 +1,10 @@
 .character {
-  min-width: 800px;
-  height: 900px;
+  min-width: 855px;
+  min-height: 920px;
 
   .main-content {
     display: grid;
-    grid-template-columns: 60% 35%;
+    grid-template-columns: 420px auto;
     grid-column-gap: 5%;
     padding: 5%;
 
@@ -41,168 +41,57 @@
       }
     }
 
-
     .add-icon{
       text-align: right;
       margin-right: 5px;
-      margin-top: -49px;
     }
-
 
     .skill-box{
       text-align: center;
 
-      nav{
-        a{
-          padding: 5px;
+      .skill-header {
+        nav {
+          margin-top: 10px;
+
+          a {
+            padding: 10px;
+            margin-left: 2%;
+          }
         }
+      }
+
+      .add-icon{
+        text-align: right;
+        margin-right: 5px;
+        margin-top: -55px;
       }
 
       .skill-list{
-        margin-top: 49px;
+        margin-top: 55px;
+      }
+    }
+
+    .feat-box{
+      .add-icon{
+          margin-top: -35px;
       }
 
-    }
-  }
+      .feat-list{
+        margin-top: 35px;
 
+        h3, .card-description {
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .equipment-box{
+      li, ol{
+        margin-left: 0px;
+        padding-left: 0px;
+      }
+      }
+
+
+  }
 }
-
-  .sheet-header{
-    display: flex;
-    margin-top: 1.5%;
-
-    img{
-      height: 150px;
-      width: 100px;
-      margin-right: 2.5%;
-    }
-
-    .character-info{
-      display: block;
-      width: 96%;
-
-      h1{
-        input{
-          height: 58px;
-        }
-      }
-
-      .xpbar{
-        display: flex;
-
-        label{
-          margin-top: 3px;
-        }
-        input {
-          width: 40%;
-          margin-left: 5%;
-        }
-      }
-
-    }
-  }
-
-  //.main-tabs{
-  //  display: flex;
-  //  flex-direction: row;
-  //  flex-wrap: nowrap;
-  //  justify-content: right;
-  //  margin-top: -35px;
-  //  padding-right: 10px;
-  //}
-
-  .sheet-main{
-    margin-top: 15px;
-    display: grid;
-    grid: auto / 30% 40% 30%;
-    grid-template-areas:
-      'tenet HP skill'
-      'feat attacks skill';
-    grid-column-gap: 15px;
-    grid-row-gap: 10px;
-  }
-
-  .attributes{
-    grid-area: stats;
-    display: grid;
-    grid-template-columns: 80px 80px;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-
-    input{
-      border-style: none;
-      overflow: visible;
-      height: auto;
-      background: none;
-      color: #0d0d0d;
-    }
-
-  .attribute-box{
-    width: 80px;
-    height: 80px;
-    overflow: hidden;
-    background-color: var(--color-background-item);
-
-    border-style: ridge;
-
-    .attribute-title{
-      text-align: center;
-      position: relative;
-      width: auto;
-      height: auto;
-      font-size: 18px;
-    }
-
-    .attribute-value{
-      width: 90%;
-      height: 100%;
-      margin: 0 auto;
-      text-align: center;
-
-      background-image:
-              url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
-      background-size: 80%;
-      background-repeat: no-repeat;
-      background-position-x: 5px;
-      background-position-y: 2px;
-
-      font-size: 45px;
-    }
-
-  }}
-
-
-  .feat-box{
-    display: block;
-    grid-area: feat;
-    min-width: 30%;
-
-    .feat-list h3{
-      padding-left: 10px;
-    }
-
-    .feat-card{
-      margin-bottom: 10px;
-    }
-  }
-
-  .tenets-box{
-    grid-area: tenet;
-
-    .tenet-focus-card{
-      .crossed{
-        text-decoration: line-through;
-      }
-
-      padding-left: 10px;
-      font-size: 1.25em;
-    }
-  }
-
-  .attack-and-ammo-box{
-    grid-area: attacks;
-
-    .ammo-box{
-      margin-top: 10px;
-    }
-  }

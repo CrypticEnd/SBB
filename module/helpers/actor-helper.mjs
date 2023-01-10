@@ -33,6 +33,14 @@ export function addItem(event){
     Item.create(itemData, {parent: this.actor});
 }
 
+export function editItem(event){
+    event.preventDefault();
+    const itemID = event.currentTarget.dataset.type;
+    const item = (this.actor.items.get(itemID));
+
+    item.sheet.render(true);
+}
+
 export function itemRoll(event){
     event.preventDefault();
     const itemID = event.currentTarget.dataset.type;

@@ -122,6 +122,19 @@
       "injuries": "Injuries",
       "attributes": "Attributes",
       "notes": "Notes"
+    },
+
+    "equipmentList": {
+      "weapons": {
+        "title": "Weapons",
+        "ammo": "Ammo",
+        "ammoMax": "Max"
+      },
+      "consumables": {
+        "title": "Consumables",
+        "quantity": "Quantity",
+        "weight": "Weight"
+      }
     }
   }
 }

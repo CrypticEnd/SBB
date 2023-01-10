@@ -54,6 +54,10 @@ Hooks.once("init", function (){
         return result;
     });
 
+    Handlebars.registerHelper("multiply", function (item1, item2, content){
+        return item1 * item2;
+    });
+
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
 });

@@ -1,0 +1,46 @@
+<div class="equipment-box">
+    <div class="equipment-header">
+        <h1>{{localize "SBB.tabNames.equipment"}}</h1>
+    </div>
+
+    <ol class="equipment-list">
+
+        <!-- Weapon list  -->
+        <li class="weapon-header flexrow">
+            <div class="item-header">{{localize "SBB.equipmentList.weapons.title"}}</div>
+            {{#each config.equipmentList.weapons}}
+                <div class="item-detail">{{localize this}}</div>
+
+            {{/each}}
+            <div class="add-icon">
+                <i class="fa fa-circle-plus add-item-button" data-type="Weapon"></i>
+            </div>
+        </li>
+
+        <ol class="item-list">
+            {{#each attacks}}
+                {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
+            {{/each}}
+        </ol>
+
+        <!-- Consumables list  -->
+        <li class="consumables-header flexrow">
+            <div class="item-header">{{localize "SBB.equipmentList.consumables.title"}}</div>
+            {{#each config.equipmentList.consumables}}
+                <div class="item-detail">{{localize this}}</div>
+            {{/each}}
+            <div class="add-icon">
+                <i class="fa fa-circle-plus add-item-button" data-type="Ammunition"></i>
+            </div>
+        </li>
+
+        <ol class="item-list">
+            {{#each consumables}}
+                {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
+            {{/each}}
+        </ol>
+
+
+
+    </ol>
+</div>
