@@ -29,13 +29,25 @@
                                 <input name="system.resolve" type="number" value="{{actor.system.resolve}}">
                             </td>
                         </tr>
-                        <tr>
-                            <td>Tenet</td>
-                            <td>Active</td>
+                        <tr class="toggle-tenet">
+                            <td>{{localize "SBB.common.tenet"}}</td>
+                            <td>
+                                {{#if actor.system.usingTenet}}
+                                    {{localize "SBB.common.active"}}
+                                {{else}}
+                                    {{localize "SBB.common.inactive"}}
+                                {{/if}}
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Focus</td>
-                            <td>Active</td>
+                        <tr class="toggle-focus">
+                            <td>{{localize "SBB.common.focus"}}</td>
+                            <td>
+                                {{#if actor.system.usingFocus}}
+                                    {{localize "SBB.common.active"}}
+                                {{else}}
+                                    {{localize "SBB.common.inactive"}}
+                                {{/if}}
+                            </td>
                         </tr>
                     </table>
                 </div>

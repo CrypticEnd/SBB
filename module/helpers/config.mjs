@@ -17,7 +17,10 @@ SBB.settings= {
     attributesRanks: {
         max: 10,
         min: 1
-    }
+    },
+
+    focusBonus: 2,
+    tenetBonus: 10
 }
 
 SBB.weaponSkills = {

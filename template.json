@@ -64,7 +64,9 @@
           "explosive": 0,
           "techlevel": 0
         }
-      }
+      },
+      "usingTenet": false,
+      "usingFocus": false
 
     },
 

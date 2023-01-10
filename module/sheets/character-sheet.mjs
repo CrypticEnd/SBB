@@ -99,6 +99,8 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(Helper.updateItem.bind(this));
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
+            html.find(".toggle-tenet").click(this._toggleTenet.bind(this));
+            html.find(".toggle-focus").click(this._toggleFocus.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -146,6 +148,18 @@ export class SBBCharacterSheet extends ActorSheet{
         }
 
         return counter;
+    }
+
+    _toggleTenet(){
+        let actor = this.actor;
+        let current = actor.system.usingTenet;
+        actor.update({"system.usingTenet" : !current})
+    }
+
+    _toggleFocus(){
+        let actor = this.actor;
+        let current = actor.system.usingFocus;
+        actor.update({"system.usingFocus" : !current})
     }
 
     _onStrainChange(event){

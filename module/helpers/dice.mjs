@@ -35,8 +35,9 @@ export async function skillCheck({
     let totalMod = skillMod + otherBonus-strainMod;
 
     if (useTenet) {
-        rollFormula = rollFormula + "+10";
-        fakeFormula = "1d10L" + linkedAttribute + "+10";
+        let tenetBonus = CONFIG.SBB.settings.tenetBonus;
+        rollFormula = rollFormula + "+" + tenetBonus;
+        fakeFormula = "1d10L" + linkedAttribute + "+" + tenetBonus;
     }
     else {
         rollFormula = rollFormula + "+" + rollFormula;
@@ -52,9 +53,6 @@ export async function skillCheck({
     let rollData = {
         limit:     linkedAttribute,
         mod:       totalMod
-    }
-    let messageData = {
-        speaker: ChatMessage.getSpeaker()
     }
 
     let roll = new Roll(rollFormula, rollData);
@@ -123,7 +121,6 @@ export async function rollWeaponDamage(weapon){
 
     let harmCounter = await countHarmDie(rollresult, weapon.system.harmRange);
 
-    //TODO if cant do critical though chat can do it here
     RollToCustomMessage(rollresult, defualtDamageTemplate, {
         weaponName: weapon.name,
         formula: weapon.system.formula,
@@ -178,6 +175,13 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
 
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
 
+    let useTenet = actor.system.usingTenet;
+    let otherbonus = 0;
+
+    if(actor.system.usingFocus){
+        otherbonus = CONFIG.SBB.settings.focusBonus;
+    }
+
     let strainMod = 0;
     if("strainMod" in actor.flags.sbb){
         strainMod = actor.flags.sbb.strainMod;
@@ -188,7 +192,8 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
         linkedAttribute : linkedAttributeValue,
         strainMod : strainMod,
         skillName : contentName,
-        //TODO setup Tenet
+        useTenet : useTenet,
+        otherBonus : otherbonus
     })
 }
 

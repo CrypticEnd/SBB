@@ -39,7 +39,9 @@
       "body": "Body",
       "initiative": "Initiative",
       "modifiers": "modifiers",
-      "resolve": "Resolve"
+      "resolve": "Resolve",
+      "active": "Active",
+      "inactive": "Inactive"
     },
 
     "skills": {
