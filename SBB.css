@@ -34,6 +34,11 @@
 .character .main-content .biomonitor img {
   padding: 5%;
 }
+.character .main-content .biomonitor .strain-icons {
+  font-size: 1.2em;
+  width: 80%;
+  margin: 0 auto;
+}
 .character .main-content .personal-files {
   margin-top: 5%;
   text-align: center;
@@ -232,6 +237,10 @@
 }
 .character .main-content .biomonitor .status-box table {
   border: none;
+}
+.character .main-content .biomonitor .status-box .saves i {
+  font-size: 2em;
+  padding-left: 15px;
 }
 .item .item-summary .item-properties .tag {
   border: 1px solid #32a956;

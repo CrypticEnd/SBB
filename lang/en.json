@@ -34,7 +34,9 @@
       "energy_short": "En",
       "explosive_short": "Ex",
       "biomonitor": "Biomonitor",
-      "speed": "Speed"
+      "speed": "Speed",
+      "head": "Head",
+      "body": "Body"
 
     },
 
