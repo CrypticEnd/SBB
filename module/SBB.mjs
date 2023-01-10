@@ -67,6 +67,5 @@ Hooks.on("renderChatLog",  (app, html, data) =>{
 });
 
 Hooks.on("renderChatMessage", (app, html, data) => {
-    Chat.highlightSkillCheckResults(app, html, data);
     Chat.hideChatActionButtons(app,html,data);
 });
