@@ -3,8 +3,8 @@ import * as Dice from "../helpers/dice.mjs";
 export class SBBItem extends Item{
     chatTemplate = {
         "Feat" : "systems/sbb/templates/sheets/card/feat.hbs",
-        "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs"
-        //TODO rest of temps
+        "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs",
+        "default" : "systems/sbb/templates/sheets/card/default.hbs"
     }
 
     iconTemplate = {
@@ -37,7 +37,7 @@ export class SBBItem extends Item{
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });
         const content = this.type in this.chatTemplate ?
             await renderTemplate(this.chatTemplate[item.type], item)
-            : "Roll function not set for this item"
+            : await renderTemplate(this.chatTemplate["default"], item)
 
         ChatMessage.create({
             user: game.user._id,
