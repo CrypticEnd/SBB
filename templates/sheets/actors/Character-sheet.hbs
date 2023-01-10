@@ -25,27 +25,27 @@
                         </tr>
                         <tr>
                             <td>{{localize "SBB.common.resolve"}}</td>
-                            <td>
-                                <input name="system.resolve" type="number" value="{{actor.system.resolve}}">
+                            <td {{#if (eq actor.system.resolve 0)}} class="inactive"{{/if}}>
+                                <input class="resolve-input" name="system.resolve" type="number" value="{{actor.system.resolve}}">
                             </td>
                         </tr>
                         <tr class="toggle-tenet">
                             <td>{{localize "SBB.common.tenet"}}</td>
-                            <td>
+                            <td
                                 {{#if actor.system.usingTenet}}
-                                    {{localize "SBB.common.active"}}
+                                    >{{localize "SBB.common.active"}}
                                 {{else}}
-                                    {{localize "SBB.common.inactive"}}
+                                    class="inactive">{{localize "SBB.common.inactive"}}
                                 {{/if}}
                             </td>
                         </tr>
                         <tr class="toggle-focus">
                             <td>{{localize "SBB.common.focus"}}</td>
-                            <td>
+                            <td
                                 {{#if actor.system.usingFocus}}
-                                    {{localize "SBB.common.active"}}
+                                    >{{localize "SBB.common.active"}}
                                 {{else}}
-                                    {{localize "SBB.common.inactive"}}
+                                    class="inactive">{{localize "SBB.common.inactive"}}
                                 {{/if}}
                             </td>
                         </tr>

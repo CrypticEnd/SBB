@@ -95,6 +95,7 @@ export class SBBCharacterSheet extends ActorSheet{
                 this, CONFIG.SBB.settings.attributesRanks.min, CONFIG.SBB.settings.attributesRanks.max));
             html.find(".xp-input").change(Helper.forceRoundDown.bind(this));
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
+            html.find(".resolve-input").change(Helper.checkvalBetween.bind(this, 0, 10));
             html.find(".strain-marker").click(this._onStrainChange.bind(this));
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(Helper.updateItem.bind(this));

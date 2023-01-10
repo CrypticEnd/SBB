@@ -245,6 +245,12 @@
 .character .main-content .biomonitor .biomonitor-header table tr:nth-child(even) {
   background-color: transparent;
 }
+.character .main-content .biomonitor .biomonitor-header .inactive {
+  color: red;
+}
+.character .main-content .biomonitor .biomonitor-header .inactive input {
+  color: red;
+}
 .character .main-content .biomonitor .status-box {
   border-left-color: #5cdf20;
   border-left-style: solid;

@@ -6,13 +6,14 @@ export class SBBCombatant extends Combatant{
 
         if(actorType == "Character"){
             let strainMod = 0;
-            if("StrainMod" in this.actor.flags.sbb){
-                strainMod = this.actor.flags.sbb.StrainMod;
+            if("strainMod" in this.actor.flags.sbb){
+                strainMod = this.actor.flags.sbb.strainMod;
             }
+            console.log(this.actor);
 
-            formula = "min(1d10, @attributes.Reflex)+min(1d10, @attributes.Reflex) " +
-            "+ @attributes.Reflex/10" + // a .value to help with Ties
-            "@modifiers.Initiative - " + strainMod;
+            formula = "min(1d10, @attributes.reflex)+min(1d10, @attributes.reflex) " +
+            "+ @attributes.reflex/10" + // a .value to help with Ties
+            "@modifiers.initiative - " + strainMod;
         }
 
         return formula;

@@ -18,16 +18,8 @@ Hooks.once("init", function (){
     CONFIG.Actor.documentClass = SBBActor;
     CONFIG.Combatant.documentClass = SBBCombatant;
 
-    /**
-     * TODO
-     * Set an initiative formula for the system
-     * @type {String}
-     */
     CONFIG.Combat.initiative = {
-        formula: "min(1d10, @attributes.Reflex)+min(1d10, @attributes.Reflex) " +
-                     "+ @attributes.Reflex/10" + // a .value to help with Ties
-                    "- @modifiers.Strain + @modifiers.Initiative",
-        decimals: 1
+        decimals: 2
     };
 
 
