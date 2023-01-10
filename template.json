@@ -50,6 +50,7 @@
         "initiative": 0
       },
       "XP": 0,
+      "resolve": 0,
       "armour": {
         "head": {
           "kinetic": 0,

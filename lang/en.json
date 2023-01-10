@@ -36,8 +36,10 @@
       "biomonitor": "Biomonitor",
       "speed": "Speed",
       "head": "Head",
-      "body": "Body"
-
+      "body": "Body",
+      "initiative": "Initiative",
+      "modifiers": "modifiers",
+      "resolve": "Resolve"
     },
 
     "skills": {

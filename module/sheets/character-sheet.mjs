@@ -76,6 +76,7 @@ export class SBBCharacterSheet extends ActorSheet{
         }
 
         this.actor.setFlag('sbb', 'strainMod', this._workOutStrain());
+        this.actor.setFlag('sbb', 'attributeCount', this._countAttributes())
 
         return data;
     }
@@ -135,6 +136,16 @@ export class SBBCharacterSheet extends ActorSheet{
             return 0;
 
         return Math.floor(strainOverflow* config.strainPenaltyMod);
+    }
+
+    _countAttributes(){
+        let counter = 0;
+
+        for(const [key,value] of Object.entries(this.actor.system.attributes)){
+            counter += value;
+        }
+
+        return counter;
     }
 
     _onStrainChange(event){

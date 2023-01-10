@@ -11,8 +11,10 @@ export class SBBActor extends Actor{
         const config = CONFIG.SBB;
 
         // Update deprived data values
-        systemData.HP.max = systemData.attributes.fortitude * config.settings.hpFortMod;
-        systemData.strain.max =config.settings.strainBase + systemData.attributes.willpower * config.settings.strainBufferWillMod;
+        systemData.HP.max =config.settings.hpBase +
+            systemData.attributes.fortitude * config.settings.hpFortMod;
+        systemData.strain.max =config.settings.strainBase +
+            systemData.attributes.willpower * config.settings.strainBufferWillMod;
 
         // check if HP needs to be changed
         if(systemData.HP.value > systemData.HP.max)

@@ -3,6 +3,7 @@ export const SBB = {};
 // System defaults
 SBB.settings= {
     hpFortMod:     5,
+    hpBase: 5,
     strainBase: 8,
     strainBufferWillMod: 1,
     // if 1 it will give a -1 per strain

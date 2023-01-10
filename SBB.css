@@ -19,7 +19,7 @@
   display: grid;
   grid-template-columns: 420px auto;
   grid-column-gap: 5%;
-  padding: 5%;
+  padding: 2%;
 }
 .character .main-content .title-name {
   text-align: center;
@@ -27,6 +27,11 @@
 }
 .character .main-content .biomonitor {
   text-align: center;
+  margin-top: -5px;
+}
+.character .main-content .biomonitor .biomonitor-header input {
+  border: none;
+  width: 25%;
 }
 .character .main-content .biomonitor h1 {
   padding-top: 3%;
@@ -53,7 +58,7 @@
   margin-top: 10px;
 }
 .character .main-content .nav-context-box {
-  height: 830px;
+  height: 840px;
   overflow: scroll;
 }
 .character .main-content .add-icon {
@@ -92,6 +97,9 @@
 .character .main-content .equipment-box ol {
   margin-left: 0px;
   padding-left: 0px;
+}
+.character .main-content .attributes {
+  text-align: center;
 }
 .sheet-content {
   height: 100%;
@@ -231,6 +239,8 @@
   border: none;
   text-transform: uppercase;
   font-size: 1.25em;
+  padding-left: 5px;
+  margin-top: -10px;
 }
 .character .main-content .biomonitor .biomonitor-header table tr:nth-child(even) {
   background-color: transparent;
