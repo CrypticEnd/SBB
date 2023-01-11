@@ -231,10 +231,7 @@ export class SBBCharacterSheet extends ActorSheet{
         const bodySlot = armourSlot == "SBB.armour.body";
         const armourList =  actor.items.filter(function (item) {
             return item.type == "Armour" && item.system.type == armourSlot});
-
-        console.log(bodySlot);
-        console.log(armourList);
-
+        
         // Damage defense types
         let KnD = 0;
         let EnD = 0;
