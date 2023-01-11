@@ -16,7 +16,27 @@
 
     {{/if}}
 
-    {{#if (eq type "Ammunition")}}
+    {{#if (eq type "Consumable")}}
+        <input class="inline-edit item-detail" type="number"
+               data-field="system.quantity" value="{{this.system.quantity}}"
+               min="0"/>
+
+        <div class="item-detail">{{#multiply system.weight system.quantity}}{{/multiply}}</div>
+    {{/if}}
+
+    {{#if (eq type "Armour")}}
+        <div data-type="{{this._id}}" class="item-detail armour-equipped-button
+            {{#if system.equipped}}
+                ">{{localize "SBB.common.true"}}
+            {{else}}
+                inactive">{{localize "SBB.common.false"}}
+            {{/if}}
+        </div>
+
+        <div class="item-detail">{{system.weight}}</div>
+    {{/if}}
+
+    {{#if (eq type "Item")}}
         <input class="inline-edit item-detail" type="number"
                data-field="system.quantity" value="{{this.system.quantity}}"
                min="0"/>

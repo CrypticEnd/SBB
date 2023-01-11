@@ -152,7 +152,8 @@
       "kinetic": 0,
       "energy": 0,
       "explosive": 0,
-      "techLevel": 0
+      "techLevel": 0,
+      "equipped": false
     },
 
     "Item": {

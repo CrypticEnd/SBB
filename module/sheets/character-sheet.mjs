@@ -104,6 +104,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
             html.find(".toggle-tenet").click(this._toggleTenet.bind(this));
             html.find(".toggle-focus").click(this._toggleFocus.bind(this));
+            html.find(".armour-equipped-button").click(this._armourEquipped.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -171,7 +172,6 @@ export class SBBCharacterSheet extends ActorSheet{
         let index = event.currentTarget.dataset.type;
         let newValue = index-1;
 
-
         if(newValue==strainCount.value){
             newValue++;
         }
@@ -220,5 +220,53 @@ export class SBBCharacterSheet extends ActorSheet{
             linkedAttribute : linkedAttribute,
             skillName: saveTypes[saveType.toLowerCase()]
         });
+    }
+
+    _armourEquipped(event){
+        event.preventDefault();
+        const actor = this.actor;
+        const itemID = event.currentTarget.dataset.type;
+        const item = actor.items.get(itemID);
+        const armourSlot = item.system.type;
+        const bodySlot = armourSlot == "SBB.armour.body";
+        const armourList =  actor.items.filter(function (item) {
+            return item.type == "Armour" && item.system.type == armourSlot});
+
+        console.log(bodySlot);
+        console.log(armourList);
+
+        // Damage defense types
+        let KnD = 0;
+        let EnD = 0;
+        let ExD = 0;
+        let TlD = 0;
+
+        if(!item.system.equipped){
+            // Serch though all other armor of type and dequipped it
+            Object.keys(armourList).forEach(key =>{
+                if(armourList[key].system.equipped)
+                    armourList[key].update({"system.equipped" : false});
+            });
+
+            KnD = item.system.kinetic;
+            EnD = item.system.energy;
+            ExD = item.system.explosive;
+            TlD = item.system.techLevel;
+        }
+
+        item.update({"system.equipped" : !item.system.equipped});
+
+        if(bodySlot){
+            actor.update({"system.armour.body.kinetic": KnD})
+            actor.update({"system.armour.body.energy": EnD})
+            actor.update({"system.armour.body.explosive": ExD})
+            actor.update({"system.armour.body.techlevel": TlD})
+        }
+        else {
+            actor.update({"system.armour.head.kinetic": KnD})
+            actor.update({"system.armour.head.energy": EnD})
+            actor.update({"system.armour.head.explosive": ExD})
+            actor.update({"system.armour.head.techlevel": TlD})
+        }
     }
 }

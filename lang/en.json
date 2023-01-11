@@ -41,7 +41,9 @@
       "modifiers": "modifiers",
       "resolve": "Resolve",
       "active": "Active",
-      "inactive": "Inactive"
+      "inactive": "Inactive",
+      "true": "True",
+      "false": "False"
     },
 
     "skills": {
@@ -149,11 +151,15 @@
         "quantity": "Quantity",
         "weight": "Weight"
       },
-      "armor": {
-        "title": "Armour"
+      "armour": {
+        "title": "Armour",
+        "equipped": "Equipped",
+        "weight": "Weight"
       },
       "item": {
-        "title": "Items"
+        "title": "Items",
+        "quantity": "Quantity",
+        "weight": "Weight"
       }
     }
   }

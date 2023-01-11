@@ -118,10 +118,12 @@ SBB.equipmentList ={
         quantity: "SBB.equipmentList.consumables.quantity",
         weight: "SBB.equipmentList.consumables.weight",
     },
-    armor:{
-
+    armour:{
+        equipped: "SBB.equipmentList.armour.equipped",
+        weight: "SBB.equipmentList.armour.weight"
     },
     item:{
-
+        quantity: "SBB.equipmentList.item.quantity",
+        weight: "SBB.equipmentList.item.weight"
     }
 }

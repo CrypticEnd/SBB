@@ -187,6 +187,12 @@
   font-size: 10px;
   line-height: 16px;
 }
+.item-list .item .armour-equipped-button {
+  text-transform: uppercase;
+}
+.item-list .item .inactive {
+  color: red;
+}
 .character .window-content {
   background-color: #000000;
   background-image: none;
