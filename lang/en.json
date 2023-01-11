@@ -101,6 +101,14 @@
       "techLevel": "Tl"
     },
 
+    "armour": {
+      "armourType": "Armour Type",
+      "techLevel": "Tl",
+      "head": "Head",
+      "body": "Body",
+      "weight": "Weight"
+    },
+
     "damageTypes": {
       "kinetic": "Kinetic",
       "energy": "Energy",

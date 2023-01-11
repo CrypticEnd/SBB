@@ -67,7 +67,12 @@ export class SBBCharacterSheet extends ActorSheet{
         data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
         data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
         data.consumables =  data.items.filter(function (item) {return item.type == "Consumable"});
-        data.items =  data.items.filter(function (item) {return item.type == "Item"});
+        data.otherItems =  data.items.filter(function (item) {return item.type == "Item"});
+        data.armour =  data.items.filter(function (item) {return item.type == "Armour"});
+
+        console.log(data.armour);
+        console.log(data.items);
+
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
         data.skills = {};

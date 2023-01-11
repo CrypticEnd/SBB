@@ -46,6 +46,21 @@ SBB.weaponHeaders= {
     techLevel:     "SBB.weaponHeaders.techLevel"
 }
 
+SBB.armourHeaders= {
+    armourType: "SBB.armour.armourType",
+    kinetic:    "SBB.damageTypes.kinetic",
+    energy:     "SBB.damageTypes.energy",
+    explosive:  "SBB.damageTypes.explosive",
+    weight:  "SBB.armour.weight",
+    techLevel:  "SBB.armour.techLevel"
+}
+
+SBB.armourTypes= {
+    none: "",
+    head: "SBB.armour.head",
+    body: "SBB.armour.body"
+}
+
 SBB.damageTypes = {
     kinetic:   "SBB.damageTypes.kinetic",
     energy:    "SBB.damageTypes.energy",
