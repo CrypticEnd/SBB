@@ -13,8 +13,10 @@
       font-family: "origin tech";
       text-transform: uppercase;
       text-align: center;
-      border-bottom-color: @headerlineColor;
+      border: solid 1px;
+      border-color: @headerlineColor;
       padding: 5px;
+      background-color: @headerBackground;
     }
 
     h3{
@@ -28,8 +30,7 @@
       }
 
       .active{
-        border-color: @inactive;
-        color: @inactive;
+        background-color: @navBackground;
       }
     }
   }
@@ -88,6 +89,7 @@
         .saves i{
           font-size: 2em;
           padding-left: 15px;
+          padding-top: 5px;
         }
       }
 

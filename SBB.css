@@ -54,12 +54,15 @@
 .character .main-content .personal-files a {
   display: inline-block;
   width: 100px;
-  padding: 20px;
+  padding: 20px 0;
   margin-top: 10px;
 }
 .character .main-content .nav-context-box {
   height: 840px;
   overflow: scroll;
+}
+.character .main-content .nav-context-box::-webkit-scrollbar {
+  display: none;
 }
 .character .main-content .add-icon {
   text-align: right;
@@ -69,7 +72,7 @@
   text-align: center;
 }
 .character .main-content .skill-box .skill-header nav {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .character .main-content .skill-box .skill-header nav a {
   padding: 10px;
@@ -142,11 +145,11 @@
 .equipment-list .consumables-header {
   align-items: center;
   text-align: center;
-  border: 1px groove #5cdf20;
+  border: 1px groove #3dfb99;
   font-size: 1.25em;
 }
 .equipment-list .item-detail {
-  flex: 0 0 60px;
+  flex: 0 0 70px;
 }
 .equipment-list .add-icon,
 .equipment-list .item-detail-space {
@@ -161,7 +164,7 @@
   height: 100%;
   padding: 5px;
   margin-top: 5px;
-  border: 1px ridge #5cdf20;
+  border: 1px ridge #3dfb99;
 }
 .item-list .item .item-title {
   width: 70%;
@@ -191,34 +194,35 @@
   text-transform: uppercase;
 }
 .item-list .item .inactive {
-  color: red;
+  color: #7a7971;
 }
 .character .window-content {
   background-color: #000000;
   background-image: none;
-  color: #5cdf20;
+  color: #3dfb99;
 }
 .character .window-content input {
-  color: #5cdf20;
+  color: #3dfb99;
 }
 .character .window-content h1,
 .character .window-content h2 {
   font-family: "origin tech";
   text-transform: uppercase;
   text-align: center;
-  border-bottom-color: #5cdf20;
+  border: solid 1px;
+  border-color: #3dfb99;
   padding: 5px;
+  background-color: #003d20;
 }
 .character .window-content h3 {
-  border-bottom-color: #5cdf20;
+  border-bottom-color: #3dfb99;
 }
 .character .window-content nav a {
   border-style: solid;
-  border-color: #5cdf20;
+  border-color: #3dfb99;
 }
 .character .window-content nav .active {
-  border-color: red;
-  color: red;
+  background-color: #003d20;
 }
 .character .backgroundOverlay {
   background-image: url("./assets/filmgrainOverlay.png");
@@ -236,7 +240,7 @@
 .character .main-content .nav-context-box {
   background-color: #000000;
   border-style: solid;
-  border-color: #5cdf20;
+  border-color: #3dfb99;
   z-index: 4;
 }
 .character .main-content .biomonitor .biomonitor-header {
@@ -253,13 +257,13 @@
   background-color: transparent;
 }
 .character .main-content .biomonitor .biomonitor-header .inactive {
-  color: red;
+  color: #7a7971;
 }
 .character .main-content .biomonitor .biomonitor-header .inactive input {
-  color: red;
+  color: #7a7971;
 }
 .character .main-content .biomonitor .status-box {
-  border-left-color: #5cdf20;
+  border-left-color: #3dfb99;
   border-left-style: solid;
 }
 .character .main-content .biomonitor .status-box table {
@@ -268,12 +272,13 @@
 .character .main-content .biomonitor .status-box .saves i {
   font-size: 2em;
   padding-left: 15px;
+  padding-top: 5px;
 }
 .character .main-content .biomonitor .strain-icons .crossed {
-  color: red;
+  color: #7a7971;
 }
 .item .item-summary .item-properties .tag {
-  border: 1px solid #5cdf20;
+  border: 1px solid #3dfb99;
   border-radius: 3px;
   background: #000000;
 }
@@ -281,6 +286,6 @@
   background-image: url("../../icons/svg/d10-grey.svg") !important;
 }
 .item .rollable .item-icon:hover {
-  filter: drop-shadow(0 0 15px #5cdf20);
+  filter: drop-shadow(0 0 15px #3dfb99);
 }
 /*# sourceMappingURL=SBB.css.map */
