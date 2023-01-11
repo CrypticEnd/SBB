@@ -1,7 +1,7 @@
-<li class="item flexrow" data-type="{{this._id}}">
+<li class="item flexrow equipment" data-item-id="{{this._id}}">
 
     <div class="item-title rollable">
-        <div class="item-icon item-rollable" data-type="{{this._id}}"
+        <div class="item-icon item-rollable" data-item-id="{{this._id}}"
         style="background-image: url('{{this.img}}')"></div>
         <h4><a class="toggle-description">{{name}}</a></h4>
     </div>
@@ -25,7 +25,7 @@
     {{/if}}
 
     {{#if (eq type "Armour")}}
-        <div data-type="{{this._id}}" class="item-detail armour-equipped-button
+        <div data-item-id="{{this._id}}" class="item-detail armour-equipped-button
             {{#if system.equipped}}
                 ">{{localize "SBB.common.true"}}
             {{else}}
@@ -47,7 +47,7 @@
 
 
     <div class="item-detail-space">
-        <i class="fa fa-pen-to-square" data-type="{{this._id}}"></i>
+        <i class="fa fa-pen-to-square" data-item-id="{{this._id}}"></i>
     </div>
 
     <div class="item-summary hidden hide-on-click">

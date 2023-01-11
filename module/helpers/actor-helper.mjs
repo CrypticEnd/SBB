@@ -35,7 +35,7 @@ export function addItem(event){
 
 export function editItem(event){
     event.preventDefault();
-    const itemID = event.currentTarget.dataset.type;
+    const itemID = event.currentTarget.dataset.itemId;
     const item = (this.actor.items.get(itemID));
 
     item.sheet.render(true);
@@ -43,7 +43,7 @@ export function editItem(event){
 
 export function itemRoll(event){
     event.preventDefault();
-    const itemID = event.currentTarget.dataset.type;
+    const itemID = event.currentTarget.dataset.itemId;
     const item = (this.actor.items.get(itemID));
 
     // Depending on the item we want to do something else
@@ -75,7 +75,7 @@ export function forceRoundDown(event){
 export function updateItem(event){
     event.preventDefault();
     let element = event.currentTarget;
-    let itemID = element.parentElement.dataset.type;
+    let itemID = element.parentElement.dataset.itemId;
     let item = this.actor.items.get(itemID);
     let field = element.dataset.field;
     let newValue = element.value;

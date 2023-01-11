@@ -157,7 +157,7 @@
   width: 20px;
   height: 20px;
 }
-.item-list .item {
+.equipment-list .item-list .item {
   align-items: center;
   text-align: center;
   display: flex;
@@ -166,34 +166,34 @@
   margin-top: 5px;
   border: 1px ridge #3dfb99;
 }
-.item-list .item .item-title {
+.equipment-list .item-list .item .item-title {
   width: 70%;
   display: flex;
 }
-.item-list .item .item-title .item-icon {
+.equipment-list .item-list .item .item-title .item-icon {
   display: block;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 30px;
   width: 30px;
 }
-.item-list .item .item-title h4 {
+.equipment-list .item-list .item .item-title h4 {
   padding-left: 5px;
 }
-.item-list .item .item-summary {
+.equipment-list .item-list .item .item-summary {
   flex: 0 0 100%;
 }
-.item-list .item .item-summary .item-properties .tag {
+.equipment-list .item-list .item .item-summary .item-properties .tag {
   display: inline-block;
   margin: 0 2px 0 0;
   padding: 0 3px;
   font-size: 10px;
   line-height: 16px;
 }
-.item-list .item .armour-equipped-button {
+.equipment-list .item-list .item .armour-equipped-button {
   text-transform: uppercase;
 }
-.item-list .item .inactive {
+.equipment-list .item-list .item .inactive {
   color: #7a7971;
 }
 .character .window-content {

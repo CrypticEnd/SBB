@@ -9,6 +9,7 @@ export class SBBCharacterSheet extends ActorSheet{
             template: "systems/sbb/templates/sheets/actors/Character-sheet.hbs",
             width: 600,
             height: 800,
+            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}],
             tabs: [{navSelector: ".main-tabs", contentSelector: ".nav-context-box", initial: "personal"},
                 {navSelector: ".tenet-focus-tabs", contentSelector: ".tenet-content", initial: "tenet"},
                 {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
@@ -22,7 +23,7 @@ export class SBBCharacterSheet extends ActorSheet{
                 name: game.i18n.localize("SBB.common.edit"),
                 icon : '<i class="fas fa-edit"></i>',
                 callback: element=>{
-                    const itemID = element[0].dataset.type;
+                    const itemID = element[0].dataset.itemId;
                     const item = (this.actor.items.get(itemID));
                     item.sheet.render(true);
                 }},
@@ -30,7 +31,7 @@ export class SBBCharacterSheet extends ActorSheet{
                 name: game.i18n.localize("SBB.common.delete"),
                 icon : '<i class="fas fa-trash"></i>',
                 callback: element =>{
-                    const itemID = element[0].dataset.type;
+                    const itemID = element[0].dataset.itemId;
                     const item = (this.actor.items.get(itemID));
                     item.delete();
                 }}
@@ -42,7 +43,7 @@ export class SBBCharacterSheet extends ActorSheet{
         name: game.i18n.localize("SBB.skills.add_rank"),
         icon: '<i class="fas fa-plus"></i>',
         callback: element => {
-            const itemID = element[0].dataset.type;
+            const itemID = element[0].dataset.itemId;
             const item = (this.actor.items.get(itemID));
             const newRank = Helper.checkSkillRank(item.system.rank+1)
             item.update({"system.rank": newRank})
@@ -50,7 +51,7 @@ export class SBBCharacterSheet extends ActorSheet{
         name: game.i18n.localize("SBB.skills.sub_rank"),
         icon: '<i class="fas fa-plus"></i>',
         callback: element => {
-            const itemID = element[0].dataset.type;
+            const itemID = element[0].dataset.itemId;
             const item = (this.actor.items.get(itemID));
             const newRank = Helper.checkSkillRank(item.system.rank-1)
             item.update({"system.rank": newRank})
@@ -120,7 +121,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
             // item add/edit menu
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
-            new ContextMenu(html, ".item", this._itemContextMenu)
+            new ContextMenu(html, ".equipment", this._itemContextMenu)
             new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
 
         }
@@ -181,7 +182,7 @@ export class SBBCharacterSheet extends ActorSheet{
 
     _tenetSwitch(event){
         event.preventDefault();
-        const itemID = event.currentTarget.dataset.type;
+        const itemID = event.currentTarget.dataset.itemId;
         const item = (this.actor.items.get(itemID));
 
         // check if type is a tent else return
@@ -225,7 +226,7 @@ export class SBBCharacterSheet extends ActorSheet{
     _armourEquipped(event){
         event.preventDefault();
         const actor = this.actor;
-        const itemID = event.currentTarget.dataset.type;
+        const itemID = event.currentTarget.dataset.itemId;
         const item = actor.items.get(itemID);
         const armourSlot = item.system.type;
         const bodySlot = armourSlot == "SBB.armour.body";
