@@ -39,7 +39,7 @@
             <h1>{{localize "SBB.common.strain"}}</h1>
             <div class="strain-icons">
                 {{#repeat actor.system.strain.max}}
-                    <i class="strain-marker fas {{#if (lt ../actor.system.strain.value @index)}}fa-face-weary crossed
+                    <i class="strain-marker fas {{#if (lt ../actor.system.strain.value @index)}}fa-face-angry crossed
                     {{else}}fa-smile{{/if}}" data-type="{{@index}}"></i>
                 {{/repeat}}
             </div>

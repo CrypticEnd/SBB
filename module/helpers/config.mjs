@@ -102,5 +102,11 @@ SBB.equipmentList ={
     consumables:{
         quantity: "SBB.equipmentList.consumables.quantity",
         weight: "SBB.equipmentList.consumables.weight",
+    },
+    armor:{
+
+    },
+    item:{
+
     }
 }

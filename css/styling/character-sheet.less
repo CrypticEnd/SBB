@@ -23,8 +23,13 @@
 
     nav{
       a{
-        border-style: ridge;
+        border-style: solid;
         border-color: @headerlineColor;
+      }
+
+      .active{
+        border-color: @inactive;
+        color: @inactive;
       }
     }
   }
@@ -42,8 +47,6 @@
   }
 
   .main-content{
-    padding: 5%;
-
     .biomonitor, .personal-files, .nav-context-box{
       background-color: @primaryColor;
       border-style: solid;
@@ -85,6 +88,12 @@
         .saves i{
           font-size: 2em;
           padding-left: 15px;
+        }
+      }
+
+      .strain-icons{
+        .crossed{
+          color: @inactive;
         }
       }
     }

@@ -22,7 +22,6 @@ Hooks.once("init", function (){
         decimals: 2
     };
 
-
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("SBBCharacter", SBBCharacterSheet, {

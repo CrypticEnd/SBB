@@ -97,7 +97,7 @@
       "Weapon",
       "Armour",
       "Item",
-      "Ammunition",
+      "Consumable",
       "Feat",
       "Starship Fittings",
       "Starship Defenses",
@@ -148,9 +148,12 @@
 
     "Armour": {},
 
-    "Item": {},
+    "Item": {
+      "templates": ["base", "carried"],
+      "quantity": 0
+    },
 
-    "Ammunition": {
+    "Consumable": {
       "templates": ["base", "carried"],
       "quantity": 0
     },

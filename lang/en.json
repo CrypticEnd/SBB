@@ -140,6 +140,12 @@
         "title": "Consumables",
         "quantity": "Quantity",
         "weight": "Weight"
+      },
+      "armor": {
+        "title": "Armor"
+      },
+      "item": {
+        "title": "Items"
       }
     }
   }

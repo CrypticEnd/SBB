@@ -29,7 +29,7 @@
   "gridDistance": 1,
   "gridUnits": "m",
   "primaryTokenAttribute": "HP",
-  "secondaryTokenAttribute": "Strain",
+  "secondaryTokenAttribute": "strain",
 
   "url": "https://github.com/CrypticEnd/SBB",
   "manifest": "https://github.com/CrypticEnd/sbb/releases/download/0.20/system.json",
