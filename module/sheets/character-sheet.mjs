@@ -231,7 +231,7 @@ export class SBBCharacterSheet extends ActorSheet{
         const bodySlot = armourSlot == "SBB.armour.body";
         const armourList =  actor.items.filter(function (item) {
             return item.type == "Armour" && item.system.type == armourSlot});
-        
+
         // Damage defense types
         let KnD = 0;
         let EnD = 0;
@@ -239,7 +239,7 @@ export class SBBCharacterSheet extends ActorSheet{
         let TlD = 0;
 
         if(!item.system.equipped){
-            // Serch though all other armor of type and dequipped it
+            // Search though all other armor of type and de-equipped it
             Object.keys(armourList).forEach(key =>{
                 if(armourList[key].system.equipped)
                     armourList[key].update({"system.equipped" : false});
