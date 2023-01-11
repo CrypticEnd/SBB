@@ -142,7 +142,7 @@
 .equipment-list .consumables-header {
   align-items: center;
   text-align: center;
-  border: 1px groove #32a956;
+  border: 1px groove #5cdf20;
   font-size: 1.25em;
 }
 .equipment-list .item-detail {
@@ -161,7 +161,7 @@
   height: 100%;
   padding: 5px;
   margin-top: 5px;
-  border: 1px ridge #32a956;
+  border: 1px ridge #5cdf20;
 }
 .item-list .item .item-title {
   width: 70%;
@@ -230,7 +230,7 @@
 .character .main-content .nav-context-box {
   background-color: #000000;
   border-style: solid;
-  border-color: #32a956;
+  border-color: #5cdf20;
   z-index: 4;
 }
 .character .main-content .biomonitor .biomonitor-header {
@@ -267,7 +267,7 @@
   color: red;
 }
 .item .item-summary .item-properties .tag {
-  border: 1px solid #32a956;
+  border: 1px solid #5cdf20;
   border-radius: 3px;
   background: #000000;
 }

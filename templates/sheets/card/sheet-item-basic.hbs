@@ -51,6 +51,22 @@
                 <span class="tag">{{localize "SBB.weaponHeaders.techLevel"}}
                     : {{system.techLevel}}</span>
             {{/if}}
+
+            {{#if (eq type "Armour")}}
+                <span class="tag">{{localize system.type}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.kinetic"}}
+                    : {{system.kinetic}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.energy"}}
+                    : {{system.energy}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.explosive"}}
+                    : {{system.explosive}}</span>
+
+                <span class="tag">{{localize "SBB.armour.techLevel"}}
+                    : {{system.techLevel}}</span>
+            {{/if}}
         </div>
 
         {{editor system.description target="system.description" button=false owner=owner editable=false}}
