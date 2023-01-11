@@ -20,7 +20,14 @@ SBB.settings= {
     },
 
     focusBonus: 2,
-    tenetBonus: 10
+    tenetBonus: 10,
+
+    defaultArmourValues: {
+        kinetic:   0,
+        energy:    0,
+        explosive: 0,
+        tl: 0
+    }
 }
 
 SBB.weaponSkills = {

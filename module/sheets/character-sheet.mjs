@@ -81,6 +81,8 @@ export class SBBCharacterSheet extends ActorSheet{
         this.actor.setFlag('sbb', 'strainMod', this._workOutStrain());
         this.actor.setFlag('sbb', 'attributeCount', this._countAttributes())
 
+        Helper.updateArmourValues(this.actor);
+
         return data;
     }
 
@@ -229,15 +231,9 @@ export class SBBCharacterSheet extends ActorSheet{
         const itemID = event.currentTarget.dataset.itemId;
         const item = actor.items.get(itemID);
         const armourSlot = item.system.type;
-        const bodySlot = armourSlot == "SBB.armour.body";
         const armourList =  actor.items.filter(function (item) {
             return item.type == "Armour" && item.system.type == armourSlot});
 
-        // Damage defense types
-        let KnD = 0;
-        let EnD = 0;
-        let ExD = 0;
-        let TlD = 0;
 
         if(!item.system.equipped){
             // Search though all other armor of type and de-equipped it
@@ -245,26 +241,8 @@ export class SBBCharacterSheet extends ActorSheet{
                 if(armourList[key].system.equipped)
                     armourList[key].update({"system.equipped" : false});
             });
-
-            KnD = item.system.kinetic;
-            EnD = item.system.energy;
-            ExD = item.system.explosive;
-            TlD = item.system.techLevel;
         }
 
         item.update({"system.equipped" : !item.system.equipped});
-
-        if(bodySlot){
-            actor.update({"system.armour.body.kinetic": KnD})
-            actor.update({"system.armour.body.energy": EnD})
-            actor.update({"system.armour.body.explosive": ExD})
-            actor.update({"system.armour.body.techlevel": TlD})
-        }
-        else {
-            actor.update({"system.armour.head.kinetic": KnD})
-            actor.update({"system.armour.head.energy": EnD})
-            actor.update({"system.armour.head.explosive": ExD})
-            actor.update({"system.armour.head.techlevel": TlD})
-        }
     }
 }
