@@ -2,7 +2,6 @@ import * as Dice from "../helpers/dice.mjs";
 
 export class SBBItem extends Item{
     chatTemplate = {
-        "Feat" : "systems/sbb/templates/sheets/card/feat.hbs",
         "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs",
         "default" : "systems/sbb/templates/sheets/card/default.hbs"
     }
