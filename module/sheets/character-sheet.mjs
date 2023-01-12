@@ -202,6 +202,17 @@ export class SBBCharacterSheet extends ActorSheet{
         if(toggleHideNode.length === 1){
             let toggleNode = toggleHideNode[0];
             $(toggleNode).toggle("hidden");
+
+            // Toggle item flag
+            let item = this.actor.items.get(greatParentNode.dataset.itemId);
+
+            if(item == null) return;
+            if(item.flags.sbb != null && "shown" in item.flags.sbb){
+                item.setFlag("sbb", "shown", !item.flags.sbb.shown);
+            }
+            else{
+                item.setFlag("sbb", "shown", true);
+            }
         }
     }
 

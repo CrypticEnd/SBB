@@ -8,7 +8,7 @@
     </div>
 
 
-    <div class="card-description hide-on-click {{#if inSheet}}hidden{{/if}}">
+    <div class="card-description hide-on-click {{#unless (eq flags.sbb.shown true)}}hidden{{/unless}}">
         {{editor system.description target="system.description" button=false owner=owner editable=false}}
     </div>
 </div>
