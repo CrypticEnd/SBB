@@ -8,6 +8,7 @@ import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
 import * as Chat from "./helpers/chat.mjs";
+import * as Macros from "./helpers/macro.mjs";
 
 Hooks.once("init", function (){
     console.log("SBB | Loading Stars but Butter");
@@ -20,6 +21,10 @@ Hooks.once("init", function (){
 
     CONFIG.Combat.initiative = {
         decimals: 2
+    };
+
+    game.SBB = {
+        macros: Macros
     };
 
     // Register sheet application classes
@@ -51,6 +56,16 @@ Hooks.once("init", function (){
 
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
+});
+
+Hooks.once("ready", function () {
+    Hooks.on("hotbarDrop", (bar, data, slot) => {
+        if ( ["Item"].includes(data.type) ) {
+            Macros.createRollItemMacro(data, slot);
+            return false;
+        }
+
+    });
 });
 
 Hooks.on("renderChatLog",  (app, html, data) =>{

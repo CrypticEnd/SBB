@@ -34,6 +34,16 @@ export class SBBItem extends Item{
         let item = this;
         item.config = CONFIG.SBB;
 
+        if(item.type == "Skill"){
+            let actor;
+            const speaker = ChatMessage.getSpeaker();
+            if ( speaker.token ) actor = game.actors.tokens[speaker.token];
+            actor ??= game.actors.get(speaker.actor);
+            if ( !actor ) return ui.notifications.warn(game.i18n.localize("SBB.warning.noActorSelected"));
+
+            return Dice.rollSkillFromID(actor._id, item._id);
+        }
+
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });
         const content = this.type in this.chatTemplate ?
             await renderTemplate(this.chatTemplate[item.type], item)
