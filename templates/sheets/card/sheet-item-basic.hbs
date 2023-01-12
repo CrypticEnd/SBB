@@ -50,7 +50,7 @@
         <i class="fa fa-pen-to-square" data-item-id="{{this._id}}"></i>
     </div>
 
-    <div class="item-summary hidden hide-on-click">
+    <div class="item-summary hide-on-click {{#unless (eq flags.sbb.shown true)}}hidden{{/unless}}">
         <div class="item-properties">
             {{#if (eq type "Weapon")}}
                 <span class="tag">{{localize "SBB.weaponHeaders.damageType"}}
