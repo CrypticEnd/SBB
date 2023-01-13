@@ -176,10 +176,10 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
 
     let useTenet = actor.system.usingTenet;
-    let otherbonus = 0;
+    let otherbonus = actor.system.modifiers.skillMod;
 
     if(actor.system.usingFocus){
-        otherbonus = CONFIG.SBB.settings.focusBonus;
+        otherbonus += CONFIG.SBB.settings.focusBonus;
     }
 
     let strainMod = 0;
