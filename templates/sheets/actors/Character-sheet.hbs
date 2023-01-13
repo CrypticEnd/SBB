@@ -16,10 +16,6 @@
                     <!--TODO make this dynamic-->
                     <table>
                         <tr>
-                            <td>Status</td>
-                            <td>Healthy</td>
-                        </tr>
-                        <tr>
                             <td>{{localize "SBB.common.speed"}}</td>
                             <td>{{actor.system.attributes.move}}</td>
                         </tr>
@@ -47,6 +43,12 @@
                                 {{else}}
                                     class="inactive">{{localize "SBB.common.inactive"}}
                                 {{/if}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{localize "SBB.common.skillMod"}}</td>
+                            <td {{#if (eq actor.system.modifiers.skillMod 0)}} class="inactive"{{/if}}>
+                                <input class="skillMod-input" name="system.modifiers.skillMod" type="number" value="{{actor.system.modifiers.skillMod}}">
                             </td>
                         </tr>
                     </table>

@@ -47,7 +47,8 @@
       "modifiers": {
         "HP": 0,
         "strain": 0,
-        "initiative": 0
+        "initiative": 0,
+        "skillMod": 0
       },
       "XP": 0,
       "resolve": 0,

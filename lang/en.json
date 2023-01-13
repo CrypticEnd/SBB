@@ -43,7 +43,8 @@
       "active": "Active",
       "inactive": "Inactive",
       "true": "True",
-      "false": "False"
+      "false": "False",
+      "skillMod": "Adrenaline"
     },
 
     "warning": {
