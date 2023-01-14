@@ -1,0 +1,23 @@
+<table class="item-list effect-list">
+    <tr>
+        <th>Name</th>
+        <th>
+            <a class="effect-control" data-action="create">
+                <i class="fas fa-plus"></i>
+            </a>
+        </th>
+    </tr>
+    {{#each effects}}
+        <tr class="item" data-effect-id="{{this._id}}">
+            <td>{{this.label}}</td>
+            <td>
+                <a class="effect-control" data-action="edit">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a class="effect-control" data-action="delete">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+</table>

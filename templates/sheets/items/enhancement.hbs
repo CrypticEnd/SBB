@@ -15,6 +15,8 @@
         </div>
     </header>
     <div class="sheet-content">
+        {{> "systems/sbb/templates/sheets/card/effect-table.hbs"}}
+
         {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
     </div>
 </form>

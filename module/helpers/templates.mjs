@@ -8,6 +8,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/feat-box.hbs",
         "systems/sbb/templates/sheets/partials/skill-box.hbs",
         "systems/sbb/templates/sheets/partials/equipmant.hbs",
+        "systems/sbb/templates/sheets/partials/injuries.hbs",
 
         // Cards
         "systems/sbb/templates/sheets/card/feat.hbs",
@@ -16,6 +17,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/card/weapon-roll.hbs",
         "systems/sbb/templates/sheets/card/sheet-item-basic.hbs",
         "systems/sbb/templates/sheets/card/damage-roll.hbs",
+        "systems/sbb/templates/sheets/card/effect-table.hbs",
 
     ]);
 };
