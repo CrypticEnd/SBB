@@ -142,7 +142,7 @@
       "skills":"Skills",
       "features": "Features",
       "equipment": "Equipment",
-      "implants": "Implants",
+      "enhancement": "Enhancement",
       "injuries": "Injuries",
       "attributes": "Attributes",
       "notes": "Notes"
@@ -169,6 +169,11 @@
         "quantity": "Quantity",
         "weight": "Weight"
       }
+    },
+
+    "enhancementTypes": {
+      "implant": "Implant",
+      "drug": "Drug"
     }
   }
 }

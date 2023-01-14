@@ -106,14 +106,14 @@ SBB.common = {
 }
 
 SBB.pcNavbar = {
-    personal:   "SBB.tabNames.personal",
-    skills:     "SBB.tabNames.skills",
-    features:   "SBB.tabNames.features",
-    equipment:  "SBB.tabNames.equipment",
-    implants:    "SBB.tabNames.implants",
-    injuries:   "SBB.tabNames.injuries",
-    attributes: "SBB.tabNames.attributes",
-    notes:      "SBB.tabNames.notes"
+    personal:    "SBB.tabNames.personal",
+    skills:      "SBB.tabNames.skills",
+    features:    "SBB.tabNames.features",
+    equipment:   "SBB.tabNames.equipment",
+    enhancement: "SBB.tabNames.enhancement",
+    injuries:    "SBB.tabNames.injuries",
+    attributes:  "SBB.tabNames.attributes",
+    notes:       "SBB.tabNames.notes"
 }
 
 SBB.equipmentList ={

@@ -100,6 +100,7 @@
       "Item",
       "Consumable",
       "Feat",
+      "Enhancement",
       "Starship Fittings",
       "Starship Defenses",
       "Starship Weaponry",
@@ -170,6 +171,11 @@
     "Feat": {
       "templates": ["base"],
       "prerequisite": ""
+    },
+
+    "Enhancement": {
+      "templates": ["base"],
+      "type": ""
     },
 
     "Starship Fittings": {},
