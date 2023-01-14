@@ -12,6 +12,7 @@ export class SBBItem extends Item{
         "Item": "systems/sbb/assets/svg/icons/gear.svg",
         "Consumable": "systems/sbb/assets/svg/icons/crosshair.svg",
         "Feat": "systems/sbb/assets/svg/icons/feat.svg",
+        "Enhancement": "systems/sbb/assets/svg/icons/focus.svg",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry:

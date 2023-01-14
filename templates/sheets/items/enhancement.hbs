@@ -1,0 +1,20 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <div class="ammo-title">
+            <h2><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h2>
+            <h4>{{localize "SBB.enhancements.type"}}:
+                <select name="system.type">
+                    {{#select item.system.type}}
+                        {{#each config.enhancementsTypes as |name type|}}
+                            <option value="{{name}}">{{localize name}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </h4>
+        </div>
+    </header>
+    <div class="sheet-content">
+        {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+</form>

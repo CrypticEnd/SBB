@@ -1,11 +1,12 @@
 export class SBBItemSheet extends  ItemSheet {
 
     templateSheets = {
-        "Weapon":     "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
-        "Armour":     "systems/sbb/templates/sheets/items/armour.hbs",
-        "Item":       "systems/sbb/templates/sheets/items/item.hbs",
-        "Consumable": "systems/sbb/templates/sheets/items/item.hbs",
-        "Feat":       "systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        "Weapon":      "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
+        "Armour":      "systems/sbb/templates/sheets/items/armour.hbs",
+        "Item":        "systems/sbb/templates/sheets/items/item.hbs",
+        "Consumable":  "systems/sbb/templates/sheets/items/item.hbs",
+        "Feat":        "systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        "Enhancement": "systems/sbb/templates/sheets/items/enhancement.hbs",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry":

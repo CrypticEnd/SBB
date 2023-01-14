@@ -171,9 +171,11 @@
       }
     },
 
-    "enhancementTypes": {
+    "enhancements": {
       "implant": "Implant",
-      "drug": "Drug"
+      "drug": "Drug",
+      "type": "Type",
+      "Effect": "Effect"
     }
   }
 }

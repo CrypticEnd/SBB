@@ -116,6 +116,11 @@ SBB.pcNavbar = {
     notes:       "SBB.tabNames.notes"
 }
 
+SBB.enhancementsTypes ={
+    drug: "SBB.enhancements.drug",
+    implant: "SBB.enhancements.implant"
+}
+
 SBB.equipmentList ={
     weapons:{
         ammo: "SBB.equipmentList.weapons.ammo",

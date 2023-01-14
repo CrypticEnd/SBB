@@ -175,7 +175,7 @@
 
     "Enhancement": {
       "templates": ["base"],
-      "type": ""
+      "type": "SBB.enhancements.implant"
     },
 
     "Starship Fittings": {},
