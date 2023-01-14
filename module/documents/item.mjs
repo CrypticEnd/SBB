@@ -2,17 +2,17 @@ import * as Dice from "../helpers/dice.mjs";
 
 export class SBBItem extends Item{
     chatTemplate = {
-        "Feat" : "systems/sbb/templates/sheets/card/feat.hbs",
-        "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs"
-        //TODO rest of temps
+        "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs",
+        "default" : "systems/sbb/templates/sheets/card/default.hbs"
     }
 
     iconTemplate = {
         "Weapon": "systems/sbb/assets/svg/icons/weapon.svg",
         "Armour": "systems/sbb/assets/svg/icons/armor.svg",
         "Item": "systems/sbb/assets/svg/icons/gear.svg",
-        "Ammunition": "systems/sbb/assets/svg/icons/crosshair.svg",
+        "Consumable": "systems/sbb/assets/svg/icons/crosshair.svg",
         "Feat": "systems/sbb/assets/svg/icons/feat.svg",
+        "Enhancement": "systems/sbb/assets/svg/icons/focus.svg",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry:
@@ -34,10 +34,20 @@ export class SBBItem extends Item{
         let item = this;
         item.config = CONFIG.SBB;
 
+        if(item.type == "Skill"){
+            let actor;
+            const speaker = ChatMessage.getSpeaker();
+            if ( speaker.token ) actor = game.actors.tokens[speaker.token];
+            actor ??= game.actors.get(speaker.actor);
+            if ( !actor ) return ui.notifications.warn(game.i18n.localize("SBB.warning.noActorSelected"));
+
+            return Dice.rollSkillFromID(actor._id, item._id);
+        }
+
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });
         const content = this.type in this.chatTemplate ?
             await renderTemplate(this.chatTemplate[item.type], item)
-            : "Roll function not set for this item"
+            : await renderTemplate(this.chatTemplate["default"], item)
 
         ChatMessage.create({
             user: game.user._id,

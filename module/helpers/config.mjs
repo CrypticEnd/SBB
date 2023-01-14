@@ -3,7 +3,9 @@ export const SBB = {};
 // System defaults
 SBB.settings= {
     hpFortMod:     5,
-    strainWillMod: 2,
+    hpBase: 5,
+    strainBase: 8,
+    strainBufferWillMod: 1,
     // if 1 it will give a -1 per strain
     strainPenaltyMod : 0.5,
 
@@ -15,6 +17,16 @@ SBB.settings= {
     attributesRanks: {
         max: 10,
         min: 1
+    },
+
+    focusBonus: 2,
+    tenetBonus: 10,
+
+    defaultArmourValues: {
+        kinetic:   0,
+        energy:    0,
+        explosive: 0,
+        tl: 0
     }
 }
 
@@ -41,6 +53,21 @@ SBB.weaponHeaders= {
     techLevel:     "SBB.weaponHeaders.techLevel"
 }
 
+SBB.armourHeaders= {
+    armourType: "SBB.armour.armourType",
+    kinetic:    "SBB.damageTypes.kinetic",
+    energy:     "SBB.damageTypes.energy",
+    explosive:  "SBB.damageTypes.explosive",
+    weight:  "SBB.armour.weight",
+    techLevel:  "SBB.armour.techLevel"
+}
+
+SBB.armourTypes= {
+    none: "",
+    head: "SBB.armour.head",
+    body: "SBB.armour.body"
+}
+
 SBB.damageTypes = {
     kinetic:   "SBB.damageTypes.kinetic",
     energy:    "SBB.damageTypes.energy",
@@ -59,11 +86,11 @@ SBB.rangeHeaders = {
 }
 
 SBB.skillTypes = {
-    body: "",
-    control: "",
-    intelligence: "",
-    presence: "",
-    technique: "",
+    body: "SBB.attributes.body",
+    control: "SBB.attributes.control",
+    intelligence: "SBB.attributes.intelligence",
+    presence: "SBB.attributes.presence",
+    technique: "SBB.attributes.technique",
 }
 
 SBB.saveTypes = {
@@ -76,5 +103,39 @@ SBB.common = {
     skillCheck: "SBB.common.skillCheck",
     skillPass: "SBB.common.passed",
     skillFail: "SBB.common.failed"
+}
 
+SBB.pcNavbar = {
+    personal:    "SBB.tabNames.personal",
+    skills:      "SBB.tabNames.skills",
+    features:    "SBB.tabNames.features",
+    equipment:   "SBB.tabNames.equipment",
+    enhancement: "SBB.tabNames.enhancement",
+    injuries:    "SBB.tabNames.injuries",
+    attributes:  "SBB.tabNames.attributes",
+    notes:       "SBB.tabNames.notes"
+}
+
+SBB.enhancementsTypes ={
+    drug: "SBB.enhancements.drug",
+    implant: "SBB.enhancements.implant"
+}
+
+SBB.equipmentList ={
+    weapons:{
+        ammo: "SBB.equipmentList.weapons.ammo",
+        ammoMax: "SBB.equipmentList.weapons.ammoMax"
+    },
+    consumables:{
+        quantity: "SBB.equipmentList.consumables.quantity",
+        weight: "SBB.equipmentList.consumables.weight",
+    },
+    armour:{
+        equipped: "SBB.equipmentList.armour.equipped",
+        weight: "SBB.equipmentList.armour.weight"
+    },
+    item:{
+        quantity: "SBB.equipmentList.item.quantity",
+        weight: "SBB.equipmentList.item.weight"
+    }
 }

@@ -1,5 +1,6 @@
 import {SBBItem} from "./documents/item.mjs";
 import {SBBActor} from "./documents/actor.mjs";
+import {SBBCombatant} from "./documents/combatant.mjs";
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
@@ -7,6 +8,7 @@ import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
 import * as Chat from "./helpers/chat.mjs";
+import * as Macros from "./helpers/macro.mjs";
 
 Hooks.once("init", function (){
     console.log("SBB | Loading Stars but Butter");
@@ -15,16 +17,14 @@ Hooks.once("init", function (){
     CONFIG.SBB = SBB;
     CONFIG.Item.documentClass = SBBItem;
     CONFIG.Actor.documentClass = SBBActor;
+    CONFIG.Combatant.documentClass = SBBCombatant;
 
-    /**
-     * TODO
-     * Set an initiative formula for the system
-     * @type {String}
-     */
     CONFIG.Combat.initiative = {
-        formula: "min(1d10, @attributes.Reflex)+min(1d10, @attributes.Reflex) " +
-                     "+ @attributes.Reflex/10", // a .value to help with Ties
-        decimals: 1
+        decimals: 2
+    };
+
+    game.SBB = {
+        macros: Macros
     };
 
     // Register sheet application classes
@@ -50,8 +50,22 @@ Hooks.once("init", function (){
         return result;
     });
 
+    Handlebars.registerHelper("multiply", function (item1, item2, content){
+        return item1 * item2;
+    });
+
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
+});
+
+Hooks.once("ready", function () {
+    Hooks.on("hotbarDrop", (bar, data, slot) => {
+        if ( ["Item"].includes(data.type) ) {
+            Macros.createRollItemMacro(data, slot);
+            return false;
+        }
+
+    });
 });
 
 Hooks.on("renderChatLog",  (app, html, data) =>{
@@ -59,6 +73,5 @@ Hooks.on("renderChatLog",  (app, html, data) =>{
 });
 
 Hooks.on("renderChatMessage", (app, html, data) => {
-    Chat.highlightSkillCheckResults(app, html, data);
     Chat.hideChatActionButtons(app,html,data);
 });

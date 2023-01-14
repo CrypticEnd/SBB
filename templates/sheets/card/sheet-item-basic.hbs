@@ -1,51 +1,67 @@
-<div class="item-sheet-card flexrow" data-type="{{this._id}}">
-
+<li class="item flexrow equipment" data-item-id="{{this._id}}">
     <div class="item-title rollable">
-        <div class="item-icon item-rollable" data-type="{{this._id}}"
+        <div class="item-icon item-rollable" data-item-id="{{this._id}}"
         style="background-image: url('{{this.img}}')"></div>
-        <h3 class="toggle-description">{{name}}</h3>
+        <h4><a class="toggle-description">{{name}}</a></h4>
     </div>
 
 
-<!--    TODO make this item useable for other things than weapons
+    {{#if (eq type "Weapon")}}
+        <input class="inline-edit item-detail" type="number"
+               data-field="system.magazine.value" value="{{this.system.magazine.value}}"
+               min="0", max="{{system.magazine.max}}"/>
 
-        make it useable for bag sheet as well
--->
+        <div class="item-detail">{{system.magazine.max}}</div>
 
+    {{/if}}
 
+    {{#if (eq type "Consumable")}}
+        <input class="inline-edit item-detail" type="number"
+               data-field="system.quantity" value="{{this.system.quantity}}"
+               min="0"/>
 
-<!--
-       If sheet is set to main its either displaying a weapon or ammo
-       If so we want the main input to be a single number filed for either quantity of ammo
-       or amount of ammo in a gun
--->
-    {{#if (eq sheet "main")}}
-        <input class="inline-edit" type="number"
-            {{#if (eq type "Weapon")}}
-                data-field="system.magazine.value" value="{{this.system.magazine.value}}"
-                   min="0", max="{{system.magazine.max}}"
+        <div class="item-detail">{{#multiply system.weight system.quantity}}{{/multiply}}</div>
+    {{/if}}
+
+    {{#if (eq type "Armour")}}
+        <div data-item-id="{{this._id}}" class="item-detail armour-equipped-button
+            {{#if system.equipped}}
+                ">{{localize "SBB.common.true"}}
             {{else}}
-               data-field="system.Quantity" value="{{this.system.Quantity}}"
-               min="0"
+                inactive">{{localize "SBB.common.false"}}
             {{/if}}
-        />
+        </div>
+
+        <div class="item-detail">{{system.weight}}</div>
+    {{/if}}
+
+    {{#if (eq type "Item")}}
+        <input class="inline-edit item-detail" type="number"
+               data-field="system.quantity" value="{{this.system.quantity}}"
+               min="0"/>
+
+        <div class="item-detail">{{#multiply system.weight system.quantity}}{{/multiply}}</div>
     {{/if}}
 
 
 
-    {{#if (eq type "Weapon")}}
-        <div class="item-summary hidden hide-on-click">
-            <div class="item-properties">
+    <div class="item-detail-space">
+        <i class="fa fa-pen-to-square" data-item-id="{{this._id}}"></i>
+    </div>
+
+    <div class="item-summary hide-on-click {{#unless (eq flags.sbb.shown true)}}hidden{{/unless}}">
+        <div class="item-properties">
+            {{#if (eq type "Weapon")}}
                 <span class="tag">{{localize "SBB.weaponHeaders.damageType"}}
                 : {{localize system.damageType}}</span>
+
+                <span class="tag">{{localize "SBB.weaponHeaders.damage"}}
+                    : {{localize system.formula}}</span>
 
                 <span class="tag">{{localize "SBB.weaponHeaders.handsRequired"}}
                     : {{system.handsRequired}}</span>
 
                 <span class="tag">{{localize "SBB.weaponHeaders.harmRange_short"}}
-                    : {{system.handsRequired}}</span>
-
-                <span class="tag">{{localize "SBB.weaponHeaders.handsRequired"}}
                     : {{system.harmRange}}</span>
 
                 <span class="tag">{{localize "SBB.weaponHeaders.rof"}}
@@ -53,7 +69,26 @@
 
                 <span class="tag">{{localize "SBB.weaponHeaders.techLevel"}}
                     : {{system.techLevel}}</span>
-            </div>
+            {{/if}}
+
+            {{#if (eq type "Armour")}}
+                <span class="tag">{{localize system.type}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.kinetic"}}
+                    : {{system.kinetic}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.energy"}}
+                    : {{system.energy}}</span>
+
+                <span class="tag">{{localize "SBB.damageTypes.explosive"}}
+                    : {{system.explosive}}</span>
+
+                <span class="tag">{{localize "SBB.armour.techLevel"}}
+                    : {{system.techLevel}}</span>
+            {{/if}}
         </div>
-    {{/if}}
-</div>
+
+        {{editor system.description target="system.description" button=false owner=owner editable=false}}
+    </div>
+
+</li>

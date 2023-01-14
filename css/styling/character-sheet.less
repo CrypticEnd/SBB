@@ -1,4 +1,40 @@
 .character{
+
+  .window-content {
+    background-color: @backgroundColor;
+    background-image: none;
+    color: @fontColor;
+
+    input{
+      color: @fontColor;
+    }
+
+    h1, h2 {
+      font-family: "origin tech";
+      text-transform: uppercase;
+      text-align: center;
+      border: solid 1px;
+      border-color: @headerlineColor;
+      padding: 5px;
+      background-color: @headerBackground;
+    }
+
+    h3{
+      border-bottom-color: @headerlineColor;
+    }
+
+    nav{
+      a{
+        border-style: solid;
+        border-color: @headerlineColor;
+      }
+
+      .active{
+        background-color: @navBackground;
+      }
+    }
+  }
+
   .backgroundOverlay{
     background-image: url("./assets/filmgrainOverlay.png");
     background-size: 100%;
@@ -11,95 +47,58 @@
     pointer-events: none;
   }
 
-
-  .window-content {
-    background-image: url("./assets/background.png");
-    padding: 0px;
-    color: @fontColor;
-
-
-    h1, h2 {
-      font-family: "origin tech";
-      text-transform: uppercase;
-      text-align: center;
+  .main-content{
+    .biomonitor, .personal-files, .nav-context-box{
+      background-color: @primaryColor;
+      border-style: solid;
+      border-color: @borderColor;
+      z-index: 4;
     }
 
-    h3{
-      border-bottom: none;
-    }
+    .biomonitor{
+      .biomonitor-header{
+        padding-bottom: 5px;
 
-    input{
-      color: white;
-    }
-
-    .character-info h1{
-      text-align: left;
-    }
-
-    nav{
-      a.active{
-        text-shadow: 0 0 15px @secondaryColor;
-      }
-    }
-
-    .sheet-header{
-      border-bottom: @accentColor;
-      border-bottom-style: solid;
-      border-bottom-width: thick;
-      border-radius: 15px;
-      padding-bottom: 5px;
-    }
-
-    .sheet-main {
-      .health-box, .feat-box, .tenets-box, .skill-box, .attack-box, .ammo-box {
-        background-color: @primaryColor;
-        border-style: solid;
-        border-color: @accentColor;
-
-      h1,h2{
-        padding: 10px;
-      }
-
-        .add-icon{
-          text-align: center;
-          border-bottom: solid;
-          border-bottom-color: var(--color-underline-header);
-          font-size: 2em;
-        }
-      }
-
-      .speed-attribute, .hp{
-        border-style: ridge;
-        border-radius: 20px;
-        border-color: @accentColor;
-      }
-
-      .skill-header{
-        nav{
-          font-size: 2em;
-          font-family: "origin tech";
+        table {
+          border: none;
           text-transform: uppercase;
+          font-size: 1.25em;
+          padding-left: 5px;
+          margin-top: -10px;
+        }
+        table tr:nth-child(even){
+          background-color: transparent;
+        }
+        .inactive{
+          color: @inactive;
+
+          input{
+            color: @inactive;
+          }
         }
       }
 
-      .strain-tracker{
+      .status-box{
+        border-left-color: @headerlineColor;
+        border-left-style: solid;
+
+        table{
+          border:none;
+        }
+
+        .saves i{
+          font-size: 2em;
+          padding-left: 15px;
+          padding-top: 5px;
+        }
+      }
+
+      .strain-icons{
         .crossed{
-          //box-sizing: border-box;
-          //box-shadow: 0px 0px 10px var(--color-shadow-primary);
-          //background: var(--color-background-shadow-primary);
-          color: @strainCol;
+          color: @inactive;
         }
       }
-
-      .item-sheet-card{
-        background-color: @secondaryColor;
-      }
-
-      .feat-card .card-description{
-        background-color: @secondaryColor;
-      }
-
-
     }
+
   }
 }

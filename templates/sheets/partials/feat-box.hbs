@@ -1,14 +1,14 @@
 <div class="feat-box">
     <div class="feat-header">
-        <h1>Feat</h1>
+        <h1>{{localize "SBB.tabNames.features"}}</h1>
         <div class="add-icon">
-            <i class="fa fa-plus add-item-button" data-type="Feat"></i>
+            <i class="fa fa-circle-plus add-item-button" data-type="Feat"></i>
         </div>
     </div>
 
-    <div class="feat-list">
+    <div class="feat-list item-list">
         {{#each feats as |feat id|}}
-            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat inSheet=true}}
+            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat}}
         {{/each}}
     </div>
 </div>

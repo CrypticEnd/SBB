@@ -26,16 +26,24 @@ export function addItem(event){
     if(itemType == "Skill"){
         itemData =  Object.assign({
             system: {
-                Attribute: event.currentTarget.dataset.category
+                attribute: event.currentTarget.dataset.category
             }}, itemData);
         }
 
     Item.create(itemData, {parent: this.actor});
 }
 
+export function editItem(event){
+    event.preventDefault();
+    const itemID = event.currentTarget.dataset.itemId;
+    const item = (this.actor.items.get(itemID));
+
+    item.sheet.render(true);
+}
+
 export function itemRoll(event){
     event.preventDefault();
-    const itemID = event.currentTarget.dataset.type;
+    const itemID = event.currentTarget.dataset.itemId;
     const item = (this.actor.items.get(itemID));
 
     // Depending on the item we want to do something else
@@ -67,7 +75,7 @@ export function forceRoundDown(event){
 export function updateItem(event){
     event.preventDefault();
     let element = event.currentTarget;
-    let itemID = element.parentElement.dataset.type;
+    let itemID = element.parentElement.dataset.itemId;
     let item = this.actor.items.get(itemID);
     let field = element.dataset.field;
     let newValue = element.value;
@@ -81,4 +89,51 @@ export function updateItem(event){
     }
 
     item.update({[field]: Math.floor(newValue)});
+}
+
+export function updateArmourValues(actor){
+    const config = CONFIG.SBB;
+    const armourList =  actor.items.filter(function (item) {
+        return item.type == "Armour"});
+
+    // Damage defense types
+    let KnD_body = config.settings.defaultArmourValues.kinetic;
+    let EnD_body = config.settings.defaultArmourValues.energy;
+    let ExD_body = config.settings.defaultArmourValues.explosive;
+    let TlD_body = config.settings.defaultArmourValues.tl;
+
+    let KnD_head = KnD_body;
+    let EnD_head = EnD_body;
+    let ExD_head = ExD_body;
+    let TlD_head = TlD_body;
+
+    Object.keys(armourList).forEach(key => {
+        let item = armourList[key];
+        if(item.system.equipped){
+            // Check gearType
+            if(item.system.type == config.armourTypes.head){
+                KnD_head = item.system.kinetic;
+                EnD_head = item.system.energy;
+                ExD_head = item.system.explosive;
+                TlD_head = item.system.techLevel;
+            }
+            else if(item.system.type == config.armourTypes.body){
+                KnD_body = item.system.kinetic;
+                EnD_body = item.system.energy;
+                ExD_body = item.system.explosive;
+                TlD_body = item.system.techLevel;
+            }
+        }
+    });
+
+    // Updates
+    actor.update({"system.armour.body.kinetic": KnD_body})
+    actor.update({"system.armour.body.energy": EnD_body})
+    actor.update({"system.armour.body.explosive": ExD_body})
+    actor.update({"system.armour.body.techlevel": TlD_body})
+
+    actor.update({"system.armour.head.kinetic": KnD_head})
+    actor.update({"system.armour.head.energy": EnD_head})
+    actor.update({"system.armour.head.explosive": ExD_head})
+    actor.update({"system.armour.head.techlevel": TlD_head})
 }

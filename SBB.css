@@ -12,190 +12,97 @@
   margin-top: 30px;
 }
 .character {
-  min-width: 800px;
-  height: 900px;
+  min-width: 855px;
+  min-height: 925px;
 }
-.character .sheet-header {
-  display: flex;
-  margin-top: 1.5%;
-}
-.character .sheet-header img {
-  height: 150px;
-  width: 100px;
-  margin-right: 2.5%;
-}
-.character .sheet-header .character-info {
-  display: block;
-  width: 96%;
-}
-.character .sheet-header .character-info h1 input {
-  height: 58px;
-}
-.character .sheet-header .character-info .xpbar {
-  display: flex;
-}
-.character .sheet-header .character-info .xpbar label {
-  margin-top: 3px;
-}
-.character .sheet-header .character-info .xpbar input {
-  width: 40%;
-  margin-left: 5%;
-}
-.character .main-tabs {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: right;
-  margin-top: -35px;
-  padding-right: 10px;
-}
-.character .sheet-main {
-  margin-top: 15px;
+.character .main-content {
   display: grid;
-  grid: auto / 30% 40% 30%;
-  grid-template-areas: 'tenet HP skill' 'feat attacks skill';
-  grid-column-gap: 15px;
-  grid-row-gap: 10px;
+  grid-template-columns: 420px auto;
+  grid-column-gap: 5%;
+  padding: 2%;
 }
-.character .attributes {
-  grid-area: stats;
-  display: grid;
-  grid-template-columns: 80px 80px;
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
-}
-.character .attributes input {
-  border-style: none;
-  overflow: visible;
-  height: auto;
-  background: none;
-  color: #0d0d0d;
-}
-.character .attributes .attribute-box {
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
-  background-color: var(--color-background-item);
-  border-style: ridge;
-}
-.character .attributes .attribute-box .attribute-title {
+.character .main-content .title-name {
   text-align: center;
-  position: relative;
-  width: auto;
-  height: auto;
-  font-size: 18px;
+  font-size: 2.5em;
 }
-.character .attributes .attribute-box .attribute-value {
-  width: 90%;
-  height: 100%;
+.character .main-content .biomonitor {
+  text-align: center;
+  margin-top: -5px;
+}
+.character .main-content .biomonitor .biomonitor-header input {
+  border: none;
+  width: 25%;
+}
+.character .main-content .biomonitor h1 {
+  padding-top: 3%;
+}
+.character .main-content .biomonitor img {
+  padding: 5%;
+}
+.character .main-content .biomonitor .strain-icons {
+  font-size: 1.2em;
+  width: 80%;
   margin: 0 auto;
-  text-align: center;
-  background-image: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position-x: 5px;
-  background-position-y: 2px;
-  font-size: 45px;
 }
-.character .health-box {
-  grid-area: HP;
-  display: grid;
-  grid-template-areas: 'saves saves saves' 'hp armour speed' 'strain strain strain';
-  grid-column-gap: 5px;
-  grid-row-gap: 15px;
-  text-align: center;
-  min-width: 210px;
-}
-.character .health-box .saves {
-  grid-area: saves;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 5px;
-}
-.character .health-box .saves i {
-  font-size: 2em;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-.character .health-box .hp {
-  width: 3em;
-  grid-area: hp;
-  font-size: 25px;
-  text-align: center;
-  margin-left: 10px;
-}
-.character .health-box .hp input {
-  width: 2em;
-  background-color: transparent;
-  border: none;
-}
-.character .health-box .hp #health-input {
-  border-bottom-style: solid;
-}
-.character .health-box .hp p {
-  font-size: 15px;
-}
-.character .health-box .armour {
-  grid-area: armour;
-}
-.character .health-box .speed-attribute {
-  margin-left: auto;
-  grid-area: speed;
-  width: 3em;
-  font-size: 25px;
-  margin-right: 10px;
-}
-.character .health-box .speed-attribute input {
-  width: 2em;
-  font-size: 25px;
-  background-color: transparent;
-  border: none;
-}
-.character .health-box .speed-attribute p {
-  font-size: 15px;
-}
-.character .health-box .strain-tracker {
-  grid-area: strain;
-  font-size: 15px;
-}
-.character .health-box .strain-tracker #context-menu {
-  font-size: 13px;
-}
-.character .feat-box {
-  display: block;
-  grid-area: feat;
-  min-width: 30%;
-}
-.character .feat-box .feat-list {
-  padding: 5px;
-}
-.character .tenets-box {
-  grid-area: tenet;
-}
-.character .tenets-box .tenet-focus-card {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  font-size: 1.25em;
-}
-.character .tenets-box .tenet-focus-card .crossed {
-  text-decoration: line-through;
-}
-.character .skill-box {
-  grid-area: skill;
-  margin-right: 11%;
-}
-.character .skill-box nav {
+.character .main-content .personal-files {
+  margin-top: 5%;
   text-align: center;
 }
-.character .skill-box nav a {
-  padding-left: 5%;
+.character .main-content .personal-files nav {
+  padding-bottom: 15px;
 }
-.character .attack-and-ammo-box {
-  grid-area: attacks;
-}
-.character .attack-and-ammo-box .ammo-box {
+.character .main-content .personal-files a {
+  display: inline-block;
+  width: 100px;
+  padding: 20px 0;
   margin-top: 10px;
+}
+.character .main-content .nav-context-box {
+  height: 840px;
+  overflow: scroll;
+}
+.character .main-content .nav-context-box::-webkit-scrollbar {
+  display: none;
+}
+.character .main-content .add-icon {
+  text-align: right;
+  margin-right: 5px;
+}
+.character .main-content .skill-box {
+  text-align: center;
+}
+.character .main-content .skill-box .skill-header nav {
+  margin-top: 15px;
+}
+.character .main-content .skill-box .skill-header nav a {
+  padding: 10px;
+  margin-left: 2%;
+}
+.character .main-content .skill-box .add-icon {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -55px;
+}
+.character .main-content .skill-box .skill-list {
+  margin-top: 55px;
+}
+.character .main-content .feat-box .add-icon {
+  margin-top: -35px;
+}
+.character .main-content .feat-box .feat-list {
+  margin-top: 35px;
+}
+.character .main-content .feat-box .feat-list h3,
+.character .main-content .feat-box .feat-list .card-description {
+  padding-left: 10px;
+}
+.character .main-content .equipment-box li,
+.character .main-content .equipment-box ol {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.character .main-content .attributes {
+  text-align: center;
 }
 .sheet-content {
   height: 100%;
@@ -204,6 +111,9 @@
 }
 .sheet-content .editor {
   height: 100%;
+}
+.skill-rank-input {
+  width: 40% !important;
 }
 .SBB.sheet.item .form {
   display: flex;
@@ -231,54 +141,88 @@
   font-size: 12px;
   border: none;
 }
-.item-sheet-card {
+.equipment-list .weapon-header,
+.equipment-list .consumables-header {
+  align-items: center;
+  text-align: center;
+  border: 1px groove #3dfb99;
+  font-size: 1.25em;
+}
+.equipment-list .item-detail {
+  flex: 0 0 70px;
+}
+.equipment-list .add-icon,
+.equipment-list .item-detail-space {
+  flex: 0 0 0px;
+  width: 20px;
+  height: 20px;
+}
+.equipment-list .item-list .item {
+  align-items: center;
+  text-align: center;
   display: flex;
   height: 100%;
   padding: 5px;
   margin-top: 5px;
+  border: 1px ridge #3dfb99;
 }
-.item-sheet-card .item-title {
+.equipment-list .item-list .item .item-title {
   width: 70%;
   display: flex;
 }
-.item-sheet-card .item-title h3 {
-  padding: 5px;
-  text-decoration: none;
-  border: none;
-}
-.item-sheet-card .item-title .item-icon {
+.equipment-list .item-list .item .item-title .item-icon {
   display: block;
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
 }
-.item-sheet-card .item-summary {
+.equipment-list .item-list .item .item-title h4 {
+  padding-left: 5px;
+}
+.equipment-list .item-list .item .item-summary {
   flex: 0 0 100%;
 }
-.item-sheet-card .item-summary .item-properties .tag {
+.equipment-list .item-list .item .item-summary .item-properties .tag {
   display: inline-block;
   margin: 0 2px 0 0;
   padding: 0 3px;
   font-size: 10px;
   line-height: 16px;
 }
-.item-sheet-card input::-webkit-outer-spin-button,
-.item-sheet-card input::-webkit-inner-spin-button {
-  -webkit-appearance: inner-spin-button !important;
-  height: 30px;
-  width: 16px;
+.equipment-list .item-list .item .armour-equipped-button {
+  text-transform: uppercase;
 }
-.item-sheet-card input[type=number] {
-  -moz-appearance: spinner !important;
+.equipment-list .item-list .item .inactive {
+  color: #7a7971;
 }
-.item-sheet-card input {
-  display: inline-block;
-  width: 3em;
-  height: 100%;
+.character .window-content {
+  background-color: #000000;
+  background-image: none;
+  color: #3dfb99;
 }
-.item-sheet-card input :hover {
-  background-color: transparent;
+.character .window-content input {
+  color: #3dfb99;
+}
+.character .window-content h1,
+.character .window-content h2 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+  text-align: center;
+  border: solid 1px;
+  border-color: #3dfb99;
+  padding: 5px;
+  background-color: #003d20;
+}
+.character .window-content h3 {
+  border-bottom-color: #3dfb99;
+}
+.character .window-content nav a {
+  border-style: solid;
+  border-color: #3dfb99;
+}
+.character .window-content nav .active {
+  background-color: #003d20;
 }
 .character .backgroundOverlay {
   background-image: url("./assets/filmgrainOverlay.png");
@@ -291,100 +235,57 @@
   opacity: 0.3;
   pointer-events: none;
 }
-.character .window-content {
-  background-image: url("./assets/background.png");
-  padding: 0px;
-  color: white;
+.character .main-content .biomonitor,
+.character .main-content .personal-files,
+.character .main-content .nav-context-box {
+  background-color: #000000;
+  border-style: solid;
+  border-color: #3dfb99;
+  z-index: 4;
 }
-.character .window-content h1,
-.character .window-content h2 {
-  font-family: "origin tech";
-  text-transform: uppercase;
-  text-align: center;
-}
-.character .window-content h3 {
-  border-bottom: none;
-}
-.character .window-content input {
-  color: white;
-}
-.character .window-content .character-info h1 {
-  text-align: left;
-}
-.character .window-content nav a.active {
-  text-shadow: 0 0 15px #5cdf20;
-}
-.character .window-content .sheet-header {
-  border-bottom: #ff224a;
-  border-bottom-style: solid;
-  border-bottom-width: thick;
-  border-radius: 15px;
+.character .main-content .biomonitor .biomonitor-header {
   padding-bottom: 5px;
 }
-.character .window-content .sheet-main .health-box,
-.character .window-content .sheet-main .feat-box,
-.character .window-content .sheet-main .tenets-box,
-.character .window-content .sheet-main .skill-box,
-.character .window-content .sheet-main .attack-box,
-.character .window-content .sheet-main .ammo-box {
-  background-color: rgba(32, 92, 223, 0.6);
-  border-style: solid;
-  border-color: #ff224a;
-}
-.character .window-content .sheet-main .health-box h1,
-.character .window-content .sheet-main .feat-box h1,
-.character .window-content .sheet-main .tenets-box h1,
-.character .window-content .sheet-main .skill-box h1,
-.character .window-content .sheet-main .attack-box h1,
-.character .window-content .sheet-main .ammo-box h1,
-.character .window-content .sheet-main .health-box h2,
-.character .window-content .sheet-main .feat-box h2,
-.character .window-content .sheet-main .tenets-box h2,
-.character .window-content .sheet-main .skill-box h2,
-.character .window-content .sheet-main .attack-box h2,
-.character .window-content .sheet-main .ammo-box h2 {
-  padding: 10px;
-}
-.character .window-content .sheet-main .health-box .add-icon,
-.character .window-content .sheet-main .feat-box .add-icon,
-.character .window-content .sheet-main .tenets-box .add-icon,
-.character .window-content .sheet-main .skill-box .add-icon,
-.character .window-content .sheet-main .attack-box .add-icon,
-.character .window-content .sheet-main .ammo-box .add-icon {
-  text-align: center;
-  border-bottom: solid;
-  border-bottom-color: var(--color-underline-header);
-  font-size: 2em;
-}
-.character .window-content .sheet-main .speed-attribute,
-.character .window-content .sheet-main .hp {
-  border-style: ridge;
-  border-radius: 20px;
-  border-color: #ff224a;
-}
-.character .window-content .sheet-main .skill-header nav {
-  font-size: 2em;
-  font-family: "origin tech";
+.character .main-content .biomonitor .biomonitor-header table {
+  border: none;
   text-transform: uppercase;
+  font-size: 1.25em;
+  padding-left: 5px;
+  margin-top: -10px;
 }
-.character .window-content .sheet-main .strain-tracker .crossed {
-  color: gray;
+.character .main-content .biomonitor .biomonitor-header table tr:nth-child(even) {
+  background-color: transparent;
 }
-.character .window-content .sheet-main .item-sheet-card {
-  background-color: #5cdf20;
+.character .main-content .biomonitor .biomonitor-header .inactive {
+  color: #7a7971;
 }
-.character .window-content .sheet-main .feat-card .card-description {
-  background-color: #5cdf20;
+.character .main-content .biomonitor .biomonitor-header .inactive input {
+  color: #7a7971;
 }
-.item-sheet-card .item-summary .item-properties .tag {
-  border: 1px solid #ff224a;
+.character .main-content .biomonitor .status-box {
+  border-left-color: #3dfb99;
+  border-left-style: solid;
+}
+.character .main-content .biomonitor .status-box table {
+  border: none;
+}
+.character .main-content .biomonitor .status-box .saves i {
+  font-size: 2em;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+.character .main-content .biomonitor .strain-icons .crossed {
+  color: #7a7971;
+}
+.item .item-summary .item-properties .tag {
+  border: 1px solid #3dfb99;
   border-radius: 3px;
-  background: #ff224a;
+  background: #000000;
 }
-.item-sheet-card .rollable:hover .item-icon {
+.item .rollable:hover .item-icon {
   background-image: url("../../icons/svg/d10-grey.svg") !important;
 }
-.item-sheet-card .rollable .item-icon:hover {
-  filter: drop-shadow(0 0 15px #5cdf20);
+.item .rollable .item-icon:hover {
+  filter: drop-shadow(0 0 15px #3dfb99);
 }
 /*# sourceMappingURL=SBB.css.map */

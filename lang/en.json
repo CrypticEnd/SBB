@@ -7,6 +7,7 @@
       "strain": "Strain",
       "xp_short": "XP",
       "hp": "HP",
+      "defences": "Defences",
       "xp_long": "Experience",
       "settings": "Settings",
       "saves": "Saving Throws",
@@ -27,12 +28,33 @@
       "attack": "Attack",
       "ammo": "Consumables",
       "range_unit": "RANGE (m)",
-      "harm-counter": "Harm Dice",
-      "prerequisite": "Prerequisite"
-
+      "harm-counter": "Injury Dice",
+      "prerequisite": "Prerequisite",
+      "kinetic_short": "Kn",
+      "energy_short": "En",
+      "explosive_short": "Ex",
+      "biomonitor": "Biomonitor",
+      "speed": "Speed",
+      "head": "Head",
+      "body": "Body",
+      "initiative": "Initiative",
+      "modifiers": "modifiers",
+      "resolve": "Resolve",
+      "active": "Active",
+      "inactive": "Inactive",
+      "true": "True",
+      "false": "False",
+      "skillMod": "Other"
     },
 
-    "sills": {
+    "warning": {
+      "macroUnknown": "You can only create macro buttons for owned Items",
+      "missingTarget": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
+      "noActorSelected": "No selected or assigned actor could be found to target with macro.",
+      "multipleTargets": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen."
+    },
+
+    "skills": {
       "body_short": "B",
       "body_long": "Body",
       "control_short": "C",
@@ -44,7 +66,8 @@
       "technique_short": "T",
       "technique_long": "Technique",
       "add_rank": "Add Rank",
-      "sub_rank": "Subtract Rank"
+      "sub_rank": "Subtract Rank",
+      "rank": "Rank"
     },
 
     "attributes": {
@@ -83,9 +106,17 @@
       "handsRequired": "Hands Required",
       "damage": "Damage",
       "damageType": "Damage Type",
-      "harmRange": "Harm Range",
-      "harmRange_short": "HR",
-      "techLevel": "TL"
+      "harmRange": "Injury Range",
+      "harmRange_short": "IR",
+      "techLevel": "Tl"
+    },
+
+    "armour": {
+      "armourType": "Armour Type",
+      "techLevel": "Tl",
+      "head": "Head",
+      "body": "Body",
+      "weight": "Weight"
     },
 
     "damageTypes": {
@@ -103,6 +134,53 @@
       "6": "101-200",
       "7": "201-400",
       "8": "401-800"
+    },
+
+    "tabNames": {
+      "personalfiles": "Personal Files",
+      "personal": "Personal",
+      "skills":"Skills",
+      "features": "Features",
+      "equipment": "Equipment",
+      "enhancement": "Enhancement",
+      "injuries": "Injuries",
+      "attributes": "Attributes",
+      "notes": "Notes"
+    },
+
+    "equipmentList": {
+      "weapons": {
+        "title": "Weapons",
+        "ammo": "Ammo",
+        "ammoMax": "Max"
+      },
+      "consumables": {
+        "title": "Consumables",
+        "quantity": "Quantity",
+        "weight": "Weight"
+      },
+      "armour": {
+        "title": "Armour",
+        "equipped": "Equipped",
+        "weight": "Weight"
+      },
+      "item": {
+        "title": "Items",
+        "quantity": "Quantity",
+        "weight": "Weight"
+      }
+    },
+
+    "enhancements": {
+      "implant": "Implant",
+      "drug": "Drug",
+      "type": "Type",
+      "Effect": "Effect"
+    },
+
+    "effects": {
+      "name": "Name",
+      "new": "New Effect"
     }
   }
 }

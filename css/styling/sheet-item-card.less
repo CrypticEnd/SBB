@@ -1,10 +1,9 @@
-.item-sheet-card{
+.item{
 
   .item-summary .item-properties .tag{
-    border: 1px solid @accentColor;
+    border: 1px solid @borderColor;
     border-radius: 3px;
-    background: @accentColor;
-
+    background: @backgroundColor;
   }
 
   .rollable:hover {
@@ -13,6 +12,6 @@
     }
   }
   .rollable {.item-icon:hover{
-    filter: drop-shadow(0 0 15px @secondaryColor);
+    filter: drop-shadow(0 0 15px @headerlineColor);
   }}
 }

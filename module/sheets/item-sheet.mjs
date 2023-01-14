@@ -1,15 +1,16 @@
 export class SBBItemSheet extends  ItemSheet {
 
     templateSheets = {
-        "Weapon": "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
-        // "Armour":
-        // "Item":
-         "Ammunition": "systems/sbb/templates/sheets/items/ammo.hbs",
-        "Feat": "systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        "Weapon":      "systems/sbb/templates/sheets/items/weapon-sheet.hbs",
+        "Armour":      "systems/sbb/templates/sheets/items/armour.hbs",
+        "Item":        "systems/sbb/templates/sheets/items/item.hbs",
+        "Consumable":  "systems/sbb/templates/sheets/items/item.hbs",
+        "Feat":        "systems/sbb/templates/sheets/items/feat-sheet.hbs",
+        "Enhancement": "systems/sbb/templates/sheets/items/enhancement.hbs",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry":
-        "Skill": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
+        "Skill": "systems/sbb/templates/sheets/items/skill-sheet.hbs",
         "Tenet": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
         "Focus": "systems/sbb/templates/sheets/items/basic-item-sheet.hbs",
     }
@@ -31,6 +32,37 @@ export class SBBItemSheet extends  ItemSheet {
 
         data.config = CONFIG.SBB;
 
+        data.effects = data.item.getEmbeddedCollection("ActiveEffect").contents;
+
         return data;
+    }
+
+    activateListeners(html) {
+        super.activateListeners(html);
+        if(this.isEditable){
+            html.find(".effect-control").click(this._onEffectControl.bind(this));
+        }
+    }
+
+    _onEffectControl(event){
+        event.preventDefault();
+        const owner = this.item;
+        const a = event.currentTarget;
+        const tr = a.closest("tr");
+        const effect = tr.dataset.effectId ? owner.effects.get(tr.dataset.effectId) : null;
+
+        switch (a.dataset.action){
+            case "create":
+                return owner.createEmbeddedDocuments("ActiveEffect", [{
+                    label: game.i18n.localize("SBB.effects.new"),
+                    icon: "icons/svg/aura.svg",
+                    origin: owner.uuid
+                }]);
+            case "edit":
+                return effect.sheet.render(true);
+            case "delete":
+                return effect.delete();
+        }
+
     }
 }

@@ -3,11 +3,11 @@
     <div class="skill-header">
         <h1>{{localize "SBB.common.skills"}} </h1>
         <nav class="sheet-navigation skills-tabs" data-group="skills">
-            <a class="item" data-tab="Body" title="{{localize "SBB.sills.body_long"}}">{{localize "SBB.sills.body_short"}}</a>
-            <a class="item" data-tab="Control" title="{{localize "SBB.sills.body_long"}}">{{localize "SBB.sills.control_short"}}</a>
-            <a class="item" data-tab="Intelligence" title="{{localize "SBB.sills.body_long"}}">{{localize "SBB.sills.intelligence_short"}}</a>
-            <a class="item" data-tab="Presence" title="{{localize "SBB.sills.body_long"}}">{{localize "SBB.sills.presence_short"}}</a>
-            <a class="item" data-tab="Technique" title="{{localize "SBB.sills.body_long"}}">{{localize "SBB.sills.technique_short"}}</a>
+            <a class="item active" data-tab="body" title="{{localize "SBB.skills.body_long"}}">{{localize "SBB.skills.body_short"}}</a>
+            <a class="item" data-tab="control" title="{{localize "SBB.skills.body_long"}}">{{localize "SBB.skills.control_short"}}</a>
+            <a class="item" data-tab="intelligence" title="{{localize "SBB.skills.body_long"}}">{{localize "SBB.skills.intelligence_short"}}</a>
+            <a class="item" data-tab="presence" title="{{localize "SBB.skills.body_long"}}">{{localize "SBB.skills.presence_short"}}</a>
+            <a class="item" data-tab="technique" title="{{localize "SBB.skills.body_long"}}">{{localize "SBB.skills.technique_short"}}</a>
         </nav>
     </div>
 
@@ -16,14 +16,15 @@
         {{#each skills}}
             <div class="tab list" data-group="skills" data-tab="{{@key}}">
                 <div class="add-icon">
-                    <i class="fa fa-plus add-item-button" data-type="Skill" data-category="{{@key}}"></i>
+                    <i class="fa fa-circle-plus add-item-button" data-type="Skill" data-category="{{@key}}"></i>
                 </div>
-                {{#each this}}
-                    <div class="skill-item item-rollable" data-type="{{_id}}">
-                        {{name}}
-                        <div class="skill-rank-value" data-type="{{_id}}">+{{this.system.Rank}}</div>
-                    </div>
-                {{/each}}
+                <div class="skill-list item-list">
+                    {{#each this}}
+                        <h3>
+                            <a class="skill-item item-rollable item" data-item-id="{{_id}}">{{name}} : {{this.system.rank}}</a>
+                        </h3>
+                    {{/each}}
+                </div>
             </div>
         {{/each}}
     </section>

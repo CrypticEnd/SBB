@@ -25,18 +25,19 @@ export async function skillCheck({
                                      skillMod = 0,
                                      linkedAttribute = 0,
                                      useTenet = false,
-                                     currentStrain = 0,
+                                     strainMod = 0,
                                      otherBonus = 0,
                                      skillName = "",
                                  })
 {
     let rollFormula = "min(1d10, @limit)";
     let fakeFormula;
-    let totalMod = skillMod + otherBonus-Math.floor(currentStrain * CONFIG.SBB.settings.strainPenaltyMod);
+    let totalMod = skillMod + otherBonus-strainMod;
 
     if (useTenet) {
-        rollFormula = rollFormula + "+10";
-        fakeFormula = "1d10L" + linkedAttribute + "+10";
+        let tenetBonus = CONFIG.SBB.settings.tenetBonus;
+        rollFormula = rollFormula + "+" + tenetBonus;
+        fakeFormula = "1d10L" + linkedAttribute + "+" + tenetBonus;
     }
     else {
         rollFormula = rollFormula + "+" + rollFormula;
@@ -52,9 +53,6 @@ export async function skillCheck({
     let rollData = {
         limit:     linkedAttribute,
         mod:       totalMod
-    }
-    let messageData = {
-        speaker: ChatMessage.getSpeaker()
     }
 
     let roll = new Roll(rollFormula, rollData);
@@ -123,7 +121,6 @@ export async function rollWeaponDamage(weapon){
 
     let harmCounter = await countHarmDie(rollresult, weapon.system.harmRange);
 
-    //TODO if cant do critical though chat can do it here
     RollToCustomMessage(rollresult, defualtDamageTemplate, {
         weaponName: weapon.name,
         formula: weapon.system.formula,
@@ -151,17 +148,19 @@ export async function countHarmDie(rollresult, harmRange){
     return harmDieCounter;
 }
 
-export function rollSkillFromID(actorID, skillID, contentName = null){
+export async function rollSkillFromID(actorID, skillID, contentName = null){
     // Get actor and item
     let actor = game.actors.get(actorID);
     let skill = actor.items.get(skillID);
+
+
 
     if(actor == null || skill == null){
         console.error("Skill roll called with improper values");
         return;
     }
 
-    const linkedAttributeName = skill.system.Attribute;
+    const linkedAttributeName = skill.system.attribute;
 
     // Should never happen, but oh well
     if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
@@ -174,15 +173,27 @@ export function rollSkillFromID(actorID, skillID, contentName = null){
     if(contentName === null)
         contentName = skill.name;
 
-    let linkedAttributeValue = actor.system.attributes[linkedAttributeName];
+    let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
 
-    let strain = actor.system.Strain.max - actor.system.Strain.value;
+    let useTenet = actor.system.usingTenet;
+    let otherbonus = actor.system.modifiers.skillMod;
+
+    if(actor.system.usingFocus){
+        otherbonus += CONFIG.SBB.settings.focusBonus;
+    }
+
+    let strainMod = 0;
+    if("strainMod" in actor.flags.sbb){
+        strainMod = actor.flags.sbb.strainMod;
+    }
 
     this.skillCheck({
-        skillMod : skill.system.Rank,
+        skillMod : skill.system.rank,
         linkedAttribute : linkedAttributeValue,
-        currentStrain : strain,
+        strainMod : strainMod,
         skillName : contentName,
-        //TODO setup Tenet
+        useTenet : useTenet,
+        otherBonus : otherbonus
     })
 }
+

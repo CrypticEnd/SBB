@@ -1,60 +1,105 @@
 <form class="{{cssClass}}" autocomplete="off">
     <img class="backgroundOverlay">
 
-    <div class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <section class="main-content">
 
-        <div class="character-info">
-            <h1><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/></h1>
+        <div class="flexcol left-alined-content">
+            <h1 class="title-name">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/>
+            </h1>
 
-            <div class="xpbar">
-                <label for="system.XP">{{localize "SBB.common.xp_long"}}:</label>
-                <input class="xp-input" name="system.XP" type="number" value="{{actor.system.XP}}"/>
+            <div class="biomonitor flexrow">
+                <div class="biomonitor-header">
+                    <h1>{{localize "SBB.common.biomonitor"}}</h1>
+                    <img src="systems/sbb/assets/bodyscan.jpg">
+
+                    <!--TODO make this dynamic-->
+                    <table>
+                        <tr>
+                            <td>{{localize "SBB.common.speed"}}</td>
+                            <td>{{actor.system.attributes.move}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{localize "SBB.common.resolve"}}</td>
+                            <td {{#if (eq actor.system.resolve 0)}} class="inactive"{{/if}}>
+                                <input class="resolve-input" name="system.resolve" type="number" value="{{actor.system.resolve}}">
+                            </td>
+                        </tr>
+                        <tr class="toggle-tenet">
+                            <td>{{localize "SBB.common.tenet"}}</td>
+                            <td
+                                {{#if actor.system.usingTenet}}
+                                    >{{localize "SBB.common.active"}}
+                                {{else}}
+                                    class="inactive">{{localize "SBB.common.inactive"}}
+                                {{/if}}
+                            </td>
+                        </tr>
+                        <tr class="toggle-focus">
+                            <td>{{localize "SBB.common.focus"}}</td>
+                            <td
+                                {{#if actor.system.usingFocus}}
+                                    >{{localize "SBB.common.active"}}
+                                {{else}}
+                                    class="inactive">{{localize "SBB.common.inactive"}}
+                                {{/if}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{localize "SBB.common.skillMod"}}</td>
+                            <td {{#if (eq actor.system.modifiers.skillMod 0)}} class="inactive"{{/if}}>
+                                <input class="skillMod-input" name="system.modifiers.skillMod" type="number" value="{{actor.system.modifiers.skillMod}}">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {{> systems/sbb/templates/sheets/partials/status-box.hbs}}
             </div>
+
+            <div class="personal-files">
+                <h1>{{localize "SBB.tabNames.personalfiles"}}</h1>
+                <nav class="sheet-navigation main-tabs" data-group="primary">
+                    {{#each config.pcNavbar}}
+                        <a class="item" data-tab="{{@key}}">{{localize this}}</a>
+                    {{/each}}
+                </nav>
+            </div>
+
         </div>
 
-    </div>
+        <div class="nav-context-box">
+            <div class="tab" data-group="primary" data-tab="personal">
+                1
+            </div>
 
-    <nav class="sheet-navigation main-tabs" data-group="primary">
-        <h1>
-            <a class="item" data-tab="main">Main</a> |
-            <a class="item" data-tab="bag">Bag</a> |
-            <a class="item" data-tab="bio">Bio</a> |
-            <a class="item"  data-tab="data">
-                <i class="fa fa-gear"></i>
-            </a>
-        </h1>
-    </nav>
-
-    <section class="sheet-body">
-        <div class="tab" data-group="primary" data-tab="main">
-            <div class="sheet-main">
-                {{> "systems/sbb/templates/sheets/partials/tenets-box.hbs"}}
-                {{> "systems/sbb/templates/sheets/partials/health-box.hbs" this}}
-                {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
+            <div class="tab" data-group="primary" data-tab="skills">
                 {{> "systems/sbb/templates/sheets/partials/skill-box.hbs"}}
-                {{> "systems/sbb/templates/sheets/partials/attackAndAmmo-box.hbs"}}
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="bag">
-            <div class="sheet-bag">
-            test bag
+            <div class="tab" data-group="primary" data-tab="features">
+                {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="bio">
-            <div class="sheet-bio">
-            test bio
+            <div class="tab" data-group="primary" data-tab="equipment">
+                {{> "systems/sbb/templates/sheets/partials/equipmant.hbs"}}
             </div>
-        </div>
 
-        <div class="tab" data-group="primary" data-tab="data">
-            <div class="sheet-data">
+            <div class="tab" data-group="primary" data-tab="implants">
+5
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="injuries">
+6
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="attributes">
                 {{> "systems/sbb/templates/sheets/partials/character-attributes.hbs"}}
-
             </div>
-        </div>
 
+            <div class="tab" data-group="primary" data-tab="notes">
+8
+            </div>
+
+        </div>
     </section>
 </form>
