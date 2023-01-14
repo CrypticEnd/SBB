@@ -176,6 +176,11 @@
       "drug": "Drug",
       "type": "Type",
       "Effect": "Effect"
+    },
+
+    "effects": {
+      "name": "Name",
+      "new": "New Effect"
     }
   }
 }

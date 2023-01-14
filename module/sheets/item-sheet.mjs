@@ -54,7 +54,7 @@ export class SBBItemSheet extends  ItemSheet {
         switch (a.dataset.action){
             case "create":
                 return owner.createEmbeddedDocuments("ActiveEffect", [{
-                    label: "New Effect",
+                    label: game.i18n.localize("SBB.effects.new"),
                     icon: "icons/svg/aura.svg",
                     origin: owner.uuid
                 }]);
