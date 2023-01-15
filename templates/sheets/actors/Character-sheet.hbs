@@ -93,11 +93,13 @@
             </div>
 
             <div class="tab" data-group="primary" data-tab="notes">
-                <div class="notes">
+                <div class="note-tab">
                     <div class="note-header">
                         <h1>{{localize "SBB.tabNames.notes"}}</h1>
                     </div>
-                    {{editor actor.system.playerBio.notes target="system.playerBio.notes" button=true owner=owner editable=editable engine="prosemirror"}}
+                    <div class="note-content">
+                        {{editor actor.system.playerBio.notes target="system.playerBio.notes" button=true owner=owner editable=editable engine="prosemirror"}}
+                    </div>
                 </div>
             </div>
 

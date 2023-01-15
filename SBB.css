@@ -75,15 +75,17 @@
   font-size: 1.25em;
   border: none;
   margin-bottom: 15px;
+  padding-left: 5px;
 }
 .character .main-content .personal-file-box .personal-box table tr:nth-child(even) {
   background-color: #000000;
 }
 .character .main-content .personal-file-box .tenet-box .content-box,
 .character .main-content .personal-file-box .focus-box .content-box {
-  text-align: center;
+  text-align: left;
   font-size: 1.25em;
   margin-top: 20px;
+  padding-left: 5px;
 }
 .character .main-content .personal-file-box .tenet-box .content-box .tenet-focus-card,
 .character .main-content .personal-file-box .focus-box .content-box .tenet-focus-card {
@@ -103,6 +105,9 @@
 .character .main-content .personal-file-box .bio-box .editor {
   height: 500px;
   font-size: 1em !important;
+}
+.character .main-content .personal-file-box .bio-box .bio-content {
+  padding-left: 5px;
 }
 .character .main-content .skill-box {
   text-align: center;
@@ -164,10 +169,14 @@
 .character .main-content .effect-box .item-detail-space {
   flex: 0 0 70px;
 }
-.character .main-content .notes {
+.character .main-content .note-tab {
   color: #3dfb99;
 }
-.character .main-content .notes .editor {
+.character .main-content .note-tab .note-content {
+  padding-left: 5px;
+  font-size: 1.1em;
+}
+.character .main-content .note-tab .editor {
   height: 500px;
   font-size: 1em !important;
 }

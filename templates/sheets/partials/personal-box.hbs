@@ -61,7 +61,10 @@
         <div class="bio-header">
             <h1>{{localize "SBB.common.biography"}}</h1>
         </div>
-        {{editor actor.system.description target="system.description" button=true owner=owner editable=editable engine="prosemirror"}}
+        <div class="bio-content">
+            {{editor actor.system.description target="system.description" button=true owner=owner editable=editable engine="prosemirror"}}
+        </div>
     </div>
+
 
 </div>
