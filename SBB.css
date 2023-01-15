@@ -101,7 +101,8 @@
   padding-bottom: 15px;
 }
 .character .main-content .personal-file-box .bio-box .editor {
-  min-height: 150px;
+  height: 500px;
+  font-size: 1em !important;
 }
 .character .main-content .skill-box {
   text-align: center;
@@ -162,6 +163,13 @@
 .character .main-content .effect-box .item-detail-edit,
 .character .main-content .effect-box .item-detail-space {
   flex: 0 0 70px;
+}
+.character .main-content .notes {
+  color: #3dfb99;
+}
+.character .main-content .notes .editor {
+  height: 500px;
+  font-size: 1em !important;
 }
 .sheet-content {
   height: 100%;
@@ -261,6 +269,9 @@
 .equipment-list .item-list .item .inactive,
 .effect-list .item-list .item .inactive {
   color: #7a7971;
+}
+.character .prosemirror menu li {
+  background: var(--color-control-bg);
 }
 .character .window-content {
   background-color: #000000;
