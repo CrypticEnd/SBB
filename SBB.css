@@ -97,12 +97,36 @@
   padding-left: 10px;
 }
 .character .main-content .equipment-box li,
-.character .main-content .equipment-box ol {
+.character .main-content .effect-box li,
+.character .main-content .equipment-box ol,
+.character .main-content .effect-box ol {
   margin-left: 0px;
   padding-left: 0px;
 }
-.character .main-content .attributes {
+.character .main-content .equipment-box .attributes,
+.character .main-content .effect-box .attributes {
   text-align: center;
+}
+.character .main-content .equipment-box .header,
+.character .main-content .effect-box .header {
+  align-items: center;
+  text-align: center;
+  border: 1px groove #3dfb99;
+  font-size: 1.25em;
+}
+.character .main-content .equipment-box .item-detail,
+.character .main-content .effect-box .item-detail {
+  flex: 0 0 70px;
+}
+.character .main-content .equipment-box .add-icon,
+.character .main-content .equipment-box .item-detail-space {
+  flex: 0 0 0px;
+  width: 20px;
+  height: 20px;
+}
+.character .main-content .effect-box .item-detail-edit,
+.character .main-content .effect-box .item-detail-space {
+  flex: 0 0 70px;
 }
 .sheet-content {
   height: 100%;
@@ -141,8 +165,7 @@
   font-size: 12px;
   border: none;
 }
-.equipment-list .weapon-header,
-.equipment-list .consumables-header {
+.equipment-list .header {
   align-items: center;
   text-align: center;
   border: 1px groove #3dfb99;
@@ -157,7 +180,8 @@
   width: 20px;
   height: 20px;
 }
-.equipment-list .item-list .item {
+.equipment-list .item-list .item,
+.effect-list .item-list .item {
   align-items: center;
   text-align: center;
   display: flex;
@@ -166,34 +190,41 @@
   margin-top: 5px;
   border: 1px ridge #3dfb99;
 }
-.equipment-list .item-list .item .item-title {
+.equipment-list .item-list .item .item-title,
+.effect-list .item-list .item .item-title {
   width: 70%;
   display: flex;
 }
-.equipment-list .item-list .item .item-title .item-icon {
+.equipment-list .item-list .item .item-title .item-icon,
+.effect-list .item-list .item .item-title .item-icon {
   display: block;
   background-size: 100%;
   background-repeat: no-repeat;
   height: 30px;
   width: 30px;
 }
-.equipment-list .item-list .item .item-title h4 {
+.equipment-list .item-list .item .item-title h4,
+.effect-list .item-list .item .item-title h4 {
   padding-left: 5px;
 }
-.equipment-list .item-list .item .item-summary {
+.equipment-list .item-list .item .item-summary,
+.effect-list .item-list .item .item-summary {
   flex: 0 0 100%;
 }
-.equipment-list .item-list .item .item-summary .item-properties .tag {
+.equipment-list .item-list .item .item-summary .item-properties .tag,
+.effect-list .item-list .item .item-summary .item-properties .tag {
   display: inline-block;
   margin: 0 2px 0 0;
   padding: 0 3px;
   font-size: 10px;
   line-height: 16px;
 }
-.equipment-list .item-list .item .armour-equipped-button {
+.equipment-list .item-list .item .armour-equipped-button,
+.effect-list .item-list .item .armour-equipped-button {
   text-transform: uppercase;
 }
-.equipment-list .item-list .item .inactive {
+.equipment-list .item-list .item .inactive,
+.effect-list .item-list .item .inactive {
   color: #7a7971;
 }
 .character .window-content {

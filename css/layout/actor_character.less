@@ -9,7 +9,7 @@
     padding: 2%;
 
 
-    .title-name{
+    .title-name {
       text-align: center;
       font-size: 2.5em;
     }
@@ -18,12 +18,12 @@
       text-align: center;
       margin-top: -5px;
 
-      .biomonitor-header input{
+      .biomonitor-header input {
         border: none;
         width: 25%;
       }
 
-      h1{
+      h1 {
         padding-top: 3%;
       }
 
@@ -31,22 +31,22 @@
         padding: 5%;
       }
 
-      .strain-icons{
+      .strain-icons {
         font-size: 1.2em;
         width: 80%;
         margin: 0 auto;
       }
     }
 
-    .personal-files{
+    .personal-files {
       margin-top: 5%;
       text-align: center;
 
-      nav{
+      nav {
         padding-bottom: 15px;
       }
 
-      a{
+      a {
         display: inline-block;
         width: 100px;
         padding: 20px 0;
@@ -54,7 +54,7 @@
       }
     }
 
-    .nav-context-box{
+    .nav-context-box {
       height: 840px;
       overflow: scroll;
 
@@ -64,12 +64,12 @@
       display: none;
     }
 
-    .add-icon{
+    .add-icon {
       text-align: right;
       margin-right: 5px;
     }
 
-    .skill-box{
+    .skill-box {
       text-align: center;
 
       .skill-header {
@@ -83,23 +83,23 @@
         }
       }
 
-      .add-icon{
+      .add-icon {
         text-align: right;
         margin-right: 5px;
         margin-top: -55px;
       }
 
-      .skill-list{
+      .skill-list {
         margin-top: 55px;
       }
     }
 
-    .feat-box{
-      .add-icon{
-          margin-top: -35px;
+    .feat-box {
+      .add-icon {
+        margin-top: -35px;
       }
 
-      .feat-list{
+      .feat-list {
         margin-top: 35px;
 
         h3, .card-description {
@@ -108,16 +108,42 @@
       }
     }
 
-    .equipment-box{
-      li, ol{
+    .equipment-box, .effect-box {
+      li, ol {
         margin-left: 0px;
         padding-left: 0px;
-      }}
+      }
 
-      .attributes{
+
+      .attributes {
         text-align: center;
       }
 
+      .header {
+        align-items: center;
+        text-align: center;
+        border: 1px groove @borderColor;
+        font-size: 1.25em;
+      }
+
+      .item-detail {
+        flex: 0 0 70px;
+      }
+    }
+
+    .equipment-box {
+      .add-icon, .item-detail-space {
+        flex: 0 0 0px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .effect-box {
+      .item-detail-edit, .item-detail-space {
+        flex: 0 0 70px;
+      }
+    }
 
   }
 }
