@@ -142,7 +142,7 @@
       "skills":"Skills",
       "features": "Features",
       "equipment": "Equipment",
-      "enhancement": "Enhancement",
+      "enhancements": "Enhancements",
       "injuries": "Injuries",
       "attributes": "Attributes",
       "notes": "Notes"
@@ -175,7 +175,9 @@
       "name": "Name",
       "new": "New Effect",
       "implant": "Implant",
+      "implants": "Implants",
       "drug": "Drug",
+      "drugs": "Drugs",
       "injury": "Injury",
       "type": "Type",
       "Effect": "Effect",

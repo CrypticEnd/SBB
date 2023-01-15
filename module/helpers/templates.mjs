@@ -9,6 +9,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/skill-box.hbs",
         "systems/sbb/templates/sheets/partials/equipmant.hbs",
         "systems/sbb/templates/sheets/partials/injuries.hbs",
+        "systems/sbb/templates/sheets/partials/enhancements.hbs",
 
         // Cards
         "systems/sbb/templates/sheets/card/feat.hbs",

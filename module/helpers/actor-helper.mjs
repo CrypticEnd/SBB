@@ -30,13 +30,6 @@ export function addItem(event){
             }
         }, itemData);
     }
-    else if(itemType == "Effect"){
-        itemData = Object.assign({
-            system: {
-                type: event.currentTarget.dataset.subType
-            }
-        }, itemData);
-    }
 
     Item.create(itemData, {parent: this.actor});
 }

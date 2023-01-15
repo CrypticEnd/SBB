@@ -110,7 +110,7 @@ SBB.pcNavbar = {
     skills:      "SBB.tabNames.skills",
     features:    "SBB.tabNames.features",
     equipment:   "SBB.tabNames.equipment",
-    enhancement: "SBB.tabNames.enhancement",
+    enhancements: "SBB.tabNames.enhancements",
     injuries:    "SBB.tabNames.injuries",
     attributes:  "SBB.tabNames.attributes",
     notes:       "SBB.tabNames.notes"

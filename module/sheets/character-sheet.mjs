@@ -72,8 +72,10 @@ export class SBBCharacterSheet extends ActorSheet{
             armour:  data.items.filter(function (item) {return item.type == "Armour"}),
             otherItems:  data.items.filter(function (item) {return item.type == "Item"}),
 
-            enhancement: data.items.filter(function (item) {return item.type == "Effect"
-            && item.system.type != "SBB.effects.injury"}),
+            enhancementDrug: data.items.filter(function (item) {return item.type == "Effect"
+            && item.system.type == "SBB.effects.drug"}),
+            enhancementImplant: data.items.filter(function (item) {return item.type == "Effect"
+                && item.system.type == "SBB.effects.implant"}),
             injury: data.items.filter(function (item) {return item.type == "Effect"
                 && item.system.type == "SBB.effects.injury"})
         }
