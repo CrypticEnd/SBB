@@ -44,7 +44,8 @@
       "inactive": "Inactive",
       "true": "True",
       "false": "False",
-      "skillMod": "Other"
+      "skillMod": "Other",
+      "biography": "Biography"
     },
 
     "warning": {
@@ -146,6 +147,13 @@
       "injuries": "Injuries",
       "attributes": "Attributes",
       "notes": "Notes"
+    },
+
+    "personalPage": {
+      "name": "Name",
+      "title": "Title",
+      "gender": "Gender",
+      "age": "Age"
     },
 
     "equipmentList": {

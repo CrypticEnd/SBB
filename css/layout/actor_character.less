@@ -1,6 +1,6 @@
 .character {
   min-width: 855px;
-  min-height: 925px;
+  min-height: 870px;
 
   .main-content {
     display: grid;
@@ -16,7 +16,6 @@
 
     .biomonitor {
       text-align: center;
-      margin-top: -5px;
 
       .biomonitor-header input {
         border: none;
@@ -55,7 +54,7 @@
     }
 
     .nav-context-box {
-      height: 840px;
+      height: 800px;
       overflow: scroll;
 
     }
@@ -68,6 +67,54 @@
       text-align: right;
       margin-right: 5px;
     }
+
+  .personal-file-box{
+    .personal-box{
+      .playerimg{
+        object-fit: cover;
+        max-height: 400px;
+      }
+
+      table{
+        font-size: 1.25em;
+        border: none;
+        margin-bottom: 15px;
+      }
+
+      table tr:nth-child(even){
+        background-color: @backgroundColor;
+      }
+
+    }
+
+    .tenet-box, .focus-box{
+      .content-box {
+        text-align: center;
+        font-size: 1.25em;
+        margin-top: 20px;
+
+        .tenet-focus-card{
+          padding-bottom: 15px;
+
+          .crossed{
+            text-decoration: line-through;
+          }
+        }
+      }
+
+      .add-icon{
+        margin-top: -35px;
+      }
+    }
+
+    .bio-box{
+      padding-bottom: 15px;
+
+      .editor{
+        min-height: 150px;
+      }
+    }
+  }
 
     .skill-box {
       text-align: center;

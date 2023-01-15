@@ -4,10 +4,6 @@
     <section class="main-content">
 
         <div class="flexcol left-alined-content">
-            <h1 class="title-name">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/>
-            </h1>
-
             <div class="biomonitor flexrow">
                 <div class="biomonitor-header">
                     <h1>{{localize "SBB.common.biomonitor"}}</h1>
@@ -69,7 +65,7 @@
 
         <div class="nav-context-box">
             <div class="tab" data-group="primary" data-tab="personal">
-                1
+                {{> "systems/sbb/templates/sheets/partials/personal-box.hbs"}}
             </div>
 
             <div class="tab" data-group="primary" data-tab="skills">

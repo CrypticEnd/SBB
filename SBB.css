@@ -13,7 +13,7 @@
 }
 .character {
   min-width: 855px;
-  min-height: 925px;
+  min-height: 870px;
 }
 .character .main-content {
   display: grid;
@@ -27,7 +27,6 @@
 }
 .character .main-content .biomonitor {
   text-align: center;
-  margin-top: -5px;
 }
 .character .main-content .biomonitor .biomonitor-header input {
   border: none;
@@ -58,7 +57,7 @@
   margin-top: 10px;
 }
 .character .main-content .nav-context-box {
-  height: 840px;
+  height: 800px;
   overflow: scroll;
 }
 .character .main-content .nav-context-box::-webkit-scrollbar {
@@ -67,6 +66,42 @@
 .character .main-content .add-icon {
   text-align: right;
   margin-right: 5px;
+}
+.character .main-content .personal-file-box .personal-box .playerimg {
+  object-fit: cover;
+  max-height: 400px;
+}
+.character .main-content .personal-file-box .personal-box table {
+  font-size: 1.25em;
+  border: none;
+  margin-bottom: 15px;
+}
+.character .main-content .personal-file-box .personal-box table tr:nth-child(even) {
+  background-color: #000000;
+}
+.character .main-content .personal-file-box .tenet-box .content-box,
+.character .main-content .personal-file-box .focus-box .content-box {
+  text-align: center;
+  font-size: 1.25em;
+  margin-top: 20px;
+}
+.character .main-content .personal-file-box .tenet-box .content-box .tenet-focus-card,
+.character .main-content .personal-file-box .focus-box .content-box .tenet-focus-card {
+  padding-bottom: 15px;
+}
+.character .main-content .personal-file-box .tenet-box .content-box .tenet-focus-card .crossed,
+.character .main-content .personal-file-box .focus-box .content-box .tenet-focus-card .crossed {
+  text-decoration: line-through;
+}
+.character .main-content .personal-file-box .tenet-box .add-icon,
+.character .main-content .personal-file-box .focus-box .add-icon {
+  margin-top: -35px;
+}
+.character .main-content .personal-file-box .bio-box {
+  padding-bottom: 15px;
+}
+.character .main-content .personal-file-box .bio-box .editor {
+  min-height: 150px;
 }
 .character .main-content .skill-box {
   text-align: center;

@@ -66,6 +66,13 @@
           "techlevel": 0
         }
       },
+      "playerBio": {
+        "race": "",
+        "gender": "",
+        "age": "",
+        "title": "",
+        "notes": ""
+      },
       "usingTenet": false,
       "usingFocus": false
 
