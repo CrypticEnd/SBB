@@ -51,8 +51,6 @@ export class SBBItemSheet extends  ItemSheet {
         const tr = a.closest("tr");
         const effect = tr.dataset.effectId ? owner.effects.get(tr.dataset.effectId) : null;
 
-        console.log(effect);
-
         switch (a.dataset.action){
             case "create":
                 return owner.createEmbeddedDocuments("ActiveEffect", [{

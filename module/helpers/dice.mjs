@@ -75,7 +75,7 @@ export async function makeSaveRoll({
                            })
 {
     if (linkedAttribute == null) {
-        console.error("Linked Attribute not defined")
+        console.warn("Linked Attribute not defined")
         return
     }
 
@@ -110,7 +110,7 @@ export async function makeSaveRoll({
 
 export async function rollWeaponDamage(weapon){
     if(weapon == null || weapon.system.formula === ""){
-        console.error("Weapon or weapon formula undefined");
+        console.warn("Weapon or weapon formula undefined");
         return
     }
 
@@ -156,7 +156,7 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
 
 
     if(actor == null || skill == null){
-        console.error("Skill roll called with improper values");
+        console.warn("Skill roll called with improper values");
         return;
     }
 
@@ -166,7 +166,7 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
         && !linkedAttributeName in actor.system.attributes)
     {
-        console.error("'${saveType}' is not a valid attribute for a skill");
+        console.warn("'${saveType}' is not a valid attribute for a skill");
         return;
     }
 
