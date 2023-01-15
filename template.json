@@ -175,7 +175,8 @@
 
     "Effect": {
       "templates": ["base"],
-      "type": "SBB.effects.implant"
+      "type": "SBB.effects.implant",
+      "active": false
     },
 
     "Starship Fittings": {},

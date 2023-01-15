@@ -1,0 +1,24 @@
+<div class="injuries-box">
+    <div class="injuries-header">
+        <h1>{{localize "SBB.tabNames.injuries"}}</h1>
+
+    </div>
+
+    <ol class="injuries-list">
+        <li class="flexrow">
+            <div class="item-header">{{localize "SBB.effects.name"}}</div>
+
+            <div class="item-detail">{{localize "SBB.effects.applied"}}</div>
+
+            <div class="add-icon">
+                <i class="fa fa-circle-plus add-item-button" data-type="Effect" data-sub-type="SBB.effects.injury"></i>
+            </div>
+        </li>
+
+        <ol class="item-list">
+            {{#each filteredItems.injury}}
+                {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
+            {{/each}}
+        </ol>
+    </ol>
+</div>

@@ -43,6 +43,16 @@
         <div class="item-detail">{{#multiply system.weight system.quantity}}{{/multiply}}</div>
     {{/if}}
 
+    {{#if (eq type "Effect")}}
+        <div data-item-id="{{this._id}}" class="item-detail effect-equipped-button
+            {{#if system.active}}
+                ">{{localize "SBB.common.true"}}
+        {{else}}
+            inactive">{{localize "SBB.common.false"}}
+        {{/if}}
+        </div>
+    {{/if}}
+
 
 
     <div class="item-detail-space">

@@ -178,7 +178,8 @@
       "drug": "Drug",
       "injury": "Injury",
       "type": "Type",
-      "Effect": "Effect"
+      "Effect": "Effect",
+      "applied": "Applied"
     }
   }
 }

@@ -51,12 +51,15 @@ export class SBBItemSheet extends  ItemSheet {
         const tr = a.closest("tr");
         const effect = tr.dataset.effectId ? owner.effects.get(tr.dataset.effectId) : null;
 
+        console.log(effect);
+
         switch (a.dataset.action){
             case "create":
                 return owner.createEmbeddedDocuments("ActiveEffect", [{
                     label: game.i18n.localize("SBB.effects.new"),
                     icon: "icons/svg/aura.svg",
-                    origin: owner.uuid
+                    origin: owner.uuid,
+                    disabled: true
                 }]);
             case "edit":
                 return effect.sheet.render(true);

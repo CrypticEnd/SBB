@@ -71,6 +71,11 @@ export class SBBCharacterSheet extends ActorSheet{
             consumables:  data.items.filter(function (item) {return item.type == "Consumable"}),
             armour:  data.items.filter(function (item) {return item.type == "Armour"}),
             otherItems:  data.items.filter(function (item) {return item.type == "Item"}),
+
+            enhancement: data.items.filter(function (item) {return item.type == "Effect"
+            && item.system.type != "SBB.effects.injury"}),
+            injury: data.items.filter(function (item) {return item.type == "Effect"
+                && item.system.type == "SBB.effects.injury"})
         }
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
@@ -110,6 +115,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".toggle-tenet").click(this._toggleTenet.bind(this));
             html.find(".toggle-focus").click(this._toggleFocus.bind(this));
             html.find(".armour-equipped-button").click(this._armourEquipped.bind(this));
+            html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{

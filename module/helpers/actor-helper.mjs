@@ -23,12 +23,20 @@ export function addItem(event){
         type: itemType
     };
 
-    if(itemType == "Skill"){
-        itemData =  Object.assign({
+    if(itemType == "Skill") {
+        itemData = Object.assign({
             system: {
                 attribute: event.currentTarget.dataset.category
-            }}, itemData);
-        }
+            }
+        }, itemData);
+    }
+    else if(itemType == "Effect"){
+        itemData = Object.assign({
+            system: {
+                type: event.currentTarget.dataset.subType
+            }
+        }, itemData);
+    }
 
     Item.create(itemData, {parent: this.actor});
 }
@@ -136,4 +144,24 @@ export function updateArmourValues(actor){
     actor.update({"system.armour.head.energy": EnD_head})
     actor.update({"system.armour.head.explosive": ExD_head})
     actor.update({"system.armour.head.techlevel": TlD_head})
+}
+
+export function effectToggle(event){
+    event.preventDefault();
+
+    const itemId = event.currentTarget.dataset.itemId;
+    const effectItem = this.actor.items.get(itemId);
+    const actorEffects = this.actor.getEmbeddedCollection("ActiveEffect").contents;
+
+    const relevantEffects = actorEffects.filter(effect => effect.origin.endsWith(itemId))
+
+    if(relevantEffects.length == 0 ) return;
+
+    const newStatus = !effectItem.system.active;
+
+    Object.keys(relevantEffects).forEach(key =>{
+        relevantEffects[key].update({disabled : !newStatus});
+    });
+    effectItem.update({"system.active": newStatus});
+
 }
