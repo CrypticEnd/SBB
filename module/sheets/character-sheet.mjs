@@ -63,19 +63,21 @@ export class SBBCharacterSheet extends ActorSheet{
         data.config = CONFIG.SBB;
 
         // Item filters
-        data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
-        data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
-        data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
-        data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
-        data.consumables =  data.items.filter(function (item) {return item.type == "Consumable"});
-        data.armour =  data.items.filter(function (item) {return item.type == "Armour"});
-        data.otherItems =  data.items.filter(function (item) {return item.type == "Item"});
+        data.filteredItems = {
+            feats:  data.items.filter(function (item) {return item.type == "Feat"}),
+            tenets:  data.items.filter(function (item) {return item.type == "Tenet"}),
+            focuses:  data.items.filter(function (item) {return item.type == "Focus"}),
+            attacks:  data.items.filter(function (item) {return item.type == "Weapon"}),
+            consumables:  data.items.filter(function (item) {return item.type == "Consumable"}),
+            armour:  data.items.filter(function (item) {return item.type == "Armour"}),
+            otherItems:  data.items.filter(function (item) {return item.type == "Item"}),
+        }
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
-        data.skills = {};
+        data.filteredItems.skills = {};
 
         for (const [key,value] of Object.entries(data.config.skillTypes)){
-            data.skills[key] = skills.filter(function (item) {return item.system.attribute==key});
+            data.filteredItems.skills[key] = skills.filter(function (item) {return item.system.attribute==key});
         }
 
         this.actor.setFlag('sbb', 'strainMod', this._workOutStrain());
