@@ -93,7 +93,12 @@
             </div>
 
             <div class="tab" data-group="primary" data-tab="notes">
-8
+                <div class="notes">
+                    <div class="note-header">
+                        <h1>{{localize "SBB.tabNames.notes"}}</h1>
+                    </div>
+                    {{editor actor.system.playerBio.notes target="system.playerBio.notes" button=true owner=owner editable=editable}}
+                </div>
             </div>
 
         </div>
