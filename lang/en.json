@@ -171,16 +171,14 @@
       }
     },
 
-    "enhancements": {
-      "implant": "Implant",
-      "drug": "Drug",
-      "type": "Type",
-      "Effect": "Effect"
-    },
-
     "effects": {
       "name": "Name",
-      "new": "New Effect"
+      "new": "New Effect",
+      "implant": "Implant",
+      "drug": "Drug",
+      "injury": "Injury",
+      "type": "Type",
+      "Effect": "Effect"
     }
   }
 }

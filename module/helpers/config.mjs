@@ -116,9 +116,10 @@ SBB.pcNavbar = {
     notes:       "SBB.tabNames.notes"
 }
 
-SBB.enhancementsTypes ={
-    drug: "SBB.enhancements.drug",
-    implant: "SBB.enhancements.implant"
+SBB.effectTypes ={
+    drug: "SBB.effects.drug",
+    implant: "SBB.effects.implant",
+    injury:"SBB.effects.injury"
 }
 
 SBB.equipmentList ={

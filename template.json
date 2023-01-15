@@ -100,7 +100,7 @@
       "Item",
       "Consumable",
       "Feat",
-      "Enhancement",
+      "Effect",
       "Starship Fittings",
       "Starship Defenses",
       "Starship Weaponry",
@@ -173,9 +173,9 @@
       "prerequisite": ""
     },
 
-    "Enhancement": {
+    "Effect": {
       "templates": ["base"],
-      "type": "SBB.enhancements.implant"
+      "type": "SBB.effects.implant"
     },
 
     "Starship Fittings": {},
