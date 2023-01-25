@@ -11,7 +11,6 @@ export class SBBCharacterSheet extends ActorSheet{
             height: 800,
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}],
             tabs: [{navSelector: ".main-tabs", contentSelector: ".nav-context-box", initial: "personal"},
-                {navSelector: ".tenet-focus-tabs", contentSelector: ".tenet-content", initial: "tenet"},
                 {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
             ],
         });
