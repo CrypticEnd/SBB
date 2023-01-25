@@ -1,0 +1,40 @@
+<div class="effect-box">
+    <div class="enhancement-header">
+        <h1>{{localize "SBB.tabNames.enhancements"}}</h1>
+    </div>
+
+
+    <ol class="effect-list">
+        <li class="header flexrow">
+            <div class="item-header">{{localize "SBB.effects.implants"}}</div>
+
+            <div class="item-detail">{{localize "SBB.effects.applied"}}</div>
+
+            <div class="item-detail-edit">
+                {{localize "SBB.common.edit"}}
+            </div>
+        </li>
+
+        <ol class="item-list">
+            {{#each filteredItems.enhancementImplant}}
+                {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
+            {{/each}}
+        </ol>
+
+        <li class="header flexrow">
+            <div class="item-header">{{localize "SBB.effects.drugs"}}</div>
+
+            <div class="item-detail">{{localize "SBB.effects.applied"}}</div>
+
+            <div class="item-detail-edit">
+                {{localize "SBB.common.edit"}}
+            </div>
+        </li>
+
+        <ol class="item-list">
+            {{#each filteredItems.enhancementDrug}}
+                {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
+            {{/each}}
+        </ol>
+    </ol>
+</div>

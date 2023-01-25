@@ -110,15 +110,16 @@ SBB.pcNavbar = {
     skills:      "SBB.tabNames.skills",
     features:    "SBB.tabNames.features",
     equipment:   "SBB.tabNames.equipment",
-    enhancement: "SBB.tabNames.enhancement",
+    enhancements: "SBB.tabNames.enhancements",
     injuries:    "SBB.tabNames.injuries",
     attributes:  "SBB.tabNames.attributes",
     notes:       "SBB.tabNames.notes"
 }
 
-SBB.enhancementsTypes ={
-    drug: "SBB.enhancements.drug",
-    implant: "SBB.enhancements.implant"
+SBB.effectTypes ={
+    drug: "SBB.effects.drug",
+    implant: "SBB.effects.implant",
+    injury:"SBB.effects.injury"
 }
 
 SBB.equipmentList ={

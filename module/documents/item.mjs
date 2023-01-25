@@ -3,6 +3,7 @@ import * as Dice from "../helpers/dice.mjs";
 export class SBBItem extends Item{
     chatTemplate = {
         "Weapon" : "systems/sbb/templates/sheets/card/weapon-roll.hbs",
+        "Armour" : "systems/sbb/templates/sheets/card/armour.hbs",
         "default" : "systems/sbb/templates/sheets/card/default.hbs"
     }
 
@@ -12,7 +13,7 @@ export class SBBItem extends Item{
         "Item": "systems/sbb/assets/svg/icons/gear.svg",
         "Consumable": "systems/sbb/assets/svg/icons/crosshair.svg",
         "Feat": "systems/sbb/assets/svg/icons/feat.svg",
-        "Enhancement": "systems/sbb/assets/svg/icons/focus.svg",
+        "Effect": "systems/sbb/assets/svg/icons/focus.svg",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry:

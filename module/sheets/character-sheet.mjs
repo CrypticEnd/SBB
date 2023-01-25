@@ -63,19 +63,28 @@ export class SBBCharacterSheet extends ActorSheet{
         data.config = CONFIG.SBB;
 
         // Item filters
-        data.feats =  data.items.filter(function (item) {return item.type == "Feat"});
-        data.tenets =  data.items.filter(function (item) {return item.type == "Tenet"});
-        data.focuses =  data.items.filter(function (item) {return item.type == "Focus"});
-        data.attacks =  data.items.filter(function (item) {return item.type == "Weapon"});
-        data.consumables =  data.items.filter(function (item) {return item.type == "Consumable"});
-        data.armour =  data.items.filter(function (item) {return item.type == "Armour"});
-        data.otherItems =  data.items.filter(function (item) {return item.type == "Item"});
+        data.filteredItems = {
+            feats:  data.items.filter(function (item) {return item.type == "Feat"}),
+            tenets:  data.items.filter(function (item) {return item.type == "Tenet"}),
+            focuses:  data.items.filter(function (item) {return item.type == "Focus"}),
+            attacks:  data.items.filter(function (item) {return item.type == "Weapon"}),
+            consumables:  data.items.filter(function (item) {return item.type == "Consumable"}),
+            armour:  data.items.filter(function (item) {return item.type == "Armour"}),
+            otherItems:  data.items.filter(function (item) {return item.type == "Item"}),
+
+            enhancementDrug: data.items.filter(function (item) {return item.type == "Effect"
+            && item.system.type == "SBB.effects.drug"}),
+            enhancementImplant: data.items.filter(function (item) {return item.type == "Effect"
+                && item.system.type == "SBB.effects.implant"}),
+            injury: data.items.filter(function (item) {return item.type == "Effect"
+                && item.system.type == "SBB.effects.injury"})
+        }
 
         let skills = data.items.filter(function (item) {return item.type == "Skill"});
-        data.skills = {};
+        data.filteredItems.skills = {};
 
         for (const [key,value] of Object.entries(data.config.skillTypes)){
-            data.skills[key] = skills.filter(function (item) {return item.system.attribute==key});
+            data.filteredItems.skills[key] = skills.filter(function (item) {return item.system.attribute==key});
         }
 
         this.actor.setFlag('sbb', 'strainMod', this._workOutStrain());
@@ -108,6 +117,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".toggle-tenet").click(this._toggleTenet.bind(this));
             html.find(".toggle-focus").click(this._toggleFocus.bind(this));
             html.find(".armour-equipped-button").click(this._armourEquipped.bind(this));
+            html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
 
             // strain reset context menu
             new ContextMenu(html, ".strain-marker", [{
@@ -225,7 +235,7 @@ export class SBBCharacterSheet extends ActorSheet{
         if(!saveType.toLowerCase() in saveTypes
         && !saveType in this.actor.system.attributes)
         {
-            console.error("'${saveType}' is not a valid attribute for a save");
+            console.warn("'${saveType}' is not a valid attribute for a save");
             return;
         }
         let linkedAttribute = this.actor.system.attributes[saveType.toLowerCase()];

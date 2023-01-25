@@ -1,0 +1,41 @@
+<div class="item-card" data-item-id="{{_id}}" >
+    <div class="card-name">
+        <h3>{{name}}</h3>
+    </div>
+
+    <table class="armour-info">
+        <tr>
+            <td>{{localize "SBB.armour.armourType"}}</td>
+            <td>{{localize this.system.type}}</td>
+        </tr>
+
+        <tr>
+            <td>{{localize "SBB.armour.techLevel"}}</td>
+            <td>{{this.system.techLevel}}</td>
+        </tr>
+
+        <tr>
+            <td>{{localize "SBB.damageTypes.kinetic"}}</td>
+            <td>{{this.system.kinetic}}</td>
+        </tr>
+
+        <tr>
+            <td>{{localize "SBB.damageTypes.energy"}}</td>
+            <td>{{this.system.energy}}</td>
+        </tr>
+
+        <tr>
+            <td>{{localize "SBB.damageTypes.explosive"}}</td>
+            <td>{{this.system.explosive}}</td>
+        </tr>
+
+        <tr>
+            <td>{{localize "SBB.armour.weight"}}</td>
+            <td>{{this.system.weight}}</td>
+        </tr>
+    </table>
+
+    <div>
+        {{editor system.description target="system.description" button=false owner=owner editable=false}}
+    </div>
+</div>

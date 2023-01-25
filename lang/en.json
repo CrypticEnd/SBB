@@ -44,7 +44,8 @@
       "inactive": "Inactive",
       "true": "True",
       "false": "False",
-      "skillMod": "Other"
+      "skillMod": "Other",
+      "biography": "Biography"
     },
 
     "warning": {
@@ -142,10 +143,17 @@
       "skills":"Skills",
       "features": "Features",
       "equipment": "Equipment",
-      "enhancement": "Enhancement",
+      "enhancements": "Enhancements",
       "injuries": "Injuries",
       "attributes": "Attributes",
       "notes": "Notes"
+    },
+
+    "personalPage": {
+      "name": "Name",
+      "title": "Title",
+      "gender": "Gender",
+      "age": "Age"
     },
 
     "equipmentList": {
@@ -171,16 +179,17 @@
       }
     },
 
-    "enhancements": {
-      "implant": "Implant",
-      "drug": "Drug",
-      "type": "Type",
-      "Effect": "Effect"
-    },
-
     "effects": {
       "name": "Name",
-      "new": "New Effect"
+      "new": "New Effect",
+      "implant": "Implant",
+      "implants": "Implants",
+      "drug": "Drug",
+      "drugs": "Drugs",
+      "injury": "Injury",
+      "type": "Type",
+      "Effect": "Effect",
+      "applied": "Applied"
     }
   }
 }

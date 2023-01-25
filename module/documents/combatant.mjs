@@ -9,9 +9,8 @@ export class SBBCombatant extends Combatant{
             if("strainMod" in this.actor.flags.sbb){
                 strainMod = this.actor.flags.sbb.strainMod;
             }
-            console.log(this.actor);
 
-            formula = "min(1d10, @attributes.reflex)+min(1d10, @attributes.reflex) " +
+            formula = "1d10 + @attributes.reflex" +
             "+ @attributes.reflex/10" + // a .value to help with Ties
             "@modifiers.initiative - " + strainMod;
         }

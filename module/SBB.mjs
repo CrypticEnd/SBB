@@ -20,6 +20,7 @@ Hooks.once("init", function (){
     CONFIG.Combatant.documentClass = SBBCombatant;
 
     CONFIG.Combat.initiative = {
+        formula: "1d10",
         decimals: 2
     };
 

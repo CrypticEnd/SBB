@@ -6,7 +6,7 @@
     <ol class="equipment-list">
 
         <!-- Weapon list  -->
-        <li class="weapon-header flexrow">
+        <li class="header flexrow">
             <div class="item-header">{{localize "SBB.equipmentList.weapons.title"}}</div>
             {{#each config.equipmentList.weapons}}
                 <div class="item-detail">{{localize this}}</div>
@@ -18,13 +18,13 @@
         </li>
 
         <ol class="item-list">
-            {{#each attacks}}
+            {{#each filteredItems.attacks}}
                 {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
             {{/each}}
         </ol>
 
         <!-- Consumables list  -->
-        <li class="consumables-header flexrow">
+        <li class="header flexrow">
             <div class="item-header">{{localize "SBB.equipmentList.consumables.title"}}</div>
             {{#each config.equipmentList.consumables}}
                 <div class="item-detail">{{localize this}}</div>
@@ -35,13 +35,13 @@
         </li>
 
         <ol class="item-list">
-            {{#each consumables}}
+            {{#each filteredItems.consumables}}
                 {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
             {{/each}}
         </ol>
 
         <!-- Armor list  -->
-        <li class="consumables-header flexrow">
+        <li class="header flexrow">
             <div class="item-header">{{localize "SBB.equipmentList.armour.title"}}</div>
             {{#each config.equipmentList.armour}}
                 <div class="item-detail">{{localize this}}</div>
@@ -52,13 +52,13 @@
         </li>
 
         <ol class="item-list">
-            {{#each armour}}
+            {{#each filteredItems.armour}}
                 {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
             {{/each}}
         </ol>
 
         <!-- Item list  -->
-        <li class="consumables-header flexrow">
+        <li class="header flexrow">
             <div class="item-header">{{localize "SBB.equipmentList.item.title"}}</div>
             {{#each config.equipmentList.item}}
                 <div class="item-detail">{{localize this}}</div>
@@ -69,7 +69,7 @@
         </li>
 
         <ol class="item-list">
-            {{#each otherItems}}
+            {{#each filteredItems.otherItems}}
                 {{> "systems/sbb/templates/sheets/card/sheet-item-basic.hbs"}}
             {{/each}}
         </ol>

@@ -66,6 +66,13 @@
           "techlevel": 0
         }
       },
+      "playerBio": {
+        "race": "",
+        "gender": "",
+        "age": "",
+        "title": "",
+        "notes": ""
+      },
       "usingTenet": false,
       "usingFocus": false
 
@@ -100,7 +107,7 @@
       "Item",
       "Consumable",
       "Feat",
-      "Enhancement",
+      "Effect",
       "Starship Fittings",
       "Starship Defenses",
       "Starship Weaponry",
@@ -173,9 +180,10 @@
       "prerequisite": ""
     },
 
-    "Enhancement": {
+    "Effect": {
       "templates": ["base"],
-      "type": "SBB.enhancements.implant"
+      "type": "SBB.effects.implant",
+      "active": false
     },
 
     "Starship Fittings": {},

@@ -1,5 +1,5 @@
 
-export async  function createRollItemMacro(data, slot){
+export async function createRollItemMacro(data, slot){
     const macroData = { type: "script", scope: "actor" };
 
     switch ( data.type ) {

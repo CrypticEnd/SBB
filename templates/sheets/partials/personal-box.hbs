@@ -1,0 +1,70 @@
+<div class="personal-file-box">
+        <div class="personal-box">
+            <div class="personal-header">
+                <h1>{{localize "SBB.tabNames.personalfiles"}}</h1>
+            </div>
+            <div class="personal-info flexcol">
+                <img class="playerimg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+                <table class="info">
+                    <tr>
+                        <td> {{localize "SBB.personalPage.name"}}</td>
+                        <td> <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "SBB.common.name"}}"/></td>
+                    </tr>
+                    <tr>
+                        <td> {{localize "SBB.personalPage.title"}}</td>
+                        <td> <input name="system.playerBio.title" type="text" value="{{actor.system.playerBio.title}}"/></td>
+                    </tr>
+                    <tr>
+                        <td> {{localize "SBB.personalPage.gender"}}</td>
+                        <td> <input name="system.playerBio.gender" type="text" value="{{actor.system.playerBio.gender}}"/></td>
+                    </tr>
+                    <tr>
+                        <td> {{localize "SBB.personalPage.age"}}</td>
+                        <td> <input name="system.playerBio.age" type="text" value="{{actor.system.playerBio.age}}"/></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="tenet-box">
+            <div class="tenet-header">
+                <h1>{{localize "SBB.common.tenet"}}</h1>
+            </div>
+
+            <div class="add-icon">
+                <i class="fa fa-circle-plus add-item-button" data-type="Tenet" title="{{localize "SBB.common.add"}}"></i>
+            </div>
+
+            <div class="content-box">
+                {{#each filteredItems.tenets as |tenet id|}}
+                    {{> "systems/sbb/templates/sheets/card/tenet.hbs" tenet}}
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="focus-box">
+            <div class="focus-header">
+                <h1>{{localize "SBB.common.focus"}}</h1>
+            </div>
+
+            <div class="add-icon">
+                <i class="fa fa-circle-plus add-item-button" data-type="Focus" {{localize "SBB.common.add"}}></i>
+            </div>
+            <div class="content-box">
+                {{#each filteredItems.focuses as |focus id|}}
+                    {{> "systems/sbb/templates/sheets/card/tenet.hbs" focus}}
+                {{/each}}
+            </div>
+        </div>
+
+    <div class="bio-box">
+        <div class="bio-header">
+            <h1>{{localize "SBB.common.biography"}}</h1>
+        </div>
+        <div class="bio-content">
+            {{editor actor.system.description target="system.description" button=true owner=owner editable=editable engine="prosemirror"}}
+        </div>
+    </div>
+
+
+</div>

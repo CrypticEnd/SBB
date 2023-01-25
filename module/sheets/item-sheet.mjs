@@ -6,7 +6,7 @@ export class SBBItemSheet extends  ItemSheet {
         "Item":        "systems/sbb/templates/sheets/items/item.hbs",
         "Consumable":  "systems/sbb/templates/sheets/items/item.hbs",
         "Feat":        "systems/sbb/templates/sheets/items/feat-sheet.hbs",
-        "Enhancement": "systems/sbb/templates/sheets/items/enhancement.hbs",
+        "Effect": "systems/sbb/templates/sheets/items/effect.hbs",
         // "Starship Fittings":
         // "Starship Defenses":
         // "Starship Weaponry":
@@ -56,7 +56,8 @@ export class SBBItemSheet extends  ItemSheet {
                 return owner.createEmbeddedDocuments("ActiveEffect", [{
                     label: game.i18n.localize("SBB.effects.new"),
                     icon: "icons/svg/aura.svg",
-                    origin: owner.uuid
+                    origin: owner.uuid,
+                    disabled: true
                 }]);
             case "edit":
                 return effect.sheet.render(true);

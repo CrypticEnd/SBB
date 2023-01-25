@@ -2,7 +2,7 @@
   "id": "sbb",
   "title": "Stars but Better",
   "description": "Stars but butter is an attempt to making a new system for current playgroup",
-  "version": "0.30",
+  "version": "0.40",
 
   "compatibility": {
     "minimum": 10,
@@ -31,9 +31,9 @@
   "primaryTokenAttribute": "HP",
   "secondaryTokenAttribute": "strain",
 
-  "url": "https://github.com/CrypticEnd/SBB",
-  "manifest": "https://github.com/CrypticEnd/sbb/releases/download/0.30/system.json",
-  "download": "https://github.com/CrypticEnd/sbb/archive/refs/tags/0.30.zip",
+  "url": "https://github.com/CrypticEnd/sbb",
+  "manifest": "https://github.com/CrypticEnd/sbb/releases/download/0.40/system.json",
+  "download": "https://github.com/CrypticEnd/sbb/archive/refs/tags/0.40.zip",
   "license": "",
 
   "changelog": "",
