@@ -7,8 +7,6 @@ export class SBBCharacterSheet extends ActorSheet{
         return mergeObject(super.defaultOptions, {
             classes: ["character", "sheet", "actor"],
             template: "systems/sbb/templates/sheets/actors/Character-sheet.hbs",
-            width: 600,
-            height: 800,
             dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}],
             tabs: [{navSelector: ".main-tabs", contentSelector: ".nav-context-box", initial: "personal"},
                 {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
