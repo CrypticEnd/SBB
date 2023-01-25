@@ -19,6 +19,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/card/sheet-item-basic.hbs",
         "systems/sbb/templates/sheets/card/damage-roll.hbs",
         "systems/sbb/templates/sheets/card/effect-table.hbs",
+        "systems/sbb/templates/sheets/card/armour.hbs"
 
     ]);
 };
