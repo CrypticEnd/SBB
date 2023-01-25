@@ -31,7 +31,7 @@
   "primaryTokenAttribute": "HP",
   "secondaryTokenAttribute": "strain",
 
-  "url": "https://github.com/CrypticEnd/SBB",
+  "url": "https://github.com/CrypticEnd/sbb",
   "manifest": "https://github.com/CrypticEnd/sbb/releases/download/0.30/system.json",
   "download": "https://github.com/CrypticEnd/sbb/archive/refs/tags/0.30.zip",
   "license": "",
