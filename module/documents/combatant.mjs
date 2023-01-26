@@ -11,7 +11,7 @@ export class SBBCombatant extends Combatant{
             }
 
             formula = "1d10 + @attributes.reflex" +
-            "+ @attributes.reflex/10" + // a .value to help with Ties
+            "+ @attributes.reflex/10 + " + // a .value to help with Ties
             "@modifiers.initiative - " + strainMod;
         }
 
