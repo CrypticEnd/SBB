@@ -6,10 +6,10 @@ export class SBBActor extends Actor{
     }
 
     prepareDerivedData() {
+        super.prepareDerivedData();
+        
         const actorData = this;
         const config = CONFIG.SBB;
-
-        //TODO error checking for type of actor
 
         // Update deprived data values based on actor type
         if(actorData.type == "Character"){
@@ -54,6 +54,5 @@ export class SBBActor extends Actor{
         if(systemData.strain.value > systemData.strain.max)
             systemData.strain.value = systemData.strain.max;
     }
-
 
 }
