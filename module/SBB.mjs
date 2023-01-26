@@ -3,6 +3,7 @@ import {SBBActor} from "./documents/actor.mjs";
 import {SBBCombatant} from "./documents/combatant.mjs";
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/character-sheet.mjs";
+import {SBBNPCSheet} from "./sheets/npc-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
@@ -34,6 +35,11 @@ Hooks.once("init", function (){
         types:["Character"],
         makeDefault: true,
         label: "SBB.SheetCharacter"
+    });
+    Actors.registerSheet("SBBNPC", SBBNPCSheet, {
+        types:["NPC"],
+        makeDefault: true,
+        label: "SBB.SheetNPC"
     });
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("SBBItem", SBBItemSheet, {
