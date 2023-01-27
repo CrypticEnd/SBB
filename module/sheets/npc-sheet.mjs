@@ -4,7 +4,7 @@ export class SBBNPCSheet extends ActorSheet{
         return mergeObject(super.defaultOptions, {
             classes: ["NPC", "sheet", "actor"],
             template: "systems/sbb/templates/sheets/actors/NPC-sheet.hbs",
-            width: 600,
+            width: 680,
             height: 800,
             tabs: [{ navSelector: ".main-tabs", contentSelector: ".nav-content", initial: "skills" }]
         });

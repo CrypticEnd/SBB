@@ -201,6 +201,9 @@
 .NPC .main-content .abilities-box {
   margin-top: 5%;
 }
+.NPC .main-content .nav-box {
+  min-width: 280px;
+}
 .sheet-content {
   height: 100%;
   display: flex;
@@ -434,13 +437,25 @@
 }
 .NPC .info-box table {
   border: none;
-  text-transform: uppercase;
   font-size: 1.25em;
   padding-left: 5px;
   margin-top: -10px;
 }
+.NPC .info-box .status-box table {
+  text-transform: uppercase;
+}
 .NPC .info-box .status-box table tr:nth-child(even) {
   background-color: transparent;
+}
+.NPC .nav-box .nav-bar nav {
+  background-color: #003d20;
+}
+.NPC .nav-box .nav-bar nav h1 {
+  font-size: 1.5em;
+  border-top: none;
+}
+.NPC .nav-box .nav-bar nav .active {
+  color: #7a7971;
 }
 .item .item-summary .item-properties .tag {
   border: 1px solid #3dfb99;
