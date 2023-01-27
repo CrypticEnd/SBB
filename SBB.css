@@ -182,9 +182,25 @@
 }
 .NPC .main-content {
   display: grid;
-  grid-template-columns: 420px auto;
+  grid-template-columns: 330px auto;
   grid-column-gap: 5%;
   padding: 2%;
+}
+.NPC .main-content .info-box {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.NPC .main-content .info-box .NPCimg {
+  padding: 2%;
+}
+.NPC .main-content .info-box button {
+  width: 80%;
+  margin-left: 10%;
+  color: #3dfb99;
+}
+.NPC .main-content .abilities-box {
+  margin-top: 5%;
+  overflow: scroll;
 }
 .sheet-content {
   height: 100%;
@@ -379,6 +395,53 @@
   position: absolute;
   opacity: 0.3;
   pointer-events: none;
+}
+.NPC .prosemirror menu li {
+  background: var(--color-control-bg);
+}
+.NPC .window-content {
+  background-color: #000000;
+  background-image: none;
+  color: #3dfb99;
+}
+.NPC .window-content input {
+  color: #3dfb99;
+}
+.NPC .window-content h1,
+.NPC .window-content h2 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+  text-align: center;
+  border: solid 1px;
+  border-color: #3dfb99;
+  padding: 5px;
+  background-color: #003d20;
+}
+.NPC .window-content h3 {
+  border-bottom-color: #3dfb99;
+}
+.NPC .info-box,
+.NPC .abilities-box,
+.NPC .nav-box {
+  background-color: #000000;
+  border-style: solid;
+  border-color: #3dfb99;
+  z-index: 4;
+}
+.NPC .info-box .status-box,
+.NPC .info-box .armour-box {
+  border-left-color: #3dfb99;
+  border-left-style: solid;
+}
+.NPC .info-box table {
+  border: none;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  padding-left: 5px;
+  margin-top: -10px;
+}
+.NPC .info-box .status-box table tr:nth-child(even) {
+  background-color: transparent;
 }
 .item .item-summary .item-properties .tag {
   border: 1px solid #3dfb99;

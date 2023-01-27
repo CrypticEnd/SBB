@@ -3,11 +3,29 @@
 
   .main-content {
     display: grid;
-    grid-template-columns: 420px auto;
+    grid-template-columns: 330px auto;
     grid-column-gap: 5%;
     padding: 2%;
 
+    .info-box{
+      display:grid;
+      grid-template-columns: 50% 50%;
 
+      .NPCimg{
+        padding: 2%;
+      }
+
+      button{
+        width: 80%;
+        margin-left: 10%;
+        color: @fontColor;
+      }
+    }
+
+    .abilities-box{
+      margin-top: 5%;
+      overflow: scroll;
+    }
 
 
   }
