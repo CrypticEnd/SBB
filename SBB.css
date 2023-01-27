@@ -180,10 +180,6 @@
   height: 500px;
   font-size: 1em !important;
 }
-.NPC {
-  min-width: 855px;
-  min-height: 870px;
-}
 .NPC .main-content {
   display: grid;
   grid-template-columns: 420px auto;

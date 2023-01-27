@@ -4,18 +4,71 @@
     <section class="main-content">
 
         <div class="flexcol left-alined-content">
-            <div class="status-box">
+            <div class="info-box flexcol">
+                <div class="base-info flexrow">
+                    <div class="biomonitor-header">
+                        <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
+                        <img class="NPCimg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
 
+                        <div class="actions">
+                            <h1>{{localize "SBB.common.actions"}}</h1>
+                            <button>{{localize "SBB.npcSheet.makeSave"}}</button>
+                            <button>{{localize "SBB.npcSheet.rollUntrained"}}</button>
+                        </div>
+                    </div>
+                    <div class="flexcol">
+                        <div class="status-box">
+                            <h1>{{localize "SBB.npcSheet.status"}}</h1>
+                            <table>
+                                <tr>
+                                    <td>{{localize "SBB.common.health"}}</td>
+                                    <td>
+                                        <input class="health-input" name="system.HP.value"
+                                               value="{{actor.system.HP.value}}" type="number"
+                                               title="{{localize "SBB.common.health"}}"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>{{localize "SBB.common.strain"}}</td>
+                                    <td>
+                                        <input class="strain-input" name="system.strain.value"
+                                               value="{{actor.system.strain.value}}" type="number"
+                                               title="{{localize "SBB.common.strain"}}"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>{{localize "SBB.common.speed"}}</td>
+                                    <td>{{actor.system.move}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>{{localize "SBB.common.skillMod"}}</td>
+                                    <td {{#if (eq actor.system.modifiers.skillMod 0)}} class="inactive"{{/if}}>
+                                        <input class="skillMod-input" name="system.modifiers.skillMod" type="number"
+                                               value="{{actor.system.modifiers.skillMod}}">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="armour">
+                            <h1>{{localize "SBB.common.defences"}}</h1>
+                            {{> systems/sbb/templates/sheets/partials/armourTable.hbs}}
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="abilities-box">
-                {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
+                <div class="abilities-box">
+                    {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
+                </div>
             </div>
-        </div>
 
-        <div class="nav-box">
+            <div class="nav-box">
 
-        </div>
+            </div>
 
     </section>
 </form>
