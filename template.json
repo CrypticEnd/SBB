@@ -80,6 +80,7 @@
     "NPC": {
       "templates": ["base"],
       "rank": 4,
+      "move": 4,
       "strain": {
         "max":0,
         "value": 0
