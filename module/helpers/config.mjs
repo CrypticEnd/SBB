@@ -116,6 +116,12 @@ SBB.pcNavbar = {
     notes:       "SBB.tabNames.notes"
 }
 
+SBB.npcNavbar = {
+    skills:    "SBB.tabNames.skills",
+    equipment: "SBB.tabNames.equipment",
+    effects:   "SBB.effects.effects"
+}
+
 SBB.effectTypes ={
     drug: "SBB.effects.drug",
     implant: "SBB.effects.implant",

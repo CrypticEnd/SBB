@@ -189,7 +189,8 @@
       "drugs": "Drugs",
       "injury": "Injury",
       "type": "Type",
-      "Effect": "Effect",
+      "effect": "Effect",
+      "effects": "Effects",
       "applied": "Applied"
     },
 

@@ -65,7 +65,27 @@
         </div>
 
         <div class="nav-box">
+            <div class="nav-bar">
+                <nav class="sheet-navigation main-tabs" data-group="primary">
+                    {{#each config.npcNavbar}}
+                        <a class="item" data-tab="{{@key}}">{{localize this}}</a>
+                    {{/each}}
+                </nav>
+            </div>
 
+            <div class="nav-content">
+                <div class="tab" data-group="primary" data-tab="skills">
+                    1
+                </div>
+
+                <div class="tab" data-group="primary" data-tab="equipment">
+                    2
+                </div>
+
+                <div class="tab" data-group="primary" data-tab="effects">
+                    3
+                </div>
+            </div>
         </div>
 
     </section>
