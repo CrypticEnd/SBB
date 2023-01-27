@@ -7,32 +7,7 @@
 
         <div class="armour">
             <h1>{{localize "SBB.common.defences"}}</h1>
-            <table>
-                <tr>
-                    <td>{{localize "SBB.common.head"}}</td>
-                    <td>{{actor.system.armour.head.techlevel}}</td>
-                    <td>{{actor.system.armour.head.kinetic}}</td>
-                    <td>{{actor.system.armour.head.energy}}</td>
-                    <td>{{actor.system.armour.head.explosive}}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>{{localize "SBB.weaponHeaders.techLevel"}}</td>
-                    <td>{{localize "SBB.common.kinetic_short"}}</td>
-                    <td>{{localize "SBB.common.energy_short"}}</td>
-                    <td>{{localize "SBB.common.explosive_short"}}</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>{{localize "SBB.common.body"}}</td>
-                    <td>{{actor.system.armour.body.techlevel}}</td>
-                    <td>{{actor.system.armour.body.kinetic}}</td>
-                    <td>{{actor.system.armour.body.energy}}</td>
-                    <td>{{actor.system.armour.body.explosive}}</td>
-                    <td></td>
-                </tr>
-            </table>
+            {{> "systems/sbb/templates/sheets/partials/armourTable.hbs"}}
         </div>
 
         <div class="strain-tracker">
