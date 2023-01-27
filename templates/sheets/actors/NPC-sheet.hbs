@@ -33,6 +33,11 @@
                         </tr>
 
                         <tr>
+                            <td>{{localize "SBB.npcSheet.rank"}}</td>
+                            <td>{{actor.system.rank}}</td>
+                        </tr>
+
+                        <tr>
                             <td>{{localize "SBB.common.speed"}}</td>
                             <td>{{actor.system.move}}</td>
                         </tr>
@@ -60,6 +65,7 @@
             </div>
 
             <div class="abilities-box">
+                <h1>{{localize "SBB.npcSheet.abilities"}}</h1>
                 {{> "systems/sbb/templates/sheets/partials/feat-box.hbs"}}
             </div>
         </div>
@@ -75,15 +81,16 @@
 
             <div class="nav-content">
                 <div class="tab" data-group="primary" data-tab="skills">
-                    1
+                    {{> "systems/sbb/templates/sheets/partials/skill-box.hbs"}}
                 </div>
 
                 <div class="tab" data-group="primary" data-tab="equipment">
-                    2
+                    {{> "systems/sbb/templates/sheets/partials/equipmant.hbs"}}
                 </div>
 
                 <div class="tab" data-group="primary" data-tab="effects">
-                    3
+                    {{> "systems/sbb/templates/sheets/partials/enhancements.hbs"}}
+                    {{> "systems/sbb/templates/sheets/partials/injuries.hbs"}}
                 </div>
             </div>
         </div>

@@ -197,7 +197,9 @@
     "npcSheet": {
       "makeSave": "Make Save",
       "rollUntrained": "Roll Untrained",
-      "status": "Status"
+      "status": "Status",
+      "abilities": "Abilities",
+      "rank": "Rank"
     }
   }
 }
