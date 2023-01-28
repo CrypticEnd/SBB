@@ -215,6 +215,7 @@
   grid-template-columns: 330px auto;
   grid-column-gap: 5%;
   padding: 2%;
+  height: 100%;
 }
 .NPC .main-content .info-box {
   display: grid;
@@ -231,8 +232,23 @@
 .NPC .main-content .abilities-box {
   margin-top: 5%;
 }
+.NPC .main-content .abilities-box .add-icon {
+  font-size: 1.25em;
+}
+.NPC .main-content .nav-box::-webkit-scrollbar {
+  display: none;
+}
 .NPC .main-content .nav-box {
   min-width: 280px;
+  overflow: scroll;
+}
+.NPC .main-content .nav-box .skill-box .add-icon {
+  margin-top: -20px;
+  margin-left: -5px;
+  font-size: 1.25em;
+}
+.NPC .main-content .nav-box .skill-box .skill-list {
+  margin-top: 20px;
 }
 .sheet-content {
   height: 100%;
