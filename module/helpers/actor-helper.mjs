@@ -158,3 +158,26 @@ export function effectToggle(event){
     effectItem.update({"system.active": newStatus});
 
 }
+
+export function toggleLastFamily(event){
+    event.preventDefault();
+
+    let greatParentNode = event.currentTarget.parentNode.parentNode.parentNode;
+    let toggleHideNode = greatParentNode.getElementsByClassName("hide-on-click");
+
+    if(toggleHideNode.length === 1){
+        let toggleNode = toggleHideNode[0];
+        $(toggleNode).toggle("hidden");
+
+        // Toggle item flag
+        let item = this.actor.items.get(greatParentNode.dataset.itemId);
+
+        if(item == null) return;
+        if(item.flags.sbb != null && "shown" in item.flags.sbb){
+            item.setFlag("sbb", "shown", !item.flags.sbb.shown);
+        }
+        else{
+            item.setFlag("sbb", "shown", true);
+        }
+    }
+}

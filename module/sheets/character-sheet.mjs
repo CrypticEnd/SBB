@@ -1,5 +1,6 @@
 import * as Dice from "../helpers/dice.mjs";
 import * as Helper from "../helpers/actor-helper.mjs";
+import {toggleLastFamily} from "../helpers/actor-helper.mjs";
 
 export class SBBCharacterSheet extends ActorSheet{
 
@@ -95,7 +96,7 @@ export class SBBCharacterSheet extends ActorSheet{
     // Used for interacting with the sheet while its open!
     activateListeners(html) {
         // non editors
-        html.find(".toggle-description").click(this._toggleLastFamily.bind(this));
+        html.find(".toggle-description").click(Helper.toggleLastFamily.bind(this));
         html.find(".tenet-focus-card").click(this._tenetSwitch.bind(this));
         html.find(".item-rollable").click(Helper.itemRoll.bind(this));
         html.find(".save-roll").click(this._rollSave.bind(this));
@@ -198,29 +199,6 @@ export class SBBCharacterSheet extends ActorSheet{
         if(item.type !== "Tenet") return;
 
         item.update({"system.used" : !item.system.used});
-    }
-
-    _toggleLastFamily(event){
-        event.preventDefault();
-
-        let greatParentNode = event.currentTarget.parentNode.parentNode.parentNode;
-        let toggleHideNode = greatParentNode.getElementsByClassName("hide-on-click");
-
-        if(toggleHideNode.length === 1){
-            let toggleNode = toggleHideNode[0];
-            $(toggleNode).toggle("hidden");
-
-            // Toggle item flag
-            let item = this.actor.items.get(greatParentNode.dataset.itemId);
-
-            if(item == null) return;
-            if(item.flags.sbb != null && "shown" in item.flags.sbb){
-                item.setFlag("sbb", "shown", !item.flags.sbb.shown);
-            }
-            else{
-                item.setFlag("sbb", "shown", true);
-            }
-        }
     }
 
     _rollSave(event){
