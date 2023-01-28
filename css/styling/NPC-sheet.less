@@ -9,6 +9,8 @@
     position: absolute;
     opacity: 0.3;
     pointer-events: none;
+    margin-top: -15px;
+    margin-left: -10px;
   }
 
   .prosemirror menu li{
@@ -72,6 +74,7 @@
     .nav-bar{
       nav{
         background-color: @headerBackground;
+        color: @inactive;
 
         h1{
           font-size: 1.5em;
@@ -79,7 +82,7 @@
         }
 
         .active{
-          color: @inactive;
+          color: @fontColor;
         }
       }
     }

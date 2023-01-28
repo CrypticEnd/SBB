@@ -344,6 +344,8 @@
   position: absolute;
   opacity: 0.3;
   pointer-events: none;
+  margin-top: -15px;
+  margin-left: -10px;
 }
 .character .main-content .biomonitor,
 .character .main-content .personal-files,
@@ -397,6 +399,8 @@
   position: absolute;
   opacity: 0.3;
   pointer-events: none;
+  margin-top: -15px;
+  margin-left: -10px;
 }
 .NPC .prosemirror menu li {
   background: var(--color-control-bg);
@@ -449,13 +453,14 @@
 }
 .NPC .nav-box .nav-bar nav {
   background-color: #003d20;
+  color: #7a7971;
 }
 .NPC .nav-box .nav-bar nav h1 {
   font-size: 1.5em;
   border-top: none;
 }
 .NPC .nav-box .nav-bar nav .active {
-  color: #7a7971;
+  color: #3dfb99;
 }
 .item .item-summary .item-properties .tag {
   border: 1px solid #3dfb99;
