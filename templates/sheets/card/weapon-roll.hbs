@@ -4,7 +4,7 @@
         <h3>{{name}}</h3>
 
         <ul>
-            <li>{{localize "SBB.weaponHeaders.linkedSkill"}} : {{system.skill}}</li>
+            <li>{{localize "SBB.weaponHeaders.linkedSkill"}} : {{localize system.skill}}</li>
             <li>{{localize "SBB.weaponHeaders.damageType"}} : {{localize system.damageType}}</li>
             <li>{{localize "SBB.weaponHeaders.rof"}} : {{system.rof}}</li>
             <li>{{localize "SBB.weaponHeaders.harmRange"}} : {{system.harmRange}}</li>
@@ -27,7 +27,7 @@
         </table>
 
     </div>
-    
+
     <div class="weapon-buttons" data-item-id="{{_id}}" data-owner-id="{{actor._id}}"
     {{#if (eq this.parent.isToken true)}}
         data-token-id={{this.actor.uuid}}
