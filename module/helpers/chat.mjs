@@ -38,32 +38,14 @@ function onAttack(event){
     rollAttackGivenAttacker(attacker, weapon);
 }
 
-function onTokenAttack(tokenId, weaponId){
-    // Token ID includes both a scene and a token ID
-    let tokenSplit = tokenId.split("-");
-    let sceneId;
-    tokenId = null;
-
-    // Search the array for the key values we need
-    for (const [key, value] of Object.entries(tokenSplit)) {
-
-
-        if(value.toLowerCase() == "scene"){
-            sceneId = tokenSplit[parseInt(key)+1];
-        }
-        else if(value.toLowerCase() == "token"){
-            tokenId = tokenSplit[parseInt(key)+1];
-        }
-    }
+async function onTokenAttack(tokenId, weaponId) {
+    let tokenActor = await fromUuid(tokenId);
 
     // Check we have the values we need
-    if(tokenId == null || sceneId == null){
+    if(tokenActor == null){
         console.error(game.i18n.localize("SBB.errors.cannotFindForWeaponRoll"));
         return;
     }
-
-    let scene = game.scenes.get(sceneId);
-    let tokenActor = scene.tokens.get(tokenId);
 
     let weapon = tokenActor._actor.items.get(weaponId);
 
