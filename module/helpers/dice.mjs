@@ -153,38 +153,47 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     let actor = game.actors.get(actorID);
     let skill = actor.items.get(skillID);
 
-
-
     if(actor == null || skill == null){
         console.warn("Skill roll called with improper values");
-        return;
-    }
-
-    const linkedAttributeName = skill.system.attribute;
-
-    // Should never happen, but oh well
-    if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
-        && !linkedAttributeName in actor.system.attributes)
-    {
-        console.warn("'${saveType}' is not a valid attribute for a skill");
         return;
     }
 
     if(contentName === null)
         contentName = skill.name;
 
-    let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
+    const linkedAttributeName = skill.system.attribute;
+    let linkedAttributeValue = 1;
+    let useTenet = false;
+    let otherbonus = 0;
+    let strainMod = 0;
 
-    let useTenet = actor.system.usingTenet;
-    let otherbonus = actor.system.modifiers.skillMod;
-
-    if(actor.system.usingFocus){
-        otherbonus += CONFIG.SBB.settings.focusBonus;
+    // Check if strain mod is set
+    if("sbb" in actor.flags && "strainMod" in actor.flags.sbb){
+        strainMod = actor.flags.sbb.strainMod;
     }
 
-    let strainMod = 0;
-    if("strainMod" in actor.flags.sbb){
-        strainMod = actor.flags.sbb.strainMod;
+    if(actor.type == "Character") {
+        // Should never happen, but oh well
+        if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
+            && !linkedAttributeName in actor.system.attributes)
+        {
+            console.warn("'${saveType}' is not a valid attribute for a skill");
+            return;
+        }
+        linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
+
+        // Skill other mod
+        otherbonus += actor.system.modifiers.skillMod;
+
+        // Check Tenets and focuses
+        useTenet = actor.system.usingTenet;
+        if(actor.system.usingFocus){
+            otherbonus += CONFIG.SBB.settings.focusBonus;
+        }
+    }
+    else if(actor.type == "NPC"){
+        linkedAttributeValue = actor.system.rank;
+        otherbonus += actor.system.modifiers.skillMod;
     }
 
     this.skillCheck({
