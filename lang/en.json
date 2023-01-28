@@ -57,6 +57,18 @@
       "multipleTargets": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen."
     },
 
+    "errors": {
+      "invalidAttribute" : ": is not a valid attribute for a save",
+      "unfoundedSkill": "No Skill found with name of: ",
+      "linkedTribeUndefined": "Linked Attribute not defined",
+      "weaponFormulaUndefined": "Weapon or weapon formula undefined",
+      "notFoundByID": "not found from ID : ",
+      "cannotRollLinkedSkill": "cannot roll without a linked skill",
+      "actor": "Actor ",
+      "skill": "Skill ",
+      "character": "Character "
+    },
+
     "skills": {
       "body_short": "B",
       "body_long": "Body",

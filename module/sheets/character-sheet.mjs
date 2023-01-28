@@ -210,7 +210,7 @@ export class SBBCharacterSheet extends ActorSheet{
         if(!saveType.toLowerCase() in saveTypes
         && !saveType in this.actor.system.attributes)
         {
-            console.warn("'${saveType}' is not a valid attribute for a save");
+            console.error(saveTypes + game.i18n.localize("SBB.errors.invalidAttribute"));
             return;
         }
         let linkedAttribute = this.actor.system.attributes[saveType.toLowerCase()];

@@ -34,7 +34,7 @@ function onAttack(event){
                 skill.name.toUpperCase() === game.i18n.localize(linkedSkill).toUpperCase()});
 
     if(skill.length === 0) {
-        console.warn("No skill found with name of: " + linkedSkill.toUpperCase());
+        console.error(game.i18n.localize("SBB.errors.unfoundedSkill") + linkedSkill.toUpperCase());
         return;
     }
 

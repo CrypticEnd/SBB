@@ -75,7 +75,7 @@ export async function makeSaveRoll({
                            })
 {
     if (linkedAttribute == null) {
-        console.warn("Linked Attribute not defined")
+        console.error(game.i18n.localize("SBB.errors.linkedTribeUndefined"));
         return
     }
 
@@ -110,7 +110,7 @@ export async function makeSaveRoll({
 
 export async function rollWeaponDamage(weapon){
     if(weapon == null || weapon.system.formula === ""){
-        console.warn("Weapon or weapon formula undefined");
+        console.error(game.i18n.localize("SBB.errors.weaponFormulaUndefined"));
         return
     }
 
@@ -159,15 +159,18 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
 
     // General Error checking
     if(actor == null){
-        console.log(actorID);
-        console.warn("Actor not found from ID : " + actorID);
+        console.error(game.i18n.localize("SBB.errors.Actor")
+            + game.i18n.localize("SBB.errors.notFoundByID")
+            + actorID);
         return;
     }
     if(skillID != null){
         let skill = actor.items.get(skillID);
 
         if(skill == null){
-            console.warn("Skill not found from ID : " + skillID);
+            console.warn(game.i18n.localize("SBB.errors.skill")
+                + game.i18n.localize("SBB.errors.notFoundByID")
+                + skillID);
             return;
         }
 
@@ -185,7 +188,8 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
     // Deprive values based on actor type
     if(actor.type == "Character") {
         if(skillID== null){
-            console.warn("Character cannot roll without a linked skill");
+            console.error(game.i18n.localize("SBB.errors.character")
+            + game.i18n.localize("SBB.errors.cannotRollLinkedSkill"));
             return;
         }
 
@@ -194,7 +198,8 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
         if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
             && !linkedAttributeName in actor.system.attributes)
         {
-            console.warn("'${saveType}' is not a valid attribute for a skill");
+            console.error(linkedAttributeName
+                + game.i18n.localize("SBB.errors.invalidAttribute"));
             return;
         }
         linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
