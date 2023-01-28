@@ -61,7 +61,7 @@ export class SBBNPCSheet extends ActorSheet {
         }
         ].concat(this._itemContextMenu);
 
-    getData(options) {
+    getData() {
         const data = super.getData();
         data.config = CONFIG.SBB;
 
@@ -108,6 +108,8 @@ export class SBBNPCSheet extends ActorSheet {
             });
         }
 
+        this.actor.setFlag('sbb', 'strainMod', Helper.workOutStrain(this.actor.system.strain));
+
         Helper.updateArmourValues(this.actor);
 
         return data;
@@ -120,7 +122,7 @@ export class SBBNPCSheet extends ActorSheet {
 
         if (this.isEditable) {
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
-            html.find(".strain-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.strain.max));
+            html.find(".strain-input").change(this._changeStrain.bind(this));
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(Helper.updateItem.bind(this));
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
@@ -152,6 +154,13 @@ export class SBBNPCSheet extends ActorSheet {
         Dice.rollSkillFromID(this.actor._id, null,
             game.i18n.localize("SBB.npcSheet.rollUntrained")
         )
+    }
+
+    _changeStrain(event){
+        event.preventDefault();
+        Helper.checkvalBetween(0, this.actor.system.strain.max, event);
+
+        this.actor.setFlag('sbb', 'strainMod', Helper.workOutStrain(this.actor.system.strain));
     }
 
 }

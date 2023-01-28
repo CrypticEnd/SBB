@@ -175,7 +175,7 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
             return;
         }
 
-        skillRank = skill.system.skillRank
+        skillRank = skill.system.rank;
 
         if(contentName === null)
             contentName = skill.name;

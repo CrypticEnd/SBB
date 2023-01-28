@@ -85,7 +85,7 @@ export class SBBCharacterSheet extends ActorSheet{
             data.filteredItems.skills[key] = skills.filter(function (item) {return item.system.attribute==key});
         }
 
-        this.actor.setFlag('sbb', 'strainMod', this._workOutStrain());
+        this.actor.setFlag('sbb', 'strainMod', Helper.workOutStrain(this.actor.system.strain));
         this.actor.setFlag('sbb', 'attributeCount', this._countAttributes())
 
         Helper.updateArmourValues(this.actor);
@@ -137,22 +137,6 @@ export class SBBCharacterSheet extends ActorSheet{
         }
         super.activateListeners(html);
 
-    }
-
-    _workOutStrain(){
-        let strain = this.actor.system.strain;
-        let strainValue = strain.max - strain.value;
-        let config = CONFIG.SBB.settings;
-
-        // work out the buffer
-        let strainBuffer = strain.max - config.strainBase;
-
-        let strainOverflow =  strainValue - strainBuffer;
-
-        if(strainOverflow<=0)
-            return 0;
-
-        return Math.floor(strainOverflow* config.strainPenaltyMod);
     }
 
     _countAttributes(){

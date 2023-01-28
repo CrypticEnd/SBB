@@ -49,7 +49,7 @@ export function itemRoll(event){
 
     // Depending on the item we want to do something else
     if(item.type == "Skill"){
-        Dice.rollSkillFromID(this.actor._id, itemID);
+        Dice.rollSkillFromID(this.actor._id, itemID, null);
         return;
     }
 
@@ -201,4 +201,19 @@ export function armourEquipped(event){
     }
 
     item.update({"system.equipped" : !item.system.equipped});
+}
+
+export function workOutStrain(strain){
+    let strainValue = strain.max - strain.value;
+    let config = CONFIG.SBB.settings;
+
+    // work out the buffer
+    let strainBuffer = strain.max - config.strainBase;
+
+    let strainOverflow =  strainValue - strainBuffer;
+
+    if(strainOverflow<=0)
+        return 0;
+
+    return Math.floor(strainOverflow* config.strainPenaltyMod);
 }
