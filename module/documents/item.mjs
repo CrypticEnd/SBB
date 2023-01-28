@@ -42,7 +42,7 @@ export class SBBItem extends Item{
             actor ??= game.actors.get(speaker.actor);
             if ( !actor ) return ui.notifications.warn(game.i18n.localize("SBB.warning.noActorSelected"));
 
-            return Dice.rollSkillFromID(actor._id, item._id);
+            return Dice.rollSkillFromActorData(actor, item);
         }
 
         const speaker = ChatMessage.getSpeaker({ actor: this.actor });

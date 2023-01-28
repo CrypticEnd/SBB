@@ -1,7 +1,7 @@
 import * as Dice from "../helpers/dice.mjs";
 import * as Helper from "../helpers/actor-helper.mjs";
 import {toggleLastFamily} from "../helpers/actor-helper.mjs";
-import {rollSkillFromID} from "../helpers/dice.mjs";
+import {rollSkillFromActorData} from "../helpers/dice.mjs";
 
 export class SBBNPCSheet extends ActorSheet {
 
@@ -151,7 +151,7 @@ export class SBBNPCSheet extends ActorSheet {
     _rollUntrained(event){
         event.preventDefault();
 
-        Dice.rollSkillFromID(this.actor._id, null,
+        Dice.rollSkillFromActorData(this.actor, null,
             game.i18n.localize("SBB.npcSheet.rollUntrained")
         )
     }

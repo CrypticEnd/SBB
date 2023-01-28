@@ -148,10 +148,8 @@ export async function countHarmDie(rollresult, harmRange){
     return harmDieCounter;
 }
 
-export async function rollSkillFromID(actorID, skillID = null, contentName = null){
+export async function rollSkillFromActorData(actor, skill = null, contentName = null){
     // Setup final values
-    let actor = game.actors.get(actorID);
-    let skill = null;
     let linkedAttributeValue = 1;
     let useTenet = false;
     let otherbonus = 0;
@@ -165,16 +163,7 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
             + actorID);
         return;
     }
-    if(skillID != null){
-        skill = actor.items.get(skillID);
-
-        if(skill == null){
-            console.warn(game.i18n.localize("SBB.errors.skill")
-                + game.i18n.localize("SBB.errors.notFoundByID")
-                + skillID);
-            return;
-        }
-
+    if(skill != null){
         skillRank = skill.system.rank;
 
         if(contentName === null)
@@ -188,7 +177,7 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
 
     // Deprive values based on actor type
     if(actor.type == "Character") {
-        if(skillID== null){
+        if(skill== null){
             console.error(game.i18n.localize("SBB.errors.character")
             + game.i18n.localize("SBB.errors.cannotRollLinkedSkill"));
             return;

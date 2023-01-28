@@ -44,12 +44,13 @@ export function editItem(event){
 
 export function itemRoll(event){
     event.preventDefault();
+
     const itemID = event.currentTarget.dataset.itemId;
     const item = (this.actor.items.get(itemID));
 
     // Depending on the item we want to do something else
     if(item.type == "Skill"){
-        Dice.rollSkillFromID(this.actor._id, itemID, null);
+        Dice.rollSkillFromActorData(this.actor, item, null);
         return;
     }
 

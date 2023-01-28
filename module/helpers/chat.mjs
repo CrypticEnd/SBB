@@ -38,7 +38,7 @@ function onAttack(event){
         return;
     }
 
-    Dice.rollSkillFromID(attacker._id, skill[0].id, weapon.name);
+    Dice.rollSkillFromActorData(attacker, skill[0], weapon.name);
 }
 
 function onDamage(event){
