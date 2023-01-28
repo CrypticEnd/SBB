@@ -8,7 +8,7 @@
                 <div class="biomonitor-header">
                     <h1>{{localize "SBB.common.biomonitor"}}</h1>
                     <img src="systems/sbb/assets/bodyscan.jpg">
-                    
+
                     <table>
                         <tr>
                             <td>{{localize "SBB.common.speed"}}</td>
@@ -17,14 +17,15 @@
                         <tr>
                             <td>{{localize "SBB.common.resolve"}}</td>
                             <td {{#if (eq actor.system.resolve 0)}} class="inactive"{{/if}}>
-                                <input class="resolve-input" name="system.resolve" type="number" value="{{actor.system.resolve}}">
+                                <input class="resolve-input" name="system.resolve" type="number"
+                                       value="{{actor.system.resolve}}">
                             </td>
                         </tr>
                         <tr class="toggle-tenet">
                             <td>{{localize "SBB.common.tenet"}}</td>
                             <td
                                 {{#if actor.system.usingTenet}}
-                                    >{{localize "SBB.common.active"}}
+                                >{{localize "SBB.common.active"}}
                                 {{else}}
                                     class="inactive">{{localize "SBB.common.inactive"}}
                                 {{/if}}
@@ -34,7 +35,7 @@
                             <td>{{localize "SBB.common.focus"}}</td>
                             <td
                                 {{#if actor.system.usingFocus}}
-                                    >{{localize "SBB.common.active"}}
+                                >{{localize "SBB.common.active"}}
                                 {{else}}
                                     class="inactive">{{localize "SBB.common.inactive"}}
                                 {{/if}}
@@ -43,7 +44,8 @@
                         <tr>
                             <td>{{localize "SBB.common.skillMod"}}</td>
                             <td {{#if (eq actor.system.modifiers.skillMod 0)}} class="inactive"{{/if}}>
-                                <input class="skillMod-input" name="system.modifiers.skillMod" type="number" value="{{actor.system.modifiers.skillMod}}">
+                                <input class="skillMod-input" name="system.modifiers.skillMod" type="number"
+                                       value="{{actor.system.modifiers.skillMod}}">
                             </td>
                         </tr>
                     </table>
@@ -104,7 +106,8 @@
                         <h1>{{localize "SBB.tabNames.notes"}}</h1>
                     </div>
                     <div class="note-content">
-                        {{editor actor.system.playerBio.notes target="system.playerBio.notes" button=true owner=owner editable=editable engine="prosemirror"}}
+                        {{editor actor.system.playerBio.notes target="system.playerBio.notes" button=true owner=owner
+                                 editable=editable engine="prosemirror"}}
                     </div>
                 </div>
             </div>

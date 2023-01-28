@@ -1,7 +1,5 @@
 import * as Dice from "../helpers/dice.mjs";
 import * as Helper from "../helpers/actor-helper.mjs";
-import {toggleLastFamily} from "../helpers/actor-helper.mjs";
-import {rollSkillFromActorData} from "../helpers/dice.mjs";
 
 export class SBBNPCSheet extends ActorSheet {
 
@@ -9,6 +7,7 @@ export class SBBNPCSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes:  ["NPC", "sheet", "actor"],
             template: "systems/sbb/templates/sheets/actors/NPC-sheet.hbs",
+            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}],
             width:    680,
             height:   800,
             tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-content", initial: "skills"},
@@ -122,7 +121,7 @@ export class SBBNPCSheet extends ActorSheet {
 
         if (this.isEditable) {
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
-            html.find(".strain-input").change(this._changeStrain.bind(this));
+            html.find(".strain-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.strain.max));
             html.find(".add-item-button").click(Helper.addItem.bind(this));
             html.find(".inline-edit").change(Helper.updateItem.bind(this));
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
@@ -137,30 +136,24 @@ export class SBBNPCSheet extends ActorSheet {
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
             new ContextMenu(html, ".equipment", this._itemContextMenu)
         }
+
+        super.activateListeners(html);
     }
 
-    _makeSave(event){
+    _makeSave(event) {
         event.preventDefault();
 
         Dice.makeSaveRoll({
-            linkedAttribute : this.actor.system.rank,
-            skillName: game.i18n.localize("SBB.common.saveroll")
+            linkedAttribute: this.actor.system.rank,
+            skillName:       game.i18n.localize("SBB.common.saveroll")
         });
     }
 
-    _rollUntrained(event){
+    _rollUntrained(event) {
         event.preventDefault();
 
         Dice.rollSkillFromActorData(this.actor, null,
             game.i18n.localize("SBB.npcSheet.rollUntrained")
         )
     }
-
-    _changeStrain(event){
-        event.preventDefault();
-        Helper.checkvalBetween(0, this.actor.system.strain.max, event);
-
-        this.actor.setFlag('sbb', 'strainMod', Helper.workOutStrain(this.actor.system.strain));
-    }
-
 }
