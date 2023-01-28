@@ -28,7 +28,11 @@
 
     </div>
 
-    <div class="weapon-buttons" data-item-id="{{_id}}" data-owner-id="{{actor._id}}">
+    <div class="weapon-buttons" data-item-id="{{_id}}" data-owner-id="{{actor._id}}"
+    {{#if (eq this.parent.isToken true)}}
+        data-token-id={{this.parent.token.sheet.id}}
+    {{/if}}
+    >
         <button class="attack">{{localize "SBB.common.attack"}}</button>
         <button class="damage">{{localize "SBB.weaponHeaders.damage"}}</button>
     </div>

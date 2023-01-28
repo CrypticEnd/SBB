@@ -64,6 +64,8 @@
       "weaponFormulaUndefined": "Weapon or weapon formula undefined",
       "notFoundByID": "not found from ID : ",
       "cannotRollLinkedSkill": "cannot roll without a linked skill",
+      "cannotFindForWeaponRoll": "Cannot find correct scene or token for token weapon roll",
+      "weaponOrAttackerUndefined": "Weapon or attacker undefined",
       "actor": "Actor ",
       "skill": "Skill ",
       "character": "Character "
