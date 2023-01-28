@@ -151,6 +151,7 @@ export async function countHarmDie(rollresult, harmRange){
 export async function rollSkillFromID(actorID, skillID = null, contentName = null){
     // Setup final values
     let actor = game.actors.get(actorID);
+    let skill = null;
     let linkedAttributeValue = 1;
     let useTenet = false;
     let otherbonus = 0;
@@ -165,7 +166,7 @@ export async function rollSkillFromID(actorID, skillID = null, contentName = nul
         return;
     }
     if(skillID != null){
-        let skill = actor.items.get(skillID);
+        skill = actor.items.get(skillID);
 
         if(skill == null){
             console.warn(game.i18n.localize("SBB.errors.skill")
