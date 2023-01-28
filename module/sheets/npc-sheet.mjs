@@ -107,6 +107,7 @@ export class SBBNPCSheet extends ActorSheet {
             });
         }
 
+        Helper.updateArmourValues(this.actor);
 
         return data;
     }
@@ -119,6 +120,11 @@ export class SBBNPCSheet extends ActorSheet {
         if (this.isEditable) {
             html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
             html.find(".strain-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.strain.max));
+            html.find(".add-item-button").click(Helper.addItem.bind(this));
+            html.find(".inline-edit").change(Helper.updateItem.bind(this));
+            html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
+            html.find(".armour-equipped-button").click(Helper.armourEquipped.bind(this));
+            html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
 
             new ContextMenu(html, ".skill-item", this._skillContextMenu);
 

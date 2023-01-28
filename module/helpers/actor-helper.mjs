@@ -181,3 +181,24 @@ export function toggleLastFamily(event){
         }
     }
 }
+
+export function armourEquipped(event){
+    event.preventDefault();
+    const actor = this.actor;
+    const itemID = event.currentTarget.dataset.itemId;
+    const item = actor.items.get(itemID);
+    const armourSlot = item.system.type;
+    const armourList =  actor.items.filter(function (item) {
+        return item.type == "Armour" && item.system.type == armourSlot});
+
+
+    if(!item.system.equipped){
+        // Search though all other armor of type and de-equipped it
+        Object.keys(armourList).forEach(key =>{
+            if(armourList[key].system.equipped)
+                armourList[key].update({"system.equipped" : false});
+        });
+    }
+
+    item.update({"system.equipped" : !item.system.equipped});
+}

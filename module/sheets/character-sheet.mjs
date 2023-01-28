@@ -114,7 +114,7 @@ export class SBBCharacterSheet extends ActorSheet{
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
             html.find(".toggle-tenet").click(this._toggleTenet.bind(this));
             html.find(".toggle-focus").click(this._toggleFocus.bind(this));
-            html.find(".armour-equipped-button").click(this._armourEquipped.bind(this));
+            html.find(".armour-equipped-button").click(Helper.armourEquipped.bind(this));
             html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
 
             // strain reset context menu
@@ -219,26 +219,5 @@ export class SBBCharacterSheet extends ActorSheet{
             linkedAttribute : linkedAttribute,
             skillName: saveTypes[saveType.toLowerCase()]
         });
-    }
-
-    _armourEquipped(event){
-        event.preventDefault();
-        const actor = this.actor;
-        const itemID = event.currentTarget.dataset.itemId;
-        const item = actor.items.get(itemID);
-        const armourSlot = item.system.type;
-        const armourList =  actor.items.filter(function (item) {
-            return item.type == "Armour" && item.system.type == armourSlot});
-
-
-        if(!item.system.equipped){
-            // Search though all other armor of type and de-equipped it
-            Object.keys(armourList).forEach(key =>{
-                if(armourList[key].system.equipped)
-                    armourList[key].update({"system.equipped" : false});
-            });
-        }
-
-        item.update({"system.equipped" : !item.system.equipped});
     }
 }
