@@ -148,31 +148,48 @@ export async function countHarmDie(rollresult, harmRange){
     return harmDieCounter;
 }
 
-export async function rollSkillFromID(actorID, skillID, contentName = null){
-    // Get actor and item
+export async function rollSkillFromID(actorID, skillID = null, contentName = null){
+    // Setup final values
     let actor = game.actors.get(actorID);
-    let skill = actor.items.get(skillID);
-
-    if(actor == null || skill == null){
-        console.warn("Skill roll called with improper values");
-        return;
-    }
-
-    if(contentName === null)
-        contentName = skill.name;
-
-    const linkedAttributeName = skill.system.attribute;
     let linkedAttributeValue = 1;
     let useTenet = false;
     let otherbonus = 0;
     let strainMod = 0;
+    let skillRank = 0;
+
+    // General Error checking
+    if(actor == null){
+        console.log(actorID);
+        console.warn("Actor not found from ID : " + actorID);
+        return;
+    }
+    if(skillID != null){
+        let skill = actor.items.get(skillID);
+
+        if(skill == null){
+            console.warn("Skill not found from ID : " + skillID);
+            return;
+        }
+
+        skillRank = skill.system.skillRank
+
+        if(contentName === null)
+            contentName = skill.name;
+    }
 
     // Check if strain mod is set
     if("sbb" in actor.flags && "strainMod" in actor.flags.sbb){
         strainMod = actor.flags.sbb.strainMod;
     }
 
+    // Deprive values based on actor type
     if(actor.type == "Character") {
+        if(skillID== null){
+            console.warn("Character cannot roll without a linked skill");
+            return;
+        }
+
+        const linkedAttributeName = skill.system.attribute;
         // Should never happen, but oh well
         if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
             && !linkedAttributeName in actor.system.attributes)
@@ -197,7 +214,7 @@ export async function rollSkillFromID(actorID, skillID, contentName = null){
     }
 
     this.skillCheck({
-        skillMod : skill.system.rank,
+        skillMod : skillRank,
         linkedAttribute : linkedAttributeValue,
         strainMod : strainMod,
         skillName : contentName,

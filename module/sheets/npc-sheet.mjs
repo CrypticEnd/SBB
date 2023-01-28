@@ -1,6 +1,7 @@
 import * as Dice from "../helpers/dice.mjs";
 import * as Helper from "../helpers/actor-helper.mjs";
 import {toggleLastFamily} from "../helpers/actor-helper.mjs";
+import {rollSkillFromID} from "../helpers/dice.mjs";
 
 export class SBBNPCSheet extends ActorSheet {
 
@@ -125,6 +126,8 @@ export class SBBNPCSheet extends ActorSheet {
             html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
             html.find(".armour-equipped-button").click(Helper.armourEquipped.bind(this));
             html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
+            html.find(".save-button").click(this._makeSave.bind(this));
+            html.find(".untrained-button").click(this._rollUntrained.bind(this));
 
             new ContextMenu(html, ".skill-item", this._skillContextMenu);
 
@@ -132,6 +135,23 @@ export class SBBNPCSheet extends ActorSheet {
             new ContextMenu(html, ".feat-card", this._itemContextMenu)
             new ContextMenu(html, ".equipment", this._itemContextMenu)
         }
+    }
+
+    _makeSave(event){
+        event.preventDefault();
+
+        Dice.makeSaveRoll({
+            linkedAttribute : this.actor.system.rank,
+            skillName: game.i18n.localize("SBB.common.saveroll")
+        });
+    }
+
+    _rollUntrained(event){
+        event.preventDefault();
+
+        Dice.rollSkillFromID(this.actor._id, null,
+            game.i18n.localize("SBB.npcSheet.rollUntrained")
+        )
     }
 
 }
