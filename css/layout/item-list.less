@@ -1,4 +1,9 @@
 .character, .NPC{
+  .add-icon {
+    text-align: right;
+    margin-right: 5px;
+  }
+
   .skill-box {
     text-align: center;
 
@@ -9,6 +14,12 @@
         a {
           padding: 10px;
           margin-left: 2%;
+          border-style: solid;
+          border-color: @headerlineColor;
+        }
+
+        .active{
+          background-color: @navBackground;
         }
       }
     }

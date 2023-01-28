@@ -11,6 +11,11 @@
 .skill-roll .roll-summary {
   margin-top: 30px;
 }
+.character .add-icon,
+.NPC .add-icon {
+  text-align: right;
+  margin-right: 5px;
+}
 .character .skill-box,
 .NPC .skill-box {
   text-align: center;
@@ -23,6 +28,12 @@
 .NPC .skill-box .skill-header nav a {
   padding: 10px;
   margin-left: 2%;
+  border-style: solid;
+  border-color: #3dfb99;
+}
+.character .skill-box .skill-header nav .active,
+.NPC .skill-box .skill-header nav .active {
+  background-color: #003d20;
 }
 .character .skill-box .add-icon,
 .NPC .skill-box .add-icon {
@@ -145,10 +156,6 @@
 }
 .character .main-content .nav-context-box::-webkit-scrollbar {
   display: none;
-}
-.character .main-content .add-icon {
-  text-align: right;
-  margin-right: 5px;
 }
 .character .main-content .personal-file-box .personal-box .playerimg {
   object-fit: cover;
