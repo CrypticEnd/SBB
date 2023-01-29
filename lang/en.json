@@ -217,7 +217,8 @@
       "abilities": "Abilities",
       "rank": "Rank",
       "inputDialog": ": Stat input",
-      "settings": "Settings"
+      "settings": "Settings",
+      "reset": "Full Reset?"
     },
 
     "modifiers": {

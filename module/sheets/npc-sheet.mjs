@@ -132,10 +132,18 @@ export class SBBNPCSheet extends ActorSheet {
             html.find(".npc-settings").click(this._showNPCSettings.bind(this));
 
             new ContextMenu(html, ".skill-item", this._skillContextMenu);
-
             // item add/edit menu
-            new ContextMenu(html, ".feat-card", this._itemContextMenu)
-            new ContextMenu(html, ".equipment", this._itemContextMenu)
+            new ContextMenu(html, ".feat-card", this._itemContextMenu);
+            new ContextMenu(html, ".equipment", this._itemContextMenu);
+
+            new ContextMenu(html,".status-box", [{
+                name:     game.i18n.localize("SBB.npcSheet.reset"),
+                icon:     '<i class="fas fa-plus"></i>',
+                callback: element => {
+                    this.actor.update({"system.HP.value": this.actor.system.HP.max});
+                    this.actor.update({"system.strain.value": this.actor.system.strain.max});
+                }
+            }]);
         }
 
         super.activateListeners(html);
