@@ -152,7 +152,7 @@
       "weapon": {
         "range": { },
         "formula": "0d6",
-        "skill": "",
+        "skill": "SBB.WeaponSkills.brawling",
         "damageType": "",
         "techLevel": ""
       }
