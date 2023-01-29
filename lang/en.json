@@ -106,7 +106,9 @@
       "archery": "Archery",
       "light": "Light Ranged",
       "heavy": "Heavy Ranged",
-      "explosive": "Explosive Ranged"
+      "explosive": "Explosive Ranged",
+      "gunnery": "Gunnery",
+      "brawling": "Brawling"
     },
 
     "saves": {
