@@ -75,7 +75,7 @@ export async function makeSaveRoll({
                            })
 {
     if (linkedAttribute == null) {
-        console.warn("Linked Attribute not defined")
+        console.error(game.i18n.localize("SBB.errors.linkedTribeUndefined"));
         return
     }
 
@@ -110,7 +110,7 @@ export async function makeSaveRoll({
 
 export async function rollWeaponDamage(weapon){
     if(weapon == null || weapon.system.formula === ""){
-        console.warn("Weapon or weapon formula undefined");
+        console.error(game.i18n.localize("SBB.errors.weaponFormulaUndefined"));
         return
     }
 
@@ -148,47 +148,68 @@ export async function countHarmDie(rollresult, harmRange){
     return harmDieCounter;
 }
 
-export async function rollSkillFromID(actorID, skillID, contentName = null){
-    // Get actor and item
-    let actor = game.actors.get(actorID);
-    let skill = actor.items.get(skillID);
-
-
-
-    if(actor == null || skill == null){
-        console.warn("Skill roll called with improper values");
-        return;
-    }
-
-    const linkedAttributeName = skill.system.attribute;
-
-    // Should never happen, but oh well
-    if( !linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
-        && !linkedAttributeName in actor.system.attributes)
-    {
-        console.warn("'${saveType}' is not a valid attribute for a skill");
-        return;
-    }
-
-    if(contentName === null)
-        contentName = skill.name;
-
-    let linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
-
-    let useTenet = actor.system.usingTenet;
-    let otherbonus = actor.system.modifiers.skillMod;
-
-    if(actor.system.usingFocus){
-        otherbonus += CONFIG.SBB.settings.focusBonus;
-    }
-
+export async function rollSkillFromActorData(actor, skill = null, contentName = null){
+    // Setup final values
+    let linkedAttributeValue = 1;
+    let useTenet = false;
+    let otherbonus = 0;
     let strainMod = 0;
-    if("strainMod" in actor.flags.sbb){
+    let skillRank = 0;
+
+    // General Error checking
+    if(actor == null){
+        console.error(game.i18n.localize("SBB.errors.Actor")
+            + game.i18n.localize("SBB.errors.notFoundByID")
+            + actorID);
+        return;
+    }
+    if(skill != null){
+        skillRank = skill.system.rank;
+
+        if(contentName === null)
+            contentName = skill.name;
+    }
+
+    // Check if strain mod is set
+    if("sbb" in actor.flags && "strainMod" in actor.flags.sbb){
         strainMod = actor.flags.sbb.strainMod;
     }
 
+    // Deprive values based on actor type
+    if(actor.type == "Character") {
+        if(skill== null){
+            console.error(game.i18n.localize("SBB.errors.character")
+            + game.i18n.localize("SBB.errors.cannotRollLinkedSkill"));
+            return;
+        }
+
+        const linkedAttributeName = skill.system.attribute;
+        // Should never happen, but oh well
+        if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
+            && !linkedAttributeName in actor.system.attributes)
+        {
+            console.error(linkedAttributeName
+                + game.i18n.localize("SBB.errors.invalidAttribute"));
+            return;
+        }
+        linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
+
+        // Skill other mod
+        otherbonus += actor.system.modifiers.skillMod;
+
+        // Check Tenets and focuses
+        useTenet = actor.system.usingTenet;
+        if(actor.system.usingFocus){
+            otherbonus += CONFIG.SBB.settings.focusBonus;
+        }
+    }
+    else if(actor.type == "NPC"){
+        linkedAttributeValue = actor.system.rank;
+        otherbonus += actor.system.modifiers.skillMod;
+    }
+
     this.skillCheck({
-        skillMod : skill.system.rank,
+        skillMod : skillRank,
         linkedAttribute : linkedAttributeValue,
         strainMod : strainMod,
         skillName : contentName,

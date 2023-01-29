@@ -44,8 +44,10 @@
       "inactive": "Inactive",
       "true": "True",
       "false": "False",
-      "skillMod": "Other",
-      "biography": "Biography"
+      "skillMod": "Modifier",
+      "biography": "Biography",
+      "actions": "Actions",
+      "saveroll": "Save Roll"
     },
 
     "warning": {
@@ -53,6 +55,20 @@
       "missingTarget": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
       "noActorSelected": "No selected or assigned actor could be found to target with macro.",
       "multipleTargets": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen."
+    },
+
+    "errors": {
+      "invalidAttribute" : ": is not a valid attribute for a save",
+      "unfoundedSkill": "No Skill found with name of: ",
+      "linkedTribeUndefined": "Linked Attribute not defined",
+      "weaponFormulaUndefined": "Weapon or weapon formula undefined",
+      "notFoundByID": "not found from ID : ",
+      "cannotRollLinkedSkill": "cannot roll without a linked skill",
+      "cannotFindForWeaponRoll": "Cannot find correct scene or token for token weapon roll",
+      "weaponOrAttackerUndefined": "Weapon or attacker undefined",
+      "actor": "Actor ",
+      "skill": "Skill ",
+      "character": "Character "
     },
 
     "skills": {
@@ -90,7 +106,9 @@
       "archery": "Archery",
       "light": "Light Ranged",
       "heavy": "Heavy Ranged",
-      "explosive": "Explosive Ranged"
+      "explosive": "Explosive Ranged",
+      "gunnery": "Gunnery",
+      "brawling": "Brawling"
     },
 
     "saves": {
@@ -187,9 +205,33 @@
       "drug": "Drug",
       "drugs": "Drugs",
       "injury": "Injury",
+      "injures": "Injures",
       "type": "Type",
-      "Effect": "Effect",
+      "effect": "Effect",
+      "effects": "Effects",
       "applied": "Applied"
+    },
+
+    "npcSheet": {
+      "makeSave": "Make Save",
+      "rollUntrained": "Roll Untrained",
+      "status": "Status",
+      "abilities": "Abilities",
+      "rank": "Rank",
+      "inputDialog": ": Stat input",
+      "settings": "Settings",
+      "reset": "Full Reset?"
+    },
+
+    "modifiers": {
+      "hp": "HP mod",
+      "strain": "Strain mod",
+      "initiative": "Initiative mod"
+    },
+
+    "dialog": {
+      "confirm": "Confirm",
+      "cancel": "Cancel"
     }
   }
 }

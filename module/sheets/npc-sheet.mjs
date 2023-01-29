@@ -1,27 +1,217 @@
-export class SBBCharacterSheet extends ActorSheet{
+import * as Dice from "../helpers/dice.mjs";
+import * as Helper from "../helpers/actor-helper.mjs";
+
+export class SBBNPCSheet extends ActorSheet {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["boilerplate", "sheet", "actor"],
-            template: "systems/sbb/templates/sheets/Character-sheet.hbs",
-            width: 600,
-            height: 800,
-            tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "sheet" }]
+            classes:  ["NPC", "sheet", "actor"],
+            template: "systems/sbb/templates/sheets/actors/NPC-sheet.hbs",
+            dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}],
+            width:    680,
+            height:   800,
+            tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-content", initial: "skills"},
+                       {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}]
         });
     }
 
-    prepareData() {
-        // Prepare data for the actor. Calling the super version of this executes
-        // the following, in order: data reset (to clear active effects),
-        // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
-        // prepareDerivedData().
-        super.prepareData();
-    }
-    prepareDerivedData(){
-        const actorData = this.system;
+    _itemContextMenu =
+        [
+            {
+                name:     game.i18n.localize("SBB.common.edit"),
+                icon:     '<i class="fas fa-edit"></i>',
+                callback: element => {
+                    const itemID = element[0].dataset.itemId;
+                    const item = (this.actor.items.get(itemID));
+                    item.sheet.render(true);
+                }
+            },
+            {
+                name:     game.i18n.localize("SBB.common.delete"),
+                icon:     '<i class="fas fa-trash"></i>',
+                callback: element => {
+                    const itemID = element[0].dataset.itemId;
+                    const item = (this.actor.items.get(itemID));
+                    item.delete();
+                }
+            }
+        ];
 
-        // Work out HP
-        //TODO HP value may change in future?
-        actorData.HP = actorData.attributes.Fortitude * 10;
+    _skillContextMenu =
+        [
+            {
+                name:     game.i18n.localize("SBB.skills.add_rank"),
+                icon:     '<i class="fas fa-plus"></i>',
+                callback: element => {
+                    const itemID = element[0].dataset.itemId;
+                    const item = (this.actor.items.get(itemID));
+                    const newRank = Helper.checkSkillRank(item.system.rank + 1)
+                    item.update({"system.rank": newRank})
+                }
+            }, {
+            name:     game.i18n.localize("SBB.skills.sub_rank"),
+            icon:     '<i class="fas fa-plus"></i>',
+            callback: element => {
+                const itemID = element[0].dataset.itemId;
+                const item = (this.actor.items.get(itemID));
+                const newRank = Helper.checkSkillRank(item.system.rank - 1)
+                item.update({"system.rank": newRank})
+            }
+        }
+        ].concat(this._itemContextMenu);
+
+    getData() {
+        const data = super.getData();
+        data.config = CONFIG.SBB;
+
+        // Item filters
+        data.filteredItems = {
+            feats:       data.items.filter(function (item) {
+                return item.type == "Feat"
+            }),
+            attacks:     data.items.filter(function (item) {
+                return item.type == "Weapon"
+            }),
+            consumables: data.items.filter(function (item) {
+                return item.type == "Consumable"
+            }),
+            armour:      data.items.filter(function (item) {
+                return item.type == "Armour"
+            }),
+            otherItems:  data.items.filter(function (item) {
+                return item.type == "Item"
+            }),
+
+            enhancementDrug:    data.items.filter(function (item) {
+                return item.type == "Effect"
+                    && item.system.type == "SBB.effects.drug"
+            }),
+            enhancementImplant: data.items.filter(function (item) {
+                return item.type == "Effect"
+                    && item.system.type == "SBB.effects.implant"
+            }),
+            injury:             data.items.filter(function (item) {
+                return item.type == "Effect"
+                    && item.system.type == "SBB.effects.injury"
+            })
+        }
+
+        let skills = data.items.filter(function (item) {
+            return item.type == "Skill"
+        });
+        data.filteredItems.skills = {};
+
+        for (const [key, value] of Object.entries(data.config.skillTypes)) {
+            data.filteredItems.skills[key] = skills.filter(function (item) {
+                return item.system.attribute == key
+            });
+        }
+
+        this.actor.setFlag('sbb', 'strainMod', Helper.workOutStrain(this.actor.system.strain));
+
+        Helper.updateArmourValues(this.actor);
+
+        return data;
+    }
+
+    activateListeners(html) {
+        html.find(".item-rollable").click(Helper.itemRoll.bind(this));
+        html.find(".toggle-description").click(Helper.toggleLastFamily.bind(this));
+
+
+        if (this.isEditable) {
+            html.find(".health-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.HP.max));
+            html.find(".strain-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.strain.max));
+            html.find(".add-item-button").click(Helper.addItem.bind(this));
+            html.find(".inline-edit").change(Helper.updateItem.bind(this));
+            html.find(".fa-pen-to-square").click(Helper.editItem.bind(this));
+            html.find(".armour-equipped-button").click(Helper.armourEquipped.bind(this));
+            html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
+            html.find(".save-button").click(this._makeSave.bind(this));
+            html.find(".untrained-button").click(this._rollUntrained.bind(this));
+            html.find(".npc-settings").click(this._showNPCSettings.bind(this));
+
+            new ContextMenu(html, ".skill-item", this._skillContextMenu);
+            // item add/edit menu
+            new ContextMenu(html, ".feat-card", this._itemContextMenu);
+            new ContextMenu(html, ".equipment", this._itemContextMenu);
+
+            new ContextMenu(html,".status-box", [{
+                name:     game.i18n.localize("SBB.npcSheet.reset"),
+                icon:     '<i class="fas fa-plus"></i>',
+                callback: element => {
+                    this.actor.update({"system.HP.value": this.actor.system.HP.max});
+                    this.actor.update({"system.strain.value": this.actor.system.strain.max});
+                }
+            }]);
+        }
+
+        super.activateListeners(html);
+    }
+
+    _makeSave(event) {
+        event.preventDefault();
+
+        Dice.makeSaveRoll({
+            linkedAttribute: this.actor.system.rank,
+            skillName:       game.i18n.localize("SBB.common.saveroll")
+        });
+    }
+
+    _rollUntrained(event) {
+        event.preventDefault();
+
+        Dice.rollSkillFromActorData(this.actor, null,
+            game.i18n.localize("SBB.npcSheet.rollUntrained")
+        )
+    }
+
+    async _showNPCSettings(event) {
+        event.preventDefault();
+        const template = "systems/sbb/templates/sheets/partials/npc-stat-input-form.hbs";
+
+        let passData = {
+            config: CONFIG.SBB,
+            actor:  this.actor
+        }
+
+        const html = await renderTemplate(template, passData);
+
+        return new Promise(resolve => {
+            const data = {
+                title:   this.actor.name + game.i18n.localize("SBB.npcSheet.inputDialog"),
+                content: html,
+                buttons: {
+                    normal: {
+                        label:    game.i18n.localize("SBB.dialog.confirm"),
+                        callback: html => resolve(this._updateNPCValues(html[0].querySelector("form")))
+                    },
+                    cancel: {
+                        label:    game.i18n.localize("SBB.dialog.cancel"),
+                        callback: html => resolve({cancelled: true})
+                    }
+                },
+                default: "normal",
+                close:   () => resolve({cancelled: true})
+            };
+
+            new Dialog(data, null).render(true);
+        });
+    }
+
+    _updateNPCValues(form) {
+        let actor = this.actor;
+
+        let rank = parseInt(form.rank.value);
+        let move = parseInt(form.move.value);
+        let hpMod = parseInt(form.hp.value);
+        let strainMod = parseInt(form.strain.value);
+        let initiativeMod = parseInt(form.initiative.value);
+
+        actor.update({"system.rank": rank,
+            "system.move": move,
+            "system.modifiers.HP": hpMod,
+            "system.modifiers.strain": strainMod,
+            "system.modifiers.initiative": initiativeMod});
     }
 }

@@ -1,6 +1,5 @@
 <div class="feat-box">
     <div class="feat-header">
-        <h1>{{localize "SBB.tabNames.features"}}</h1>
         <div class="add-icon">
             <i class="fa fa-circle-plus add-item-button" data-type="Feat"></i>
         </div>
@@ -8,7 +7,7 @@
 
     <div class="feat-list item-list">
         {{#each filteredItems.feats as |feat id|}}
-            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat}}
+            {{> "systems/sbb/templates/sheets/card/feat.hbs" feat inSheet=true}}
         {{/each}}
     </div>
 </div>

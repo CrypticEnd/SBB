@@ -31,13 +31,14 @@ SBB.settings= {
 }
 
 SBB.weaponSkills = {
-    none:            "",
+    brawling:        "SBB.WeaponSkills.brawling",
     melee_primitive: "SBB.WeaponSkills.melee_primitive",
     melee_advanced:  "SBB.WeaponSkills.melee_advanced",
     archery:         "SBB.WeaponSkills.archery",
     light:           "SBB.WeaponSkills.light",
     heavy:           "SBB.WeaponSkills.heavy",
-    explosive:       "SBB.WeaponSkills.explosive"
+    explosive:       "SBB.WeaponSkills.explosive",
+    gunnery:         "SBB.WeaponSkills.gunnery"
 }
 
 // This is ordered!
@@ -114,6 +115,12 @@ SBB.pcNavbar = {
     injuries:    "SBB.tabNames.injuries",
     attributes:  "SBB.tabNames.attributes",
     notes:       "SBB.tabNames.notes"
+}
+
+SBB.npcNavbar = {
+    skills:    "SBB.tabNames.skills",
+    equipment: "SBB.tabNames.equipment",
+    effects:   "SBB.effects.effects"
 }
 
 SBB.effectTypes ={

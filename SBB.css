@@ -11,6 +11,100 @@
 .skill-roll .roll-summary {
   margin-top: 30px;
 }
+.character .add-icon,
+.NPC .add-icon {
+  text-align: right;
+  margin-right: 5px;
+}
+.character .skill-box,
+.NPC .skill-box {
+  text-align: center;
+}
+.character .skill-box .skill-header nav,
+.NPC .skill-box .skill-header nav {
+  margin-top: 15px;
+}
+.character .skill-box .skill-header nav a,
+.NPC .skill-box .skill-header nav a {
+  padding: 10px;
+  margin-left: 2%;
+  border-style: solid;
+  border-color: #3dfb99;
+}
+.character .skill-box .skill-header nav .active,
+.NPC .skill-box .skill-header nav .active {
+  background-color: #003d20;
+}
+.character .skill-box .add-icon,
+.NPC .skill-box .add-icon {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: -55px;
+}
+.character .skill-box .skill-list,
+.NPC .skill-box .skill-list {
+  margin-top: 55px;
+}
+.character .feat-box .add-icon,
+.NPC .feat-box .add-icon {
+  margin-top: -35px;
+}
+.character .feat-box .feat-list,
+.NPC .feat-box .feat-list {
+  margin-top: 35px;
+}
+.character .feat-box .feat-list h3,
+.NPC .feat-box .feat-list h3,
+.character .feat-box .feat-list .card-description,
+.NPC .feat-box .feat-list .card-description {
+  padding-left: 10px;
+}
+.character .equipment-box li,
+.NPC .equipment-box li,
+.character .effect-box li,
+.NPC .effect-box li,
+.character .equipment-box ol,
+.NPC .equipment-box ol,
+.character .effect-box ol,
+.NPC .effect-box ol {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+.character .equipment-box .attributes,
+.NPC .equipment-box .attributes,
+.character .effect-box .attributes,
+.NPC .effect-box .attributes {
+  text-align: center;
+}
+.character .equipment-box .header,
+.NPC .equipment-box .header,
+.character .effect-box .header,
+.NPC .effect-box .header {
+  align-items: center;
+  text-align: center;
+  border: 1px groove #3dfb99;
+  font-size: 1.25em;
+}
+.character .equipment-box .item-detail,
+.NPC .equipment-box .item-detail,
+.character .effect-box .item-detail,
+.NPC .effect-box .item-detail {
+  flex: 0 0 70px;
+}
+.character .equipment-box .add-icon,
+.NPC .equipment-box .add-icon,
+.character .equipment-box .item-detail-space,
+.NPC .equipment-box .item-detail-space {
+  flex: 0 0 0px;
+  width: 20px;
+  height: 20px;
+}
+.character .effect-box .item-detail-edit,
+.NPC .effect-box .item-detail-edit,
+.character .effect-box .item-detail-space,
+.NPC .effect-box .item-detail-space {
+  flex: 0 0 70px;
+}
 .character {
   min-width: 855px;
   min-height: 870px;
@@ -63,10 +157,6 @@
 .character .main-content .nav-context-box::-webkit-scrollbar {
   display: none;
 }
-.character .main-content .add-icon {
-  text-align: right;
-  margin-right: 5px;
-}
 .character .main-content .personal-file-box .personal-box .playerimg {
   object-fit: cover;
   max-height: 400px;
@@ -109,66 +199,6 @@
 .character .main-content .personal-file-box .bio-box .bio-content {
   padding-left: 5px;
 }
-.character .main-content .skill-box {
-  text-align: center;
-}
-.character .main-content .skill-box .skill-header nav {
-  margin-top: 15px;
-}
-.character .main-content .skill-box .skill-header nav a {
-  padding: 10px;
-  margin-left: 2%;
-}
-.character .main-content .skill-box .add-icon {
-  text-align: right;
-  margin-right: 5px;
-  margin-top: -55px;
-}
-.character .main-content .skill-box .skill-list {
-  margin-top: 55px;
-}
-.character .main-content .feat-box .add-icon {
-  margin-top: -35px;
-}
-.character .main-content .feat-box .feat-list {
-  margin-top: 35px;
-}
-.character .main-content .feat-box .feat-list h3,
-.character .main-content .feat-box .feat-list .card-description {
-  padding-left: 10px;
-}
-.character .main-content .equipment-box li,
-.character .main-content .effect-box li,
-.character .main-content .equipment-box ol,
-.character .main-content .effect-box ol {
-  margin-left: 0px;
-  padding-left: 0px;
-}
-.character .main-content .equipment-box .attributes,
-.character .main-content .effect-box .attributes {
-  text-align: center;
-}
-.character .main-content .equipment-box .header,
-.character .main-content .effect-box .header {
-  align-items: center;
-  text-align: center;
-  border: 1px groove #3dfb99;
-  font-size: 1.25em;
-}
-.character .main-content .equipment-box .item-detail,
-.character .main-content .effect-box .item-detail {
-  flex: 0 0 70px;
-}
-.character .main-content .equipment-box .add-icon,
-.character .main-content .equipment-box .item-detail-space {
-  flex: 0 0 0px;
-  width: 20px;
-  height: 20px;
-}
-.character .main-content .effect-box .item-detail-edit,
-.character .main-content .effect-box .item-detail-space {
-  flex: 0 0 70px;
-}
 .character .main-content .note-tab {
   color: #3dfb99;
 }
@@ -179,6 +209,55 @@
 .character .main-content .note-tab .editor {
   height: 500px;
   font-size: 1em !important;
+}
+.NPC .main-content {
+  display: grid;
+  grid-template-columns: 330px auto;
+  grid-column-gap: 5%;
+  padding: 2%;
+  height: 100%;
+}
+.NPC .main-content .info-box {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.NPC .main-content .info-box .NPCimg {
+  padding: 2%;
+}
+.NPC .main-content .info-box button {
+  width: 80%;
+  margin-left: 10%;
+  color: #3dfb99;
+}
+.NPC .main-content .info-box .npc-settings-div {
+  text-align: right;
+  margin-top: -35px;
+  padding-right: 5px;
+  padding-bottom: 25px;
+}
+.NPC .main-content .abilities-box {
+  margin-top: 5%;
+}
+.NPC .main-content .abilities-box .add-icon {
+  font-size: 1.25em;
+}
+.NPC .main-content .nav-box::-webkit-scrollbar {
+  display: none;
+}
+.NPC .main-content .nav-box {
+  min-width: 280px;
+  overflow: scroll;
+}
+.NPC .main-content .nav-box .skill-box .add-icon {
+  margin-top: -20px;
+  margin-left: -5px;
+  font-size: 1.25em;
+}
+.NPC .main-content .nav-box .skill-box .skill-list {
+  margin-top: 20px;
+}
+.NPC .main-content .feat-box .feat-list {
+  margin-top: 15px;
 }
 .sheet-content {
   height: 100%;
@@ -279,38 +358,8 @@
 .effect-list .item-list .item .inactive {
   color: #7a7971;
 }
-.character .prosemirror menu li {
-  background: var(--color-control-bg);
-}
-.character .window-content {
-  background-color: #000000;
-  background-image: none;
-  color: #3dfb99;
-}
-.character .window-content input {
-  color: #3dfb99;
-}
-.character .window-content h1,
-.character .window-content h2 {
-  font-family: "origin tech";
-  text-transform: uppercase;
-  text-align: center;
-  border: solid 1px;
-  border-color: #3dfb99;
-  padding: 5px;
-  background-color: #003d20;
-}
-.character .window-content h3 {
-  border-bottom-color: #3dfb99;
-}
-.character .window-content nav a {
-  border-style: solid;
-  border-color: #3dfb99;
-}
-.character .window-content nav .active {
-  background-color: #003d20;
-}
-.character .backgroundOverlay {
+.character .backgroundOverlay,
+.NPC .backgroundOverlay {
   background-image: url("./assets/filmgrainOverlay.png");
   background-size: 100%;
   background-repeat: repeat;
@@ -320,6 +369,48 @@
   position: absolute;
   opacity: 0.3;
   pointer-events: none;
+  margin-top: -15px;
+  margin-left: -10px;
+}
+.character .prosemirror menu li,
+.NPC .prosemirror menu li {
+  background: var(--color-control-bg);
+}
+.character .window-content,
+.NPC .window-content {
+  background-color: #000000;
+  background-image: none;
+  color: #3dfb99;
+}
+.character .window-content input,
+.NPC .window-content input {
+  color: #3dfb99;
+}
+.character .window-content h1,
+.NPC .window-content h1,
+.character .window-content h2,
+.NPC .window-content h2 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+  text-align: center;
+  border: solid 1px;
+  border-color: #3dfb99;
+  padding: 5px;
+  background-color: #003d20;
+}
+.character .window-content h3,
+.NPC .window-content h3 {
+  border-bottom-color: #3dfb99;
+}
+.character .prosemirror menu li {
+  background: var(--color-control-bg);
+}
+.character .window-content nav a {
+  border-style: solid;
+  border-color: #3dfb99;
+}
+.character .window-content nav .active {
+  background-color: #003d20;
 }
 .character .main-content .biomonitor,
 .character .main-content .personal-files,
@@ -362,6 +453,42 @@
 }
 .character .main-content .biomonitor .strain-icons .crossed {
   color: #7a7971;
+}
+.NPC .info-box,
+.NPC .abilities-box,
+.NPC .nav-box {
+  background-color: #000000;
+  border-style: solid;
+  border-color: #3dfb99;
+  z-index: 4;
+}
+.NPC .info-box .status-box,
+.NPC .info-box .armour-box {
+  border-left-color: #3dfb99;
+  border-left-style: solid;
+}
+.NPC .info-box table {
+  border: none;
+  font-size: 1.25em;
+  padding-left: 5px;
+  margin-top: -10px;
+}
+.NPC .info-box .status-box table {
+  text-transform: uppercase;
+}
+.NPC .info-box .status-box table tr:nth-child(even) {
+  background-color: transparent;
+}
+.NPC .nav-box .nav-bar nav {
+  background-color: #003d20;
+  color: #7a7971;
+}
+.NPC .nav-box .nav-bar nav h1 {
+  font-size: 1.5em;
+  border-top: none;
+}
+.NPC .nav-box .nav-bar nav .active {
+  color: #3dfb99;
 }
 .item .item-summary .item-properties .tag {
   border: 1px solid #3dfb99;

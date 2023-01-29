@@ -10,6 +10,8 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/equipmant.hbs",
         "systems/sbb/templates/sheets/partials/injuries.hbs",
         "systems/sbb/templates/sheets/partials/enhancements.hbs",
+        "systems/sbb/templates/sheets/partials/armourTable.hbs",
+        "systems/sbb/templates/sheets/partials/npc-stat-input-form.hbs",
 
         // Cards
         "systems/sbb/templates/sheets/card/feat.hbs",

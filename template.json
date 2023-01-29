@@ -13,8 +13,7 @@
           "value": 1,
           "max": 1
         },
-        "armour": {},
-        "description": ""
+        "armour": {}
       },
 
       "purchasable": {
@@ -67,6 +66,7 @@
         }
       },
       "playerBio": {
+        "bio": "",
         "race": "",
         "gender": "",
         "age": "",
@@ -75,13 +75,38 @@
       },
       "usingTenet": false,
       "usingFocus": false
-
     },
-
 
     "NPC": {
-
+      "templates": ["base"],
+      "rank": 4,
+      "move": 4,
+      "strain": {
+        "max":0,
+        "value": 0
+      },
+      "modifiers": {
+        "HP": 0,
+        "strain": 0,
+        "initiative": 0,
+        "skillMod": 0
+      },
+      "armour": {
+        "head": {
+          "kinetic": 0,
+          "energy": 0,
+          "explosive": 0,
+          "techlevel": 0
+        },
+        "body": {
+          "kinetic": 0,
+          "energy": 0,
+          "explosive": 0,
+          "techlevel": 0
+        }
+      }
     },
+
     "Vehicle": {
       "templates": [
         "vehicle"
@@ -127,7 +152,7 @@
       "weapon": {
         "range": { },
         "formula": "0d6",
-        "skill": "",
+        "skill": "SBB.WeaponSkills.brawling",
         "damageType": "",
         "techLevel": ""
       }

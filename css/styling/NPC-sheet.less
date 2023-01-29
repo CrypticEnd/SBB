@@ -1,0 +1,49 @@
+.NPC{
+  .info-box, .abilities-box, .nav-box{
+    background-color: @primaryColor;
+    border-style: solid;
+    border-color: @borderColor;
+    z-index: 4;
+  }
+
+  .info-box{
+    .status-box, .armour-box{
+      border-left-color: @headerlineColor;
+      border-left-style: solid;
+    }
+
+    table {
+      border: none;
+      font-size: 1.25em;
+      padding-left: 5px;
+      margin-top: -10px;
+    }
+    .status-box {
+      table{
+        text-transform: uppercase;
+      }
+      table tr:nth-child(even) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .nav-box{
+    .nav-bar{
+      nav{
+        background-color: @headerBackground;
+        color: @inactive;
+
+        h1{
+          font-size: 1.5em;
+          border-top: none;
+        }
+
+        .active{
+          color: @fontColor;
+        }
+      }
+    }
+
+  }
+}

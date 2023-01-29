@@ -44,12 +44,13 @@ export function editItem(event){
 
 export function itemRoll(event){
     event.preventDefault();
+
     const itemID = event.currentTarget.dataset.itemId;
     const item = (this.actor.items.get(itemID));
 
     // Depending on the item we want to do something else
     if(item.type == "Skill"){
-        Dice.rollSkillFromID(this.actor._id, itemID);
+        Dice.rollSkillFromActorData(this.actor, item, null);
         return;
     }
 
@@ -157,4 +158,63 @@ export function effectToggle(event){
     });
     effectItem.update({"system.active": newStatus});
 
+}
+
+export function toggleLastFamily(event){
+    event.preventDefault();
+
+    let greatParentNode = event.currentTarget.parentNode.parentNode.parentNode;
+    let toggleHideNode = greatParentNode.getElementsByClassName("hide-on-click");
+
+    if(toggleHideNode.length === 1){
+        let toggleNode = toggleHideNode[0];
+        $(toggleNode).toggle("hidden");
+
+        // Toggle item flag
+        let item = this.actor.items.get(greatParentNode.dataset.itemId);
+
+        if(item == null) return;
+        if(item.flags.sbb != null && "shown" in item.flags.sbb){
+            item.setFlag("sbb", "shown", !item.flags.sbb.shown);
+        }
+        else{
+            item.setFlag("sbb", "shown", true);
+        }
+    }
+}
+
+export function armourEquipped(event){
+    event.preventDefault();
+    const actor = this.actor;
+    const itemID = event.currentTarget.dataset.itemId;
+    const item = actor.items.get(itemID);
+    const armourSlot = item.system.type;
+    const armourList =  actor.items.filter(function (item) {
+        return item.type == "Armour" && item.system.type == armourSlot});
+
+
+    if(!item.system.equipped){
+        // Search though all other armor of type and de-equipped it
+        Object.keys(armourList).forEach(key =>{
+            if(armourList[key].system.equipped)
+                armourList[key].update({"system.equipped" : false});
+        });
+    }
+
+    item.update({"system.equipped" : !item.system.equipped});
+}
+
+export function workOutStrain(strain){
+    let strainValue = strain.max - strain.value;
+    let config = CONFIG.SBB.settings;
+
+    // work out the buffer
+    let strainBuffer = strain.max - config.strainBase;
+
+    let strainOverflow =  strainValue - strainBuffer;
+
+    if(strainOverflow<=0)
+        return 0;
+
+    return Math.floor(strainOverflow* config.strainPenaltyMod);
 }

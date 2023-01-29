@@ -24,21 +24,52 @@ export function addChatListeners(html){
 
 function onAttack(event){
     const card = event.currentTarget.parentNode;
+
+    // Only for "token" attackers
+    let tokenId = card.dataset.tokenId;
+    if(tokenId != null){
+        onTokenAttack(tokenId, card.dataset.itemId);
+        return;
+    }
+
     let attacker = game.actors.get(card.dataset.ownerId);
     let weapon = attacker.items.get(card.dataset.itemId);
+
+    rollAttackGivenAttacker(attacker, weapon);
+}
+
+async function onTokenAttack(tokenId, weaponId) {
+    let tokenActor = await fromUuid(tokenId);
+
+    // Check we have the values we need
+    if(tokenActor == null){
+        console.error(game.i18n.localize("SBB.errors.cannotFindForWeaponRoll"));
+        return;
+    }
+
+    let weapon = tokenActor._actor.items.get(weaponId);
+
+    rollAttackGivenAttacker(tokenActor._actor, weapon);
+}
+
+function rollAttackGivenAttacker(attacker, weapon){
+    if(attacker==null || weapon == null){
+        console.error(game.i18n.localize("SBB.errors.weaponOrAttackerUndefined"));
+        return;
+    }
 
     // make sure attacker has relevant skill
     const linkedSkill= weapon.system.skill;
     let skill = attacker.items.filter(function (skill) {
         return skill.type === "Skill" &&
-                skill.name.toUpperCase() === game.i18n.localize(linkedSkill).toUpperCase()});
+            skill.name.toUpperCase() === game.i18n.localize(linkedSkill).toUpperCase()});
 
     if(skill.length === 0) {
-        console.warn("No skill found with name of: " + linkedSkill.toUpperCase());
+        console.error(game.i18n.localize("SBB.errors.unfoundedSkill") + linkedSkill.toUpperCase());
         return;
     }
 
-    Dice.rollSkillFromID(attacker._id, skill[0].id, weapon.name);
+    Dice.rollSkillFromActorData(attacker, skill[0], weapon.name);
 }
 
 function onDamage(event){
