@@ -1,0 +1,29 @@
+<form>
+    <div class="form-group">
+        <label>{{localize "SBB.npcSheet.rank"}}</label>
+        <input type="number" name="rank" value="{{actor.system.rank}}"
+               min="{{config.settings.attributesRanks.min}}"
+               max="{{config.settings.attributesRanks.max}}">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.attributes.move"}}</label>
+        <input type="number" name="move" value="{{actor.system.move}}"
+        min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.modifiers.hp"}}</label>
+        <input type="number" name="hp" value="{{actor.system.modifiers.HP}}">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.modifiers.strain"}}</label>
+        <input type="number" name="strain" value="{{actor.system.modifiers.strain}}">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.modifiers.initiative"}}</label>
+        <input type="number" name="initiative" value="{{actor.system.modifiers.initiative}}">
+    </div>
+</form>

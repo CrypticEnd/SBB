@@ -158,7 +158,52 @@ export class SBBNPCSheet extends ActorSheet {
         )
     }
 
-    _showNPCSettings(event){
+    async _showNPCSettings(event) {
         event.preventDefault();
+        const template = "systems/sbb/templates/sheets/partials/npc-stat-input-form.hbs";
+
+        let passData = {
+            config: CONFIG.SBB,
+            actor:  this.actor
+        }
+
+        const html = await renderTemplate(template, passData);
+
+        return new Promise(resolve => {
+            const data = {
+                title:   this.actor.name + game.i18n.localize("SBB.npcSheet.inputDialog"),
+                content: html,
+                buttons: {
+                    normal: {
+                        label:    game.i18n.localize("SBB.dialog.confirm"),
+                        callback: html => resolve(this._updateNPCValues(html[0].querySelector("form")))
+                    },
+                    cancel: {
+                        label:    game.i18n.localize("SBB.dialog.cancel"),
+                        callback: html => resolve({cancelled: true})
+                    }
+                },
+                default: "normal",
+                close:   () => resolve({cancelled: true})
+            };
+
+            new Dialog(data, null).render(true);
+        });
+    }
+
+    _updateNPCValues(form) {
+        let actor = this.actor;
+
+        let rank = parseInt(form.rank.value);
+        let move = parseInt(form.move.value);
+        let hpMod = parseInt(form.hp.value);
+        let strainMod = parseInt(form.strain.value);
+        let initiativeMod = parseInt(form.initiative.value);
+
+        actor.update({"system.rank": rank,
+            "system.move": move,
+            "system.modifiers.HP": hpMod,
+            "system.modifiers.strain": strainMod,
+            "system.modifiers.initiative": initiativeMod});
     }
 }

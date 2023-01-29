@@ -215,7 +215,20 @@
       "rollUntrained": "Roll Untrained",
       "status": "Status",
       "abilities": "Abilities",
-      "rank": "Rank"
+      "rank": "Rank",
+      "inputDialog": ": Stat input",
+      "settings": "Settings"
+    },
+
+    "modifiers": {
+      "hp": "HP mod",
+      "strain": "Strain mod",
+      "initiative": "Initiative mod"
+    },
+
+    "dialog": {
+      "confirm": "Confirm",
+      "cancel": "Cancel"
     }
   }
 }
