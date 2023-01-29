@@ -229,6 +229,12 @@
   margin-left: 10%;
   color: #3dfb99;
 }
+.NPC .main-content .info-box .npc-settings-div {
+  text-align: right;
+  margin-top: -35px;
+  padding-right: 5px;
+  padding-bottom: 25px;
+}
 .NPC .main-content .abilities-box {
   margin-top: 5%;
 }
@@ -249,6 +255,9 @@
 }
 .NPC .main-content .nav-box .skill-box .skill-list {
   margin-top: 20px;
+}
+.NPC .main-content .feat-box .feat-list {
+  margin-top: 15px;
 }
 .sheet-content {
   height: 100%;

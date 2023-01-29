@@ -129,6 +129,7 @@ export class SBBNPCSheet extends ActorSheet {
             html.find(".effect-equipped-button").click(Helper.effectToggle.bind(this));
             html.find(".save-button").click(this._makeSave.bind(this));
             html.find(".untrained-button").click(this._rollUntrained.bind(this));
+            html.find(".npc-settings").click(this._showNPCSettings.bind(this));
 
             new ContextMenu(html, ".skill-item", this._skillContextMenu);
 
@@ -155,5 +156,9 @@ export class SBBNPCSheet extends ActorSheet {
         Dice.rollSkillFromActorData(this.actor, null,
             game.i18n.localize("SBB.npcSheet.rollUntrained")
         )
+    }
+
+    _showNPCSettings(event){
+        event.preventDefault();
     }
 }

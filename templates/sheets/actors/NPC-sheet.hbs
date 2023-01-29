@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="status-box">
-                    <h1>{{localize "SBB.npcSheet.status"}}</h1>
+                    <h1>{{localize "SBB.npcSheet.status"}} </h1>
                     <table>
                         <tr>
                             <td>{{localize "SBB.common.health"}}</td>
@@ -54,8 +54,13 @@
 
                 <div class="actions-box">
                     <h1>{{localize "SBB.common.actions"}}</h1>
-                    <button class="save-button">{{localize "SBB.npcSheet.makeSave"}}</button>
-                    <button class="untrained-button">{{localize "SBB.npcSheet.rollUntrained"}}</button>
+                    <div class="npc-settings-div">
+                        <i class="fa fa-cog npc-settings"></i>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="save-button">{{localize "SBB.npcSheet.makeSave"}}</button>
+                        <button class="untrained-button">{{localize "SBB.npcSheet.rollUntrained"}}</button>
+                    </div>
                 </div>
 
                 <div class="armour-box">
