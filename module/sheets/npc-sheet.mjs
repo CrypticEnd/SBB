@@ -149,6 +149,15 @@ export class SBBNPCSheet extends ActorSheet {
         super.activateListeners(html);
     }
 
+    async _onDropItemCreate(itemData) {
+        if(this.actor.allowedItems?.includes(itemData.type)){
+            await super._onDropItemCreate(itemData);
+        }
+        else{
+            console.warn(game.i18n.localize("SBB.warning.disallowedItem"))
+        }
+    }
+
     _makeSave(event) {
         event.preventDefault();
 

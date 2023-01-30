@@ -1,5 +1,12 @@
 export class SBBActor extends Actor{
 
+    _allowedItemsCharacter = [
+        "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill", "Tenet", "Focus"
+    ]
+
+    _allowedItemsNPC = [
+        "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill"
+    ]
 
     prepareData() {
         super.prepareData();
@@ -23,6 +30,8 @@ export class SBBActor extends Actor{
     _prepareCharacterData(actorData, config) {
         const systemData = actorData.system;
 
+        actorData.allowedItems = this._allowedItemsCharacter;
+
         this._updateHPOnAttribute(systemData, config, systemData.attributes.fortitude);
         this._updateStrainOnAttribute(systemData, config, systemData.attributes.willpower);
     }
@@ -30,6 +39,8 @@ export class SBBActor extends Actor{
     _prepareNPCData(actorData, config) {
         const systemData = actorData.system;
         const rank = systemData.rank;
+
+        actorData.allowedItems = this._allowedItemsNPC;
 
         this._updateHPOnAttribute(systemData, config, rank);
         this._updateStrainOnAttribute(systemData, config, rank);
@@ -54,5 +65,4 @@ export class SBBActor extends Actor{
         if(systemData.strain.value > systemData.strain.max)
             systemData.strain.value = systemData.strain.max;
     }
-
 }

@@ -54,7 +54,8 @@
       "macroUnknown": "You can only create macro buttons for owned Items",
       "missingTarget": "Your controlled actor '{actor}' does not have an {type} with name '{name}'.",
       "noActorSelected": "No selected or assigned actor could be found to target with macro.",
-      "multipleTargets": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen."
+      "multipleTargets": "Your controlled actor '{actor}' has more than one {type} with name '{name}'. The first match will be chosen.",
+      "disallowedItem": "That item cannot be given to that type of actor"
     },
 
     "errors": {
