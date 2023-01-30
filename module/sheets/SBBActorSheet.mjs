@@ -94,7 +94,7 @@ export class SBBActorSheet extends ActorSheet {
                 return item.type == "Effect"
                     && item.system.type == "SBB.effects.injury"
             }),
-            
+
             starShipFitting:data.items.filter(function (item) {
                 return item.type == "Starship Fittings"
             }),
