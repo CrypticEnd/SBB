@@ -10,7 +10,8 @@ export class SBBNPCSheet extends SBBActorSheet {
             template: "systems/sbb/templates/sheets/actors/NPC-sheet.hbs",
             width:    680,
             height:   800,
-            tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-content", initial: "skills"}]
+            tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-content", initial: "skills"},
+                {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}]
         });
     }
 
