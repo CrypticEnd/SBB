@@ -64,7 +64,7 @@ export class SBBCharacterSheet extends SBBActorSheet {
         let counter = 0;
 
         for (const [key, value] of Object.entries(this.actor.system.attributes)) {
-            counter += value;
+            counter += value.rank;
         }
 
         return counter;
@@ -118,7 +118,7 @@ export class SBBCharacterSheet extends SBBActorSheet {
             console.error(saveTypes + game.i18n.localize("SBB.errors.invalidAttribute"));
             return;
         }
-        let linkedAttribute = this.actor.system.attributes[saveType.toLowerCase()];
+        let linkedAttribute = this.actor.system.attributes[saveType.toLowerCase()].rank;
 
         Dice.makeSaveRoll({
             linkedAttribute: linkedAttribute,

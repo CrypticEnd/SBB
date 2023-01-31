@@ -9,6 +9,9 @@ SBB.settings= {
     // if 1 it will give a -1 per strain
     strainPenaltyMod : 0.5,
 
+    speedBase : 0,
+    speedMoveMod: 1,
+
     skillRank: {
         max: 10,
         min: 0

@@ -108,7 +108,7 @@ export class SBBNPCSheet extends SBBActorSheet {
         let initiativeMod = parseInt(form.initiative.value);
 
         actor.update({"system.rank": rank,
-            "system.move": move,
+            "system.modifiers.speedBonus": move,
             "system.modifiers.HP": hpMod,
             "system.modifiers.strain": strainMod,
             "system.modifiers.initiative": initiativeMod});

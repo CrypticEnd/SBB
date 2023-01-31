@@ -227,7 +227,8 @@
     "modifiers": {
       "hp": "HP mod",
       "strain": "Strain mod",
-      "initiative": "Initiative mod"
+      "initiative": "Initiative mod",
+      "speedBonus": "Speed mod"
     },
 
     "dialog": {

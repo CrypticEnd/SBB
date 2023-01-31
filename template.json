@@ -73,7 +73,8 @@
           "HP": 0,
           "strain": 0,
           "initiative": 0,
-          "skillMod": 0
+          "skillMod": 0,
+          "speedBonus": 0
         }
       },
 

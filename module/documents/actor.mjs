@@ -17,36 +17,27 @@ export class SBBActor extends Actor{
         
         const actorData = this;
         const config = CONFIG.SBB;
+        const type = actorData.type;
 
         // Update deprived data values based on actor type
-        if(actorData.type == "Character"){
-            this._prepareCharacterData(actorData, config);
+        if(type == "NPC" || type == "Character") {
+            if (type == "Character") {
+                actorData.allowedItems = this._allowedItemsCharacter;
+            }
+            else{
+                actorData.allowedItems = this._allowedItemsNPC;
+            }
+
+            this._updateHPChar(systemData, config);
+            this._updateStrainChar(systemData, config);
+            this._updateSpeedChar(systemData, config);
         }
-        else if(actorData.type == "NPC"){
-            this._prepareNPCData(actorData, config);
-        }
+
     }
 
-    _prepareCharacterData(actorData, config) {
-        const systemData = actorData.system;
+    _updateHPChar(systemData, config){
+        const attribute = systemData.attributes.fortitude.rank;
 
-        actorData.allowedItems = this._allowedItemsCharacter;
-
-        this._updateHPOnAttribute(systemData, config, systemData.attributes.fortitude);
-        this._updateStrainOnAttribute(systemData, config, systemData.attributes.willpower);
-    }
-
-    _prepareNPCData(actorData, config) {
-        const systemData = actorData.system;
-        const rank = systemData.rank;
-
-        actorData.allowedItems = this._allowedItemsNPC;
-
-        this._updateHPOnAttribute(systemData, config, rank);
-        this._updateStrainOnAttribute(systemData, config, rank);
-    }
-
-    _updateHPOnAttribute(systemData, config, attribute){
         systemData.HP.max =config.settings.hpBase +
             attribute * config.settings.hpFortMod
             + systemData.modifiers.HP;
@@ -56,7 +47,9 @@ export class SBBActor extends Actor{
             systemData.HP.value = systemData.HP.max;
     }
 
-    _updateStrainOnAttribute(systemData, config, attribute){
+    _updateStrainChar(systemData, config){
+        const attribute = systemData.attributes.willpower.rank;
+
         systemData.strain.max =config.settings.strainBase +
             attribute * config.settings.strainBufferWillMod
             + systemData.modifiers.strain;
@@ -64,5 +57,13 @@ export class SBBActor extends Actor{
         // check if strain max needs to be changed
         if(systemData.strain.value > systemData.strain.max)
             systemData.strain.value = systemData.strain.max;
+    }
+
+    _updateSpeedChar(systemData, config){
+        const attribute = systemData.attributes.move.rank;
+
+        systemData.speed =config.settings.speedBase +
+            attribute * config.settings.speedMoveMod
+            + systemData.modifiers.speedBonus;
     }
 }
