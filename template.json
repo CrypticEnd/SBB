@@ -8,12 +8,73 @@
       "Drone"
     ],
     "templates": {
-      "base": {
+      "baseChar": {
         "HP": {
           "value": 1,
           "max": 1
         },
-        "armour": {}
+        "strain": {
+          "max":0,
+          "value": 0
+        },
+        "speed": 4,
+        "armour": {
+          "head": {
+            "kinetic": 0,
+            "energy": 0,
+            "explosive": 0,
+            "techlevel": 0
+          },
+          "body": {
+            "kinetic": 0,
+            "energy": 0,
+            "explosive": 0,
+            "techlevel": 0
+          }
+        },
+        "attributes": {
+          "body":{
+            "rank": 4,
+            "mod": 0
+          },
+          "control": {
+            "rank": 4,
+            "mod": 0
+          },
+          "intelligence": {
+            "rank": 4,
+            "mod": 0
+          },
+          "presence": {
+            "rank": 4,
+            "mod": 0
+          },
+          "technique": {
+            "rank": 4,
+            "mod": 0
+          },
+          "move": {
+            "rank": 4
+          },
+          "fortitude": {
+            "rank": 4,
+            "mod": 0
+          },
+          "reflex": {
+            "rank": 4,
+            "mod": 0
+          },
+          "willpower": {
+            "rank": 4,
+            "mod": 0
+          }
+        },
+        "modifiers": {
+          "HP": 0,
+          "strain": 0,
+          "initiative": 0,
+          "skillMod": 0
+        }
       },
 
       "purchasable": {
@@ -27,44 +88,13 @@
     },
 
     "Character": {
-      "templates": ["base"],
-      "attributes": {
-        "body": 4,
-        "control": 4,
-        "intelligence": 4,
-        "presence": 4,
-        "technique": 4,
-        "move": 4,
-        "fortitude": 4,
-        "reflex": 4,
-        "willpower": 4
-      },
+      "templates": ["baseChar"],
       "strain": {
         "max":0,
         "value": 0
       },
-      "modifiers": {
-        "HP": 0,
-        "strain": 0,
-        "initiative": 0,
-        "skillMod": 0
-      },
       "XP": 0,
       "resolve": 0,
-      "armour": {
-        "head": {
-          "kinetic": 0,
-          "energy": 0,
-          "explosive": 0,
-          "techlevel": 0
-        },
-        "body": {
-          "kinetic": 0,
-          "energy": 0,
-          "explosive": 0,
-          "techlevel": 0
-        }
-      },
       "playerBio": {
         "bio": "",
         "race": "",
@@ -78,33 +108,8 @@
     },
 
     "NPC": {
-      "templates": ["base"],
-      "rank": 4,
-      "move": 4,
-      "strain": {
-        "max":0,
-        "value": 0
-      },
-      "modifiers": {
-        "HP": 0,
-        "strain": 0,
-        "initiative": 0,
-        "skillMod": 0
-      },
-      "armour": {
-        "head": {
-          "kinetic": 0,
-          "energy": 0,
-          "explosive": 0,
-          "techlevel": 0
-        },
-        "body": {
-          "kinetic": 0,
-          "energy": 0,
-          "explosive": 0,
-          "techlevel": 0
-        }
-      }
+      "templates": ["baseChar"],
+      "rank": 4
     },
 
     "Vehicle": {
