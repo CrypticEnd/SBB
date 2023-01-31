@@ -2,7 +2,7 @@ import {SBB} from "./config.mjs"
 
 // Template
 const defaultRollTemplate = "systems/sbb/templates/sheets/card/check-roll.hbs";
-const defualtDamageTemplate = "systems/sbb/templates/sheets/card/damage-roll.hbs";
+const defaultDamageTemplate = "systems/sbb/templates/sheets/card/damage-roll.hbs";
 
 export async function RollToCustomMessage(rollResult, template, extraData){
     let templateContext ={
@@ -121,7 +121,7 @@ export async function rollWeaponDamage(weapon){
 
     let harmCounter = await countHarmDie(rollresult, weapon.system.harmRange);
 
-    RollToCustomMessage(rollresult, defualtDamageTemplate, {
+    RollToCustomMessage(rollresult, defaultDamageTemplate, {
         weaponName: weapon.name,
         formula: weapon.system.formula,
         harmCounter: (harmCounter>0) ? harmCounter : null
