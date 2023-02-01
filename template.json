@@ -34,38 +34,18 @@
         },
         "attributes": {
           "body":{
-            "rank": 4,
             "mod": 0
           },
           "control": {
-            "rank": 4,
             "mod": 0
           },
           "intelligence": {
-            "rank": 4,
             "mod": 0
           },
           "presence": {
-            "rank": 4,
             "mod": 0
           },
           "technique": {
-            "rank": 4,
-            "mod": 0
-          },
-          "move": {
-            "rank": 4
-          },
-          "fortitude": {
-            "rank": 4,
-            "mod": 0
-          },
-          "reflex": {
-            "rank": 4,
-            "mod": 0
-          },
-          "willpower": {
-            "rank": 4,
             "mod": 0
           }
         },
@@ -93,6 +73,35 @@
       "strain": {
         "max":0,
         "value": 0
+      },
+      "attributes": {
+        "body":{
+          "rank": 1
+        },
+        "control": {
+          "rank": 1
+        },
+        "intelligence": {
+          "rank": 1
+        },
+        "presence": {
+          "rank": 1
+        },
+        "technique": {
+          "rank": 1
+        },
+        "move": {
+          "rank": 1
+        },
+        "fortitude": {
+          "rank": 1
+        },
+        "reflex": {
+          "rank": 1
+        },
+        "willpower": {
+          "rank": 1
+        }
       },
       "XP": 0,
       "resolve": 0,

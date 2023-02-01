@@ -4,7 +4,7 @@ export class SBBCombatant extends Combatant{
         let actorType = this.actor.type;
         let formula = "1d10";
 
-        if(actorType == "Character" || actorType == "NPC"){
+        if(actorType == "Character"){
             let strainMod = 0;
             if("strainMod" in this.actor.flags.sbb){
                 strainMod = this.actor.flags.sbb.strainMod;
