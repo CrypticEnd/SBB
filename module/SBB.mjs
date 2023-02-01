@@ -5,6 +5,7 @@ import {SBBCombatant} from "./documents/combatant.mjs";
 import { SBBCharacterSheet } from "./sheets/actorTypes/character-sheet.mjs";
 import {SBBNPCSheet} from "./sheets/actorTypes/npc-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
+import {SBBActiveEffectConfig} from "./sheets/SBBActiveEffectConfig.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { SBB } from "./helpers/config.mjs";
@@ -19,6 +20,7 @@ Hooks.once("init", function (){
     CONFIG.Item.documentClass = SBBItem;
     CONFIG.Actor.documentClass = SBBActor;
     CONFIG.Combatant.documentClass = SBBCombatant;
+    CONFIG.ActiveEffect.sheetClass = SBBActiveEffectConfig;
 
     CONFIG.Combat.initiative = {
         formula: "1d10",
@@ -41,11 +43,17 @@ Hooks.once("init", function (){
         makeDefault: true,
         label: "SBB.SheetNPC"
     });
+
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("SBBItem", SBBItemSheet, {
         makeDefault: true ,
         label: "SBB.SheetItem"
     });
+
+    DocumentSheetConfig.registerSheet(ActiveEffect, "SBB", SBBActiveEffectConfig, {
+        makeDefault: true
+    })
+
 
     Handlebars.registerHelper("repeat", function (n, content){
        let result = "";

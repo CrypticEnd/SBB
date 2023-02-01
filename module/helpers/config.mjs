@@ -44,6 +44,23 @@ SBB.weaponSkills = {
     gunnery:         "SBB.WeaponSkills.gunnery"
 }
 
+SBB.activeEffectValues = {
+    "system.attributes.body.rank": "SBB.activeEffects.charAttributeBody",
+    "system.attributes.control.rank": "SBB.activeEffects.charAttributeControl",
+    "system.attributes.intelligence.rank": "SBB.activeEffects.charAttributeIntelligence",
+    "system.attributes.presence.rank": "SBB.activeEffects.charAttributePresence",
+    "system.attributes.technique.rank": "SBB.activeEffects.charAttributeTechnique",
+    "system.attributes.body.fortitude": "SBB.activeEffects.charAttributeFortitude",
+    "system.attributes.body.reflex": "SBB.activeEffects.charAttributeReflex",
+    "system.attributes.body.willpower": "SBB.activeEffects.charAttributeWillpower",
+
+    "system.speed": "SBB.activeEffects.speed"
+}
+
+SBB.activeEffectModes ={
+
+}
+
 // This is ordered!
 SBB.weaponHeaders= {
     linkedSkill:   "SBB.weaponHeaders.linkedSkill",

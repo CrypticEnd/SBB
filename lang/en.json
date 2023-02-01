@@ -118,6 +118,28 @@
       "reflex": "Reflex Save"
     },
 
+    "activeEffects": {
+      "charAttributeBody": "Character Attribute: Body",
+      "charAttributeControl": "Character Attribute: Control",
+      "charAttributeIntelligence": "Character Attribute: Intelligence",
+      "charAttributePresence": "Character Attribute: Presence",
+      "charAttributeTechnique": "Character Attribute: Technique",
+      "charAttributeFortitude": "Character Attribute: Fortitude",
+      "charAttributeReflex": "Character Attribute: Reflex",
+      "charAttributeWillpower": "Character Attribute: Willpower",
+
+      "SkillBonusBody" : "Skill Bonus: Body",
+      "SkillBonusControl" : "Skill Bonus: Control",
+      "SkillBonusIntelligence" : "Skill Bonus: Intelligence",
+      "SkillBonusPresence" : "Skill Bonus: Presence",
+      "SkillBonusTechnique" : "Skill Bonus: Technique",
+
+      "speed": "Speed",
+      "maxHP": "Max HP",
+      "maxStrain": "Max Strain",
+      "initiativeBonus": "Initiative bonus"
+    },
+
     "weaponHeaders": {
       "linkedSkill": "Weapon Type",
       "magazine": "Magazine",
