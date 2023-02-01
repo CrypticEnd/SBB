@@ -1,20 +1,29 @@
 export class SBBCombatant extends Combatant{
 
     _getInitiativeFormula() {
-        let actorType = this.actor.type;
-        let formula = "1d10";
+        let actorData = this.actor;
+        let actorType = actorData.type;
+        let baseformula = "1d10";
+        let attribute = 0;
+        let allMods = 0;
 
-        if(actorType == "Character"){
-            let strainMod = 0;
-            if("strainMod" in this.actor.flags.sbb){
-                strainMod = this.actor.flags.sbb.strainMod;
+        if(actorType == "Character" || actorType == "NPC"){
+            if(actorType=="Character"){
+                attribute = this.actor.system.attributes.reflex.rank;
             }
+            else{
+                attribute = this.actor.system.rank;
+            }
+            let strainMod = this.actor.flags?.sbb?.strainMod ?
+                this.actor.flags.sbb.strainMod : 0;
 
-            formula = "1d10 + @attributes.reflex.value" +
-            "+ @attributes.reflex/10 + " + // a .value to help with Ties
-            "@modifiers.initiative - " + strainMod;
+            allMods = (attribute/10)
+                + actorData.system.modifiers.initiative
+                - strainMod;
         }
 
-        return formula;
+        return baseformula + "+"
+                    + attribute + "+"
+                    + allMods;
     }
 }
