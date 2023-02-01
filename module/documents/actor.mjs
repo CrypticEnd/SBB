@@ -28,9 +28,9 @@ export class SBBActor extends Actor{
                 actorData.allowedItems = this._allowedItemsNPC;
             }
 
-            this._updateHPChar(systemData, config);
-            this._updateStrainChar(systemData, config);
-            this._updateSpeedChar(systemData, config);
+            this._updateHPChar(actorData.system, config);
+            this._updateStrainChar(actorData.system, config);
+            this._updateSpeedChar(actorData.system, config);
         }
 
     }
