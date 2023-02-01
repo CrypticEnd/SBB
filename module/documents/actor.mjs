@@ -24,8 +24,6 @@ export class SBBActor extends Actor {
         } else if (type == "NPC") {
             this._updateNPC(config)
         }
-
-        console.log(this);
     }
 
 
