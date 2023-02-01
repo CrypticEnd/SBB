@@ -1,0 +1,52 @@
+diff a/module/documents/actor.mjs b/module/documents/actor.mjs	(rejected hunks)
+@@ -17,36 +17,27 @@
+         
+         const actorData = this;
+         const config = CONFIG.SBB;
++        const type = actorData.type;
+ 
+         // Update deprived data values based on actor type
+-        if(actorData.type == "Character"){
+-            this._prepareCharacterData(actorData, config);
+-        }
+-        else if(actorData.type == "NPC"){
+-            this._prepareNPCData(actorData, config);
+-        }
+-    }
++        if(type == "NPC" || type == "Character") {
++            if (type == "Character") {
++                actorData.allowedItems = this._allowedItemsCharacter;
++            }
++            else{
++                actorData.allowedItems = this._allowedItemsNPC;
++            }
+ 
+-    _prepareCharacterData(actorData, config) {
+-        const systemData = actorData.system;
+-
+-        actorData.allowedItems = this._allowedItemsCharacter;
++            this._updateHPChar(systemData, config);
++            this._updateStrainChar(systemData, config);
++            this._updateSpeedChar(systemData, config);
++        }
+ 
+-        this._updateHPOnAttribute(systemData, config, systemData.attributes.fortitude);
+-        this._updateStrainOnAttribute(systemData, config, systemData.attributes.willpower);
+     }
+ 
+-    _prepareNPCData(actorData, config) {
+-        const systemData = actorData.system;
+-        const rank = systemData.rank;
+-
+-        actorData.allowedItems = this._allowedItemsNPC;
++    _updateHPChar(systemData, config){
++        const attribute = systemData.attributes.fortitude.rank;
+ 
+-        this._updateHPOnAttribute(systemData, config, rank);
+-        this._updateStrainOnAttribute(systemData, config, rank);
+-    }
+-
+-    _updateHPOnAttribute(systemData, config, attribute){
+         systemData.HP.max =config.settings.hpBase +
+             attribute * config.settings.hpFortMod
+             + systemData.modifiers.HP;

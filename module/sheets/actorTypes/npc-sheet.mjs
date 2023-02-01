@@ -101,23 +101,18 @@ export class SBBNPCSheet extends SBBActorSheet {
     _updateNPCValues(form) {
         let actor = this.actor;
 
-        let rank = parseInt(form.rank);
-        let move = parseInt(form.speedBonus);
-        let hpMod = parseInt(form.hp);
-        let strainMod = parseInt(form.strain);
-        let initiativeMod = parseInt(form.initiative);
+        let rank = parseInt(form.rank.value);
+        let move = parseInt(form.speedBonus.value);
+        let hpMod = parseInt(form.hp.value);
+        let strainMod = parseInt(form.strain.value);
+        let initiativeMod = parseInt(form.initiative.value);
 
-        console.log(rank);
-        console.log(move);
-        console.log(hpMod);
-        console.log(strainMod);
-        console.log(initiativeMod);
-        console.log(form);
-
-        actor.update({"system.rank": rank,
+        actor.update({
+            "system.rank": rank,
             "system.modifiers.speedBonus": move,
             "system.modifiers.HP": hpMod,
             "system.modifiers.strain": strainMod,
-            "system.modifiers.initiative": initiativeMod});
+            "system.modifiers.initiative": initiativeMod
+        });
     }
 }

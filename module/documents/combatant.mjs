@@ -4,13 +4,13 @@ export class SBBCombatant extends Combatant{
         let actorType = this.actor.type;
         let formula = "1d10";
 
-        if(actorType == "Character"){
+        if(actorType == "Character" || actorType == "NPC"){
             let strainMod = 0;
             if("strainMod" in this.actor.flags.sbb){
                 strainMod = this.actor.flags.sbb.strainMod;
             }
 
-            formula = "1d10 + @attributes.reflex" +
+            formula = "1d10 + @attributes.reflex.value" +
             "+ @attributes.reflex/10 + " + // a .value to help with Ties
             "@modifiers.initiative - " + strainMod;
         }
