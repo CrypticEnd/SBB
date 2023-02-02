@@ -68,10 +68,6 @@ SBB.activeEffectValues = {
     "system.modifiers.initiative": "SBB.activeEffects.initiativeBonus"
 }
 
-SBB.activeEffectModes ={
-
-}
-
 // This is ordered!
 SBB.weaponHeaders= {
     linkedSkill:   "SBB.weaponHeaders.linkedSkill",
