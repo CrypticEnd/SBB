@@ -22,6 +22,32 @@ export class SBBActor extends Actor {
         }
     }
 
+    prepareEmbeddedDocuments() {
+        if(this.type == "Character" || this.type == "NPC"){
+            // If active effects change HP or strain we want to also heal that amount
+            // prepareEmbeddedDocuments() is where active effects are applied
+            let systemData = this.system;
+
+            let hp = systemData.HP.max;
+            let strain = systemData.strain.max;
+
+            super.prepareEmbeddedDocuments();
+
+            let hpChange = systemData.HP.max - hp;
+            let strainChange = systemData.strain.max - strain;
+
+            if(hpChange > 0){
+                systemData.HP.value+= hpChange;
+            }
+            if(strainChange > 0){
+                systemData.strain.value+= strainChange;
+            }
+        }
+        else {
+            super.prepareEmbeddedDocuments();
+        }
+    }
+
 
     _updateChar(config){
         let attributes = this.system.attributes;

@@ -61,10 +61,8 @@ SBB.activeEffectValues = {
     "system.attributes.technique.mod":    "SBB.activeEffects.SkillBonusTechnique",
 
     "system.speed":                "SBB.activeEffects.speed",
-    "system.HP.value":             "SBB.activeEffects.HP",
-    "system.HP.max":               "SBB.activeEffects.maxHP",
-    "system.strain.value":         "SBB.activeEffects.strain",
-    "system.strain.max":           "SBB.activeEffects.maxStrain",
+    "system.HP.max":               "SBB.activeEffects.hp",
+    "system.strain.max":           "SBB.activeEffects.strain",
     "system.modifiers.initiative": "SBB.activeEffects.initiativeBonus"
 }
 

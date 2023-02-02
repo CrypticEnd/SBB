@@ -135,10 +135,8 @@
       "SkillBonusTechnique" : "Skill Bonus: Technique",
 
       "speed": "Speed",
-      "maxHP": "Max HP",
-      "HP": "HP value",
-      "maxStrain": "Max Strain",
-      "strain": "Strain value",
+      "HP": "HP",
+      "strain": "Strain",
       "initiativeBonus": "Initiative bonus"
     },
 
