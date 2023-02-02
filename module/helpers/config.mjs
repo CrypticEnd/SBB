@@ -45,22 +45,27 @@ SBB.weaponSkills = {
 }
 
 SBB.activeEffectValues = {
-    "system.attributes.body.rank":           "SBB.activeEffects.charAttributeBody",
-    "system.attributes.control.rank":        "SBB.activeEffects.charAttributeControl",
-    "system.attributes.intelligence.rank":   "SBB.activeEffects.charAttributeIntelligence",
-    "system.attributes.presence.rank":       "SBB.activeEffects.charAttributePresence",
-    "system.attributes.technique.rank":      "SBB.activeEffects.charAttributeTechnique",
-    "system.attributes.fortitude.rank": "SBB.activeEffects.charAttributeFortitude",
-    "system.attributes.reflex.rank":    "SBB.activeEffects.charAttributeReflex",
-    "system.attributes.willpower.rank": "SBB.activeEffects.charAttributeWillpower",
+    "system.attributes.body.rank":         "SBB.activeEffects.charAttributeBody",
+    "system.attributes.control.rank":      "SBB.activeEffects.charAttributeControl",
+    "system.attributes.intelligence.rank": "SBB.activeEffects.charAttributeIntelligence",
+    "system.attributes.presence.rank":     "SBB.activeEffects.charAttributePresence",
+    "system.attributes.technique.rank":    "SBB.activeEffects.charAttributeTechnique",
+    "system.attributes.fortitude.rank":    "SBB.activeEffects.charAttributeFortitude",
+    "system.attributes.reflex.rank":       "SBB.activeEffects.charAttributeReflex",
+    "system.attributes.willpower.rank":    "SBB.activeEffects.charAttributeWillpower",
 
-    "system.attributes.body.mod":           "SBB.activeEffects.SkillBonusBody",
-    "system.attributes.control.mod":        "SBB.activeEffects.SkillBonusControl",
-    "system.attributes.intelligence.mod":   "SBB.activeEffects.SkillBonusIntelligence",
-    "system.attributes.presence.mod":       "SBB.activeEffects.SkillBonusPresence",
-    "system.attributes.technique.mod":      "SBB.activeEffects.SkillBonusTechnique",
+    "system.attributes.body.mod":         "SBB.activeEffects.SkillBonusBody",
+    "system.attributes.control.mod":      "SBB.activeEffects.SkillBonusControl",
+    "system.attributes.intelligence.mod": "SBB.activeEffects.SkillBonusIntelligence",
+    "system.attributes.presence.mod":     "SBB.activeEffects.SkillBonusPresence",
+    "system.attributes.technique.mod":    "SBB.activeEffects.SkillBonusTechnique",
 
-    "system.speed": "SBB.activeEffects.speed"
+    "system.speed":                "SBB.activeEffects.speed",
+    "system.HP.value":             "SBB.activeEffects.HP",
+    "system.HP.max":               "SBB.activeEffects.maxHP",
+    "system.strain.value":         "SBB.activeEffects.strain",
+    "system.strain.max":           "SBB.activeEffects.maxStrain",
+    "system.modifiers.initiative": "SBB.activeEffects.initiativeBonus"
 }
 
 SBB.activeEffectModes ={
