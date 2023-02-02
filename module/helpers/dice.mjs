@@ -183,8 +183,6 @@ export async function rollSkillFromActorData(actor, skill = null, contentName = 
             return;
         }
 
-        console.log(actor);
-
         otherbonus += actor.system.attributes[linkedAttributeName.toLowerCase()]?.mod;
     }
 
