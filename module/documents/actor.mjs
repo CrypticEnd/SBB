@@ -8,12 +8,8 @@ export class SBBActor extends Actor {
         "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill"
     ]
 
-    prepareData() {
-        super.prepareData();
-    }
-
-    prepareDerivedData() {
-        super.prepareDerivedData();
+    prepareBaseData() {
+        super.prepareBaseData();
 
         const config = CONFIG.SBB;
         const type = this.type;
@@ -25,7 +21,6 @@ export class SBBActor extends Actor {
             this._updateNPC(config)
         }
     }
-
 
 
     _updateChar(config){
