@@ -150,6 +150,7 @@ export async function countHarmDie(rollresult, harmRange){
 
 export async function rollSkillFromActorData(actor, skill = null, contentName = null){
     // Setup final values
+    let linkedAttributeName;
     let linkedAttributeValue = 1;
     let useTenet = false;
     let otherbonus = 0;
@@ -163,11 +164,28 @@ export async function rollSkillFromActorData(actor, skill = null, contentName = 
             + actorID);
         return;
     }
+
+    // If skill is known we want these values
     if(skill != null){
         skillRank = skill.system.rank;
 
         if(contentName === null)
             contentName = skill.name;
+
+        // Get linked Attribute name
+        linkedAttributeName = skill.system.attribute;
+        // Error checking - we cant keep running if the skill has no linked Attribute
+        if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
+            && !linkedAttributeName in actor.system.attributes)
+        {
+            console.error(linkedAttributeName
+                + game.i18n.localize("SBB.errors.invalidAttribute"));
+            return;
+        }
+
+        console.log(actor);
+
+        otherbonus += actor.system.attributes[linkedAttributeName.toLowerCase()]?.mod;
     }
 
     // Check if strain mod is set
@@ -177,22 +195,14 @@ export async function rollSkillFromActorData(actor, skill = null, contentName = 
 
     // Deprive values based on actor type
     if(actor.type == "Character") {
+        // Characters need a linked skill
         if(skill== null){
             console.error(game.i18n.localize("SBB.errors.character")
             + game.i18n.localize("SBB.errors.cannotRollLinkedSkill"));
             return;
         }
 
-        const linkedAttributeName = skill.system.attribute;
-        // Should never happen, but oh well
-        if (!linkedAttributeName.toLowerCase() in CONFIG.SBB.skillTypes
-            && !linkedAttributeName in actor.system.attributes)
-        {
-            console.error(linkedAttributeName
-                + game.i18n.localize("SBB.errors.invalidAttribute"));
-            return;
-        }
-        linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()];
+        linkedAttributeValue = actor.system.attributes[linkedAttributeName.toLowerCase()].rank;
 
         // Skill other mod
         otherbonus += actor.system.modifiers.skillMod;
