@@ -1,6 +1,7 @@
 import {SBBItem} from "./documents/item.mjs";
 import {SBBActor} from "./documents/actor.mjs";
 import {SBBCombatant} from "./documents/combatant.mjs";
+import {SBBMeasuredTemplate} from "./documents/scence objects/SBBMeasuredTemplate.mjs"
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/actorTypes/character-sheet.mjs";
 import {SBBNPCSheet} from "./sheets/actorTypes/npc-sheet.mjs";
@@ -21,6 +22,7 @@ Hooks.once("init", function (){
     CONFIG.Actor.documentClass = SBBActor;
     CONFIG.Combatant.documentClass = SBBCombatant;
     CONFIG.ActiveEffect.sheetClass = SBBActiveEffectConfig;
+    CONFIG.MeasuredTemplate.objectClass = SBBMeasuredTemplate;
 
     CONFIG.Combat.initiative = {
         formula: "1d10",
