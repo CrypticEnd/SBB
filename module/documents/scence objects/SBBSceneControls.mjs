@@ -19,7 +19,6 @@ export class SBBSceneControls extends SceneControls{
                 break;
             }
         }
-        console.log(controls[measureKey].tools[rectKey]);
 
         controls[measureKey].tools[rectKey].icon = "fa-regular fa-burst";
         controls[measureKey].tools[rectKey].title = "SBB.controls.burst";
