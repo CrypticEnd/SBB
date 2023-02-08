@@ -72,6 +72,10 @@
       "character": "Character "
     },
 
+    "controls": {
+      "burst": "Burst"
+    },
+
     "skills": {
       "body_short": "B",
       "body_long": "Body",

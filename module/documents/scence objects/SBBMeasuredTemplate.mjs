@@ -1,5 +1,4 @@
 export class SBBMeasuredTemplate extends MeasuredTemplate{
-
     _getRectShape(direction,distance) {
         let d = canvas.dimensions;
         let canvasScale = (d.size / d.distance);
