@@ -275,7 +275,9 @@
       "statusLabels": {
         "power": "Power",
         "mass": "Mass",
-        "crew": "Crew"
+        "crew": "Crew",
+        "armour": "Armour",
+        "commandPoints": "Command Points"
       },
 
       "types": {
