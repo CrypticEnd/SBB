@@ -1,17 +1,4 @@
 export class SBBActor extends Actor {
-
-    _allowedItemsCharacter = [
-        "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill", "Tenet", "Focus"
-    ]
-
-    _allowedItemsNPC = [
-        "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill"
-    ]
-
-    _allowedItemsVehicles = [
-        "Vehicle Fittings", "Vehicle Defenses", "Vehicle Weaponry", "Vehicle Actions"
-    ]
-
     prepareBaseData() {
         super.prepareBaseData();
 
@@ -23,7 +10,7 @@ export class SBBActor extends Actor {
             this._updateChar(config);
         } else if (type == "NPC") {
             this._updateNPC(config);
-        } else if(this == "Vehicle"){
+        } else if(type == "Vehicle"){
             this._updateVehicle(config);
         }
     }
@@ -57,7 +44,7 @@ export class SBBActor extends Actor {
     _updateChar(config){
         let attributes = this.system.attributes;
 
-        this.allowedItems = this._allowedItemsCharacter;
+        this.allowedItems = config._allowedItemsCharacter;
 
         this._updateHPChar(attributes.fortitude.rank, config);
         this._updateStrainChar(attributes.willpower.rank, config);
@@ -67,7 +54,7 @@ export class SBBActor extends Actor {
     _updateNPC(config){
         let rank = this.system.rank;
 
-        this.allowedItems = this._allowedItemsNPC;
+        this.allowedItems = config._allowedItemsNPC;
 
         this._updateHPChar(rank, config);
         this._updateStrainChar(rank, config);
@@ -75,7 +62,7 @@ export class SBBActor extends Actor {
     }
 
     _updateVehicle(config){
-        this.allowedItems = this._allowedItemsNPC;
+        this.allowedItems = config._allowedItemsVehicles;
 
         let systemData = this.system;
 

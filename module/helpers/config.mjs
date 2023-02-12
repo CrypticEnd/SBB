@@ -195,3 +195,15 @@ SBB.equipmentList ={
         weight: "SBB.equipmentList.item.weight"
     }
 }
+
+SBB._allowedItemsCharacter = [
+    "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill", "Tenet", "Focus"
+]
+
+SBB._allowedItemsNPC = [
+    "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill"
+]
+
+SBB._allowedItemsVehicles = [
+    "Vehicle Fittings", "Vehicle Defenses", "Vehicle Weaponry", "Vehicle Actions"
+]
