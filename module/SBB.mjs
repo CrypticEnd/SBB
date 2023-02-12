@@ -6,6 +6,7 @@ import {SBBSceneControls} from "./documents/scence objects/SBBSceneControls.mjs"
 // Import sheet classes.
 import { SBBCharacterSheet } from "./sheets/actorTypes/character-sheet.mjs";
 import {SBBNPCSheet} from "./sheets/actorTypes/npc-sheet.mjs";
+import {SBBVehicleSheet} from "./sheets/actorTypes/vehicle-sheet.mjs";
 import { SBBItemSheet } from "./sheets/item-sheet.mjs";
 import {SBBActiveEffectConfig} from "./sheets/SBBActiveEffectConfig.mjs";
 // Import helper/utility classes and constants.
@@ -48,6 +49,11 @@ Hooks.once("init", function (){
         types:["NPC"],
         makeDefault: true,
         label: "SBB.SheetNPC"
+    });
+    Actors.registerSheet("SBBVehicleSheet", SBBVehicleSheet, {
+        types:["Vehicle"],
+        makeDefault: true,
+        label: "SBB.SheetVehicle"
     });
 
     Items.unregisterSheet("core", ItemSheet);
