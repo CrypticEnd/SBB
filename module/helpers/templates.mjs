@@ -5,6 +5,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/character-attributes.hbs",
         "systems/sbb/templates/sheets/partials/personal-box.hbs",
         "systems/sbb/templates/sheets/partials/status-box.hbs",
+        "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs",
         "systems/sbb/templates/sheets/partials/feat-box.hbs",
         "systems/sbb/templates/sheets/partials/skill-box.hbs",
         "systems/sbb/templates/sheets/partials/equipmant.hbs",

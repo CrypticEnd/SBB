@@ -272,6 +272,12 @@
         "action": "Command Actions"
       },
 
+      "statusLabels": {
+        "power": "Power",
+        "mass": "Mass",
+        "crew": "Crew"
+      },
+
       "types": {
         "boat": "Boat",
         "plane": "Plane",
