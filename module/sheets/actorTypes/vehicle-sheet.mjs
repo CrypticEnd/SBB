@@ -10,6 +10,13 @@ export class SBBVehicleSheet extends SBBActorSheet{
         });
     }
 
+    getData() {
+        if(this.actor.flags?.sbb?.crew == undefined) {
+            this.actor.setFlag('sbb', 'crew', {})
+        }
+        
+        return super.getData();
+    }
 
     // To create list of NPC/player crew
     async _onDropActor(event, data) {
