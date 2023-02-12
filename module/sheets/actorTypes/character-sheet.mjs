@@ -8,7 +8,7 @@ export class SBBCharacterSheet extends SBBActorSheet {
         return mergeObject(super.defaultOptions, {
             classes:  ["character"],
             template: "systems/sbb/templates/sheets/actors/Character-sheet.hbs",
-            tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-context-box", initial: "personal"},
+            tabs:     [{navSelector: ".main-tabs", contentSelector: ".nav-content-box", initial: "personal"},
                        {navSelector: ".skills-tabs", contentSelector: ".skills-content", initial: "Body"}
             ],
         });

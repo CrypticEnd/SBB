@@ -263,6 +263,14 @@
     },
 
     "vehicle": {
+      "navbar": {
+        "crew": "Crew",
+        "fittings": "Fittings",
+        "defenses": "Defenses",
+        "weaponry": "Weaponry",
+        "action": "Command Actions"
+      },
+
       "types": {
         "boat": "Boat",
         "plane": "Plane",

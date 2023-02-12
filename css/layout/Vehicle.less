@@ -1,0 +1,23 @@
+.vehicle{
+
+
+  .main-content{
+    display: grid;
+    grid-template-areas: 'status nav'
+                          'content content';
+    grid-template-columns: auto 200px;
+    grid-column-gap: 5%;
+  }
+
+  .status-box{
+    grid-area: status;
+  }
+
+  .nav-box{
+    grid-area: nav;
+  }
+
+  .nav-content-box{
+    grid-area: content;
+  }
+}

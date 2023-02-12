@@ -6,7 +6,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
         return mergeObject(super.defaultOptions, {
             classes: ["vehicle"],
             template: "systems/sbb/templates/sheets/actors/Vehicle-sheet.hbs",
-            tabs: [{ navSelector: ".tabs", contentSelector: ".sheet-body", initial: "sheet" }]
+            tabs: [{ navSelector: ".main-tabs", contentSelector: ".nav-content-box", initial: "action" }]
         });
     }
 

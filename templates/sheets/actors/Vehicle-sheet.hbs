@@ -3,15 +3,38 @@
 
     <section class="main-content">
         <div class="status-box">
-
+test
         </div>
 
         <div class="nav-box">
-
+            <h1></h1>
+            <nav class="sheet-navigation main-tabs" data-group="primary">
+                {{#each config.vehicleNavBar}}
+                    <a class="item" data-tab="{{@key}}">{{localize this}}</a>
+                {{/each}}
+            </nav>
         </div>
 
-        <div class="nav-context-box">
+        <div class="nav-content-box">
+            <div class="tab" data-group="primary" data-tab="action">
+1
+            </div>
 
+            <div class="tab" data-group="primary" data-tab="crew">
+
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="fittings">
+
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="defenses">
+
+            </div>
+
+            <div class="tab" data-group="primary" data-tab="weaponry">
+
+            </div>
         </div>
     </section>
 </form>

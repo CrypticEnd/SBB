@@ -150,11 +150,11 @@
   padding: 20px 0;
   margin-top: 10px;
 }
-.character .main-content .nav-context-box {
+.character .main-content .nav-content-box {
   height: 800px;
   overflow: scroll;
 }
-.character .main-content .nav-context-box::-webkit-scrollbar {
+.character .main-content .nav-content-box::-webkit-scrollbar {
   display: none;
 }
 .character .main-content .personal-file-box .personal-box .playerimg {
@@ -358,6 +358,21 @@
 .effect-list .item-list .item .inactive {
   color: #7a7971;
 }
+.vehicle .main-content {
+  display: grid;
+  grid-template-areas: 'status nav' 'content content';
+  grid-template-columns: auto 200px;
+  grid-column-gap: 5%;
+}
+.vehicle .status-box {
+  grid-area: status;
+}
+.vehicle .nav-box {
+  grid-area: nav;
+}
+.vehicle .nav-content-box {
+  grid-area: content;
+}
 .character .backgroundOverlay,
 .NPC .backgroundOverlay,
 .vehicle .backgroundOverlay {
@@ -421,7 +436,7 @@
 }
 .character .main-content .biomonitor,
 .character .main-content .personal-files,
-.character .main-content .nav-context-box {
+.character .main-content .nav-content-box {
   background-color: #000000;
   border-style: solid;
   border-color: #3dfb99;

@@ -162,6 +162,14 @@ SBB.npcNavbar = {
     effects:   "SBB.effects.effects"
 }
 
+SBB.vehicleNavBar = {
+    action:   "SBB.vehicle.navbar.action",
+    crew:     "SBB.vehicle.navbar.crew",
+    fittings: "SBB.vehicle.navbar.fittings",
+    defenses: "SBB.vehicle.navbar.defenses",
+    weaponry: "SBB.vehicle.navbar.weaponry"
+}
+
 SBB.effectTypes ={
     drug: "SBB.effects.drug",
     implant: "SBB.effects.implant",
