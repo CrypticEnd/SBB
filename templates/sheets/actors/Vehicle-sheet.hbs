@@ -4,6 +4,25 @@
     <section class="main-content">
         <div class="status-box">
             <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
+
+            <div class="status-bars">
+                <div class="health-bar">
+                {{> "systems/sbb/templates/sheets/partials/statusBar.hbs"
+                        title="SBB.common.health" current=actor.system.HP.value max=actor.system.HP.max}}
+                </div>
+
+                <div class="fuel-bar">
+                    {{> "systems/sbb/templates/sheets/partials/statusBar.hbs"
+                            title="SBB.vehicle.statusLabels.fuel" current=actor.system.fuel.value max=actor.system.fuel.max}}
+                </div>
+
+                <div class="crew-bar">
+                    {{> "systems/sbb/templates/sheets/partials/statusBar.hbs"
+                            title="SBB.vehicle.statusLabels.crew" current=actor.system.crew.value max=actor.system.crew.max
+                            min=actor.system.crew.min}}
+                </div>
+            </div>
+
             {{> "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs"}}
         </div>
 
