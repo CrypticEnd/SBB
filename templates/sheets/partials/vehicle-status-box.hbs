@@ -1,18 +1,18 @@
 <table>
     <tr>
-        <td class="table-title">{{localize "SBB.vehicle.statusLabels.type"}}</td>
         <td class="table-title">{{localize actor.system.type}}</td>
+        <td class="table-title">{{localize actor.system.class}}</td>
 
         <td class="table-title">{{localize "SBB.common.health"}}</td>
         <td>
             <input class="health-input" name="system.HP.value" value="{{actor.system.HP.value}}" type="number" title="{{localize "SBB.common.health"}}"/>
-            |
-            <input name="system.HP.max" value="{{actor.system.HP.max}}" title="{{localize "SBB.common.maxhealth"}}" disabled/>
         </td>
     </tr>
     <tr>
-        <td class="table-title">{{localize "SBB.vehicle.statusLabels.class"}}</td>
-        <td class="table-title">{{localize actor.system.class}}</td>
+        <td class="table-title">{{localize "SBB.armour.techLevel"}}</td>
+        <td>
+            <input name="system.TL" value="{{actor.system.TL}}" type="number" disabled/>
+        </td>
 
         <td class="table-title">{{localize "SBB.vehicle.statusLabels.armour"}}</td>
         <td>
@@ -27,9 +27,9 @@
             {{actor.system.power.remaining}}
         </td>
 
-        <td class="table-title">{{localize "SBB.armour.techLevel"}}</td>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.fuel"}}</td>
         <td>
-            <input name="system.TL" value="{{actor.system.TL}}" type="number" disabled/>
+            <input class="fuel-input" name="system.fuel.value" value="{{actor.system.fuel.value}}" type="number" title="{{localize "SBB.vehicle.statusLabels.fuel"}}"/>
         </td>
     </tr>
     <tr>

@@ -278,8 +278,7 @@
         "crew": "Crew",
         "armour": "Armour",
         "commandPoints": "Command Points",
-        "class": "Class",
-        "type": "Type"
+        "fuel": "Fuel"
       },
 
       "types": {
