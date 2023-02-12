@@ -11,10 +11,6 @@ export class SBBVehicleSheet extends SBBActorSheet{
     }
 
     getData() {
-        if(this.actor.flags?.sbb?.crew == undefined) {
-            this.actor.setFlag('sbb', 'crew', {})
-        }
-        
         return super.getData();
     }
 

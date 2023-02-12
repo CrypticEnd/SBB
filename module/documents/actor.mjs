@@ -1,4 +1,28 @@
 export class SBBActor extends Actor {
+
+    async _preCreate(data, options, user) {
+        await super._preCreate(data, options, user);
+
+        // Sets Actors to always have sbb as a source
+        // Vehicle always have a crew list
+        if(this.type == "Vehicle"){
+            this.updateSource({
+                flags:{
+                    sbb:{
+                        crew:{}
+                    }
+                }
+            });
+        }
+        else{
+            this.updateSource({
+                flags:{
+                    sbb:{}
+                }
+            });
+        }
+    }
+
     prepareBaseData() {
         super.prepareBaseData();
 
