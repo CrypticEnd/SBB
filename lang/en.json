@@ -260,6 +260,21 @@
     "dialog": {
       "confirm": "Confirm",
       "cancel": "Cancel"
+    },
+
+    "vehicle": {
+      "types": {
+        "boat": "Boat",
+        "plane": "Plane",
+        "starship": "Starship",
+        "land": "Land"
+      },
+      "classes": {
+        "fighter": "Fighter",
+        "frigate": "Frigate",
+        "cruiser": "Cruiser",
+        "capital": "Capital"
+      }
     }
   }
 }

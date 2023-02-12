@@ -96,13 +96,13 @@ export class SBBActorSheet extends ActorSheet {
             }),
 
             starShipFitting:data.items.filter(function (item) {
-                return item.type == "Starship Fittings"
+                return item.type == "Vehicle Fittings"
             }),
             starShipDefense:data.items.filter(function (item) {
-                return item.type == "Starship Defenses"
+                return item.type == "Vehicle Defenses"
             }),
             starShipWeapon:data.items.filter(function (item) {
-                return item.type == "Starship Weaponry"
+                return item.type == "Vehicle Weaponry"
             }),
         }
 

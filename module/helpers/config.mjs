@@ -125,6 +125,20 @@ SBB.saveTypes = {
     willpower: "SBB.saves.will"
 }
 
+SBB.vehicleTypes = {
+    boat:     "SBB.vehicle.types.boat",
+    plane:    "SBB.vehicle.types.plane",
+    starship: "SBB.vehicle.types.starship",
+    land:     "SBB.vehicle.types.land"
+}
+
+SBB.vehicleClasses = {
+    fighter: "SBB.vehicle.classes.fighter",
+    frigate: "SBB.vehicle.classes.frigate",
+    cruiser: "SBB.vehicle.classes.cruiser",
+    capital: "SBB.vehicle.classes.capital"
+}
+
 SBB.common = {
     skillCheck: "SBB.common.skillCheck",
     skillPass: "SBB.common.passed",
