@@ -3,15 +3,12 @@
 
     <section class="main-content">
         <div class="status-box">
-            <div class="name-image-box">
-                <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
-                <img class="NPCimg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-            </div>
-
+            <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
             {{> "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs"}}
         </div>
 
         <div class="nav-box">
+            <img class="vehicle-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
             <h1>{{localize "SBB.vehicle.navbar.title"}}</h1>
             <nav class="sheet-navigation main-tabs" data-group="primary">
                 {{#each config.vehicleNavBar}}
