@@ -1,76 +1,59 @@
-<div class="flexrow">
-    <div class="flexcol info">
-        <table>
-            <tr class="name-image-box">
-                <td class="table-title">
-                    <img class="NPCimg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-                </td>
-                <td><input name="name" type="text" value="{{actor.name}}"/></td>
-            </tr>
-            <tr class="vehicle-type">
-                <td class="table-title">{{localize actor.system.type}}</td>
-                <td class="table-title">{{localize actor.system.class}}</td>
-            </tr>
-            <tr class="power">
-                <td class="table-title">{{localize "SBB.vehicle.statusLabels.power"}}</td>
-                <td
-                    {{#if (eq actor.system.power.remaining 0)}} class="inactive" {{/if}}
-                    {{#if (lt actor.system.power.remaining 0)}} class="issue" {{/if}}>
-                    {{actor.system.power.remaining}}
-                </td>
-            </tr>
-            <tr class="mass">
-                <td class="table-title">{{localize "SBB.vehicle.statusLabels.mass"}}</td>
-                <td>{{actor.system.mass}}</td>
-            </tr>
-            <tr class="crew">
-                <td class="table-title">{{localize "SBB.vehicle.statusLabels.crew"}}</td>
-                <td>
-                    <div style="display: inline"
-                        {{#if (lt actor.system.crew.value actor.system.crew.min)}} class="issue" {{/if}}>
-                        {{actor.system.crew.value}}
-                    </div>
-                    / {{actor.system.crew.max}} ({{actor.system.crew.min}})
-                </td>
-            </tr>
-        </table>
-    </div>
+<table>
+    <tr>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.type"}}</td>
+        <td class="table-title">{{localize actor.system.type}}</td>
 
-    <div class="flexcol values">
-        <table>
-            <tr>
-                <td class="table-title">{{localize "SBB.common.health"}}</td>
-                <td>
-                    <input class="health-input" name="system.HP.value" value="{{actor.system.HP.value}}" type="number" title="{{localize "SBB.common.health"}}"/>
-                    |
-                    <input name="system.HP.max" value="{{actor.system.HP.max}}" title="{{localize "SBB.common.maxhealth"}}" disabled/>
-                </td>
-            </tr>
-            <tr>
-                <td class="table-title">{{localize "SBB.vehicle.statusLabels.armour"}}</td>
-                <td>
-                    <input name="system.armour" value="{{actor.system.armour}}" type="number" disabled/>
-                </td>
-            </tr>
-            <tr>
-                <td class="table-title">{{localize "SBB.armour.techLevel"}}</td>
-                <td>
-                    <input name="system.TL" value="{{actor.system.TL}}" type="number" disabled/>
-                </td>
-            </tr>
-            <tr>
-                <td class="table-title">{{localize "SBB.common.speed"}}</td>
-                <td>
-                    <input name="system.speed" value="{{actor.system.speed}}" type="number" disabled/>
-                </td>
-            </tr>
-            <tr>
-                <td class="table-title">{{localize "SBB.vehicle.statusLabels.commandPoints"}}</td>
-                <td>
-                    <input name="system.commandPoints" value="{{actor.system.commandPoints}}" type="number" title="{{localize "SBB.vehicle.statusLabels.commandPoints"}}"/>
-                </td>
-            </tr>
+        <td class="table-title">{{localize "SBB.common.health"}}</td>
+        <td>
+            <input class="health-input" name="system.HP.value" value="{{actor.system.HP.value}}" type="number" title="{{localize "SBB.common.health"}}"/>
+            |
+            <input name="system.HP.max" value="{{actor.system.HP.max}}" title="{{localize "SBB.common.maxhealth"}}" disabled/>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.class"}}</td>
+        <td class="table-title">{{localize actor.system.class}}</td>
 
-        </table>
-    </div>
-</div>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.armour"}}</td>
+        <td>
+            <input name="system.armour" value="{{actor.system.armour}}" type="number" disabled/>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.power"}}</td>
+        <td
+            {{#if (eq actor.system.power.remaining 0)}} class="inactive" {{/if}}
+            {{#if (lt actor.system.power.remaining 0)}} class="issue" {{/if}}>
+            {{actor.system.power.remaining}}
+        </td>
+
+        <td class="table-title">{{localize "SBB.armour.techLevel"}}</td>
+        <td>
+            <input name="system.TL" value="{{actor.system.TL}}" type="number" disabled/>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.mass"}}</td>
+        <td>{{actor.system.mass}}</td>
+
+        <td class="table-title">{{localize "SBB.common.speed"}}</td>
+        <td>
+            <input name="system.speed" value="{{actor.system.speed}}" type="number" disabled/>
+        </td>
+    </tr>
+    <tr>
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.crew"}}</td>
+        <td>
+            <div style="display: inline"
+                {{#if (lt actor.system.crew.value actor.system.crew.min)}} class="issue" {{/if}}>
+                {{actor.system.crew.value}}
+            </div>
+            / {{actor.system.crew.max}} ({{actor.system.crew.min}})
+        </td>
+
+        <td class="table-title">{{localize "SBB.vehicle.statusLabels.commandPoints"}}</td>
+        <td>
+            <input name="system.commandPoints" value="{{actor.system.commandPoints}}" type="number" title="{{localize "SBB.vehicle.statusLabels.commandPoints"}}"/>
+        </td>
+    </tr>
+</table>

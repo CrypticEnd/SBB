@@ -277,7 +277,9 @@
         "mass": "Mass",
         "crew": "Crew",
         "armour": "Armour",
-        "commandPoints": "Command Points"
+        "commandPoints": "Command Points",
+        "class": "Class",
+        "type": "Type"
       },
 
       "types": {

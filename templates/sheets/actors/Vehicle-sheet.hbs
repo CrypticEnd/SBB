@@ -3,6 +3,11 @@
 
     <section class="main-content">
         <div class="status-box">
+            <div class="name-image-box">
+                <h1><input name="name" type="text" value="{{actor.name}}"/></h1>
+                <img class="NPCimg" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+            </div>
+
             {{> "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs"}}
         </div>
 
