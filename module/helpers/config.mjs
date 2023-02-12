@@ -167,7 +167,8 @@ SBB.vehicleNavBar = {
     crew:     "SBB.vehicle.navbar.crew",
     fittings: "SBB.vehicle.navbar.fittings",
     defenses: "SBB.vehicle.navbar.defenses",
-    weaponry: "SBB.vehicle.navbar.weaponry"
+    weaponry: "SBB.vehicle.navbar.weaponry",
+    log:"Log"
 }
 
 SBB.effectTypes ={

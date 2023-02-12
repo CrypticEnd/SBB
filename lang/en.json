@@ -264,6 +264,7 @@
 
     "vehicle": {
       "navbar": {
+        "title": "Ship Files",
         "crew": "Crew",
         "fittings": "Fittings",
         "defenses": "Defenses",
