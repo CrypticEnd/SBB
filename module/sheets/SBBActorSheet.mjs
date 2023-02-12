@@ -146,7 +146,19 @@ export class SBBActorSheet extends ActorSheet {
 
     // Override
     async _onDropItemCreate(itemData) {
-        if(this.actor.flags.SBB?.allowedItems?.includes(itemData.type)){
+        let config = CONFIG.SBB;
+        let type = this.actor.type;
+        let allowedItems = [];
+
+        if (type == "Character") {
+            allowedItems = config._allowedItemsCharacter;
+        } else if (type == "NPC") {
+            allowedItems = config._allowedItemsNPC;
+        } else if(type == "Vehicle"){
+            allowedItems = config._allowedItemsVehicles;
+        }
+
+        if(allowedItems.includes(itemData.type)){
             await super._onDropItemCreate(itemData);
         }
         else{

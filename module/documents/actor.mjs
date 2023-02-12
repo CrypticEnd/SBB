@@ -44,8 +44,6 @@ export class SBBActor extends Actor {
     _updateChar(config){
         let attributes = this.system.attributes;
 
-        this.setFlag("sbb", "allowedItems", config._allowedItemsCharacter);
-
         this._updateHPChar(attributes.fortitude.rank, config);
         this._updateStrainChar(attributes.willpower.rank, config);
         this._updateSpeedChar(attributes.move.rank, config);
@@ -54,20 +52,12 @@ export class SBBActor extends Actor {
     _updateNPC(config){
         let rank = this.system.rank;
 
-        this.setFlag("sbb", "allowedItems", config._allowedItemsNPC);
-
         this._updateHPChar(rank, config);
         this._updateStrainChar(rank, config);
         this._updateSpeedChar(rank, config);
     }
 
     _updateVehicle(config){
-        this.setFlag("sbb", "allowedItems", config._allowedItemsVehicles);
-        if(this.flags.sbb?.crew == undefined){
-            this.setFlag("sbb", "crew", {});
-        }
-
-
         let systemData = this.system;
 
         systemData.HP.max = systemData.HP.base + systemData.modifiers.HP;
