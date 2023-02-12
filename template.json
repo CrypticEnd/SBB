@@ -121,8 +121,8 @@
       "templates": [
         "item"
       ],
-      "type": "SBB.vehicleTypes.land",
-      "class": "SBB.vehicleClasses.fighter",
+      "type": "SBB.vehicle.types.land",
+      "class": "SBB.vehicle.classes.fighter",
       "armour": 0,
       "HP": {
         "value": 1,
