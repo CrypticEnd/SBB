@@ -146,7 +146,7 @@ export class SBBActorSheet extends ActorSheet {
 
     // Override
     async _onDropItemCreate(itemData) {
-        if(this.actor.allowedItems?.includes(itemData.type)){
+        if(this.actor.flags.SBB?.allowedItems?.includes(itemData.type)){
             await super._onDropItemCreate(itemData);
         }
         else{
