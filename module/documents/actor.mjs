@@ -63,6 +63,10 @@ export class SBBActor extends Actor {
 
     _updateVehicle(config){
         this.setFlag("sbb", "allowedItems", config._allowedItemsVehicles);
+        if(this.flags.sbb?.crew == undefined){
+            this.setFlag("sbb", "crew", {});
+        }
+
 
         let systemData = this.system;
 
