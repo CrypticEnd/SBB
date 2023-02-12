@@ -64,7 +64,7 @@ export class SBBActor extends Actor {
 
         // Work out how much power is being used
         let powerUsage = 0;
-        for (const [key, value] of Object.entries(this.items)) {
+        for (const [key, value] of Object.entries(this.items.entries)) {
             powerUsage += value.system?.power;
         }
 
