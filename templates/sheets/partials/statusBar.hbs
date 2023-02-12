@@ -1,7 +1,7 @@
 <div class="status-bar">
-    {{title}}
+    {{localize title}}
 
-    <div class="bar-container">
+    <div class="bar-container {{#if (lt current min)}}below-min{{/if}}">
         <div class="progress-bar">
             <div class="full-bar"
             style="width: {{#percent current max}}{{/percent}}%">
