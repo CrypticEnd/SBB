@@ -359,7 +359,8 @@
   color: #7a7971;
 }
 .character .backgroundOverlay,
-.NPC .backgroundOverlay {
+.NPC .backgroundOverlay,
+.vehicle .backgroundOverlay {
   background-image: url("./assets/filmgrainOverlay.png");
   background-size: 100%;
   background-repeat: repeat;
@@ -373,23 +374,28 @@
   margin-left: -10px;
 }
 .character .prosemirror menu li,
-.NPC .prosemirror menu li {
+.NPC .prosemirror menu li,
+.vehicle .prosemirror menu li {
   background: var(--color-control-bg);
 }
 .character .window-content,
-.NPC .window-content {
+.NPC .window-content,
+.vehicle .window-content {
   background-color: #000000;
   background-image: none;
   color: #3dfb99;
 }
 .character .window-content input,
-.NPC .window-content input {
+.NPC .window-content input,
+.vehicle .window-content input {
   color: #3dfb99;
 }
 .character .window-content h1,
 .NPC .window-content h1,
+.vehicle .window-content h1,
 .character .window-content h2,
-.NPC .window-content h2 {
+.NPC .window-content h2,
+.vehicle .window-content h2 {
   font-family: "origin tech";
   text-transform: uppercase;
   text-align: center;
@@ -399,7 +405,8 @@
   background-color: #003d20;
 }
 .character .window-content h3,
-.NPC .window-content h3 {
+.NPC .window-content h3,
+.vehicle .window-content h3 {
   border-bottom-color: #3dfb99;
 }
 .character .prosemirror menu li {
