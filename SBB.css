@@ -424,6 +424,19 @@
 .vehicle .window-content h3 {
   border-bottom-color: #3dfb99;
 }
+.character .progress-bar,
+.NPC .progress-bar,
+.vehicle .progress-bar {
+  background-color: #7a7971;
+  width: 100%;
+  height: 15px;
+}
+.character .full-bar,
+.NPC .full-bar,
+.vehicle .full-bar {
+  background-color: #3dfb99;
+  height: 100%;
+}
 .character .prosemirror menu li {
   background: var(--color-control-bg);
 }

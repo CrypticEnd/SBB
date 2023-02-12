@@ -81,6 +81,10 @@ Hooks.once("init", function (){
         return item1 * item2;
     });
 
+    Handlebars.registerHelper("percent", function (current, max, content){
+        return current/max*100;
+    });
+
     // Preload Handlebars templates.
     return preloadHandlebarsTemplates();
 });
