@@ -8,6 +8,10 @@ export class SBBActor extends Actor {
         "Weapon", "Armour", "Item", "Consumable", "Feat", "Effect", "Skill"
     ]
 
+    _allowedItemsVehicles = [
+        "Vehicle Fittings", "Vehicle Defenses", "Vehicle Weaponry", "Vehicle Actions"
+    ]
+
     prepareBaseData() {
         super.prepareBaseData();
 
@@ -16,9 +20,11 @@ export class SBBActor extends Actor {
 
         // Update deprived data values based on actor type
         if (type == "Character") {
-            this._updateChar(config)
+            this._updateChar(config);
         } else if (type == "NPC") {
-            this._updateNPC(config)
+            this._updateNPC(config);
+        } else if(this == "Vehicle"){
+            this._updateVehicle(config);
         }
     }
 
@@ -48,7 +54,6 @@ export class SBBActor extends Actor {
         }
     }
 
-
     _updateChar(config){
         let attributes = this.system.attributes;
 
@@ -67,6 +72,22 @@ export class SBBActor extends Actor {
         this._updateHPChar(rank, config);
         this._updateStrainChar(rank, config);
         this._updateSpeedChar(rank, config);
+    }
+
+    _updateVehicle(config){
+        this.allowedItems = this._allowedItemsNPC;
+
+        let systemData = this.system;
+
+        systemData.HP.max = systemData.HP.base + systemData.modifiers.HP;
+
+        // Work out how much power is being used
+        let powerUsage = 0;
+        for (const [key, value] of Object.entries(this.items)) {
+            powerUsage += value.system?.power;
+        }
+
+        systemData.power.remaining = systemData.power.base - powerUsage;
     }
 
     _updateHPChar(attribute, config){

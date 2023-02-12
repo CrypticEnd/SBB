@@ -126,16 +126,26 @@
       "armour": 0,
       "HP": {
         "value": 1,
-        "max": 1
+        "max": 1,
+        "base": 1
       },
       "crew": {
         "min": 1,
         "current": 0,
         "max": 1
       },
-      "power": 0,
+      "power": {
+        "base": 0,
+        "remaining": 0
+      },
       "mass": "",
-      "mounts": 0
+      "mounts": 0,
+
+      "modifiers": {
+        "HP": 0,
+        "initiative": 0,
+        "speedBonus": 0
+      }
     },
 
     "Drone": {
