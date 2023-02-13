@@ -116,6 +116,12 @@
       "brawling": "Brawling"
     },
 
+    "pilotTypes": {
+      "space": "Pilot Ship",
+      "air": "Pilot Air",
+      "terrestrial": "Pilot Terrestrial"
+    },
+
     "saves": {
       "fortitude": "Fortitude Save",
       "will": "Will Save",
@@ -263,6 +269,22 @@
     },
 
     "vehicle": {
+      "inputForm": {
+        "type": "Type",
+        "class": "Class",
+        "pilotType": "Pilot Skill",
+        "hp": "Health",
+        "speed": "Speed",
+        "armour": "Armour",
+        "fuel": "Max Fuel",
+        "crewMin": "Crew required to run",
+        "crewMax": "Max Crew",
+        "power": "Power Remaining",
+        "mass": "Mass (and unit)",
+        "mounts": "Mounts",
+        "tl": "Tl"
+      },
+
       "navbar": {
         "title": "Ship Files",
         "crew": "Crew",

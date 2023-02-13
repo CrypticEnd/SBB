@@ -44,6 +44,12 @@ SBB.weaponSkills = {
     gunnery:         "SBB.WeaponSkills.gunnery"
 }
 
+SBB.pilotSkills = {
+    space:       "SBB.pilotTypes.space",
+    air:         "SBB.pilotTypes.air",
+    terrestrial: "SBB.pilotTypes.terrestrial"
+}
+
 SBB.activeEffectValues = {
     "system.attributes.body.rank":         "SBB.activeEffects.charAttributeBody",
     "system.attributes.control.rank":      "SBB.activeEffects.charAttributeControl",

@@ -1,4 +1,5 @@
 import {SBBActorSheet} from "../SBBActorSheet.mjs";
+import * as Helper from "../../helpers/actor-helper.mjs";
 
 export class SBBVehicleSheet extends SBBActorSheet{
 
@@ -15,6 +16,16 @@ export class SBBVehicleSheet extends SBBActorSheet{
         return super.getData();
     }
 
+    activateListeners(html) {
+        if (this.isEditable) {
+            html.find(".fuel-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.fuel.max));
+            html.find(".commandPoint-input").change(Helper.checkvalBetween.bind(this, 0, 20));
+
+            html.find(".vehicle-settings").click(this._showVehicleSettings.bind(this));
+        }
+        super.activateListeners(html);
+    }
+
     // To create list of NPC/player crew
     async _onDropActor(event, data) {
         let actorData = await fromUuid(data.uuid)
@@ -27,5 +38,76 @@ export class SBBVehicleSheet extends SBBActorSheet{
         }
 
         return super._onDropActor(event, data);
+    }
+
+    async _showVehicleSettings(event){
+        event.preventDefault();
+        const template = "systems/sbb/templates/sheets/partials/vehicle-hull-input-form.hbs";
+
+        let passData = {
+            config: CONFIG.SBB,
+            actor:  this.actor
+        }
+
+        const html = await renderTemplate(template, passData);
+
+        return new Promise(resolve => {
+            const data = {
+                title:   this.actor.name + " : " + game.i18n.localize("SBB.vehicle.statusLabels.settings"),
+                content: html,
+                buttons: {
+                    normal: {
+                        label:    game.i18n.localize("SBB.dialog.confirm"),
+                        callback: html => resolve(this._updateVehicleValues(html[0].querySelector("form")))
+                    },
+                    cancel: {
+                        label:    game.i18n.localize("SBB.dialog.cancel"),
+                        callback: html => resolve({cancelled: true})
+                    }
+                },
+                default: "normal",
+                close:   () => resolve({cancelled: true})
+            };
+
+            new Dialog(data, null).render(true);
+        });
+    }
+
+    _updateVehicleValues(form) {
+        let actor = this.actor;
+
+        let type = form.type.value;
+        let vClass = form.class.value;
+        let check = form.check.value;
+        let hp = parseInt(form.hp.value);
+        let speed = parseInt(form.speed.value);
+        let armour = parseInt(form.armour.value);
+        let fuel = parseInt(form.fuel.value);
+        let crewMin = parseInt(form.crewMin.value);
+        let crewMax = parseInt(form.crewMax.value);
+        let power = parseInt(form.powerBase.value);
+        let mass = form.mass.value;
+        let mounts = parseInt(form.mounts.value);
+        let tl = parseInt(form.tl.value);
+
+        if(crewMin> crewMax){
+            crewMin = crewMax;
+        }
+
+        actor.update({
+            "system.type": type,
+            "system.class": vClass,
+            "system.check": check,
+            "system.HP.base": hp,
+            "system.speed": speed,
+            "system.armour": armour,
+            "system.fuel.max": fuel,
+            "system.crew.min": crewMin,
+            "system.crew.max": crewMax,
+            "system.power.base": power,
+            "system.mass": mass,
+            "system.mounts": mounts,
+            "system.tl": tl,
+        });
     }
 }

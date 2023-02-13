@@ -1,0 +1,93 @@
+<form>
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.type"}}</label>
+        <select name="type">
+            {{#select actor.system.type}}
+                {{#each config.vehicleTypes as |name type|}}
+                    <option value="{{name}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.class"}}</label>
+        <select name="class">
+            {{#select actor.system.class}}
+                {{#each config.vehicleClasses as |name type|}}
+                    <option value="{{name}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.pilotType"}}</label>
+        <select name="check">
+            {{#select actor.system.check}}
+                {{#each config.pilotSkills as |name type|}}
+                    <option value="{{name}}">{{localize name}}</option>
+                {{/each}}
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.hp"}}</label>
+        <input name="hp" type="number" value="{{actor.system.HP.base}}"
+        min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.speed"}}</label>
+        <input name="speed" type="number" value="{{actor.system.speed}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.armour"}}</label>
+        <input name="armour" type="number" value="{{actor.system.armour}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.fuel"}}</label>
+        <input name="fuel" type="number" value="{{actor.system.fuel.max}}"
+               min="1">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.crewMin"}}</label>
+        <input name="crewMin" type="number" value="{{actor.system.crew.min}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.crewMax"}}</label>
+        <input name="crewMax" type="number" value="{{actor.system.crew.max}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.power"}}</label>
+        <input name="powerBase" type="number" value="{{actor.system.power.base}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.mass"}}</label>
+        <input name="mass" type="text" value="{{actor.system.mass}}">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.mounts"}}</label>
+        <input name="mounts" type="number" value="{{actor.system.mounts}}"
+               min="0">
+    </div>
+
+    <div class="form-group">
+        <label>{{localize "SBB.vehicle.inputForm.tl"}}</label>
+        <input name="tl" type="number" value="{{actor.system.TL}}"
+               min="0">
+    </div>
+</form>
