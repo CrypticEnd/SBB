@@ -43,7 +43,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
         this.actor.update({"flags.sbb.crew": crew});
 
         data.crew = {
-            namedCrew: crewDataList,
+            namedCrew: crewDataList.reverse(),
             number: systemData.crew.value - this.actor.flags.sbb.crew.length
         };
 
