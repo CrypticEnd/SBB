@@ -12,8 +12,42 @@ export class SBBVehicleSheet extends SBBActorSheet{
         });
     }
 
-    getData() {
-        return super.getData();
+    async getData() {
+        let data = super.getData();
+        let systemData = this.actor.system;
+
+        // Gets a list of crew members with all the info we want
+        let crew = this.actor.flags.sbb.crew;
+        let crewDataList = [];
+
+        // Loop backwards since we are editing the array during the loop
+        for(let i=crew.length-1; i>=0; --i) {
+            let actor = await fromUuid(crew[i].uuid);
+
+            // If a crew actor is deleted (cannot be found) we remove it
+            if (actor == null) {
+                crew.splice(i, 1);
+            }
+            else{
+                let crewData = {
+                    uuid: actor.uuid,
+                    img: actor.img,
+                    name: actor.name,
+                    roles: crew[i]?.roles
+                }
+                crewDataList.push(crewData);
+            }
+        }
+
+        // Update crew list
+        this.actor.update({"flags.sbb.crew": crew});
+
+        data.crew = {
+            namedCrew: crewDataList,
+            number: systemData.crew.value - this.actor.flags.sbb.crew.length
+        };
+
+        return data;
     }
 
     activateListeners(html) {
@@ -31,11 +65,18 @@ export class SBBVehicleSheet extends SBBActorSheet{
         let actorData = await fromUuid(data.uuid)
 
         if(actorData.type == "NPC" || actorData.type == "Character"){
+            let crew = this.actor.flags.sbb.crew;
+
             // Check if already a member of the crew
-            if(this.actor.flags.sbb.crew[data.uuid] == undefined){
-                this.actor.flags.sbb.crew[data.uuid]=[];
+            if(!crew.find(key => key.uuid === data.uuid)){
+                crew.push({uuid: data.uuid})
+
+                await this.actor.update({
+                    "flags.sbb.crew": crew
+                });
             }
         }
+        console.log(this.actor);
 
         return super._onDropActor(event, data);
     }

@@ -9,7 +9,7 @@ export class SBBActor extends Actor {
             this.updateSource({
                 flags:{
                     sbb:{
-                        crew:{}
+                        crew:[]
                     }
                 }
             });
