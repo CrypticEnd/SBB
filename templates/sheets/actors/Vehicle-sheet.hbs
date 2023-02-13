@@ -23,7 +23,18 @@
                 </div>
             </div>
 
-            {{> "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs"}}
+            <div class="status-table">
+                <h2>{{localize "SBB.vehicle.statusLabels.diagnostics"}}</h2>
+                <div class="vehicle-settings-div">
+                    <i class="fa fa-cog vehicle-settings" title="{{localize "SBB.vehicle.statusLabels.crew.settings"}}"></i>
+                </div>
+                {{> "systems/sbb/templates/sheets/partials/vehicle-status-box.hbs"}}
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" id="pilot-check">{{localize "SBB.vehicle.statusLabels.pilot"}}</button>
+                <button type="button" id="repair">{{localize "SBB.vehicle.statusLabels.repair"}}</button>
+            </div>
         </div>
 
         <div class="nav-box">

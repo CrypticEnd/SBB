@@ -278,7 +278,11 @@
         "crew": "Crew",
         "armour": "Armour",
         "commandPoints": "Command Points",
-        "fuel": "Fuel"
+        "fuel": "Fuel",
+        "diagnostics": "Ship Diagnostics",
+        "settings": "Hull Settings",
+        "repair": "Full Repair",
+        "pilot": "Pilot Check"
       },
 
       "types": {

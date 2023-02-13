@@ -1,20 +1,75 @@
 .vehicle{
-
+  min-width: 670px;
 
   .main-content{
     display: grid;
     grid-template-areas: 'status nav'
                           'content content';
     grid-template-columns: auto 200px;
-    grid-column-gap: 5%;
+    grid-column-gap:20px;
+    grid-row-gap: 20px;
   }
 
   .status-box{
     grid-area: status;
+    text-align: center;
+
+    .status-bars{
+      .health-bar, .fuel-bar{
+        width: 49.5%;
+        display: inline-block;
+      }
+
+      .crew-bar{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+      }
+    }
+
+    .vehicle-settings-div{
+      text-align: right;
+      margin-top: -32px;
+      padding-right: 15px;
+      padding-bottom: 5px;
+    }
+
+    .status-table{
+      table{
+        border-collapse: collapse;
+        border: none;
+      }
+
+      table td:nth-child(odd){
+        border-left: 1px solid @borderColor;
+      }
+
+      table td:first-child{
+        border: none;
+      }
+
+      table tr:nth-child(even){
+        background-color: transparent;
+      }
+    }
+
+    .action-buttons{
+      button{
+        color: @fontColor;
+        width: 40%;
+        display: inline-block;
+        border-color: @borderColor;
+      }
+    }
   }
 
   .nav-box{
     grid-area: nav;
+
+    a{
+      display: block;
+      padding: 5px;
+    }
   }
 
   .nav-content-box{

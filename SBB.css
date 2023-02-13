@@ -358,17 +358,61 @@
 .effect-list .item-list .item .inactive {
   color: #7a7971;
 }
+.vehicle {
+  min-width: 670px;
+}
 .vehicle .main-content {
   display: grid;
   grid-template-areas: 'status nav' 'content content';
   grid-template-columns: auto 200px;
-  grid-column-gap: 5%;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
 .vehicle .status-box {
   grid-area: status;
+  text-align: center;
+}
+.vehicle .status-box .status-bars .health-bar,
+.vehicle .status-box .status-bars .fuel-bar {
+  width: 49.5%;
+  display: inline-block;
+}
+.vehicle .status-box .status-bars .crew-bar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+.vehicle .status-box .vehicle-settings-div {
+  text-align: right;
+  margin-top: -32px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+}
+.vehicle .status-box .status-table table {
+  border-collapse: collapse;
+  border: none;
+}
+.vehicle .status-box .status-table table td:nth-child(odd) {
+  border-left: 1px solid #3dfb99;
+}
+.vehicle .status-box .status-table table td:first-child {
+  border: none;
+}
+.vehicle .status-box .status-table table tr:nth-child(even) {
+  background-color: transparent;
+}
+.vehicle .status-box .action-buttons button {
+  color: #3dfb99;
+  width: 40%;
+  display: inline-block;
+  border-color: #3dfb99;
 }
 .vehicle .nav-box {
   grid-area: nav;
+}
+.vehicle .nav-box a {
+  display: block;
+  padding: 5px;
 }
 .vehicle .nav-content-box {
   grid-area: content;
@@ -535,5 +579,35 @@
 }
 .item .rollable .item-icon:hover {
   filter: drop-shadow(0 0 15px #3dfb99);
+}
+.vehicle .status-box,
+.vehicle .nav-box,
+.vehicle .nav-content-box {
+  background-color: #000000;
+  border-style: solid;
+  border-color: #3dfb99;
+}
+.vehicle .status-box .status-bars h4 {
+  font-family: "origin tech";
+  text-transform: uppercase;
+}
+.vehicle .status-box .status-bars .fuel-bar .full-bar {
+  background-color: #ffa500;
+}
+.vehicle .status-box .status-bars .crew-bar .full-bar {
+  background-color: #3dfb99;
+}
+.vehicle .status-box .status-bars .crew-bar .below-min.full-bar {
+  background-color: #ff0000;
+}
+.vehicle .nav-box {
+  text-align: center;
+}
+.vehicle .nav-box a {
+  text-transform: uppercase;
+  border: none;
+}
+.vehicle .nav-box .active {
+  background-color: #003d20;
 }
 /*# sourceMappingURL=SBB.css.map */

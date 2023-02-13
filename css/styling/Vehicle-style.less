@@ -1,0 +1,42 @@
+.vehicle{
+  .status-box, .nav-box, .nav-content-box{
+    background-color: @primaryColor;
+    border-style: solid;
+    border-color: @borderColor;
+  }
+
+
+  .status-box{
+    .status-bars{
+      h4{
+        font-family: "origin tech";
+        text-transform: uppercase;
+      }
+
+      .fuel-bar .full-bar{
+        background-color: @fuelBarCol;
+      }
+
+      .crew-bar .full-bar{
+        background-color: @crewBarCol;
+      }
+
+      .crew-bar .below-min.full-bar{
+        background-color: @crewBarBadCol;
+      }
+    }
+  }
+
+  .nav-box{
+    text-align: center;
+
+    a{
+      text-transform: uppercase;
+      border: none;
+    }
+    .active{
+      background-color: @navBackground;
+    }
+
+  }
+}
