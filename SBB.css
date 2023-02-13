@@ -417,6 +417,16 @@
 .vehicle .nav-content-box {
   grid-area: content;
 }
+.vehicle .nav-content-box .crew-list-box {
+  display: grid;
+  grid-template-columns: 40% auto;
+}
+.vehicle .nav-content-box .crew-list-box .role-list {
+  text-align: center;
+}
+.vehicle .nav-content-box .crew-list-box .role-list input {
+  width: 1.5em;
+}
 .character .backgroundOverlay,
 .NPC .backgroundOverlay,
 .vehicle .backgroundOverlay {
