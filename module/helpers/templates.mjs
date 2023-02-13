@@ -14,6 +14,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sbb/templates/sheets/partials/armourTable.hbs",
         "systems/sbb/templates/sheets/partials/npc-stat-input-form.hbs",
         "systems/sbb/templates/sheets/partials/statusBar.hbs",
+        "systems/sbb/templates/sheets/partials/crew-list.hbs",
 
         // Active effects
         "systems/sbb/templates/sheets/activeEffect/activeEffect.hbs",

@@ -52,13 +52,11 @@ export class SBBVehicleSheet extends SBBActorSheet{
                             crew.amount[i] : 0
             }
 
-            if(actor == null){
-                roleData.name= "SBB.common.unknown";
-                roleData.img= this.DEFAULT_ICON;
-                }
+            if(actor == null) {
+                roleData.name = "SBB.common.unknown";
+            }
             else {
                 roleData.name = actor.name;
-                roleData.img = actor.img
             }
 
             crewRoleDataList.push(roleData);

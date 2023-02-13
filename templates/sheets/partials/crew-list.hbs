@@ -1,0 +1,28 @@
+<div class="crew-list-box">
+    <div class="role-list">
+        <table>
+            <tr>
+                <th>{{localize "SBB.vehicle.sheetOther.departments"}}</th>
+                <th>{{localize "SBB.vehicle.sheetOther.head"}}</th>
+                <th>{{localize "SBB.vehicle.sheetOther.workers"}}</th>
+            </tr>
+
+            {{#each crew.roleList}}
+                <tr>
+                    <td>{{localize title}}</td>
+                    <td>{{localize name}}</td>
+                    <td>
+                        <input type="number" class="crew-input" data-type="{{@index}}"
+                        value="{{amount}}">
+                    </td>
+                </tr>
+            {{/each}}
+
+        </table>
+    </div>
+
+    <div class="crew-list item-list">
+
+    </div>
+
+</div>

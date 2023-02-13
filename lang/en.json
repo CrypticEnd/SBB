@@ -308,6 +308,12 @@
         "pilot": "Pilot Check"
       },
 
+      "sheetOther": {
+        "departments": "Departments",
+        "head": "Head",
+        "workers": "Workers"
+      },
+
       "roles": {
         "pilot": "Pilot",
         "captain": "Captain",
