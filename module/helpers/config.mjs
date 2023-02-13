@@ -50,10 +50,13 @@ SBB.pilotSkills = {
     terrestrial: "SBB.pilotTypes.terrestrial"
 }
 
-SBB.vehicleRoles ={
-    pilot:"",
-    gunner:""
-}
+SBB.vehicleRoles = [
+    "SBB.vehicle.roles.captain",
+    "SBB.vehicle.roles.pilot",
+    "SBB.vehicle.roles.communication",
+    "SBB.vehicle.roles.engineering",
+    "SBB.vehicle.roles.gunnery"
+]
 
 SBB.activeEffectValues = {
     "system.attributes.body.rank":         "SBB.activeEffects.charAttributeBody",

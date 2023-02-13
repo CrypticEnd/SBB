@@ -14,29 +14,54 @@ export class SBBVehicleSheet extends SBBActorSheet{
 
     async getData() {
         let data = super.getData();
+        let config = CONFIG.SBB;
         let systemData = this.actor.system;
 
         // Gets a list of crew members with all the info we want
         let crew = this.actor.flags.sbb.crew;
         let crewDataList = [];
+        let crewRoleDataList = [];
 
         // Loop backwards since we are editing the array during the loop
-        for(let i=crew.length-1; i>=0; --i) {
-            let actor = await fromUuid(crew[i].uuid);
+        for(let i=crew.list.length-1; i>=0; --i) {
+            let actor = await fromUuid(crew.list[i].uuid);
 
             // If a crew actor is deleted (cannot be found) we remove it
             if (actor == null) {
-                crew.splice(i, 1);
+                crew.list.splice(i, 1);
             }
             else{
                 let crewData = {
                     uuid: actor.uuid,
                     img: actor.img,
                     name: actor.name,
-                    roles: crew[i]?.roles
+                    hp: actor.system.HP,
+                    strain: actor.system.strain
                 }
                 crewDataList.push(crewData);
             }
+        }
+
+        // Get list of roles with all the role info we need
+        for(let i=0; i<config.vehicleRoles.length; i++){
+            let actor = (crew.roles.length > i) ?
+                await fromUuid(crew.roles[i]) : null
+            let roleData = {
+                title: config.vehicleRoles[i],
+                amount: (crew.amount.length > i) ?
+                            crew.amount[i] : 0
+            }
+
+            if(actor == null){
+                roleData.name= "SBB.common.unknown";
+                roleData.img= this.DEFAULT_ICON;
+                }
+            else {
+                roleData.name = actor.name;
+                roleData.img = actor.img
+            }
+
+            crewRoleDataList.push(roleData);
         }
 
         // Update crew list
@@ -44,7 +69,8 @@ export class SBBVehicleSheet extends SBBActorSheet{
 
         data.crew = {
             namedCrew: crewDataList.reverse(),
-            number: systemData.crew.value - this.actor.flags.sbb.crew.length
+            roleList: crewRoleDataList,
+            number: systemData.crew.value
         };
 
         return data;
@@ -65,14 +91,14 @@ export class SBBVehicleSheet extends SBBActorSheet{
         let actorData = await fromUuid(data.uuid)
 
         if(actorData.type == "NPC" || actorData.type == "Character"){
-            let crew = this.actor.flags.sbb.crew;
+            let crew = this.actor.flags.sbb.crew.list;
 
             // Check if already a member of the crew
             if(!crew.find(key => key.uuid === data.uuid)){
                 crew.push({uuid: data.uuid})
 
                 await this.actor.update({
-                    "flags.sbb.crew": crew
+                    "flags.sbb.crew.list": crew
                 });
             }
         }

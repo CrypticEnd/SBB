@@ -47,7 +47,8 @@
       "skillMod": "Modifier",
       "biography": "Biography",
       "actions": "Actions",
-      "saveroll": "Save Roll"
+      "saveroll": "Save Roll",
+      "unknown": "UNKNOWN"
     },
 
     "warning": {
@@ -305,6 +306,14 @@
         "settings": "Hull Settings",
         "repair": "Full Repair",
         "pilot": "Pilot Check"
+      },
+
+      "roles": {
+        "pilot": "Pilot",
+        "captain": "Captain",
+        "communication": "Communication",
+        "engineering": "Engineering",
+        "gunnery": "Gunnery"
       },
 
       "types": {
