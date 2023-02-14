@@ -70,7 +70,8 @@
       "weaponOrAttackerUndefined": "Weapon or attacker undefined",
       "actor": "Actor ",
       "skill": "Skill ",
-      "character": "Character "
+      "character": "Character ",
+      "outOfRange": "Out of Range"
     },
 
     "controls": {

@@ -82,6 +82,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
         if (this.isEditable) {
             html.find(".fuel-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.fuel.max));
             html.find(".commandPoint-input").change(Helper.checkvalBetween.bind(this, 0, 20));
+            html.find(".crew-input").change(this._crewInput.bind(this));
 
             html.find(".vehicle-settings").click(this._showVehicleSettings.bind(this));
         }
@@ -177,5 +178,35 @@ export class SBBVehicleSheet extends SBBActorSheet{
             "system.mounts": mounts,
             "system.tl": tl,
         });
+    }
+
+    _crewInput(event){
+        event.preventDefault();
+        let config = CONFIG.SBB;
+        let element = event.currentTarget;
+        let dataType =  parseInt(event.currentTarget.dataset.type);
+
+        element.value = Math.floor(element.value);
+
+        if(element.value<0){
+            element.value = 0;
+        }
+
+        // check if datatype is in range
+        if(config.vehicleRoles.length> dataType){
+            let crew = this.actor.flags.sbb.crew;
+            let crewAmount = crew.amount;
+            crewAmount[dataType] = element.value;
+
+            let crewsum = crewAmount.reduce((a,b) => parseInt(a)+parseInt(b),0) + crew.list.length;
+
+            this.actor.update({
+                "flags.sbb.crew.amount": crewAmount,
+                "system.crew.value": crewsum
+            });
+        }
+        else{
+            console.error(game.i18n.localize("SBB/errors.outOfRange"));
+        }
     }
 }

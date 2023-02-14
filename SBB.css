@@ -649,7 +649,7 @@
 .vehicle .status-box .status-bars .crew-bar .full-bar {
   background-color: #3dfb99;
 }
-.vehicle .status-box .status-bars .crew-bar .below-min.full-bar {
+.vehicle .status-box .status-bars .below-min .full-bar {
   background-color: #ff0000;
 }
 .vehicle .nav-box {
