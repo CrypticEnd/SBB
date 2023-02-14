@@ -34,6 +34,17 @@ export function addItem(event){
     Item.create(itemData, {parent: this.actor});
 }
 
+export function arrayMove(array, oldIndex, newIndex){
+    if (newIndex >= array.length) {
+        let k = newIndex - array.length + 1;
+        while (k--) {
+            array.push(undefined);
+        }
+    }
+    array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
+    return array;
+}
+
 export function editItem(event){
     event.preventDefault();
     const itemID = event.currentTarget.dataset.itemId;

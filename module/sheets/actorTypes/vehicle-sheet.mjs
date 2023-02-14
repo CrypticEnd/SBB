@@ -119,9 +119,54 @@ export class SBBVehicleSheet extends SBBActorSheet{
                     "system.crew.value": this.actor.system.crew.value + 1
                 });
             }
+            else{
+                return await this._onSortCrew(event, actorData);
+            }
         }
 
         return super._onDropActor(event, data);
+    }
+
+    // Makes it so drag data is passed correctly when dragging an actor
+    async _onDragStart(event){
+        const li = event.currentTarget;
+
+        if(!li.dataset.uuid && li.dataset.type != "Actor"){
+            super._onDragStart(event);
+            return;
+        }
+
+        let actorData = await fromUuid(li.dataset.uuid);
+        if(actorData == null){
+            super._onDragStart(event);
+            return;
+        }
+
+        let dragData = {
+            type: "Actor",
+            uuid: li.dataset.uuid
+        };
+        event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+    }
+
+    async _onSortCrew(event, actorData){
+        let crewList = this.actor.flags.sbb.crew.list;
+        const dropTarget = event.target.closest("[data-uuid]");
+        if ( !dropTarget ) return;
+
+        const targetIndex = crewList.findIndex(element => element.uuid== dropTarget.dataset.uuid);
+        const dragIndex = crewList.findIndex(element => element.uuid == actorData.uuid);
+
+        // dont sort on self
+        if(targetIndex == dragIndex) return;
+
+        // Now to sort
+        // Put new data into array at target position
+        crewList = Helper.arrayMove(crewList, dragIndex, targetIndex);
+
+        this.actor.update({
+            "flags.sbb.crew.list": crewList
+        });
     }
 
     _removeNamedCrew(event){
