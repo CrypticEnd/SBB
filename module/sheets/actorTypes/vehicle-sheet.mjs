@@ -120,7 +120,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
                 });
             }
             else{
-                return await this._onSortCrew(event, actorData);
+                await this._onSortCrew(event, actorData);
             }
         }
 
