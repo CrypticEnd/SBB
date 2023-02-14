@@ -101,7 +101,8 @@ export class SBBVehicleSheet extends SBBActorSheet{
                 crew.push({uuid: data.uuid})
 
                 await this.actor.update({
-                    "flags.sbb.crew.list": crew
+                    "flags.sbb.crew.list": crew,
+                    "system.crew.value": this.actor.system.crew.value + 1
                 });
             }
         }
