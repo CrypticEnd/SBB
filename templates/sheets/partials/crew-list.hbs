@@ -21,8 +21,36 @@
         </table>
     </div>
 
-    <div class="crew-list item-list">
+    <div class="crew-list">
+        <li class="flexrow">
+            <div class="item-detail">{{localize "SBB.vehicle.statusLabels.crew"}}</div>
+            <div class="item-detail">{{localize "SBB.vehicle.sheetOther.biomonitor"}}</div>
+        </li>
 
+        <ol class="item-list">
+            {{#each crew.namedCrew}}
+                <li class="crew flexrow" data-uuid="{{uuid}}">
+                    <div class="id-name-combo flexrow">
+                        <div class="crew-image" style='background-image: url({{img}})'></div>
+
+                        {{localize name}}
+                            <br>
+                        {{localize id}}
+                    </div>
+
+                    <div class="biomonitor flexcol">
+                        <div class="hp-bar">
+                            {{> "systems/sbb/templates/sheets/partials/statusBar.hbs"
+                                 current=hp.value max=hp.max}}
+                        </div>
+                        <div class="strain-bar">
+                            {{> "systems/sbb/templates/sheets/partials/statusBar.hbs"
+                                    current=strain.value max=strain.max}}
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
     </div>
 
 </div>

@@ -311,7 +311,8 @@
       "sheetOther": {
         "departments": "Departments",
         "head": "Head",
-        "workers": "Workers"
+        "workers": "Workers",
+        "biomonitor": "Biomonitor"
       },
 
       "roles": {

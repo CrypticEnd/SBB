@@ -427,6 +427,10 @@
 .vehicle .nav-content-box .crew-list-box .role-list input {
   width: 1.5em;
 }
+.vehicle .nav-content-box .crew-list-box .crew-list .crew-image {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .character .backgroundOverlay,
 .NPC .backgroundOverlay,
 .vehicle .backgroundOverlay {

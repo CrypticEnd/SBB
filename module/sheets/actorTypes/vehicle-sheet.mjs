@@ -33,6 +33,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
             else{
                 let crewData = {
                     uuid: actor.uuid,
+                    id: actor.uuid.replace('Actor.', ''),
                     img: actor.img,
                     name: actor.name,
                     hp: actor.system.HP,
@@ -68,7 +69,6 @@ export class SBBVehicleSheet extends SBBActorSheet{
         data.crew = {
             namedCrew: crewDataList.reverse(),
             roleList: crewRoleDataList,
-            number: systemData.crew.value
         };
 
         return data;
@@ -100,7 +100,6 @@ export class SBBVehicleSheet extends SBBActorSheet{
                 });
             }
         }
-        console.log(this.actor);
 
         return super._onDropActor(event, data);
     }
