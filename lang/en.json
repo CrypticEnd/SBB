@@ -319,9 +319,9 @@
       },
 
       "roles": {
-        "pilot": "Pilot",
-        "captain": "Captain",
-        "communication": "Communication",
+        "pilot": "Bridge",
+        "captain": "Command",
+        "communication": "Comms",
         "engineering": "Engineering",
         "gunnery": "Gunnery"
       },
