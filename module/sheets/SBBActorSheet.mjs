@@ -44,7 +44,7 @@ export class SBBActorSheet extends ActorSheet {
                 }
             }, {
             name:     game.i18n.localize("SBB.skills.sub_rank"),
-            icon:     '<i class="fas fa-plus"></i>',
+            icon:     '<i class="fas fa-minus"></i>',
             callback: element => {
                 const itemID = element[0].dataset.itemId;
                 const item = (this.actor.items.get(itemID));
