@@ -8,7 +8,11 @@ export class SBBVehicleSheet extends SBBActorSheet{
             classes: ["vehicle"],
             template: "systems/sbb/templates/sheets/actors/Vehicle-sheet.hbs",
             width: 670,
-            tabs: [{ navSelector: ".main-tabs", contentSelector: ".nav-content-box", initial: "action" }]
+            tabs: [{ navSelector: ".main-tabs", contentSelector: ".nav-content-box", initial: "action" }],
+            dragDrop:[
+                {dragSelector: ".actor-list .actor", dropSelector: null},
+                {dragSelector: ".item-list .item", dropSelector: null}
+            ]
         });
     }
 

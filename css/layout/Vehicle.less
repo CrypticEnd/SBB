@@ -72,24 +72,72 @@
     }
   }
 
+  .nav-content-box::-webkit-scrollbar {
+    display: none;
+  }
+
   .nav-content-box{
     grid-area: content;
 
     .crew-list-box{
+      overflow: scroll;
       display: grid;
       grid-template-columns: 40% auto;
 
       .role-list{
         text-align: center;
+        border-right: 1px solid @borderColor;
+        padding-top: 10px;
+
         input{
           width: 1.5em;
+        }
+
+        table{
+          border:none;
+          margin: 0;
+        }
+
+        table th{
+          border-bottom: 1px solid @borderColor;
+          padding: 0;
+          font-size: 1.25em;
+          font-weight: normal;
+        }
+
+        table tr:nth-child(even){
+          background: none;
+        }
+
+        table tr:hover{
+          background-color: @navBackground;
         }
       }
 
       .crew-list{
+        .crew-header{
+          border-bottom: 1px solid @borderColor;
+          padding-left: 25px;
+          font-size: 1.25em;
+          padding-top: 10px;
+        }
+
         .crew-image{
           background-repeat: no-repeat;
           background-size: contain;
+          max-width: 50px;
+        }
+
+        .strain-bar .full-bar{
+          background-color: @strainBarCol;
+        }
+
+        .actor-list{
+          padding: 0;
+        }
+
+        .actor:hover{
+          background-color: @navBackground;
         }
       }
     }

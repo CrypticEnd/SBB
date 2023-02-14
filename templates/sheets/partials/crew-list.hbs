@@ -22,20 +22,20 @@
     </div>
 
     <div class="crew-list">
-        <li class="flexrow">
+        <li class="flexrow crew-header">
             <div class="item-detail">{{localize "SBB.vehicle.statusLabels.crew"}}</div>
             <div class="item-detail">{{localize "SBB.vehicle.sheetOther.biomonitor"}}</div>
         </li>
 
-        <ol class="item-list">
+        <ol class="actor-list">
             {{#each crew.namedCrew}}
-                <li class="crew flexrow" data-uuid="{{uuid}}">
+                <li class="actor flexrow" data-uuid="{{uuid}}">
                     <div class="id-name-combo flexrow">
                         <div class="crew-image" style='background-image: url({{img}})'></div>
 
                         {{localize name}}
                             <br>
-                        {{localize id}}
+                        {{localize "SBB.vehicle.sheetOther.id"}} {{localize id}}
                     </div>
 
                     <div class="biomonitor flexcol">

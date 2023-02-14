@@ -414,22 +414,60 @@
   display: block;
   padding: 5px;
 }
+.vehicle .nav-content-box::-webkit-scrollbar {
+  display: none;
+}
 .vehicle .nav-content-box {
   grid-area: content;
 }
 .vehicle .nav-content-box .crew-list-box {
+  overflow: scroll;
   display: grid;
   grid-template-columns: 40% auto;
 }
 .vehicle .nav-content-box .crew-list-box .role-list {
   text-align: center;
+  border-right: 1px solid #3dfb99;
+  padding-top: 10px;
 }
 .vehicle .nav-content-box .crew-list-box .role-list input {
   width: 1.5em;
 }
+.vehicle .nav-content-box .crew-list-box .role-list table {
+  border: none;
+  margin: 0;
+}
+.vehicle .nav-content-box .crew-list-box .role-list table th {
+  border-bottom: 1px solid #3dfb99;
+  padding: 0;
+  font-size: 1.25em;
+  font-weight: normal;
+}
+.vehicle .nav-content-box .crew-list-box .role-list table tr:nth-child(even) {
+  background: none;
+}
+.vehicle .nav-content-box .crew-list-box .role-list table tr:hover {
+  background-color: #003d20;
+}
+.vehicle .nav-content-box .crew-list-box .crew-list .crew-header {
+  border-bottom: 1px solid #3dfb99;
+  padding-left: 25px;
+  font-size: 1.25em;
+  padding-top: 10px;
+}
 .vehicle .nav-content-box .crew-list-box .crew-list .crew-image {
   background-repeat: no-repeat;
   background-size: contain;
+  max-width: 50px;
+}
+.vehicle .nav-content-box .crew-list-box .crew-list .strain-bar .full-bar {
+  background-color: #ff0000;
+}
+.vehicle .nav-content-box .crew-list-box .crew-list .actor-list {
+  padding: 0;
+}
+.vehicle .nav-content-box .crew-list-box .crew-list .actor:hover {
+  background-color: #003d20;
 }
 .character .backgroundOverlay,
 .NPC .backgroundOverlay,
