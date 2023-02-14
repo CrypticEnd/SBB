@@ -50,9 +50,6 @@ export class SBBCharacterSheet extends SBBActorSheet {
                 }
             }]);
 
-            // Skill add/take away rank context menu
-            new ContextMenu(html, ".skill-item", this._skillContextMenu);
-
             // item add/edit menu
             new ContextMenu(html, ".tenet-focus-card", this._itemContextMenu)
 
