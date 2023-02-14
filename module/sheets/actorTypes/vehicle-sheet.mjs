@@ -3,6 +3,8 @@ import * as Helper from "../../helpers/actor-helper.mjs";
 
 export class SBBVehicleSheet extends SBBActorSheet{
 
+    _crewContextMenu;
+
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["vehicle"],
@@ -75,6 +77,11 @@ export class SBBVehicleSheet extends SBBActorSheet{
             roleList: crewRoleDataList,
         };
 
+        // Checks if crew context menu is set
+        if(this._crewContextMenu?.length != (config.vehicleRoles.length + this._itemContextMenu.length)){
+            this._setCrewContextMenu();
+        }
+
         return data;
     }
 
@@ -85,6 +92,8 @@ export class SBBVehicleSheet extends SBBActorSheet{
             html.find(".crew-input").change(this._crewInput.bind(this));
 
             html.find(".vehicle-settings").click(this._showVehicleSettings.bind(this));
+
+            new ContextMenu(html, ".actor", this._crewContextMenu);
         }
         super.activateListeners(html);
     }
@@ -209,5 +218,56 @@ export class SBBVehicleSheet extends SBBActorSheet{
         else{
             console.error(game.i18n.localize("SBB/errors.outOfRange"));
         }
+    }
+
+    async _crewSetHead(event, headPosition){
+        let uuid = event[0].dataset.uuid;
+
+        // make sure actor exists
+        let actor = await fromUuid(uuid);
+        if(actor == null){
+            console.error(game.i18n.localize("SBB.errors.actor")
+                + game.i18n.localize("SBB.errors.notFoundByID")
+                + uuid
+            );
+            return;
+        }
+        // Also check if its in range
+        if(headPosition> CONFIG.SBB.vehicleRoles.length){
+            console.error(game.i18n.localize("SBB.errors.outOfRange"));
+            return;
+        }
+
+        // Update actor with correct info
+        let crewRoles = this.actor.flags.sbb.crew.roles;
+        crewRoles[headPosition] = uuid;
+
+        this.actor.update({
+            "flags.sbb.crew.roles": crewRoles,
+        })
+    }
+
+    _setCrewContextMenu(){
+        let config = CONFIG.SBB;
+        let contextMenu = [];
+
+        for(let i =0; i<config.vehicleRoles.length; i++){
+            let name = game.i18n.localize("SBB.vehicle.sheetOther.set")
+            + game.i18n.localize(config.vehicleRoles[i]);
+
+            contextMenu.push({
+                name: name,
+                callback: element => this._crewSetHead(element, i),
+                icon: ''
+            })
+        }
+
+        contextMenu.push(            {
+            name:     game.i18n.localize("SBB.common.delete"),
+            icon:     '<i class="fas fa-trash"></i>',
+            callback: element => removeNamedCrew(element)
+        })
+
+        this._crewContextMenu = contextMenu;
     }
 }

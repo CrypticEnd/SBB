@@ -314,7 +314,8 @@
         "head": "Head",
         "workers": "Workers",
         "biomonitor": "Biomonitor",
-        "id": "ID:"
+        "id": "ID:",
+        "set": "Set as : "
       },
 
       "roles": {
