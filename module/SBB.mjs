@@ -82,7 +82,9 @@ Hooks.once("init", function (){
     });
 
     Handlebars.registerHelper("percent", function (current, max, content){
-        return current/max*100;
+        let value = current/max*100;
+        // Maxes out at 100%
+        return (value>100)? 100 : value;
     });
 
     // Preload Handlebars templates.
