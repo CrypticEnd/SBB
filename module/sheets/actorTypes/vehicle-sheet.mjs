@@ -119,6 +119,28 @@ export class SBBVehicleSheet extends SBBActorSheet{
         return super._onDropActor(event, data);
     }
 
+    _removeNamedCrew(event){
+        let uuid = event[0].dataset.uuid;
+
+        let crew = this.actor.flags.sbb.crew;
+
+
+        let listIndex = crew.list.findIndex((element)=> element.uuid == uuid);
+        let roleIndex = crew.roles.findIndex((element)=> element == uuid);
+
+        crew.list.splice(listIndex, 1);
+
+        // Named crew can have many roles
+        while(roleIndex >= 0){
+            crew.roles[roleIndex] = "";
+            roleIndex = crew.roles.findIndex((element)=> element == uuid);
+        }
+
+        this.actor.update({
+            "flags.sbb.crew": crew
+        });
+    }
+
     async _showVehicleSettings(event){
         event.preventDefault();
         const template = "systems/sbb/templates/sheets/partials/vehicle-hull-input-form.hbs";
@@ -265,7 +287,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
         contextMenu.push(            {
             name:     game.i18n.localize("SBB.common.delete"),
             icon:     '<i class="fas fa-trash"></i>',
-            callback: element => removeNamedCrew(element)
+            callback: element => this._removeNamedCrew(element)
         })
 
         this._crewContextMenu = contextMenu;
