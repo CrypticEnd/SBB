@@ -86,6 +86,11 @@ export class SBBVehicleSheet extends SBBActorSheet{
     }
 
     activateListeners(html) {
+        html.find(".update-crew").click((event) => {
+            event.preventDefault();
+            this.render();
+        });
+
         if (this.isEditable) {
             html.find(".fuel-input").change(Helper.checkvalBetween.bind(this, 0, this.actor.system.fuel.max));
             html.find(".commandPoint-input").change(Helper.checkvalBetween.bind(this, 0, 20));
