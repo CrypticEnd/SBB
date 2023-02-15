@@ -76,7 +76,8 @@
 
     <div class="form-group">
         <label>{{localize "SBB.vehicle.inputForm.mass"}}</label>
-        <input name="mass" type="text" value="{{actor.system.mass}}">
+        <input name="mass" type="number" value="{{actor.system.mass}}"
+            min="0">
     </div>
 
     <div class="form-group">

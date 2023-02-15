@@ -237,7 +237,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
         let crewMin = parseInt(form.crewMin.value);
         let crewMax = parseInt(form.crewMax.value);
         let power = parseInt(form.powerBase.value);
-        let mass = form.mass.value;
+        let mass = parseInt(form.mass.value);
         let mounts = parseInt(form.mounts.value);
         let tl = parseInt(form.tl.value);
 

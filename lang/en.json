@@ -282,7 +282,7 @@
         "crewMin": "Crew required to run",
         "crewMax": "Max Crew",
         "power": "Power Remaining",
-        "mass": "Mass (and unit)",
+        "mass": "Mass",
         "mounts": "Mounts",
         "tl": "Tl"
       },
