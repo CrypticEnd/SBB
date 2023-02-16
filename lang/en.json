@@ -147,7 +147,7 @@
       "SkillBonusTechnique" : "Skill Bonus: Technique",
 
       "speed": "Speed",
-      "HP": "HP",
+      "hp": "HP",
       "strain": "Strain",
       "initiativeBonus": "Initiative bonus"
     },
