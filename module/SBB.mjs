@@ -23,7 +23,6 @@ Hooks.once("init", function (){
     CONFIG.Item.documentClass = SBBItem;
     CONFIG.Actor.documentClass = SBBActor;
     CONFIG.Combatant.documentClass = SBBCombatant;
-    CONFIG.ActiveEffect.sheetClass = SBBActiveEffectConfig;
     CONFIG.MeasuredTemplate.objectClass = SBBMeasuredTemplate;
     CONFIG.ui.controls = SBBSceneControls;
 
@@ -62,8 +61,10 @@ Hooks.once("init", function (){
         label: "SBB.SheetItem"
     });
 
-    DocumentSheetConfig.registerSheet(ActiveEffect, "SBB", SBBActiveEffectConfig, {
-        makeDefault: true
+    DocumentSheetConfig.unregisterSheet(ActiveEffect, "core", ActiveEffectConfig);
+    DocumentSheetConfig.registerSheet(ActiveEffect, "SBBActiveEffect", SBBActiveEffectConfig, {
+        makeDefault: true,
+        label: "SBB.ActiveEffect"
     })
 
 

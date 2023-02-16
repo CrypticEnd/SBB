@@ -58,7 +58,7 @@ SBB.vehicleRoles = [
     "SBB.vehicle.roles.gunnery"
 ]
 
-SBB.activeEffectValues = {
+SBB.activeEffectValuesDefualt = {
     "system.attributes.body.rank":         "SBB.activeEffects.charAttributeBody",
     "system.attributes.control.rank":      "SBB.activeEffects.charAttributeControl",
     "system.attributes.intelligence.rank": "SBB.activeEffects.charAttributeIntelligence",
@@ -78,6 +78,10 @@ SBB.activeEffectValues = {
     "system.HP.max":               "SBB.activeEffects.hp",
     "system.strain.max":           "SBB.activeEffects.strain",
     "system.modifiers.initiative": "SBB.activeEffects.initiativeBonus"
+}
+
+SBB.activeEffectValuesVehicle= {
+
 }
 
 // This is ordered!
