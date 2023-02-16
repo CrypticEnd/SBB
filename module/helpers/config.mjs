@@ -58,6 +58,21 @@ SBB.vehicleRoles = [
     "SBB.vehicle.roles.gunnery"
 ]
 
+SBB.vehicleDeparmentsTypes = {
+    captain :"SBB.vehicle.roles.captain",
+    bridge :"SBB.vehicle.roles.pilot",
+    comms:"SBB.vehicle.roles.communication",
+    engineering:"SBB.vehicle.roles.engineering",
+    gunnery:"SBB.vehicle.roles.gunnery",
+    general:"SBB.vehicle.roles.general"
+}
+
+SBB.vehicleParts = {
+    fitting: "SBB.vehicle.parts.fitting",
+    defense: "SBB.vehicle.parts.defense",
+    weapon:  "SBB.vehicle.parts.weapon"
+}
+
 SBB.activeEffectValuesDefualt = {
     "system.attributes.body.rank":         "SBB.activeEffects.charAttributeBody",
     "system.attributes.control.rank":      "SBB.activeEffects.charAttributeControl",
@@ -81,7 +96,15 @@ SBB.activeEffectValuesDefualt = {
 }
 
 SBB.activeEffectValuesVehicle= {
+    "system.HP.max":               "SBB.activeEffects.hp",
+    "system.speed":                "SBB.activeEffects.speed",
+    "system.modifiers.initiative": "SBB.activeEffects.initiativeBonus",
 
+    "system.fuel.max":"SBB.activeEffects.fuel",
+    "system.power":"SBB.activeEffects.power",
+    "system.mass":"SBB.activeEffects.mass",
+    "system.mounts":"SBB.activeEffects.mounts",
+    "system.armour":"SBB.activeEffects.armour"
 }
 
 // This is ordered!

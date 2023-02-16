@@ -149,7 +149,13 @@
       "speed": "Speed",
       "hp": "HP",
       "strain": "Strain",
-      "initiativeBonus": "Initiative bonus"
+      "initiativeBonus": "Initiative bonus",
+
+      "fuel": "Fuel",
+      "power": "Power",
+      "mass": "Mass",
+      "mounts": "Mounts",
+      "armour":"Armour"
     },
 
     "weaponHeaders": {
@@ -323,7 +329,14 @@
         "captain": "Command",
         "communication": "Comms",
         "engineering": "Engineering",
-        "gunnery": "Gunnery"
+        "gunnery": "Gunnery",
+        "general": "General"
+      },
+
+      "parts": {
+        "fitting": "Fitting",
+        "defense": "defense",
+        "weapon": "Weapon"
       },
 
       "types": {

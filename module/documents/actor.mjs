@@ -90,13 +90,13 @@ export class SBBActor extends Actor {
 
         systemData.HP.max = systemData.HP.base + systemData.modifiers.HP;
 
-        // Work out how much power is being used
-        let powerUsage = 0;
-        for (const [key, value] of Object.entries(this.items.entries)) {
-            powerUsage += value.system?.power;
-        }
-
-        systemData.power.remaining = systemData.power.base - powerUsage;
+        // // Work out how much power is being used
+        // let powerUsage = 0;
+        // for (const [key, value] of Object.entries(this.items.entries)) {
+        //     powerUsage += value.system?.power;
+        // }
+        //
+        // systemData.power.remaining = systemData.power.base - powerUsage;
     }
 
     _updateHPChar(attribute, config){

@@ -22,9 +22,9 @@
     <tr>
         <td class="table-title">{{localize "SBB.vehicle.statusLabels.power"}}</td>
         <td
-            {{#if (eq actor.system.power.remaining 0)}} class="inactive" {{/if}}
-            {{#if (lt actor.system.power.remaining 0)}} class="issue" {{/if}}>
-            {{actor.system.power.remaining}}
+            {{#if (eq actor.system.power 0)}} class="inactive" {{/if}}
+            {{#if (lt actor.system.power 0)}} class="issue" {{/if}}>
+            {{actor.system.power}}
         </td>
 
         <td class="table-title">{{localize "SBB.vehicle.statusLabels.fuel"}}</td>

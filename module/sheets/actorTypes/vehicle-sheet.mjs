@@ -255,7 +255,7 @@ export class SBBVehicleSheet extends SBBActorSheet{
             "system.fuel.max": fuel,
             "system.crew.min": crewMin,
             "system.crew.max": crewMax,
-            "system.power.base": power,
+            "system.power": power,
             "system.mass": mass,
             "system.mounts": mounts,
             "system.tl": tl,

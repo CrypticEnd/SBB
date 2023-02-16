@@ -139,18 +139,12 @@
         "value": 0,
         "max": 1
       },
-      "power": {
-        "base": 0,
-        "remaining": 0
-      },
+      "power": 0,
       "commandPoints": 0,
       "mass": 0,
       "mounts": 0,
-
       "modifiers": {
-        "HP": 0,
-        "initiative": 0,
-        "speedBonus": 0
+        "initiative": 0
       }
     },
 
@@ -169,9 +163,7 @@
       "Consumable",
       "Feat",
       "Effect",
-      "Vehicle Fittings",
-      "Vehicle Defenses",
-      "Vehicle Weaponry",
+      "Vehicle Part",
       "Vehicle Actions",
       "Skill",
       "Tenet",
@@ -192,6 +184,10 @@
         "skill": "SBB.WeaponSkills.brawling",
         "damageType": "",
         "techLevel": ""
+      },
+
+      "vehicle part":{
+
       }
 
     },
@@ -248,11 +244,19 @@
       "active": false
     },
 
-    "Starship Fittings": {},
+    "Vehicle Part": {
+      "templates": ["base"],
+      "type": "SBB.vehicle.parts.fitting",
+      "class": "SBB.vehicle.classes.fighter",
+      "power": "0",
+      "mass": "0",
+      "mounts": "0"
+    },
 
-    "Starship Defenses": {},
-
-    "Starship Weaponry":{},
+    "Vehicle Actions": {
+      "templates": ["base"],
+      "department": "SBB.vehicle.roles.general"
+    },
 
     "Skill": {
       "templates": ["base"],
