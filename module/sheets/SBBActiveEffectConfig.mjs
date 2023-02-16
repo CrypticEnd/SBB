@@ -12,7 +12,10 @@ export class SBBActiveEffectConfig extends ActiveEffectConfig{
 
         data.config = config;
 
-        if(itemType == "Effect"){
+        if(itemType == "Vehicle Part"){
+            data.effectTypes = config.activeEffectValuesVehicle;
+        }
+        else {
             data.effectTypes =config.activeEffectValuesDefualt;
         }
 
