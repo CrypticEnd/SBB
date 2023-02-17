@@ -6,7 +6,7 @@
             <h4>{{localize "SBB.effects.type"}}:
                 <select name="system.type">
                     {{#select item.system.type}}
-                        {{#each effectTypes as |name type|}}
+                        {{#each config.effectTypes as |name type|}}
                             <option value="{{name}}">{{localize name}}</option>
                         {{/each}}
                     {{/select}}

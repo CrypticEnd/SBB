@@ -16,9 +16,9 @@ export class SBBActiveEffectConfig extends ActiveEffectConfig{
             data.effectTypes = config.activeEffectValuesVehicle;
         }
         else {
-            data.effectTypes =config.activeEffectValuesDefualt;
+            data.effectTypes = config.activeEffectValuesDefualt;
         }
-
+        
         return data;
     }
 }
