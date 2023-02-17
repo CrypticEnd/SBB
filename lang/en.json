@@ -48,7 +48,8 @@
       "biography": "Biography",
       "actions": "Actions",
       "saveroll": "Save Roll",
-      "unknown": "UNKNOWN"
+      "unknown": "UNKNOWN",
+      "dFormula": "Damage Formula"
     },
 
     "warning": {
@@ -71,7 +72,8 @@
       "actor": "Actor ",
       "skill": "Skill ",
       "character": "Character ",
-      "outOfRange": "Out of Range"
+      "outOfRange": "Out of Range",
+      "valuesUndefined": "Required values are undefined"
     },
 
     "controls": {
@@ -193,7 +195,14 @@
       "5": "51-100",
       "6": "101-200",
       "7": "201-400",
-      "8": "401-800"
+      "8": "401-800",
+
+      "vehicle": {
+        "1": "Short",
+        "2": "Medium",
+        "3": "Long",
+        "4": "Extreme"
+      }
     },
 
     "tabNames": {
@@ -335,7 +344,7 @@
 
       "parts": {
         "fitting": "Fitting",
-        "defense": "defense",
+        "defense": "Defense",
         "weapon": "Weapon"
       },
 

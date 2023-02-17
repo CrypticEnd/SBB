@@ -1,0 +1,77 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <div class="ammo-title">
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+            <h4>{{localize "SBB.effects.type"}}:
+                <select name="system.type" class="vehicle-type-input">
+                    {{#select item.system.type}}
+                        {{#each config.vehicleParts as |name type|}}
+                            <option value="{{name}}">{{localize name}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </h4>
+        </div>
+    </header>
+    <div class="sheet-content">
+        <div class="main-values">
+            <table>
+                <tr>
+                    <th>{{localize "SBB.vehicle.inputForm.class"}}</th>
+                    <th>{{localize "SBB.vehicle.inputForm.power"}}</th>
+                    <th>{{localize "SBB.vehicle.inputForm.mass"}}</th>
+                    <th>{{localize "SBB.vehicle.inputForm.mounts"}}</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="system.class">
+                            {{#select item.system.class}}
+                                {{#each config.vehicleClasses as |name type|}}
+                                    <option value="{{name}}">{{localize name}}</option>
+                                {{/each}}
+                            {{/select}}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="system.power" value="{{item.system.power}}">
+                    </td>
+                    <td>
+                        <input type="text" name="system.mass" value="{{item.system.mass}}">
+                    </td>
+                    <td>
+                        <input type="text" name="system.mounts" value="{{item.system.mounts}}">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="weapon-values {{#unless weapon}}hidden{{/unless}}">
+            <table>
+                <tr>
+                    <th>{{localize "SBB.common.dFormula"}}</th>
+                    {{#each weapon.range}}
+                        <th>{{localize name}}</th>
+                    {{/each}}
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="weapon-value-input" data-type="formula" value="{{weapon.formula}}">
+                    </td>
+                    {{#each weapon.range}}
+                        <td>
+                            <input type="number" class="weapon-value-input" data-type="range" data-range="{{@index}}"
+                                   value="{{value}}" min="0">
+                        </td>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+
+
+        {{> "systems/sbb/templates/sheets/card/effect-table.hbs"}}
+
+        {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+</form>

@@ -152,6 +152,13 @@ SBB.rangeHeaders = {
     8: "SBB.rangeHeaders.8"
 }
 
+SBB.vehicleRangeHeader = {
+    1: "SBB.rangeHeaders.vehicle.1",
+    2: "SBB.rangeHeaders.vehicle.2",
+    3: "SBB.rangeHeaders.vehicle.3",
+    4: "SBB.rangeHeaders.vehicle.4",
+}
+
 SBB.skillTypes = {
     body: "SBB.attributes.body",
     control: "SBB.attributes.control",

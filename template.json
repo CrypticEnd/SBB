@@ -164,7 +164,7 @@
       "Feat",
       "Effect",
       "Vehicle Part",
-      "Vehicle Actions",
+      "Vehicle Action",
       "Skill",
       "Tenet",
       "Focus"
@@ -253,7 +253,7 @@
       "mounts": "0"
     },
 
-    "Vehicle Actions": {
+    "Vehicle Action": {
       "templates": ["base"],
       "department": "SBB.vehicle.roles.general"
     },
